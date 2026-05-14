@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-/* Portfolio admin theme (cream + pink / orange) — aligns with layouts/admin/app.blade.php */
+/* Balanced Body IV Wellness admin — teal, sage, cream, gold */
 :root {
-    --admin-shell: #1c1917;
-    --admin-pink: #ec4899;
-    --admin-pink-deep: #be185d;
-    --admin-orange: #fb923c;
-    --admin-cream: #fafaf9;
-    --admin-cream-mid: #f5f3f0;
-    --admin-text: #1c1917;
+    --admin-shell: #142824;
+    --admin-shell-soft: #1e3834;
+    --admin-pink: #2d6a62;
+    --admin-pink-deep: #1a3f3c;
+    --admin-orange: #4a9a8e;
+    --admin-cream: #fafaf8;
+    --admin-cream-mid: #eef2f0;
+    --admin-text: #1d2b33;
+    --admin-gold: #c9a157;
 }
 
 body,
@@ -120,7 +122,7 @@ select.form-control {
     text-align: left;
     font-weight: bold;
     background: var(--admin-cream-mid);
-    border: 1px solid rgba(236, 72, 153, 0.12);
+    border: 1px solid rgba(45, 106, 98, 0.12);
     padding: 10px 15px;
     border-radius: 8px;
 }
@@ -297,7 +299,7 @@ img.existing-photo {
 
 /* Admin sidebar slimScroll - do not hide; let plugin control size/position */
 .slimScrollBar {
-    background: rgba(236, 72, 153, 0.45) !important;
+    background: rgba(45, 106, 98, 0.45) !important;
     border-radius: 6px;
     position: absolute !important;
     right: 2px !important;
@@ -320,7 +322,7 @@ img.existing-photo {
 }
 
 .sidebar-menu .treeview-menu>li:hover {
-    background: rgba(236, 72, 153, 0.2);
+    background: rgba(45, 106, 98, 0.2);
 }
 
 ::-webkit-scrollbar {
@@ -337,7 +339,7 @@ img.existing-photo {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #db2777 0%, #ea580c 100%);
+  background: linear-gradient(135deg, #1a5c54 0%, #3d9a8e 100%);
 }
 
 .seo-info {
@@ -399,13 +401,13 @@ img.existing-photo {
 }
 
 .form-control:focus {
-    border-color: rgba(236, 72, 153, 0.55);
-    box-shadow: 0 0 0 1px rgba(236, 72, 153, 0.12);
+    border-color: rgba(45, 106, 98, 0.55);
+    box-shadow: 0 0 0 1px rgba(45, 106, 98, 0.12);
 }
 
 .login-button {
     background: linear-gradient(135deg, var(--admin-pink) 0%, var(--admin-orange) 100%);
-    border-color: rgba(236, 72, 153, 0.45);
+    border-color: rgba(45, 106, 98, 0.45);
     color: #fff;
 }
 
@@ -470,7 +472,7 @@ textarea+.panel {
 }
 
 textarea+.panel:focus {
-    border-color: rgba(236, 72, 153, 0.55) !important;
+    border-color: rgba(45, 106, 98, 0.55) !important;
 }
 
 
@@ -566,9 +568,9 @@ div.pagination {
 div.pagination a {
     padding: 5px 7px;
     margin: 2px;
-    border: 1px solid rgba(236, 72, 153, 0.45);
+    border: 1px solid rgba(45, 106, 98, 0.45);
     text-decoration: none;
-    background: linear-gradient(135deg, var(--admin-pink-deep) 0%, #ea580c 100%);
+    background: linear-gradient(135deg, var(--admin-pink-deep) 0%, #3d9a8e 100%);
     color: #fff;
     font-weight: bold;
     border-radius: 4px;
@@ -576,15 +578,15 @@ div.pagination a {
 
 div.pagination a:hover,
 div.pagination a:active {
-    border-color: rgba(236, 72, 153, 0.55);
+    border-color: rgba(45, 106, 98, 0.55);
     color: #fff;
-    background: linear-gradient(135deg, #db2777 0%, #ea580c 100%);
+    background: linear-gradient(135deg, #1a5c54 0%, #3d9a8e 100%);
 }
 
 div.pagination span.current {
     padding: 5px 7px;
     margin: 2px;
-    border: 1px solid rgba(236, 72, 153, 0.45);
+    border: 1px solid rgba(45, 106, 98, 0.45);
     font-weight: bold;
     background: linear-gradient(135deg, var(--admin-pink) 0%, var(--admin-orange) 100%);
     color: #fff;
@@ -608,7 +610,7 @@ div.pagination span.disabled {
 
 h3.sec_title {
     background: linear-gradient(90deg, #fce7f3 0%, #ffedd5 100%);
-    border: 1px solid rgba(236, 72, 153, 0.2);
+    border: 1px solid rgba(45, 106, 98, 0.2);
     border-radius: 8px;
     font-size: 15px;
     color: var(--admin-text) !important;

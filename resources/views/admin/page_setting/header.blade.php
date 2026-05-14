@@ -3,13 +3,21 @@
 @section('content')
 @push('css')
 <style>
-	.page-admin { --pg-pink: #ec4899; --pg-pink-deep: #be185d; --pg-orange: #fb923c; --pg-cream: #f5f3f0; --pg-text: #1c1917; }
+	/* Balanced Body IV Wellness — teal / sage / cream (vars keep legacy names for gradients) */
+	.page-admin {
+		--pg-pink: #2d6a62;
+		--pg-pink-deep: #1a3f3c;
+		--pg-orange: #4a9a8e;
+		--pg-mint: #3d9a8e;
+		--pg-cream: #eef2f0;
+		--pg-text: #1d2b33;
+	}
 
 	.header-settings-container {
 		background: #fff;
 		border-radius: 12px;
-		box-shadow: 0 4px 24px rgba(236, 72, 153, 0.1);
-		border: 1px solid rgba(236, 72, 153, 0.12);
+		box-shadow: 0 4px 24px rgba(45, 106, 98, 0.1);
+		border: 1px solid rgba(45, 106, 98, 0.12);
 		overflow: hidden;
 		margin: 20px 0;
 	}
@@ -20,11 +28,11 @@
 	}
 
 	.section-banner {
-		background: linear-gradient(135deg, var(--pg-pink) 0%, #f472b6 45%, var(--pg-orange) 100%) !important;
+		background: linear-gradient(135deg, var(--pg-pink-deep) 0%, var(--pg-pink) 38%, var(--pg-mint) 72%, var(--pg-orange) 100%) !important;
 		padding: 15px 20px;
 		margin: 0 -40px 25px -40px;
-		border-bottom: 2px solid rgba(190, 24, 93, 0.35);
-		box-shadow: 0 4px 20px rgba(236, 72, 153, 0.18);
+		border-bottom: 2px solid rgba(26, 63, 60, 0.4);
+		box-shadow: 0 4px 20px rgba(45, 106, 98, 0.18);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -64,7 +72,7 @@
 		color: #fff;
 		border-color: var(--pg-text);
 		transform: translateY(-2px);
-		box-shadow: 0 4px 14px rgba(28, 25, 23, 0.2);
+		box-shadow: 0 4px 14px rgba(29, 43, 51, 0.22);
 	}
 
 	.section-banner .btn i {
@@ -84,7 +92,7 @@
 	.section-block {
 		margin-bottom: 40px;
 		padding-bottom: 30px;
-		border-bottom: 1px solid rgba(236, 72, 153, 0.12);
+		border-bottom: 1px solid rgba(45, 106, 98, 0.12);
 	}
 
 	.section-block:last-of-type {
@@ -94,12 +102,12 @@
 	}
 
 	.section-heading {
-		background: linear-gradient(90deg, #fce7f3 0%, #ffedd5 100%);
+		background: linear-gradient(90deg, #eef6f4 0%, #f5faf9 100%);
 		padding: 12px 20px;
 		margin: 0 0 25px 0;
 		border-radius: 8px;
-		border: 1px solid rgba(236, 72, 153, 0.2);
-		box-shadow: 0 2px 8px rgba(236, 72, 153, 0.08);
+		border: 1px solid rgba(45, 106, 98, 0.2);
+		box-shadow: 0 2px 8px rgba(45, 106, 98, 0.08);
 	}
 
 	.section-heading h4 {
@@ -144,8 +152,8 @@
 	}
 
 	.header-settings-container .form-control:focus {
-		border-color: rgba(236, 72, 153, 0.55);
-		box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.12);
+		border-color: #2d6a62;
+		box-shadow: 0 0 0 3px rgba(45, 106, 98, 0.18);
 		outline: none;
 	}
 
@@ -154,7 +162,7 @@
 	}
 
 	.header-settings-container .form-hint {
-		color: #6b7280;
+		color: #5f6f68;
 		display: block;
 		margin-top: 5px;
 		font-size: 13px;
@@ -162,10 +170,10 @@
 
 	.existing-photo {
 		border-radius: 8px;
-		border: 1px solid rgba(236, 72, 153, 0.15);
+		border: 1px solid rgba(45, 106, 98, 0.15);
 		object-fit: cover;
 		margin-top: 12px;
-		box-shadow: 0 2px 10px rgba(236, 72, 153, 0.1);
+		box-shadow: 0 2px 10px rgba(45, 106, 98, 0.1);
 	}
 
 	.image-preview-container {
@@ -173,7 +181,7 @@
 		padding: 15px;
 		background: #fff;
 		border-radius: 8px;
-		border: 2px dashed rgba(236, 72, 153, 0.25);
+		border: 2px dashed rgba(45, 106, 98, 0.25);
 		display: inline-block;
 	}
 
@@ -181,7 +189,7 @@
 		text-align: center;
 		padding-top: 30px;
 		margin-top: 30px;
-		border-top: 1px solid rgba(236, 72, 153, 0.12);
+		border-top: 1px solid rgba(45, 106, 98, 0.12);
 	}
 
 	.btn-update {
@@ -192,7 +200,7 @@
 		font-size: 16px;
 		font-weight: 600;
 		color: #fff;
-		box-shadow: 0 4px 16px rgba(236, 72, 153, 0.3);
+		box-shadow: 0 4px 16px rgba(45, 106, 98, 0.3);
 		transition: all 0.3s ease;
 		cursor: pointer;
 		text-transform: uppercase;
@@ -201,8 +209,8 @@
 
 	.btn-update:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 6px 22px rgba(236, 72, 153, 0.4);
-		background: linear-gradient(135deg, #db2777 0%, #ea580c 100%);
+		box-shadow: 0 6px 22px rgba(45, 106, 98, 0.4);
+		background: linear-gradient(135deg, #1a5c54 0%, #3d9a8e 100%);
 		color: #fff;
 	}
 

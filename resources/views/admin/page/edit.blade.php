@@ -3,13 +3,20 @@
 @section('content')
 @push('css')
 <style>
-	.page-admin { --pg-pink: #ec4899; --pg-pink-deep: #be185d; --pg-orange: #fb923c; --pg-cream: #f5f3f0; --pg-text: #1c1917; }
+	.page-admin {
+		--pg-pink: #2d6a62;
+		--pg-pink-deep: #1a3f3c;
+		--pg-orange: #4a9a8e;
+		--pg-mint: #3d9a8e;
+		--pg-cream: #eef2f0;
+		--pg-text: #1d2b33;
+	}
 
 	.page-form-container {
 		background: #fff;
 		border-radius: 12px;
-		box-shadow: 0 4px 24px rgba(236, 72, 153, 0.1);
-		border: 1px solid rgba(236, 72, 153, 0.12);
+		box-shadow: 0 4px 24px rgba(45, 106, 98, 0.1);
+		border: 1px solid rgba(45, 106, 98, 0.12);
 		overflow: hidden;
 		margin: 20px 0;
 	}
@@ -20,11 +27,11 @@
 	}
 
 	.page-form-container .section-banner {
-		background: linear-gradient(135deg, var(--pg-pink) 0%, #f472b6 45%, var(--pg-orange) 100%) !important;
+		background: linear-gradient(135deg, var(--pg-pink-deep) 0%, var(--pg-pink) 38%, var(--pg-mint) 72%, var(--pg-orange) 100%) !important;
 		padding: 15px 20px;
 		margin: 0 -40px 25px -40px;
-		border-bottom: 2px solid rgba(190, 24, 93, 0.35);
-		box-shadow: 0 4px 20px rgba(236, 72, 153, 0.18);
+		border-bottom: 2px solid rgba(26, 63, 60, 0.35);
+		box-shadow: 0 4px 20px rgba(45, 106, 98, 0.18);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -97,8 +104,8 @@
 	}
 
 	.page-form-container .form-control:focus {
-		border-color: rgba(236, 72, 153, 0.55);
-		box-shadow: 0 0 0 0.2rem rgba(236, 72, 153, 0.12);
+		border-color: rgba(45, 106, 98, 0.55);
+		box-shadow: 0 0 0 0.2rem rgba(45, 106, 98, 0.12);
 		outline: none;
 	}
 
@@ -112,7 +119,7 @@
 	.page-form-container .action-section {
 		margin-top: 30px;
 		padding-top: 20px;
-		border-top: 1px solid rgba(236, 72, 153, 0.12);
+		border-top: 1px solid rgba(45, 106, 98, 0.12);
 	}
 
 	.page-form-container .btn-submit {
@@ -125,13 +132,13 @@
 		font-size: 14px;
 		cursor: pointer;
 		transition: all 0.3s ease;
-		box-shadow: 0 4px 14px rgba(236, 72, 153, 0.25);
+		box-shadow: 0 4px 14px rgba(45, 106, 98, 0.25);
 	}
 
 	.page-form-container .btn-submit:hover {
 		transform: translateY(-2px);
-		background: linear-gradient(135deg, #db2777 0%, #ea580c 100%);
-		box-shadow: 0 6px 20px rgba(236, 72, 153, 0.35);
+		background: linear-gradient(135deg, #1a5c54 0%, #3d9a8e 100%);
+		box-shadow: 0 6px 20px rgba(45, 106, 98, 0.35);
 	}
 
 	.page-form-container .btn-submit i {

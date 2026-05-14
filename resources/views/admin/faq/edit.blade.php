@@ -1,69 +1,59 @@
 @extends('layouts.admin.app')
 @section('title', $page_title)
 @section('content')
+@include('admin.partials.wellness_crud_theme')
 
-<section class="content-header">
-	<div class="content-header-left">
-		<h1>Edit Faqs</h1>
-	</div>
-	<div class="content-header-right">
-		<a href="{{ route('faq.index') }}" class="btn btn-primary btn-sm">View All</a>
-	</div>
-</section>
-
-<section class="content">
-	<div class="row">
-		<div class="col-md-12">
-			<form action="{{route('faq.update', $model->id)}}" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+<section class="content bbw-crud-theme" style="margin-bottom: 0;">
+	<div class="bbw-form-card">
+		<div class="bbw-form-header">
+			<h1>{{ $page_title }}</h1>
+			<a href="{{ route('faq.index') }}" class="bbw-form-back"><i class="fa fa-list"></i> View all</a>
+		</div>
+		<div class="bbw-form-body">
+			<form action="{{ route('faq.update', $model->id) }}" id="regform" method="post" accept-charset="utf-8">
 				@csrf
 				{{ method_field('PATCH') }}
-				<div class="box box-info">
-					<div class="box-body">
-						<div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Question<span style="color: red">*</span></label>
-							<div class="col-sm-9">
-								<textarea class="form-control" name="question" style="height:140px;">{!! $model->question !!}</textarea>
-							</div>
-						</div>
-						<div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Answer<span style="color: red">*</span></label>
-							<div class="col-sm-9">
-								<textarea class="form-control" name="answer" style="height:140px;">{!! $model->answer !!}</textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Status</label>
-							<div class="col-sm-9">
-								<select name="status" class="form-control" id="">
-									<option value="1" {{ $model->status==1?'selected':'' }}>Active</option>
-									<option value="0" {{ $model->status==0?'selected':'' }}>In-Active</option>
-								</select>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label"></label>
-							<div class="col-sm-6">
-								<button type="submit" class="btn btn-success pull-left">Submit</button>
-							</div>
-						</div>
+				<div class="bbw-form-inner">
+					<div class="bbw-form-group">
+						<label for="faq_question">Question <span class="text-danger">*</span></label>
+						<textarea id="faq_question" class="form-control" name="question" rows="6" required>{{ old('question', $model->question) }}</textarea>
+						@error('question')
+						<span class="bbw-field-error">{{ $message }}</span>
+						@enderror
+					</div>
+					<div class="bbw-form-group">
+						<label for="faq_answer">Answer <span class="text-danger">*</span></label>
+						<textarea id="faq_answer" class="form-control" name="answer" rows="6" required>{{ old('answer', $model->answer) }}</textarea>
+						@error('answer')
+						<span class="bbw-field-error">{{ $message }}</span>
+						@enderror
+					</div>
+					<div class="bbw-form-group">
+						<label for="faq_status">Status</label>
+						<select id="faq_status" name="status" class="form-control" style="max-width: 280px;">
+							<option value="1" {{ (int) $model->status === 1 ? 'selected' : '' }}>Active</option>
+							<option value="0" {{ (int) $model->status === 0 ? 'selected' : '' }}>Inactive</option>
+						</select>
+					</div>
+					<div class="bbw-form-actions">
+						<button type="submit" class="btn bbw-btn-submit"><i class="fa fa-save"></i> Update FAQ</button>
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
 </section>
-
 @endsection
+
 @push('js')
 <script>
-	$(document).ready(function() {
-		$("#regform").validate({
-			rules: {
-				question: "required"
-                answer: "required"
-			}
-		});
+$(document).ready(function() {
+	$('#regform').validate({
+		rules: {
+			question: 'required',
+			answer: 'required'
+		}
 	});
+});
 </script>
 @endpush

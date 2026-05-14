@@ -3,21 +3,21 @@
 @section('content')
 @push('css')
 <style>
-	/* Portfolio theme (Lyllianna site): pink / orange / cream */
+	/* Balanced Body IV Wellness — teal / sage / cream */
 	.contact-card {
 		background: #ffffff;
 		border-radius: 16px;
-		box-shadow: 0 8px 24px rgba(236, 72, 153, 0.1);
-		border: 1px solid rgba(236, 72, 153, 0.15);
+		box-shadow: 0 8px 24px rgba(45, 106, 98, 0.1);
+		border: 1px solid rgba(45, 106, 98, 0.15);
 		overflow: hidden;
 	}
 	.contact-header {
-		background: linear-gradient(135deg, #ec4899 0%, #db2777 50%, #ea580c 100%) !important;
+		background: linear-gradient(135deg, #1a3f3c 0%, #2d6a62 38%, #3d9a8e 72%, #4a9a8e 100%) !important;
 		color: #fff;
 		padding: 18px 30px;
 		border-radius: 16px 16px 0 0;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-		box-shadow: 0 4px 16px rgba(236, 72, 153, 0.25);
+		box-shadow: 0 4px 16px rgba(45, 106, 98, 0.25);
 		text-align: center;
 	}
 	.contact-header h1 {
@@ -34,60 +34,60 @@
 		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
 		gap: 20px;
 		padding: 25px 30px 0;
-		background: #f5f3f0;
+		background: #eef2f0;
 		margin-bottom: 20px;
 	}
 	.contact-stats .stat-box {
 		background: #fff;
 		padding: 18px;
 		border-radius: 12px;
-		box-shadow: 0 2px 8px rgba(236, 72, 153, 0.08);
-		border: 1px solid rgba(236, 72, 153, 0.12);
+		box-shadow: 0 2px 8px rgba(45, 106, 98, 0.08);
+		border: 1px solid rgba(45, 106, 98, 0.12);
 		text-align: center;
 		margin-bottom: 20px;
 	}
 	.contact-stats .stat-box .num {
 		font-size: 22px;
 		font-weight: 700;
-		background: linear-gradient(135deg, #ec4899, #fb923c);
+		background: linear-gradient(135deg, #1a3f3c, #4a9a8e);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
 	}
-	.contact-stats .stat-box .lbl { font-size: 13px; color: #6b7280; font-weight: 500; margin-top: 4px; }
+	.contact-stats .stat-box .lbl { font-size: 13px; color: #5f6f68; font-weight: 500; margin-top: 4px; }
 	.contact-search {
-		background: #fafaf9;
+		background: #fafaf8;
 		padding: 20px 30px;
-		border: 1px solid rgba(236, 72, 153, 0.1);
+		border: 1px solid rgba(45, 106, 98, 0.1);
 		margin: 0 30px 20px;
 		border-radius: 12px;
 	}
 	.contact-search .form-control {
-		border: 1px solid rgba(236, 72, 153, 0.2);
+		border: 1px solid rgba(45, 106, 98, 0.2);
 		border-radius: 10px;
 		font-size: 14px;
 		transition: border-color 0.2s ease, box-shadow 0.2s ease;
 		background: #fff;
 	}
 	.contact-search .form-control:focus {
-		border-color: #ec4899;
-		box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.18);
+		border-color: #2d6a62;
+		box-shadow: 0 0 0 3px rgba(45, 106, 98, 0.18);
 		outline: none;
 	}
 	.contact-search .btn-filter {
-		background: #ec4899 !important;
+		background: linear-gradient(135deg, #2d6a62 0%, #4a9a8e 100%) !important;
 		color: #fff !important;
 		border: none;
 		padding: 10px 24px;
 		border-radius: 9999px;
 		font-weight: 600;
 		transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
-		box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);
+		box-shadow: 0 4px 14px rgba(45, 106, 98, 0.35);
 	}
 	.contact-search .btn-filter:hover {
-		background: #f472b6 !important;
+		background: linear-gradient(135deg, #1a5c54 0%, #3d9a8e 100%) !important;
 		color: #fff !important;
-		box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+		box-shadow: 0 6px 20px rgba(45, 106, 98, 0.4);
 		transform: translateY(-1px);
 	}
 	.contact-search .btn-clear {
@@ -102,22 +102,22 @@
 		transition: background 0.2s ease;
 	}
 	.contact-search .btn-clear:hover { background: #4b5563; color: #fff !important; }
-	.contact-body { padding: 15px 30px 25px; background: #f5f3f0; }
+	.contact-body { padding: 15px 30px 25px; background: #eef2f0; }
 	.contact-list-container .table-wrap {
 		background: #ffffff;
 		border-radius: 12px;
-		border: 1px solid rgba(236, 72, 153, 0.12);
+		border: 1px solid rgba(45, 106, 98, 0.12);
 		overflow: hidden;
-		box-shadow: 0 2px 8px rgba(236, 72, 153, 0.06);
+		box-shadow: 0 2px 8px rgba(45, 106, 98, 0.06);
 	}
 	.contact-list-container .contact-list-table { margin: 0; }
 	.contact-list-container .contact-list-table thead tr {
-		background: linear-gradient(135deg, #fdf2f8 0%, #fff7ed 100%) !important;
-		border-bottom: 1px solid rgba(236, 72, 153, 0.2);
+		background: linear-gradient(135deg, #eef6f4 0%, #f5faf9 100%) !important;
+		border-bottom: 1px solid rgba(45, 106, 98, 0.2);
 	}
 	.contact-list-container .contact-list-table thead th {
 		font-weight: 600;
-		color: #1a1a1a;
+		color: #1d2b33;
 		font-size: 13px;
 		text-transform: uppercase;
 		letter-spacing: 0.5px;
@@ -126,14 +126,14 @@
 	}
 	.contact-list-container .contact-list-table tbody tr { transition: background 0.2s ease; }
 	.contact-list-container .contact-list-table tbody tr:hover {
-		background: rgba(236, 72, 153, 0.06);
+		background: rgba(45, 106, 98, 0.06);
 	}
 	.contact-list-container .contact-list-table tbody td {
 		padding: 12px;
 		vertical-align: middle;
 		font-size: 14px;
 		color: #374151;
-		border-color: rgba(236, 72, 153, 0.1);
+		border-color: rgba(45, 106, 98, 0.1);
 	}
 	.contact-action-btns {
 		display: flex;
@@ -143,7 +143,7 @@
 		align-items: center;
 	}
 	.contact-list-container .btn-show {
-		background: #ec4899 !important;
+		background: linear-gradient(135deg, #2d6a62 0%, #4a9a8e 100%) !important;
 		border: none;
 		color: #fff !important;
 		font-weight: 600;
@@ -154,12 +154,12 @@
 		text-decoration: none !important;
 		display: inline-block;
 		white-space: nowrap;
-		box-shadow: 0 2px 8px rgba(236, 72, 153, 0.3);
+		box-shadow: 0 2px 8px rgba(45, 106, 98, 0.3);
 	}
 	.contact-list-container .btn-show:hover {
-		background: #f472b6 !important;
+		background: linear-gradient(135deg, #1a5c54 0%, #3d9a8e 100%) !important;
 		color: #fff !important;
-		box-shadow: 0 4px 12px rgba(236, 72, 153, 0.4);
+		box-shadow: 0 4px 12px rgba(45, 106, 98, 0.4);
 		transform: translateY(-1px);
 	}
 	.contact-list-container .btn-delete {
@@ -176,8 +176,8 @@
 	}
 	.contact-list-container .pagination-wrap {
 		padding: 16px;
-		background: #fafaf9;
-		border-top: 1px solid rgba(236, 72, 153, 0.12);
+		background: #fafaf8;
+		border-top: 1px solid rgba(45, 106, 98, 0.12);
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
@@ -332,7 +332,7 @@ $(document).ready(function() {
 			text: "This contact will be deleted.",
 			icon: 'warning',
 			showCancelButton: true,
-			confirmButtonColor: '#ec4899',
+			confirmButtonColor: '#2d6a62',
 			cancelButtonColor: '#6c757d',
 			confirmButtonText: 'Yes, delete it!'
 		}).then((result) => {

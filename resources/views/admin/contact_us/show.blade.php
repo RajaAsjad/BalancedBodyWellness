@@ -3,20 +3,21 @@
 @section('content')
 @push('css')
 <style>
+	/* Balanced Body IV Wellness — teal / sage / cream */
 	.contact-detail-card {
 		background: #ffffff;
 		border-radius: 16px;
-		box-shadow: 0 8px 24px rgba(236, 72, 153, 0.1);
-		border: 1px solid rgba(236, 72, 153, 0.15);
+		box-shadow: 0 8px 24px rgba(45, 106, 98, 0.1);
+		border: 1px solid rgba(45, 106, 98, 0.15);
 		overflow: hidden;
 	}
 	.contact-detail-header {
-		background: linear-gradient(135deg, #ec4899 0%, #db2777 50%, #ea580c 100%) !important;
+		background: linear-gradient(135deg, #1a3f3c 0%, #2d6a62 38%, #3d9a8e 72%, #4a9a8e 100%) !important;
 		color: #fff;
 		padding: 18px 30px;
 		border-radius: 16px 16px 0 0;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-		box-shadow: 0 4px 16px rgba(236, 72, 153, 0.25);
+		box-shadow: 0 4px 16px rgba(45, 106, 98, 0.25);
 		text-align: center;
 	}
 	.contact-detail-header h1 {
@@ -30,34 +31,34 @@
 	}
 	.contact-detail-body {
 		padding: 30px 40px;
-		background: #f5f3f0;
+		background: #eef2f0;
 	}
 	.contact-detail-table {
 		background: #fff;
 		border-radius: 12px;
-		border: 1px solid rgba(236, 72, 153, 0.12);
+		border: 1px solid rgba(45, 106, 98, 0.12);
 		overflow: hidden;
-		box-shadow: 0 2px 8px rgba(236, 72, 153, 0.06);
+		box-shadow: 0 2px 8px rgba(45, 106, 98, 0.06);
 	}
 	.contact-detail-table table { margin: 0; }
 	.contact-detail-table th {
 		width: 180px;
-		background: linear-gradient(135deg, rgba(253, 242, 248, 0.9), rgba(255, 247, 237, 0.95));
-		color: #1a1a1a;
+		background: linear-gradient(135deg, rgba(238, 246, 244, 0.95), rgba(245, 250, 249, 0.98));
+		color: #1d2b33;
 		font-weight: 600;
 		font-size: 14px;
 		padding: 14px 16px;
-		border: 1px solid rgba(236, 72, 153, 0.12);
+		border: 1px solid rgba(45, 106, 98, 0.12);
 	}
 	.contact-detail-table td {
 		padding: 14px 16px;
 		font-size: 14px;
 		color: #374151;
-		border: 1px solid rgba(236, 72, 153, 0.1);
+		border: 1px solid rgba(45, 106, 98, 0.1);
 	}
-	.contact-detail-table tr:hover td { background: rgba(236, 72, 153, 0.05); }
+	.contact-detail-table tr:hover td { background: rgba(45, 106, 98, 0.05); }
 	.btn-view-all {
-		background: #ec4899 !important;
+		background: linear-gradient(135deg, #2d6a62 0%, #4a9a8e 100%) !important;
 		color: #fff !important;
 		border: none;
 		padding: 10px 24px;
@@ -67,12 +68,12 @@
 		display: inline-block;
 		transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
 		margin-bottom: 20px;
-		box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);
+		box-shadow: 0 4px 14px rgba(45, 106, 98, 0.35);
 	}
 	.btn-view-all:hover {
-		background: #f472b6 !important;
+		background: linear-gradient(135deg, #1a5c54 0%, #3d9a8e 100%) !important;
 		color: #fff !important;
-		box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+		box-shadow: 0 6px 20px rgba(45, 106, 98, 0.4);
 		transform: translateY(-1px);
 	}
 </style>

@@ -101,7 +101,7 @@
         font-size: 0.95rem;
         color: #fff;
         border-radius: 8px;
-        background: linear-gradient(135deg, #ec4899, #fb923c);
+        background: linear-gradient(135deg, #2d6a62, #4a9a8e);
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
 

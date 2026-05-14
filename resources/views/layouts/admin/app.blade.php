@@ -53,6 +53,19 @@
     </style>
 
     <style>
+        /* Wellness overrides (app loads after style.css — reinforces teal theme) */
+        :root {
+            --admin-shell: #142824;
+            --admin-shell-soft: #1e3834;
+            --admin-pink: #2d6a62;
+            --admin-pink-deep: #1a3f3c;
+            --admin-orange: #4a9a8e;
+            --admin-cream: #fafaf8;
+            --admin-cream-mid: #eef2f0;
+            --admin-text: #1d2b33;
+            --admin-gold: #c9a157;
+        }
+
         .skin-blue .wrapper,
         .skin-blue .main-header,
         .skin-blue .main-header .navbar,
@@ -95,24 +108,24 @@
         }
 
         .content a:not(.btn):not(.paginate_button) {
-            color: var(--admin-pink-deep) !important;
+            color: #1d5c54 !important;
         }
 
         .content a:not(.btn):not(.paginate_button):hover {
-            color: #9d174d !important;
+            color: #134038 !important;
         }
 
         a.btn.btn-primary.btn-sm:hover {
             color: #fff !important;
             background: linear-gradient(135deg, var(--admin-pink) 0%, var(--admin-orange) 100%) !important;
-            border-color: rgba(236, 72, 153, 0.4) !important;
+            border-color: rgba(45, 106, 98, 0.4) !important;
             font-weight: 700;
         }
 
         button.btn.btn-success.pull-left:hover {
             color: #fff !important;
             background: linear-gradient(135deg, var(--admin-pink) 0%, var(--admin-orange) 100%) !important;
-            border-color: rgba(236, 72, 153, 0.4) !important;
+            border-color: rgba(45, 106, 98, 0.4) !important;
         }
 
         .content-header>h1,
@@ -127,7 +140,7 @@
 
         .main-header .navbar .nav>li>a:hover,
         .main-header .navbar .nav .open>a {
-            background-color: rgba(236, 72, 153, 0.18) !important;
+            background-color: rgba(45, 106, 98, 0.2) !important;
         }
 
         .navbar-nav>.user-menu>.dropdown-menu>.user-footer {
@@ -143,10 +156,10 @@
 
         .navbar-nav>.user-menu>.dropdown-menu>.user-footer .btn-default:hover {
             color: #fff !important;
-            background: linear-gradient(135deg, #db2777 0%, #ea580c 100%) !important;
+            background: linear-gradient(135deg, #1a5c54 0%, #3d9a8e 100%) !important;
             border-radius: 30px !important;
             transition: all 0.25s ease-in-out !important;
-            box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.35) !important;
+            box-shadow: 0 0 0 3px rgba(45, 106, 98, 0.35) !important;
         }
 
         .box.box-info {
@@ -166,16 +179,16 @@
         .btn-active {
             color: #fff !important;
             background: linear-gradient(135deg, var(--admin-pink) 0%, var(--admin-orange) 100%) !important;
-            border-color: rgba(236, 72, 153, 0.45) !important;
+            border-color: rgba(45, 106, 98, 0.45) !important;
             font-weight: 600;
             transition: all 0.25s ease-in-out;
         }
 
         .btn-active:hover {
             color: #fff !important;
-            background: linear-gradient(135deg, #db2777 0%, #ea580c 100%) !important;
-            border-color: rgba(236, 72, 153, 0.55) !important;
-            box-shadow: 0 4px 14px rgba(236, 72, 153, 0.3);
+            background: linear-gradient(135deg, #1a5c54 0%, #3d9a8e 100%) !important;
+            border-color: rgba(45, 106, 98, 0.55) !important;
+            box-shadow: 0 4px 14px rgba(45, 106, 98, 0.28);
         }
 
         .info-box {
@@ -186,12 +199,12 @@
             box-shadow: 0 8px 24px rgba(28, 25, 23, 0.12);
             border-radius: 8px;
             margin-bottom: 15px;
-            border: 1px solid rgba(236, 72, 153, 0.12);
+            border: 1px solid rgba(45, 106, 98, 0.14);
         }
 
         .info-box:hover {
-            background: linear-gradient(135deg, #292524 0%, var(--admin-shell-soft) 100%) !important;
-            box-shadow: 0 10px 28px rgba(236, 72, 153, 0.15);
+            background: linear-gradient(135deg, #0f1f1c 0%, var(--admin-shell-soft) 100%) !important;
+            box-shadow: 0 10px 28px rgba(45, 106, 98, 0.18);
         }
 
         .info-box-content {
@@ -204,11 +217,11 @@
         }
 
         .info-box-text {
-            color: rgba(251, 146, 60, 0.95) !important;
+            color: rgba(201, 161, 87, 0.95) !important;
         }
 
         .info-box-number {
-            color: #fce7f3 !important;
+            color: #dceee9 !important;
         }
 
         span.info-box-icon i {
@@ -224,7 +237,7 @@
         }
 
         .skin-blue .sidebar-menu>li:hover>a {
-            background: rgba(236, 72, 153, 0.22) !important;
+            background: rgba(45, 106, 98, 0.28) !important;
         }
 
         .skin-blue .sidebar-menu>li>.treeview-menu {
@@ -248,21 +261,21 @@
             z-index: 3;
             color: #fff !important;
             background: linear-gradient(135deg, var(--admin-pink) 0%, var(--admin-orange) 100%) !important;
-            border-color: rgba(236, 72, 153, 0.45);
+            border-color: rgba(45, 106, 98, 0.45);
         }
 
         .pagination>.active>span:hover {
             z-index: 3;
             color: #fff !important;
-            background: linear-gradient(135deg, #db2777 0%, #ea580c 100%) !important;
-            border-color: rgba(219, 39, 119, 0.55);
+            background: linear-gradient(135deg, #1a5c54 0%, #3d9a8e 100%) !important;
+            border-color: rgba(26, 90, 82, 0.55);
         }
 
         .pagination>li>a:hover {
             z-index: 2;
             color: #fff !important;
-            background: linear-gradient(135deg, var(--admin-pink-deep) 0%, #ea580c 100%);
-            border-color: rgba(236, 72, 153, 0.4);
+            background: linear-gradient(135deg, var(--admin-pink-deep) 0%, #3d9a8e 100%);
+            border-color: rgba(45, 106, 98, 0.4);
         }
 
         .pagination>li>a {
@@ -285,7 +298,7 @@
         .modal-header {
             padding: 15px;
             background: linear-gradient(180deg, #fff 0%, var(--admin-cream) 100%);
-            border-bottom: 2px solid rgba(236, 72, 153, 0.35);
+            border-bottom: 2px solid rgba(45, 106, 98, 0.35);
         }
     </style>
 

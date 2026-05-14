@@ -29,6 +29,7 @@ function fetchAll(pageurl, page, search, status){
     $.ajax({
         url:pageurl+'?page='+page+'&search='+search+'&status='+status,
         type: 'get',
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
         success: function(response){
             $(container).html(response);
             if (typeof window.initGalleryTiffPreviews === 'function') window.initGalleryTiffPreviews();
@@ -36,8 +37,8 @@ function fetchAll(pageurl, page, search, status){
     });
 }
 
-//delete record
-$('.delete').on('click', function(){
+// Delete (delegated so rows replaced via AJAX still work)
+$(document).on('click', '.delete', function(){
     var id = $(this).attr('data-slug');
     var delete_url = $(this).attr('data-del-url');
     Swal.fire({
@@ -45,8 +46,8 @@ $('.delete').on('click', function(){
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
+        confirmButtonColor: '#2d6a62',
+        cancelButtonColor: '#6c757d',
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
