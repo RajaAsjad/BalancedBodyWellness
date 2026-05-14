@@ -1,76 +1,126 @@
 @extends('layouts.website.master')
 @section('title', $page_title)
-@section('meta_description',
-    'Residential, commercial, retail, post-construction, and move-in/move-out cleaning in Phoenix and surrounding
-    areas. Frequencies tailored to your property.')
-
+@section('meta_description', $page_meta_description)
 @section('content')
-    <section class="page-hero">
+    <section class="page-hero page-hero--wellness" aria-labelledby="services-hero-heading">
         <div class="container-pns">
-            <h1>Cleaning services</h1>
-            <p>Choose a category to see what is included and how often we can visit.</p>
+            <p class="page-hero__eyebrow">Our menu</p>
+            <h1 class="page-hero__title" id="services-hero-heading">Treatments tailored to you.</h1>
+            <p class="page-hero__note">Pricing discussed at consultation. All services require medical clearance. Payment in person.</p>
         </div>
     </section>
 
-    <section class="section-pns">
+    <section class="drip-menu" aria-labelledby="drip-menu-heading">
         <div class="container-pns">
-            <ul class="nav nav-tabs service-tabs flex-nowrap overflow-auto" id="serviceTabs" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="tab-res" data-bs-toggle="tab" data-bs-target="#pane-res"
-                        type="button" role="tab">Residential</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="tab-com" data-bs-toggle="tab" data-bs-target="#pane-com" type="button"
-                        role="tab">Commercial</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="tab-ret" data-bs-toggle="tab" data-bs-target="#pane-ret" type="button"
-                        role="tab">Retail</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="tab-post" data-bs-toggle="tab" data-bs-target="#pane-post" type="button"
-                        role="tab">Post-construction</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="tab-move" data-bs-toggle="tab" data-bs-target="#pane-move" type="button"
-                        role="tab">Move in / out</button>
-                </li>
-            </ul>
-            <div class="tab-content service-tab-content" id="serviceTabsContent">
-                <div class="tab-pane fade show active" id="pane-res" role="tabpanel">
-                    <p>Imagine taking the leg work out of maintaining your sanctuary! Our cleaners are timely in
-                        handling whichever rooms you prefer. Floor care, surfaces, toilet cleaning, as well as cleaning
-                        blinds and ceiling fans are all included in your clean. Stove, refrigerator, and baseboard
-                        cleanings are available as an add-on.</p>
-                    <p class="mb-0"><strong>Frequency:</strong> Daily, biweekly, or monthly.</p>
+            <header class="drip-menu__header">
+                <div class="drip-menu__intro">
+                    <p class="drip-menu__eyebrow">IV hydration drips</p>
+                    <h2 class="drip-menu__title" id="drip-menu-heading">The Drip Menu</h2>
                 </div>
-                <div class="tab-pane fade" id="pane-com" role="tabpanel">
-                    <p>We ensure your commercial space is tidy from back to front. This includes dust mopping, floor
-                        mopping, scrubber floor care, wipe-down surfaces, restroom care for all restrooms, window and door
-                        cleaning, and emptying trash bins.</p>
-                    <p class="mb-0"><strong>Frequency:</strong> Daily, weekly, or multiple times a week.</p>
-                </div>
-                <div class="tab-pane fade" id="pane-ret" role="tabpanel">
-                    <p>Retail janitorial for stores, franchises, and shops — your sales floor and restrooms reflect your
-                        brand. We provide dust mopping, floor mopping, scrubber floor care, wipe-down surfaces, restroom
-                        care for all restrooms, window and door cleaning, and emptying trash bins.</p>
-                    <p class="mb-0"><strong>Frequency:</strong> Daily, weekly, or multiple times a week.</p>
-                </div>
-                <div class="tab-pane fade" id="pane-post" role="tabpanel">
-                    <p>Our experienced cleaners are no stranger to getting the job done. Need a whole construction site
-                        clean? Call us — we have already got it covered.</p>
-                    <p class="mb-0"><strong>Frequency:</strong> As needed.</p>
-                </div>
-                <div class="tab-pane fade" id="pane-move" role="tabpanel">
-                    <p>No need to stress about getting your property ready for the next tenant. We quickly and efficiently
-                        make sure all surfaces are shiny, floors are spotless, and walls are presentable — for
-                        apartments, homes, and duplexes.</p>
-                    <p class="mb-0"><strong>Frequency:</strong> As needed.</p>
-                </div>
+                <p class="drip-menu__lede">11 thoughtfully formulated IV blends. Sessions typically 30–60 minutes.</p>
+            </header>
+
+            <div class="drip-menu__grid" role="list">
+                @php
+                    $drips = [
+                        ['title' => 'Energy Boost', 'desc' => 'B-complex, B12, amino acids and electrolytes to restore vitality and combat fatigue.', 'icon' => 'zap'],
+                        ['title' => 'Immunity Defense', 'desc' => 'High-dose vitamin C, zinc and minerals to strengthen your immune response.', 'icon' => 'shield'],
+                        ['title' => 'Beauty Glow', 'desc' => 'Glutathione, biotin and vitamin C for radiant skin, hair and nails.', 'icon' => 'sparkles'],
+                        ['title' => 'Recovery & Performance', 'desc' => 'Amino acids and electrolytes to support muscle recovery and athletic output.', 'icon' => 'heart-pulse'],
+                        ['title' => 'Hangover Relief', 'desc' => 'Rapid rehydration with anti-nausea and anti-inflammatory support.', 'icon' => 'sun'],
+                        ['title' => 'Mental Clarity', 'desc' => 'Magnesium, taurine and B-vitamins to support focus and reduce mental fog.', 'icon' => 'brain'],
+                        ['title' => "Myers' Cocktail", 'desc' => 'The classic blend of vitamins and minerals for overall wellness and energy.', 'icon' => 'dumbbell'],
+                        ['title' => 'Anti-Aging', 'desc' => 'NAD+ adjuncts, glutathione and antioxidants to support cellular longevity.', 'icon' => 'vial'],
+                        ['title' => 'Pure Hydration', 'desc' => 'Sterile saline + electrolytes for fast, deep hydration.', 'icon' => 'droplet'],
+                        ['title' => 'Migraine Relief', 'desc' => 'Magnesium, B2 and anti-inflammatory support to ease tension and migraines.', 'icon' => 'pulse'],
+                        ['title' => 'Detox & Reset', 'desc' => 'Glutathione-forward blend to support natural detox pathways.', 'icon' => 'leaf'],
+                    ];
+                @endphp
+
+                @foreach ($drips as $drip)
+                    <article class="drip-card reveal" role="listitem">
+                        <div class="drip-card__icon" aria-hidden="true">
+                            @include('website.partials.drip-icon', ['icon' => $drip['icon']])
+                        </div>
+                        <h3 class="drip-card__title">{{ $drip['title'] }}</h3>
+                        <p class="drip-card__desc">{{ $drip['desc'] }}</p>
+                    </article>
+                @endforeach
             </div>
-            <div class="text-center mt-4">
-                <a href="{{ url('/#contact-quote') }}" class="btn-pns-gold">Get a free quote + walk-through</a>
+
+        </div>
+    </section>
+    <section class="peptide-therapy" aria-labelledby="peptide-therapy-heading">
+        <div class="container-pns">
+            <header class="peptide-therapy__header">
+                <p class="peptide-therapy__eyebrow">
+                    <span class="peptide-therapy__eyebrow-icon" aria-hidden="true">
+                        @include('website.partials.peptide-pill-icon', ['size' => 18])
+                    </span>
+                    <span class="peptide-therapy__eyebrow-text">Peptide therapy</span>
+                </p>
+                <h2 class="peptide-therapy__title" id="peptide-therapy-heading">Targeted Peptide Protocols</h2>
+                <p class="peptide-therapy__sub">Programs are individualized after consultation and medical screening.</p>
+            </header>
+
+            <div class="peptide-therapy__grid" role="list">
+                @php
+                    $peptides = [
+                        ['title' => 'BPC-157', 'desc' => 'Supports tissue repair, gut health and recovery.'],
+                        ['title' => 'Sermorelin', 'desc' => 'Stimulates natural growth hormone production for sleep, recovery and vitality.'],
+                        ['title' => 'GLP-1 Programs', 'desc' => 'Medically supervised metabolic support for weight & appetite goals.'],
+                        ['title' => 'Thymosin Alpha-1', 'desc' => 'Immune modulation and resilience support.'],
+                    ];
+                @endphp
+
+                @foreach ($peptides as $peptide)
+                    <article class="peptide-card reveal" role="listitem">
+                        <div class="peptide-card__icon-wrap" aria-hidden="true">
+                            @include('website.partials.peptide-pill-icon', ['size' => 20, 'class' => 'peptide-card__pill'])
+                        </div>
+                        <div class="peptide-card__body">
+                            <h3 class="peptide-card__title">{{ $peptide['title'] }}</h3>
+                            <p class="peptide-card__desc">{{ $peptide['desc'] }}</p>
+                        </div>
+                    </article>
+                @endforeach
             </div>
         </div>
     </section>
+
+    <section class="vitamin-injections" aria-labelledby="vitamin-injections-heading">
+        <div class="container-pns">
+            <header class="vitamin-injections__header">
+                <p class="vitamin-injections__eyebrow">
+                    <span class="vitamin-injections__eyebrow-icon" aria-hidden="true">
+                        @include('website.partials.syringe-icon', ['size' => 16])
+                    </span>
+                    <span class="vitamin-injections__eyebrow-text">Wellness injections</span>
+                </p>
+                <h2 class="vitamin-injections__title" id="vitamin-injections-heading">Quick Boost Injections</h2>
+            </header>
+
+            <div class="vitamin-injections__grid" role="list">
+                @php
+                    $injections = [
+                        ['title' => 'Vitamin B12', 'desc' => 'Energy, mood and metabolic support in minutes.'],
+                        ['title' => 'MIC / Lipo-Mino', 'desc' => 'Methionine, inositol & choline to support fat metabolism.'],
+                        ['title' => 'Glutathione', 'desc' => "The body's master antioxidant for skin, liver and detox."],
+                        ['title' => 'Vitamin D3', 'desc' => 'Immune, mood and bone health support.'],
+                    ];
+                @endphp
+
+                @foreach ($injections as $inj)
+                    <article class="inject-card reveal" role="listitem">
+                        <div class="inject-card__icon" aria-hidden="true">
+                            @include('website.partials.syringe-icon', ['size' => 20, 'class' => 'inject-card__syringe'])
+                        </div>
+                        <h3 class="inject-card__title">{{ $inj['title'] }}</h3>
+                        <p class="inject-card__desc">{{ $inj['desc'] }}</p>
+                    </article>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    @include('website.partials.book-your-visit')
 @endsection

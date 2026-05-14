@@ -1,25 +1,208 @@
 @extends('layouts.website.master')
 @section('title', $page_title)
-@section('meta_description', 'Request a free quote or walk-through. Call Phoenix Neat Space Cleaning — commercial and residential cleaning across the Valley.')
-
+@section('meta_description', $page_meta_description)
 @section('content')
-    <section class="page-hero">
+    @php
+        $contactPhoneDisplay = '(626) 406-6538';
+        $contactPhoneTel = '6264066538';
+        $contactEmail = 'info@balancedbodyivwellness.com';
+        $contactInstagramUrl = 'https://instagram.com/balancedbodyivwellness';
+        $contactInstagramHandle = '@balancedbodyivwellness';
+        $rawAddress = trim((string) ($home_page_data['contact_address'] ?? $home_page_data['footer_address'] ?? ''));
+        $studioLines = $rawAddress !== ''
+            ? array_values(array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', $rawAddress))))
+            : ['Los Angeles area studio', 'Address shared when your visit is confirmed.'];
+    @endphp
+
+    <section class="page-hero page-hero--wellness page-hero--contact" aria-labelledby="contact-hero-heading">
         <div class="container-pns">
-            <h1>Get a quote</h1>
-            <p>Tell us about your space — we will follow up quickly with pricing and scheduling options.</p>
+            <p class="page-hero__booking-pill">
+                <span class="page-hero__booking-pill__icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </span>
+                <span class="page-hero__booking-pill__text">Book your visit</span>
+            </p>
+            <h1 class="page-hero__title" id="contact-hero-heading">Let&rsquo;s get you scheduled.</h1>
+            <p class="page-hero__note">Send us a request and we&rsquo;ll confirm your appointment, share intake forms, and
+                walk you through medical clearance.</p>
         </div>
     </section>
 
-    <section class="section-pns">
-        <div class="container-pns">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <p class="mb-4">Prefer to start on the phone? Call us anytime.</p>
-                    <a class="btn-pns-gold btn-lg mb-3 d-inline-flex" href="tel:+16025688243"><i
-                            class="fas fa-phone me-2"></i>602-568-8243</a>
-                    <p class="mb-0"><a href="{{ url('/#contact-quote') }}">Or use the booking form on our home page</a>
-                    </p>
+    <section class="section-pns section-pns--contact-appt" aria-label="Request an appointment">
+        <div class="container-pns contact-appt">
+            <div class="contact-appt__grid">
+                <div class="contact-appt__main">
+                    <div class="contact-appt__card contact-appt__card--form">
+                        <h2 class="contact-appt__form-title">Request an appointment</h2>
+
+                        @if (session('status'))
+                            <p class="contact-appt__flash contact-appt__flash--success" role="status">{{ session('status') }}
+                            </p>
+                        @endif
+
+                        <form class="contact-appt__form" action="{{ route('contactus.store') }}" method="post"
+                            novalidate>
+                            @csrf
+
+                            @if ($errors->any())
+                                <div class="contact-appt__flash contact-appt__flash--error" role="alert">
+                                    <p class="contact-appt__flash-title">Please fix the following:</p>
+                                    <ul class="contact-appt__flash-list">
+                                        @foreach ($errors->all() as $err)
+                                            <li>{{ $err }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            <div class="contact-appt__fields">
+                                <div class="contact-appt__row contact-appt__row--2">
+                                    <div class="contact-appt__field">
+                                        <label class="contact-appt__label" for="contact-full-name">Full name <span
+                                                class="contact-appt__req" aria-hidden="true">*</span></label>
+                                        <input class="contact-appt__input" id="contact-full-name" name="full_name"
+                                            type="text" autocomplete="name" required maxlength="200"
+                                            value="{{ old('full_name') }}" placeholder="Jane Doe">
+                                    </div>
+                                    <div class="contact-appt__field">
+                                        <label class="contact-appt__label" for="contact-phone">Phone <span
+                                                class="contact-appt__req" aria-hidden="true">*</span></label>
+                                        <input class="contact-appt__input" id="contact-phone" name="phone" type="tel"
+                                            autocomplete="tel" required maxlength="50" value="{{ old('phone') }}"
+                                            placeholder="(626) 406-6538">
+                                    </div>
+                                </div>
+                                <div class="contact-appt__field">
+                                    <label class="contact-appt__label" for="contact-email">Email <span class="contact-appt__req"
+                                            aria-hidden="true">*</span></label>
+                                    <input class="contact-appt__input" id="contact-email" name="email" type="email"
+                                        autocomplete="email" required maxlength="100" value="{{ old('email') }}"
+                                        placeholder="you@example.com">
+                                </div>
+                                <div class="contact-appt__row contact-appt__row--2">
+                                    <div class="contact-appt__field">
+                                        <label class="contact-appt__label" for="contact-service">Service of interest</label>
+                                        <input class="contact-appt__input" id="contact-service" name="venue_event"
+                                            type="text" maxlength="255" value="{{ old('venue_event') }}"
+                                            placeholder="e.g. Energy Boost drip">
+                                    </div>
+                                    <div class="contact-appt__field">
+                                        <label class="contact-appt__label" for="contact-date">Preferred date</label>
+                                        <div class="contact-appt__input-wrap">
+                                            <input class="contact-appt__input contact-appt__input--date" id="contact-date"
+                                                name="preferred_date" type="date" value="{{ old('preferred_date') }}"> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contact-appt__field">
+                                    <label class="contact-appt__label" for="contact-message">Anything we should know?</label>
+                                    <textarea class="contact-appt__textarea" id="contact-message" name="message" rows="4"
+                                        maxlength="2000" placeholder="Health goals, medical concerns, questions...">{{ old('message') }}</textarea>
+                                </div>
+                            </div>
+
+                            <button class="contact-appt__submit" type="submit">
+                                <svg class="contact-appt__submit-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <span>Submit Request</span>
+                            </button>
+
+                            <p class="contact-appt__fine-print">All visits require medical clearance. Payment is collected in
+                                person at your appointment.</p>
+                        </form>
+                    </div>
                 </div>
+
+                <aside class="contact-appt__aside" aria-label="Studio and hours">
+                    <div class="contact-appt__card contact-appt__card--studio">
+                        <h2 class="contact-appt__studio-title">Visit the studio</h2>
+                        <p class="contact-appt__studio-lede">By appointment only.</p>
+                        <ul class="contact-appt__studio-list">
+                            <li class="contact-appt__studio-item">
+                                <span class="contact-appt__studio-icon" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </span>
+                                <span class="contact-appt__studio-text">
+                                    @foreach ($studioLines as $line)
+                                        <span class="contact-appt__studio-line">{{ $line }}</span>
+                                    @endforeach
+                                </span>
+                            </li>
+                            <li class="contact-appt__studio-item">
+                                <span class="contact-appt__studio-icon" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.86.35 1.7.7 2.48a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.78.35 1.62.58 2.48.7A2 2 0 0 1 22 16.92z">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <a class="contact-appt__studio-link" href="tel:{{ $contactPhoneTel }}">{{ $contactPhoneDisplay }}</a>
+                            </li>
+                            <li class="contact-appt__studio-item">
+                                <span class="contact-appt__studio-icon" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                        </path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                </span>
+                                <a class="contact-appt__studio-link"
+                                    href="mailto:{{ $contactEmail }}">{{ $contactEmail }}</a>
+                            </li>
+                            <li class="contact-appt__studio-item">
+                                <span class="contact-appt__studio-icon" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </span>
+                                <a class="contact-appt__studio-link" href="{{ $contactInstagramUrl }}" target="_blank"
+                                    rel="noopener noreferrer">{{ $contactInstagramHandle }}</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-appt__card contact-appt__card--hours">
+                        <h2 class="contact-appt__hours-title">
+                            <span class="contact-appt__hours-icon" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </span>
+                            Hours
+                        </h2>
+                        <ul class="contact-appt__hours-list">
+                            <li><span class="contact-appt__hours-day">Mon &ndash; Fri</span> <span class="contact-appt__hours-time">9:00
+                                    &ndash; 6:00</span></li>
+                            <li><span class="contact-appt__hours-day">Saturday</span> <span class="contact-appt__hours-time">10:00
+                                    &ndash; 4:00</span></li>
+                            <li><span class="contact-appt__hours-day">Sunday</span> <span
+                                    class="contact-appt__hours-time contact-appt__hours-time--closed">Closed</span></li>
+                        </ul>
+                    </div>
+                </aside>
             </div>
         </div>
     </section>

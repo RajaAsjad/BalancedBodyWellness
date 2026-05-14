@@ -67,7 +67,7 @@
             @endcan --}}
 
              
-            <li class="treeview mt-2 {{ (request()->is('video') || request()->is('video/create') || request()->is('video/*/edit') || request()->is('audio') || request()->is('audio/create') || request()->is('audio/*/edit') || request()->is('audio/*') || request()->is('photogallery') || request()->is('photogallery/*') ) ? 'active' : '' }}" style="height: auto;">
+            {{-- <li class="treeview mt-2 {{ (request()->is('video') || request()->is('video/create') || request()->is('video/*/edit') || request()->is('audio') || request()->is('audio/create') || request()->is('audio/*/edit') || request()->is('audio/*') || request()->is('photogallery') || request()->is('photogallery/*') ) ? 'active' : '' }}" style="height: auto;">
                 <a href="#" class="{{ (request()->is('video') || request()->is('video/create') || request()->is('video/*/edit') || request()->is('audio') || request()->is('audio/create') || request()->is('audio/*/edit') || request()->is('audio/*') || request()->is('photogallery') || request()->is('photogallery/*') ) ? 'active' : '' }}">
                     <i class="fa fa-files-o"></i>
                     <span>Highlight Videos</span>
@@ -86,26 +86,40 @@
                     </li>
                     @endcan
 
-                   {{--  @can('audio-list')
+                     @can('audio-list')
                     <li class="treeview mt-2">
                         <a href="{{ route('audio.index') }}" class="{{ request()->is('audio') || request()->is('audio/create') || request()->is('audio/*/edit') || request()->is('audio/*') ? 'active' : '' }}">
                             <i class="fa fa-code-fork"></i> <span>Audio</span>
                         </a>
                     </li>
-                    @endcan --}}
-                    {{-- @can('photogallery-list')
+                    @endcan   
+                      @can('photogallery-list')
                     <li class="treeview mt-2">
                         <a href="{{ route('photogallery.index') }}" class="{{ request()->is('photogallery') || request()->is('photogallery/*') ? 'active' : '' }}">
                             <i class="fa fa-camera"></i> <span>Photo Gallery</span>
                         </a>
                     </li>
-                    @endcan --}}
+                    @endcan  
                 </ul>
-            </li>
+            </li> --}}
             @can('contactus-list')
                 <li class="treeview mt-2">
                     <a href="{{ route('contactus.index') }}" class="{{ request()->is('contactus') || request()->is('contactus/create') || request()->is('contactus/*/edit') || request()->is('contactus/*') ? 'active' : '' }}">
                         <i class="fa fa-envelope"></i> <span>All Contact Us</span>
+                    </a>
+                </li>
+            @endcan
+            @can('faq-list')
+                <li class="treeview">
+                    <a href="{{ route('faq.index') }}" class="{{ request()->is('faq') || request()->is('faq/create') || request()->is('faq/*/edit') ? 'active' : '' }}">
+                        <i class="fa fa-question-circle"></i> <span>Faqs</span>
+                    </a>
+                </li>
+            @endcan
+            @can('policy-list')
+                <li class="treeview">
+                    <a href="{{ route('policy.index') }}" class="{{ request()->is('policy') || request()->is('policy/create') || request()->is('policy/*/edit') ? 'active' : '' }}">
+                        <i class="fa fa-file-text"></i> <span>Policies</span>
                     </a>
                 </li>
             @endcan

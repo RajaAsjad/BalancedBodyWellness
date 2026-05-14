@@ -1,66 +1,124 @@
 @php
-    $primaryEmail = 'lyllivb.Libero07@gmail.com';
-    $fieldLevelUrl = 'https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen';
-    $instagramUrl = 'https://instagram.com/chylli.lilly07';
+    $primaryEmail = 'info@balancedbodyivwellness.com';
+    $phoneDisplay = '(626) 406-6538';
+    $phoneTel = '6264066538';
+    $instagramUrl = 'https://instagram.com/balancedbodyivwellness';
+    $instagramHandle = '@balancedbodyivwellness';
     $footerNav = [
-        ['href' => '#about', 'label' => 'About'],
-        ['href' => '#stats', 'label' => 'Stats'],
-        ['href' => '#awards', 'label' => 'Awards'],
-        ['href' => '#videos', 'label' => 'Videos'],
-        ['href' => '#academics', 'label' => 'Academics'],
-        ['href' => '#contact', 'label' => 'Contact'],
+        ['href' => url('/'), 'label' => 'Home'],
+        ['href' => url('/services'), 'label' => 'Services'],
+        ['href' => url('/about-us'), 'label' => 'About'],
+        ['href' => url('/faqs'), 'label' => 'FAQ'],
+        ['href' => url('/policies'), 'label' => 'Policies'],
+        ['href' => url('/contact'), 'label' => 'Contact'],
     ];
 @endphp
 
-<footer class="footer">
-    <div class="container">
-        <div class="footer__inner">
-            <div class="footer__brand">
-                <a href="{{ url('/') }}" class="footer__brand-mark" aria-label="Lyllianna Aguayo home">
-                    @if (!empty($home_page_data['header_logo']))
-                        <img class="footer__logo-custom"
-                            src="{{ asset('admin/assets/images/page/' . $home_page_data['header_logo']) }}"
-                            alt="Lyllianna Aguayo">
-                    @else
-                        <span class="footer__logo-mark">LA</span>
-                    @endif
-                </a>
-                <div>
-                    <p class="footer__name">Lyllianna Aguayo</p>
-                    <p class="footer__tagline-sm">Libero / DS · Rio Hondo College</p>
+<footer class="footer footer--wellness" role="contentinfo">
+    <div class="footer__inner">
+        <div class="footer__grid">
+            <div class="footer__col footer__col--brand">
+                <div class="footer__brand-row">
+                    <a href="{{ url('/') }}" class="footer__brand-mark" aria-label="Balanced Body IV Wellness home">
+                        @if (!empty($home_page_data['header_logo']))
+                            <img class="footer__logo-custom"
+                                src="{{ asset('admin/assets/images/page/' . $home_page_data['header_logo']) }}"
+                                alt="Balanced Body IV Wellness">
+                        @else
+                            <span class="footer__logo-icon" aria-hidden="true">
+                                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40"
+                                    height="40">
+                                    <rect x="1" y="1" width="38" height="38" rx="8" stroke="rgba(90, 125, 108, 0.35)"
+                                        stroke-width="1" />
+                                    <circle cx="20" cy="20" r="12" fill="url(#footer-logo-g)" />
+                                    <path d="M12 26c4-6 8-10 16-12" stroke="#c9a227" stroke-width="1.5"
+                                        stroke-linecap="round" opacity="0.9" />
+                                    <circle cx="14" cy="16" r="2.5" fill="#5a7d6c" opacity="0.85" />
+                                    <defs>
+                                        <linearGradient id="footer-logo-g" x1="8" y1="10" x2="32" y2="30"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#e8f0ec" />
+                                            <stop offset="1" stop-color="#c5d9cc" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </span>
+                        @endif
+                    </a>
+                    <div class="footer__brand-titles">
+                        <p class="footer__brand-name">Balanced Body</p>
+                        <p class="footer__brand-tag">IV WELLNESS</p>
+                    </div>
                 </div>
+                <p class="footer__about">Premium IV hydration therapy, peptides, and wellness injections —
+                    thoughtfully delivered for clients who care about their health.</p>
             </div>
 
-            <nav class="footer__links" aria-label="Footer navigation">
-                @foreach ($footerNav as $item)
-                    <a href="{{ $item['href'] }}">{{ $item['label'] }}</a>
-                @endforeach
-            </nav>
+            <div class="footer__col">
+                <h3 class="footer__heading">Explore</h3>
+                <nav class="footer__nav" aria-label="Footer">
+                    <ul class="footer__nav-list">
+                        @foreach ($footerNav as $item)
+                            <li><a href="{{ $item['href'] }}">{{ $item['label'] }}</a></li>
+                        @endforeach
+                    </ul>
+                </nav>
+            </div>
 
-            <div class="footer__social">
-                <a href="{{ $instagramUrl }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                </a>
-                <a href="{{ $fieldLevelUrl }}" target="_blank" rel="noopener noreferrer" aria-label="FieldLevel profile">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                    </svg>
-                </a>
-                <a href="mailto:{{ $primaryEmail }}" aria-label="Email">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,12 2,6"></polyline>
-                    </svg>
-                </a>
+            <div class="footer__col">
+                <h3 class="footer__heading">Connect</h3>
+                <ul class="footer__connect-list">
+                    <li>
+                        <a href="tel:{{ $phoneTel }}" class="footer__connect-link">
+                            <span class="footer__connect-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.86.35 1.7.7 2.48a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.78.35 1.62.58 2.48.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                            </span>
+                            <span class="footer__connect-text">{{ $phoneDisplay }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:{{ $primaryEmail }}" class="footer__connect-link">
+                            <span class="footer__connect-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </span>
+                            <span class="footer__connect-text">{{ $primaryEmail }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ $instagramUrl }}" class="footer__connect-link" target="_blank"
+                            rel="noopener noreferrer">
+                            <span class="footer__connect-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </span>
+                            <span class="footer__connect-text">{{ $instagramHandle }}</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </div>
 
+    <div class="footer__divider" aria-hidden="true"></div>
+
+    <div class="footer__inner">
         <div class="footer__bar">
-            <p class="footer__bar-text">&copy; {{ date('Y') }} Lyllianna Aguayo. All rights reserved.</p>
+            <p class="footer__bar-text">&copy; {{ date('Y') }} Balanced Body IV Wellness. All rights reserved.
+                In-person payment only.</p>
         </div>
     </div>
 </footer>

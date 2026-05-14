@@ -19,7 +19,7 @@ class ContactFormMail extends Mailable
 
     public function build()
     {
-        return $this->subject('New Booking/Contact from Perry Grant Website')
+        return $this->subject('New Booking/Contact from Balanced Body IV Wellness Website')
             ->view('emails.contact-form');
     }
 }

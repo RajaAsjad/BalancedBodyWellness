@@ -43,12 +43,11 @@ Route::post('admin/logout', 'admin\AdminController@logOut')->name('admin.logout'
 
 // Frontend — Phoenix Neat Space Cleaning
 Route::get('/', [WebController::class, 'Index'])->name('index'); 
-/* Route::get('services', [WebController::class, 'Services'])->name('services'); 
+Route::get('services', [WebController::class, 'Services'])->name('services'); 
 Route::get('about-us', [WebController::class, 'AboutUs'])->name('about-us');
-Route::get('contact-us', [WebController::class, 'ContactUs'])->name('contact-us');
-Route::get('pricing', [WebController::class, 'Pricing'])->name('pricing');
-Route::get('careers', [WebController::class, 'Careers'])->name('careers');
-Route::get('industries', [WebController::class, 'Industries'])->name('industries'); */
+Route::get('faqs', [WebController::class, 'Faqs'])->name('faqs');
+Route::get('policies', [WebController::class, 'Policies'])->name('policies');
+Route::get('contact', [WebController::class, 'Contact'])->name('contact');  
 
 
 // Redirect /login to admin login (session expired or user types /login in URL)
@@ -86,6 +85,12 @@ Route::group(['middleware' => ['auth']], function () {
 
     //testimonial
     Route::resource('testimonial', TestimonialController::class);
+
+    //Faqs
+    Route::resource('faq', 'admin\FaqController');
+
+    //Policies
+    Route::resource('policy', 'admin\PoliciesController');
 
     //Video
     Route::resource('video', VideoController::class);

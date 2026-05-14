@@ -82,8 +82,35 @@ class ContactUsController extends Controller
             'email' => 'required|email|max:100',
             'phone' => 'required|string|max:50',
             'venue_event' => 'nullable|string|max:255',
-            'message' => 'required|string|max:2000',
+            'preferred_date' => 'nullable|date',
+            'message' => 'nullable|string|max:2000',
         ]);
+
+        $note = trim((string) $request->message);
+        $preferredRaw = $request->input('preferred_date');
+        $preferredDate = null;
+        if ($preferredRaw !== null && $preferredRaw !== '') {
+            try {
+                $preferredDate = \Carbon\Carbon::parse($preferredRaw)->toDateString();
+            } catch (\Throwable $e) {
+                return redirect()->route('contact')->withErrors(['preferred_date' => 'Please choose a valid date.'])->withInput();
+            }
+        }
+
+        if ($preferredDate === null && $note === '') {
+            return redirect()->route('contact')->withErrors([
+                'message' => 'Please add a preferred date, a note in the message field, or both.',
+            ])->withInput();
+        }
+
+        $messageBlocks = [];
+        if ($preferredDate !== null) {
+            $messageBlocks[] = 'Preferred date: ' . $preferredDate;
+        }
+        if ($note !== '') {
+            $messageBlocks[] = $note;
+        }
+        $composedMessage = implode("\n\n", $messageBlocks);
 
         $fullName = trim($request->full_name);
         $parts = preg_split('/\s+/', $fullName, 2);
@@ -96,7 +123,7 @@ class ContactUsController extends Controller
         $model->email = $request->email;
         $model->phone = $request->phone;
         $model->address = $request->venue_event;
-        $model->message = $request->message;
+        $model->message = $composedMessage;
         $model->save();
 
         $contactData = [
@@ -106,7 +133,7 @@ class ContactUsController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'venue_event' => $request->venue_event,
-            'message' => $request->message,
+            'message' => $composedMessage,
         ];
 
         // Always send contact form notification to admin
@@ -129,7 +156,7 @@ class ContactUsController extends Controller
             ]);
         }
 
-        return redirect()->back()->with('status', 'Your message has been sent. Thank you!');
+        return redirect()->route('contact')->with('status', 'Your message has been sent. Thank you!');
     }
 
     /**

@@ -1,355 +1,131 @@
 @extends('layouts.website.master')
-
 @section('title', $page_title)
-@section('meta_description', 'Official recruitment portfolio of Lyllianna Aguayo — Libero/DS, Rio Hondo College. Class of 2027, GPA 3.20. First Team All-League, Second Team All-Conference.')
+@section('meta_description', $page_meta_description)
 
 @section('content')
-    <section class="hero" aria-label="Hero section">
-      <div class="hero__bg">
-        <div class="hero__mesh"></div>
+    <section class="hero hero--wellness" aria-label="Hero section">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero-w__gradient"></div>
       </div>
       <div class="hero__inner">
         <div class="hero__content">
-          <div class="hero__eyebrow">
-            <span class="hero__dot"></span>
-            <span>Open for Recruitment · Class of 2027</span>
+          <div class="hero-w__eyebrow">
+            <svg class="hero-w__eyebrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+            </svg>
+            <span>Holistic IV Wellness</span>
           </div>
-          <h1 class="hero__name">
-            <span class="hero__name-first">Lyllianna</span>
-            <span class="hero__name-last">Aguayo</span>
+          <h1 class="hero-w__title">
+            Restore your <em class="hero-w__title-accent">balance</em>, from the inside out.
           </h1>
-          <p class="hero__position">
-            <span class="hero__position-badge">Libero / DS</span>
-            <span class="hero__position-divider">·</span>
-            <span class="hero__position-text">Indoor &amp; Beach Volleyball</span>
+          <p class="hero-w__lead">
+            Thoughtfully formulated IV drips, peptides, and vitamin injections — delivered with medical care in a calming, spa-inspired setting.
           </p>
-          <p class="hero__tagline">
-            A relentless competitor who digs every ball, lifts every teammate, and never leaves energy on the sideline.
-          </p>
-          <div class="hero__ctas">
-            <a href="mailto:lyllivb.Libero07@gmail.com" class="btn btn--primary btn--lg">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,12 2,6"></polyline></svg>
-              Email Me
+          <div class="hero__ctas hero-w__ctas">
+            <a href="{{ url('contact') }}" class="btn btn--wellness-primary btn--lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Book a Consultation
             </a>
-            <a href="#videos" class="btn btn--secondary btn--lg">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              Watch Highlights
-            </a>
+            <a href="{{ url('services') }}" class="btn btn--wellness-outline btn--lg">Explore Services</a>
           </div>
-          <div class="hero__social-proof">
-            <div class="hero__proof-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg>
-              <span>1st Team All-League</span>
-            </div>
-            <div class="hero__proof-divider"></div>
-            <div class="hero__proof-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg>
-              <span>2nd Team All-Conference SCC</span>
-            </div>
-            <div class="hero__proof-divider"></div>
-            <div class="hero__proof-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              <span>GPA 3.20</span>
-            </div>
+          <p class="hero-w__footnote">Medical clearance required · in-person payment only</p>
+        </div>
+        <div class="hero__visual hero-w__visual">
+          <div class="hero-w__art-card">
+            <img src="{{ asset('assets/website/images/hero-wellness.jpg') }}" alt="Calm wellness illustration — restorative IV care" width="640" height="640" loading="eager" class="hero-w__art-img">
           </div>
         </div>
-        <div class="hero__visual">
-          <div class="hero__img-frame">
-            <div class="hero__img-glow"></div>
-            <img src="{{ asset('assets/website/images/hero-img.jpg') }}" alt="Volleyball player in action" width="800" height="900" loading="eager" class="hero__img">
-            <div class="hero__img-overlay"></div>
-          </div>
-          <div class="hero__float-card hero__float-card--digs">
-            <span class="float-card__value">225</span>
-            <span class="float-card__label">Digs — 2025</span>
-          </div>
-          <div class="hero__float-card hero__float-card--aces">
-            <span class="float-card__value">19</span>
-            <span class="float-card__label">Aces — 2025</span>
-          </div>
-        </div>
-      </div>
-      <div class="hero__scroll-hint">
-        <div class="hero__scroll-line"></div>
-        <span>Scroll</span>
-      </div>
+      </div> 
     </section>
 
-    <section class="stats-bar" id="stats">
-      <div class="stats-bar__inner">
-        <div class="stats-bar__grid">
-          <article class="stat-card">
-            <div class="stat-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 8v4l3 3"></path></svg></div>
-            <span class="stat-card__value" data-target="225">0</span>
-            <span class="stat-card__label">Digs</span>
+    <section class="offer" id="services" aria-labelledby="offer-heading">
+      <div class="offer__inner">
+        <header class="offer__header">
+          <p class="offer__eyebrow">What we offer</p>
+          <h2 class="offer__title" id="offer-heading">A modern approach to feeling well.</h2>
+        </header>
+        <div class="offer__grid">
+          <article class="offer-card reveal">
+            <div class="offer-card__icon offer-card__icon--soft" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22a7 7 0 0 0 7-7c0-5-7-13-7-13S5 10 5 15a7 7 0 0 0 7 7z"></path>
+              </svg>
+            </div>
+            <h3 class="offer-card__title">IV Hydration</h3>
+            <p class="offer-card__desc">10+ targeted drip formulations for energy, recovery, immunity &amp; beauty.</p>
           </article>
-          <article class="stat-card">
-            <div class="stat-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
-            <span class="stat-card__value" data-target="19">0</span>
-            <span class="stat-card__label">Aces</span>
+          <article class="offer-card reveal">
+            <div class="offer-card__icon offer-card__icon--soft" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 10l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z"></path>
+                <path d="M16 5.5l.65 2 2 .65-2 .65-.65 2-.65-2-2-.65 2-.65.65-2z"></path>
+                <path d="M15.5 15.5l.5 1.5 1.5.5-1.5.5-.5 1.5-.5-1.5-1.5-.5 1.5-.5.5-1.5z"></path>
+              </svg>
+            </div>
+            <h3 class="offer-card__title">Peptide Therapy</h3>
+            <p class="offer-card__desc">Curated peptide protocols supporting longevity, performance &amp; repair.</p>
           </article>
-          <article class="stat-card">
-            <div class="stat-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
-            <span class="stat-card__value" data-target="23">0</span>
-            <span class="stat-card__label">Assists</span>
+          <article class="offer-card reveal">
+            <div class="offer-card__icon offer-card__icon--soft" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                <polyline points="7 12 9 12 10 10 12 14 13 12 17 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="offer-card__title">Wellness Injections</h3>
+            <p class="offer-card__desc">Vitamin B12, MIC, glutathione and more — quick, effective boosts.</p>
           </article>
-          <article class="stat-card">
-            <div class="stat-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
-            <span class="stat-card__value stat-card__value--text">5'4"</span>
-            <span class="stat-card__label">Height</span>
-          </article>
-          <article class="stat-card">
-            <div class="stat-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></div>
-            <span class="stat-card__value stat-card__value--text">3.20</span>
-            <span class="stat-card__label">GPA</span>
+          <article class="offer-card reveal">
+            <div class="offer-card__icon offer-card__icon--soft" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <polyline points="9 12 11 14 15 10"></polyline>
+              </svg>
+            </div>
+            <h3 class="offer-card__title">Medical Clearance</h3>
+            <p class="offer-card__desc">Every client is reviewed for safety before any therapy is administered.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="about section" id="about">
+    <section class="promise section" id="about" aria-labelledby="promise-heading">
       <div class="container">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">Who I Am</span>
-          <h2 class="section-title">More Than a Position</h2>
-        </div>
-        <div class="about__grid">
-          <div class="about__text reveal">
-            <p class="about__lead">I am a multi-sport athlete competing in both indoor and beach volleyball at Rio Hondo College — a freshman who brings energy, IQ, and relentless work ethic.</p>
-            <p class="about__body">My passion for volleyball is matched only by commitment to my teammates. I put others first — always. I hustle for every ball, narrate the court, lift the energy, and never let one mistake define a set. My background as a setter and opposite gives me rare court vision for a libero.</p>
-            <p class="about__body">Beyond volleyball, I was a multi-event track athlete competing in the 4×400, long jump, triple jump, and high jump — which built the athleticism and competitive IQ I bring to every match.</p>
-            <div class="about__traits">
-              <div class="trait-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Coachable</div>
-              <div class="trait-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>High Court IQ</div>
-              <div class="trait-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Multi-Sport</div>
-              <div class="trait-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Team-First</div>
-            </div>
+        <div class="promise__grid">
+          <div class="promise__content reveal">
+            <p class="promise__eyebrow">Our promise</p>
+            <h2 class="promise__title" id="promise-heading">Wellness that feels intentional.</h2>
+            <p class="promise__lead">Every visit is designed around clarity, comfort, and clinical rigor — so you always know what you are receiving, why it matters, and how it supports your goals.</p>
+            <p class="promise__body">From your first conversation through follow-up care, we prioritize education, consent, and a calm environment that respects your time and your body.</p>
+            <a href="{{ url('/about-us') }}" class="promise__link">Read our story <span class="promise__link-arrow" aria-hidden="true">→</span></a>
           </div>
-          <div class="about__visual reveal reveal--right">
-            <div class="about__img-wrap">
-              <img src="https://images.unsplash.com/photo-1547941126-3d5322b218b0?w=700&amp;q=80" alt="Beach volleyball" width="700" height="800" loading="lazy" class="about__img">
-              <div class="about__img-accent"></div>
-            </div>
-            <div class="about__service-cards">
-              <div class="service-card reveal">
-                <div class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg></div>
-                <div><p class="service-card__title">Youth Volleyball Coaching</p><p class="service-card__desc">Volunteers coaching volleyball to young kids</p></div>
-              </div>
-              <div class="service-card reveal">
-                <div class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
-                <div><p class="service-card__title">Track Volunteer Coach</p><p class="service-card__desc">Coaching track at Los Altos High School</p></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="awards section section--alt" id="awards">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">Recognition</span>
-          <h2 class="section-title">Awards &amp; Honors</h2>
-        </div>
-        <div class="awards__grid">
-          <article class="award-card reveal">
-            <div class="award-card__number">01</div>
-            <div class="award-card__badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg></div>
-            <h3 class="award-card__title">First Team All-League Varsity</h3>
-            <p class="award-card__org">Los Altos High School</p>
-            <p class="award-card__year">2024</p>
-          </article>
-          <article class="award-card award-card--featured reveal">
-            <div class="award-card__number">02</div>
-            <div class="award-card__badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg></div>
-            <h3 class="award-card__title">Second Team All-Conference</h3>
-            <p class="award-card__org">SCC · Rio Hondo College</p>
-            <p class="award-card__year">2025</p>
-            <div class="award-card__featured-badge">College Level</div>
-          </article>
-          <article class="award-card reveal">
-            <div class="award-card__number">03</div>
-            <div class="award-card__badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"></path></svg></div>
-            <h3 class="award-card__title">Multi-Sport Athlete</h3>
-            <p class="award-card__org">Track &amp; Field — Los Altos HS</p>
-            <p class="award-card__year">4×400 · Long Jump · Triple Jump</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="videos section" id="videos">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">On the Court</span>
-          <h2 class="section-title">Highlight Videos</h2>
-        </div>
-        <div class="videos__grid">
-          @php
-            $nonFeaturedThumbIndex = 0;
-          @endphp
-          @forelse ($videos as $video)
-            @php
-              $isFeatured = (string) $video->featured === '1';
-              $thumbSrc = $video->thumbnailDisplayUrl();
-              $thumbVariant = $thumbSrc ? null : ($isFeatured ? null : (($nonFeaturedThumbIndex % 8) + 2));
-              if (! $isFeatured && ! $thumbSrc) {
-                  $nonFeaturedThumbIndex++;
-              }
-              $watchLabel = $isFeatured
-                  ? (stripos($video->video_url, 'fieldlevel.com') !== false ? 'Watch on FieldLevel' : 'Watch')
-                  : 'Watch →';
-            @endphp
-            <article class="video-card {{ $isFeatured ? 'video-card--featured' : '' }} reveal">
-              <div class="video-card__thumb">
-                <div class="video-card__thumb-bg{{ $thumbVariant ? ' video-card__thumb-bg--' . $thumbVariant : '' }}{{ $thumbSrc ? ' video-card__thumb-bg--has-thumb' : '' }}">
-                  @if ($thumbSrc)
-                    <img class="video-card__thumb-img" src="{{ $thumbSrc }}" alt="{{ $video->title }}" loading="lazy" decoding="async" width="480" height="270">
-                  @endif
-                </div>
-                <div class="video-card__play-wrap">
-                  <div class="video-card__play-btn">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                  </div>
-                </div>
-                @if ($isFeatured)
-                  <div class="video-card__label">Featured</div>
-                @endif
-              </div>
-              <div class="video-card__info">
-                <p class="video-card__title">{{ $video->heading }}</p>
-                <h3 class="video-card__meta">{{ $video->title }}</h3>
-                <a href="{{ $video->video_url }}" target="_blank" rel="noopener noreferrer" class="btn {{ $isFeatured ? 'btn--primary' : 'btn--ghost' }} btn--sm">{{ $watchLabel }}</a>
-              </div>
+          <div class="promise__stats reveal reveal--right" role="list">
+            <article class="promise-stat reveal" role="listitem">
+              <p class="promise-stat__value">10+</p>
+              <p class="promise-stat__label">IV drip formulas</p>
             </article>
-          @empty
-            <p class="videos__empty reveal">Highlight videos will appear here once they are published in the admin.</p>
-          @endforelse
-        </div>
-        <div class="videos__cta reveal">
-          <a href="https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">View Full FieldLevel Profile</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="academics section section--alt" id="academics">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">Academic Profile</span>
-          <h2 class="section-title">Education &amp; Contacts</h2>
-        </div>
-        <div class="academics__grid">
-          <div class="academics__school reveal">
-            <div class="school-card">
-              <div class="school-card__header">
-                <div class="school-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></div>
-                <div><h3 class="school-card__name">Rio Hondo College</h3><p class="school-card__address">3600 Workman Mill Rd, Whittier, CA 90601</p></div>
-              </div>
-              <div class="school-card__stats">
-                <div class="school-stat"><span class="school-stat__val">3.20</span><span class="school-stat__key">GPA</span></div>
-                <div class="school-stat"><span class="school-stat__val">2027</span><span class="school-stat__key">Grad</span></div>
-                <div class="school-stat"><span class="school-stat__val">FR</span><span class="school-stat__key">Year</span></div>
-              </div>
-              <div class="school-card__info"><p class="school-card__info-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.81 2.8h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.92 17z"></path></svg>(562) 692-0921</p><p class="school-card__id">Student ID: 001522842</p></div>
-            </div>
-          </div>
-          <div class="academics__contacts reveal reveal--right">
-            <h3 class="academics__contacts-title">Academic Staff</h3>
-            <div class="contact-list">
-              <article class="contact-item">
-                <div class="contact-item__avatar">LM</div>
-                <div class="contact-item__info"><p class="contact-item__name">Lopez Moreno, Nadia</p><p class="contact-item__role">Counselor</p><a href="mailto:nmoreno@riohondo.edu" class="contact-item__email">nmoreno@riohondo.edu</a></div>
-              </article>
-              <article class="contact-item">
-                <div class="contact-item__avatar">JW</div>
-                <div class="contact-item__info"><p class="contact-item__name">Jackson Wong</p><p class="contact-item__role">Head Coach</p><a href="mailto:Jawong@riohondo.edu" class="contact-item__email">Jawong@riohondo.edu</a><a href="tel:6264294255" class="contact-item__phone">(626) 429-4255</a></div>
-              </article>
-              <article class="contact-item">
-                <div class="contact-item__avatar">JR</div>
-                <div class="contact-item__info"><p class="contact-item__name">Jennifer Reynoso</p><p class="contact-item__role">Assistant Coach</p><a href="mailto:JReynoso@riohondo.edu" class="contact-item__email">JReynoso@riohondo.edu</a><a href="tel:5623297166" class="contact-item__phone">(562) 329-7166</a></div>
-              </article>
-            </div>
+            <article class="promise-stat reveal" role="listitem">
+              <p class="promise-stat__value">100%</p>
+              <p class="promise-stat__label">Medically cleared</p>
+            </article>
+            <article class="promise-stat reveal" role="listitem">
+              <p class="promise-stat__value">30–60</p>
+              <p class="promise-stat__label">Minute sessions</p>
+            </article>
+            <article class="promise-stat reveal" role="listitem">
+              <p class="promise-stat__value">1:1</p>
+              <p class="promise-stat__label">Personal care</p>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="references section" id="references">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">Vouched For</span>
-          <h2 class="section-title">Coach References</h2>
-        </div>
-        <div class="references__grid">
-          <article class="ref-card reveal">
-            <div class="ref-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
-            <div class="ref-card__content"><h3 class="ref-card__name">Coach Tim</h3><p class="ref-card__role">Varsity Volleyball Coach</p><p class="ref-card__school">Los Altos High School</p><a href="tel:7143302417" class="ref-card__phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.81 2.8h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.92 17z"></path></svg>(714) 330-2417</a></div>
-          </article>
-          <article class="ref-card reveal">
-            <div class="ref-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
-            <div class="ref-card__content"><h3 class="ref-card__name">Bryan Pagdillo</h3><p class="ref-card__role">Club Manager</p><p class="ref-card__school">Club 626</p><a href="tel:9095246662" class="ref-card__phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.81 2.8h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.92 17z"></path></svg>(909) 524-6662</a></div>
-          </article>
-          <article class="ref-card reveal">
-            <div class="ref-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
-            <div class="ref-card__content"><h3 class="ref-card__name">Joel Baza</h3><p class="ref-card__role">Head Coach</p><p class="ref-card__school">Foothill Coach &amp; Charter Oaks HS</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-banner">
-      <div class="cta-banner__bg"><div class="cta-banner__mesh"></div></div>
-      <div class="container">
-        <div class="cta-banner__inner reveal">
-          <span class="cta-banner__eyebrow">Ready to Compete</span>
-          <h2 class="cta-banner__title">Let's Connect</h2>
-          <p class="cta-banner__text">If you're looking for a passionate, coachable libero who brings energy and heart — I'm ready.</p>
-          <div class="cta-banner__actions">
-            <a href="mailto:lyllivb.Libero07@gmail.com" class="btn btn--secondary btn--lg">Email Me</a>
-            <a href="tel:6264066538" class="btn btn--outline btn--lg">Call Me</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact section section--alt" id="contact">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">Get In Touch</span>
-          <h2 class="section-title">Contact Lyllianna</h2>
-        </div>
-        <div class="contact__grid">
-          <div class="contact__info reveal">
-            <div class="contact__info-card">
-              <h3 class="contact__info-name">Lyllianna Aguayo</h3>
-              <p class="contact__info-position">Libero / DS · Rio Hondo College</p>
-              <div class="contact__info-list">
-                <a href="mailto:lyllivb.Libero07@gmail.com" class="contact__info-row">
-                  <div class="contact__info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,12 2,6"></polyline></svg></div>
-                  <div><p class="contact__info-label">Email</p><p class="contact__info-value">lyllivb.Libero07@gmail.com</p></div>
-                </a>
-                <a href="tel:6264066538" class="contact__info-row">
-                  <div class="contact__info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.9 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.81 2.8h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.92 17z"></path></svg></div>
-                  <div><p class="contact__info-label">Phone</p><p class="contact__info-value">(626) 406-6538</p></div>
-                </a>
-                <div class="contact__info-row">
-                  <div class="contact__info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
-                  <div><p class="contact__info-label">Location</p><p class="contact__info-value">5368 Durfee Ave, El Monte, CA 91732</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="contact__fieldlevel reveal reveal--right">
-            <div class="fieldlevel-card">
-              <div class="fieldlevel-card__header">
-                <svg class="fieldlevel-card__logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                <span class="fieldlevel-card__logo-text">FieldLevel</span>
-              </div>
-              <p class="fieldlevel-card__desc">View full recruitment profile, game footage, verified stats, and more.</p>
-              <a href="https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">View Profile</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    @include('website.partials.book-your-visit')
 @endsection

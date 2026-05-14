@@ -105,3 +105,54 @@ document.querySelectorAll('.video-card__thumb').forEach(thumb => {
     }
   });
 });
+
+/** Homepage: sync active nav with URL hash (#about, #faq, …). Route-based active state comes from PHP. */
+(() => {
+  if (!document.body.hasAttribute('data-nav-hash-root')) return;
+
+  const HASH_KEYS = ['about', 'faq', 'policies', 'contact'];
+
+  const syncNavFromHash = () => {
+    const raw = window.location.hash.replace(/^#/, '');
+    const section = HASH_KEYS.includes(raw) ? raw : '';
+
+    document.querySelectorAll('[data-nav-key]').forEach((el) => {
+      const key = el.dataset.navKey || '';
+      let active = false;
+      if (key === 'home') {
+        active = !section;
+      } else if (HASH_KEYS.includes(key)) {
+        active = key === section;
+      }
+
+      el.classList.toggle('nav__link--active', active && el.classList.contains('nav__link'));
+      el.classList.toggle('mobile-menu__link--active', active && el.classList.contains('mobile-menu__link'));
+    });
+
+    document.querySelectorAll('[data-nav-key]').forEach((el) => el.removeAttribute('aria-current'));
+    document
+      .querySelectorAll('.nav__link--active[data-nav-key], .mobile-menu__link--active[data-nav-key]')
+      .forEach((el) => el.setAttribute('aria-current', 'page'));
+  };
+
+  window.addEventListener('hashchange', syncNavFromHash);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', syncNavFromHash, { once: true });
+  } else {
+    syncNavFromHash();
+  }
+})();
+
+/** FAQ page: keep a single accordion item open at a time (matches comp UX). */
+(() => {
+  const wrap = document.querySelector('.faq-accordion-wrap');
+  if (!wrap) return;
+  wrap.querySelectorAll('details.faq-accordion').forEach((det) => {
+    det.addEventListener('toggle', () => {
+      if (!det.open) return;
+      wrap.querySelectorAll('details.faq-accordion').forEach((other) => {
+        if (other !== det) other.removeAttribute('open');
+      });
+    });
+  });
+})();

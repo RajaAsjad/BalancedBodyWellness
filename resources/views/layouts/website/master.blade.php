@@ -6,9 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description"
-        content="@yield('meta_description', 'Official recruitment portfolio of Lyllianna Aguayo — Libero/DS, Rio Hondo College. Class of 2027, GPA 3.20. First Team All-League, Second Team All-Conference.')">
-    <title>@yield('title', 'Lyllianna Aguayo — Volleyball Recruitment Portfolio')</title>
+    <meta name="description" content="@yield('meta_description')">
+    <title>@yield('title')</title>
     @php
         $fav = trim($home_page_data['header_favicon'] ?? '');
     @endphp
@@ -26,11 +25,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/website/css/portfolio.css') }}">
     @stack('styles')
 </head>
 
-<body>
+<body @if (request()->routeIs('index')) data-nav-hash-root @endif>
     @include('layouts.website.header')
 
     <main id="main">

@@ -11,7 +11,11 @@ use App\Models\ContactUs;
 use App\Models\ShopContact;
 use App\Models\PhotoGallery;
 use App\Models\Video;
+use App\Models\Faq;
+use App\Models\Policy;
 use App\Models\Audio;
+use App\Models\Policies;
+
 class HomeController extends Controller
 {
     public function __construct()
@@ -30,6 +34,8 @@ class HomeController extends Controller
             $page_title = 'Dashboard';
 
             $slidersTotal = HomeSlider::count(); 
+            $faqTotal = Faq::count();
+            $policyTotal = Policies::count(); 
 
             $bannersTotal = Banner::count(); 
 
@@ -48,6 +54,8 @@ class HomeController extends Controller
             return view('admin.dashboard.dashboard', compact(
                 'page_title',
                 'slidersTotal', 
+                'faqTotal',
+                'policyTotal',
                 'bannersTotal', 
                 'testimonialsTotal', 
                 'contactUsTotal', 

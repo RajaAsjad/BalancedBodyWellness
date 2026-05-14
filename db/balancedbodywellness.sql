@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2026 at 01:27 AM
+-- Generation Time: May 14, 2026 at 10:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lyllianna-aguayo`
+-- Database: `balancedbodywellness`
 --
 
 -- --------------------------------------------------------
@@ -131,7 +131,8 @@ CREATE TABLE `contact_us` (
 
 INSERT INTO `contact_us` (`id`, `first_name`, `last_name`, `email`, `phone`, `address`, `message`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 'Tatiana', 'Patrick', 'qigetylova@mailinator.com', '+1 (104) 308-4146', 'Id et voluptatum co', 'Numquam quidem sit', '1', '2026-02-26 16:58:03', '2026-02-25 13:35:35', '2026-02-26 11:58:03'),
-(2, 'Solomon', 'Wooten', 'zodyw@mailinator.com', '+1 (867) 988-5696', 'Ezekiel Todd', 'Ducimus ut ullam fu', '1', NULL, '2026-04-16 18:44:01', '2026-04-16 18:44:01');
+(2, 'Solomon', 'Wooten', 'zodyw@mailinator.com', '+1 (867) 988-5696', 'Ezekiel Todd', 'Ducimus ut ullam fu', '1', NULL, '2026-04-16 18:44:01', '2026-04-16 18:44:01'),
+(3, 'Iris', 'Carpenter', 'asjadmmc67@gmail.com', '+1 (342) 322-3924', 'Voluptatem Voluptas dolor neque asperiores qui quia iusto est vel magnam excepteur ullamco at impedit laborum deleniti esse', 'Preferred date: 1984-12-07\n\nTempor porro similique nisi optio labore maxime ullam ex facere aut et maxime', '1', NULL, '2026-05-14 14:26:59', '2026-05-14 14:26:59');
 
 -- --------------------------------------------------------
 
@@ -148,6 +149,37 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faqs`
+--
+
+CREATE TABLE `faqs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_by` bigint(20) NOT NULL,
+  `question` varchar(255) NOT NULL,
+  `answer` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT '1' COMMENT '0=inactive, 1= active',
+  `deleted_at` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `faqs`
+--
+
+INSERT INTO `faqs` (`id`, `created_by`, `question`, `answer`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Do I need medical clearance before my first visit?', 'Yes. Every client completes a brief intake and is reviewed by our medical provider before any IV, peptide, or injection is administered. This protects your safety and lets us tailor the right protocol.', '1', NULL, '2026-05-14 12:24:24', '2026-05-14 12:24:24'),
+(2, 1, 'How long does an IV session take?', 'Most drips run 30–60 minutes depending on the formulation. Wellness injections take just a few minutes. Plan to arrive about 10 minutes early for your first visit.', '1', NULL, '2026-05-14 12:25:32', '2026-05-14 12:25:32'),
+(3, 1, 'How do I pay?', 'Payment is collected in person at your appointment. We accept [accepted methods]. We do not offer online booking deposits or e-commerce.', '1', NULL, '2026-05-14 12:26:30', '2026-05-14 12:26:30'),
+(4, 1, 'Do you accept insurance?', 'IV wellness services are generally not covered by insurance. We can provide a receipt upon request.', '1', NULL, '2026-05-14 12:27:16', '2026-05-14 12:27:16'),
+(5, 1, 'Is IV therapy safe?', 'When delivered by trained professionals after medical screening, IV therapy is well tolerated. We use sterile technique and quality compounds, and our provider reviews every order.', '1', NULL, '2026-05-14 12:27:43', '2026-05-14 12:43:49'),
+(6, 1, 'How often should I come in?', 'It depends on your goals. Some clients visit weekly for ongoing support, others monthly. We\'ll recommend a cadence at your consultation.', '1', NULL, '2026-05-14 12:28:12', '2026-05-14 12:44:22'),
+(7, 1, 'Can I bring a friend?', 'Absolutely — just let us know in advance so we can prepare the space.', '1', NULL, '2026-05-14 12:28:38', '2026-05-14 12:44:53'),
+(8, 1, 'What if I need to cancel?', 'We ask for [24–48 hours] notice. See our Policies page for full details.', '1', NULL, '2026-05-14 12:29:05', '2026-05-14 12:45:23');
 
 -- --------------------------------------------------------
 
@@ -311,7 +343,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (159, '2026_03_11_194327_create_schedule_shop_contacts_table', 109),
 (160, '2026_02_24_201750_create_videos_table', 110),
 (161, '2026_05_06_000001_add_thumbnail_url_to_videos_table', 111),
-(162, '2026_05_06_120000_add_thumbnail_url_to_videos_table', 112);
+(162, '2026_05_06_120000_add_thumbnail_url_to_videos_table', 112),
+(163, '2022_04_12_203003_create_faqs_table', 113),
+(164, '2026_05_14_175626_create_policies_table', 114);
 
 -- --------------------------------------------------------
 
@@ -405,7 +439,7 @@ CREATE TABLE `pages` (
 
 INSERT INTO `pages` (`id`, `created_by`, `title`, `slug`, `description`, `meta_title`, `meta_keyword`, `meta_description`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Header', 'header', '<p>Website Header</p>', NULL, NULL, NULL, 1, NULL, '2022-06-03 18:22:30', '2026-03-03 12:40:35'),
-(22, 1, 'Home About', 'home-about', '<p>About detail on home page</p>', NULL, NULL, NULL, 1, NULL, '2026-02-24 13:59:33', '2026-02-24 14:00:00'),
+(22, 1, 'Home About', 'home-about', '<p>About detail on home page</p>', NULL, NULL, NULL, 1, '2026-05-14 19:31:12', '2026-02-24 13:59:33', '2026-05-14 14:31:12'),
 (23, 1, 'Latest News', 'latest-news', '<p>Latest News Page&nbsp;</p>\r\n<div>\r\n<div>2026 Future assignments</div>\r\n</div>', NULL, NULL, NULL, 1, '2026-04-29 22:18:15', '2026-03-03 12:38:40', '2026-04-29 17:18:15'),
 (24, 1, 'Schedule Shop & Contact', 'schedule-shop-contact', '<p>Schedule Shop &amp; Contact Page</p>', NULL, NULL, NULL, 1, '2026-04-29 22:18:19', '2026-03-11 15:10:09', '2026-04-29 17:18:19'),
 (25, 1, 'Home Shows & Appearances', 'shows-appearances', '<div>\r\n<div>Shows &amp; Appearances on home page</div>\r\n</div>', NULL, NULL, NULL, 1, '2026-04-29 22:18:23', '2026-04-03 18:49:05', '2026-04-29 17:18:23'),
@@ -435,8 +469,8 @@ INSERT INTO `page_settings` (`id`, `parent_slug`, `key`, `value`, `deleted_at`, 
 (1, 'header', '_token', 'dfYLVJ7m5v909OKmOxjUbLtzYSLynv6Oq2e2YJiJ', NULL, '2022-06-03 18:31:33', '2026-02-20 12:30:05'),
 (2, 'header', 'parent_slug', 'header', NULL, '2022-06-03 18:31:33', '2022-06-03 18:31:33'),
 (3, 'header', 'form_blog', NULL, NULL, '2022-06-03 18:31:33', '2022-06-03 18:31:33'),
-(4, 'header', 'header_favicon', '', NULL, '2022-06-03 18:31:33', '2026-04-16 14:36:42'),
-(5, 'header', 'header_logo', '', NULL, '2022-06-03 18:31:33', '2026-04-16 14:36:57'),
+(4, 'header', 'header_favicon', '13052026235412.png', NULL, '2022-06-03 18:31:33', '2026-05-13 18:54:12'),
+(5, 'header', 'header_logo', '13052026235412.png', NULL, '2022-06-03 18:31:33', '2026-05-13 18:54:12'),
 (6, 'footer', '_token', 'xEi2jZ3Kr1YPMfDlXuClmqFqa1bzdcXjay8JAo4b', NULL, '2022-06-03 18:41:30', '2023-05-18 17:45:43'),
 (7, 'footer', 'parent_slug', 'footer', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
 (8, 'footer', 'footer_description', '<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
@@ -609,7 +643,8 @@ INSERT INTO `page_settings` (`id`, `parent_slug`, `key`, `value`, `deleted_at`, 
 (240, 'britains-got-talent', 'home_bgt_images', '[\"10042026203455_69d95eefc7c446.21944366_0.png\",\"10042026203455_69d95eefc7f4e4.18928933_1.png\",\"10042026203455_69d95eefc80914.82813756_2.png\",\"10042026203455_69d95eefc81b21.65319423_3.png\",\"10042026203455_69d95eefc82ec0.95576109_4.png\",\"10042026203455_69d95eefc83f73.63231518_5.png\"]', NULL, '2026-04-10 15:34:55', '2026-04-10 15:34:55'),
 (241, 'britains-got-talent', 'home_bgt_title', '<p><span class=\"d-block mb-3\">Perry Grant On </span>Britains Got Talent</p>', NULL, '2026-04-10 15:34:55', '2026-04-10 17:54:07'),
 (242, 'britains-got-talent', 'home_bgt_description', '<p>Simon Cowell described Perry Grant as &ldquo;The happiest performer we have ever ever had on BGT. <br />An amazing appearance on the show received praise from the panelists and Simon described Perry&rsquo;s performance as &ldquo;Bruno&rsquo;s vision of Heaven &ldquo;</p>', NULL, '2026-04-10 15:34:56', '2026-04-10 17:55:42'),
-(243, 'britains-got-talent', 'home_bgt_active_status', '1', NULL, '2026-04-10 15:34:56', '2026-04-10 17:36:53');
+(243, 'britains-got-talent', 'home_bgt_active_status', '1', NULL, '2026-04-10 15:34:56', '2026-04-10 17:36:53'),
+(244, 'header', 'footer_fieldlevel', NULL, NULL, '2026-05-13 18:54:12', '2026-05-13 18:54:12');
 
 -- --------------------------------------------------------
 
@@ -727,7 +762,15 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `permission`, `deleted_at
 (253, 'homebgt-list', 'web', 'list', NULL, '2026-04-10 14:42:30', '2026-04-10 14:42:30'),
 (254, 'homebgt-create', 'web', 'create', NULL, '2026-04-10 14:42:30', '2026-04-10 14:42:30'),
 (255, 'homebgt-edit', 'web', 'edit', NULL, '2026-04-10 14:42:30', '2026-04-10 14:42:30'),
-(256, 'homebgt-delete', 'web', 'delete', NULL, '2026-04-10 14:42:31', '2026-04-10 14:42:31');
+(256, 'homebgt-delete', 'web', 'delete', NULL, '2026-04-10 14:42:31', '2026-04-10 14:42:31'),
+(257, 'faq-list', 'web', 'list', NULL, '2026-05-14 12:23:01', '2026-05-14 12:23:01'),
+(258, 'faq-create', 'web', 'create', NULL, '2026-05-14 12:23:01', '2026-05-14 12:23:01'),
+(259, 'faq-edit', 'web', 'edit', NULL, '2026-05-14 12:23:01', '2026-05-14 12:23:01'),
+(260, 'faq-delete', 'web', 'delete', NULL, '2026-05-14 12:23:01', '2026-05-14 12:23:01'),
+(261, 'policy-list', 'web', 'list', NULL, '2026-05-14 13:08:12', '2026-05-14 13:08:12'),
+(262, 'policy-create', 'web', 'create', NULL, '2026-05-14 13:08:12', '2026-05-14 13:08:12'),
+(263, 'policy-edit', 'web', 'edit', NULL, '2026-05-14 13:08:12', '2026-05-14 13:08:12'),
+(264, 'policy-delete', 'web', 'delete', NULL, '2026-05-14 13:08:12', '2026-05-14 13:08:12');
 
 -- --------------------------------------------------------
 
@@ -761,6 +804,37 @@ CREATE TABLE `photo_galleries` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `policies`
+--
+
+CREATE TABLE `policies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_by` bigint(20) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT '1' COMMENT '0=inactive, 1= active',
+  `deleted_at` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `policies`
+--
+
+INSERT INTO `policies` (`id`, `created_by`, `title`, `description`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Medical Clearance', 'All clients must complete a health intake and receive medical clearance from our supervising provider prior to any IV, peptide, or injection service. We may request additional information or decline service when appropriate for your safety.', '1', NULL, '2026-05-14 13:13:41', '2026-05-14 13:13:41'),
+(2, 1, 'Appointments & Booking', 'Appointments are scheduled by phone, email, or via our contact form. We do not currently offer online booking. A confirmation will be sent once your visit is reserved.', '1', NULL, '2026-05-14 13:14:03', '2026-05-14 13:14:03'),
+(3, 1, 'Cancellations & No-Shows', 'We ask for at least [24–48 hours] notice for cancellations or rescheduling. Late cancellations and no-shows may be subject to a [fee]. Repeated no-shows may affect your ability to book future appointments.', '1', NULL, '2026-05-14 13:14:20', '2026-05-14 13:14:20'),
+(4, 1, 'Payment', 'Payment is collected in person at the time of service. We accept [cash, major credit cards, etc.]. We do not process payments online and do not store payment information.', '1', NULL, '2026-05-14 13:14:38', '2026-05-14 13:14:38'),
+(5, 1, 'Late Arrivals', 'If you arrive more than [15 minutes] late, your appointment may need to be shortened or rescheduled to respect other clients\' bookings.', '1', NULL, '2026-05-14 13:14:54', '2026-05-14 13:14:54'),
+(6, 1, 'Privacy', 'Your health information is kept confidential and handled in accordance with applicable privacy laws. We do not sell or share your information with third parties for marketing purposes.', '1', NULL, '2026-05-14 13:15:11', '2026-05-14 13:15:11'),
+(7, 1, 'Disclaimer', 'Services offered at Balanced Body IV Wellness are intended to support general wellness and are not a substitute for medical diagnosis or treatment. Always consult your primary care provider for medical concerns.', '1', NULL, '2026-05-14 13:15:30', '2026-05-14 13:15:30'),
+(8, 1, 'Disclaimer', 'Services offered at Balanced Body IV Wellness are intended to support general wellness and are not a substitute for medical diagnosis or treatment. Always consult your primary care provider for medical concerns.', '1', '2026-05-14 18:36:15', '2026-05-14 13:15:30', '2026-05-14 13:36:15');
 
 -- --------------------------------------------------------
 
@@ -851,10 +925,6 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (210, 1),
 (211, 1),
 (212, 1),
-(213, 1),
-(214, 1),
-(215, 1),
-(216, 1),
 (217, 1),
 (218, 1),
 (219, 1),
@@ -882,7 +952,15 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (253, 1),
 (254, 1),
 (255, 1),
-(256, 1);
+(256, 1),
+(257, 1),
+(258, 1),
+(259, 1),
+(260, 1),
+(261, 1),
+(262, 1),
+(263, 1),
+(264, 1);
 
 -- --------------------------------------------------------
 
@@ -1090,7 +1168,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `last_name`, `phone`, `email`, `address`, `email_verified_at`, `password`, `remember_token`, `deleted_at`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Perry', 'Grant', NULL, 'admin@gmail.com', NULL, NULL, '$2y$10$QowHn04SUEIx8Lo.kQahTehd1cmYS2NnLkwDlqRARD7bVtpnNg/mi', NULL, NULL, '1', NULL, '2024-05-14 20:23:10');
+(1, 'Super', 'Admin', NULL, 'admin@gmail.com', NULL, NULL, '$2y$10$QowHn04SUEIx8Lo.kQahTehd1cmYS2NnLkwDlqRARD7bVtpnNg/mi', NULL, NULL, '1', NULL, '2024-05-14 20:23:10');
 
 -- --------------------------------------------------------
 
@@ -1383,6 +1461,12 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `faqs`
+--
+ALTER TABLE `faqs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `home_sliders`
 --
 ALTER TABLE `home_sliders`
@@ -1451,6 +1535,12 @@ ALTER TABLE `personal_access_tokens`
 -- Indexes for table `photo_galleries`
 --
 ALTER TABLE `photo_galleries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `policies`
+--
+ALTER TABLE `policies`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1536,13 +1626,19 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `faqs`
+--
+ALTER TABLE `faqs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `home_sliders`
@@ -1560,7 +1656,7 @@ ALTER TABLE `latest_news`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -1572,13 +1668,13 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `page_settings`
 --
 ALTER TABLE `page_settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=244;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=245;
 
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=265;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1591,6 +1687,12 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `photo_galleries`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `policies`
+--
+ALTER TABLE `policies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `roles`

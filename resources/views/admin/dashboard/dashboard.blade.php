@@ -6,10 +6,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Portfolio theme: cream + pink / orange (Lyllianna site) */
+        /* Balanced Body IV Wellness — teal, sage, cream, gold (matches public site) */
         .pg-dash {
+            --dash-teal: #2d6a62;
+            --dash-teal-mid: #3a8076;
+            --dash-teal-light: #4a9a8e;
+            --dash-teal-deep: #1a3f3c;
+            --dash-gold: #c9a157;
+            --dash-gold-soft: rgba(201, 161, 87, 0.2);
+            --dash-sage: rgba(90, 125, 108, 0.18);
+            --dash-mint: rgba(138, 190, 175, 0.16);
             min-height: calc(100vh - 100px);
-            background: linear-gradient(180deg, #fafaf9 0%, #f5f3f0 100%);
+            background: linear-gradient(180deg, #fafaf8 0%, #eef2f0 100%);
             padding: 0 1.5rem 2.5rem;
         }
 
@@ -19,8 +27,8 @@
             padding: 3.5rem 2rem;
             background: #ffffff;
             border-radius: 16px;
-            border: 1px solid rgba(236, 72, 153, 0.15);
-            box-shadow: 0 8px 32px rgba(236, 72, 153, 0.1);
+            border: 1px solid rgba(45, 106, 98, 0.14);
+            box-shadow: 0 8px 32px rgba(29, 43, 51, 0.06);
             position: relative;
             overflow: hidden;
             isolation: isolate;
@@ -32,9 +40,9 @@
             inset: 0;
             z-index: 0;
             background:
-                radial-gradient(ellipse 80% 55% at 75% 25%, rgba(236, 72, 153, 0.14) 0%, transparent 58%),
-                radial-gradient(ellipse 55% 45% at 15% 85%, rgba(249, 115, 22, 0.1) 0%, transparent 52%),
-                radial-gradient(ellipse 45% 35% at 92% 70%, rgba(219, 39, 119, 0.08) 0%, transparent 48%);
+                radial-gradient(ellipse 80% 55% at 75% 25%, var(--dash-mint) 0%, transparent 58%),
+                radial-gradient(ellipse 55% 45% at 15% 85%, var(--dash-sage) 0%, transparent 52%),
+                radial-gradient(ellipse 45% 35% at 92% 70%, var(--dash-gold-soft) 0%, transparent 48%);
             animation: pgDashMesh 18s ease-in-out infinite alternate;
             pointer-events: none;
         }
@@ -62,7 +70,7 @@
             line-height: 1.1;
             letter-spacing: -0.02em;
             margin: 0;
-            background: linear-gradient(135deg, #ec4899 0%, #db2777 45%, #ea580c 100%);
+            background: linear-gradient(135deg, #1d2b33 0%, var(--dash-teal-deep) 28%, var(--dash-teal) 55%, var(--dash-teal-light) 85%, var(--dash-gold) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -85,7 +93,7 @@
             font-family: 'Poppins', system-ui, sans-serif;
             font-size: clamp(1rem, 2vw, 1.25rem);
             font-weight: 500;
-            color: #6b7280;
+            color: #5f6f68;
             margin: 1rem 0 0;
             letter-spacing: 0.06em;
             text-transform: uppercase;
@@ -114,8 +122,8 @@
             background: #fff;
             border-radius: 16px;
             padding: 1.75rem 1.5rem;
-            box-shadow: 0 4px 16px rgba(236, 72, 153, 0.08);
-            border: 1px solid rgba(236, 72, 153, 0.12);
+            box-shadow: 0 4px 16px rgba(29, 43, 51, 0.06);
+            border: 1px solid rgba(45, 106, 98, 0.12);
             text-decoration: none;
             color: inherit;
             display: block;
@@ -173,7 +181,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.12), transparent);
+            background: linear-gradient(90deg, transparent, rgba(74, 154, 142, 0.14), transparent);
             transition: left 0.5s ease;
         }
 
@@ -183,8 +191,8 @@
 
         .pg-dash__card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(236, 72, 153, 0.15);
-            border-color: rgba(236, 72, 153, 0.28);
+            box-shadow: 0 16px 40px rgba(45, 106, 98, 0.14);
+            border-color: rgba(45, 106, 98, 0.28);
             color: inherit;
             text-decoration: none;
         }
@@ -208,9 +216,9 @@
         }
 
         .pg-dash__card-icon.brand {
-            background: linear-gradient(135deg, #ec4899 0%, #f472b6 50%, #fb923c 100%);
+            background: linear-gradient(135deg, #1a3f3c 0%, var(--dash-teal) 45%, var(--dash-teal-light) 100%);
             color: #fff;
-            box-shadow: 0 6px 18px rgba(236, 72, 153, 0.35);
+            box-shadow: 0 6px 18px rgba(45, 106, 98, 0.32);
             animation: iconPulse 2.5s ease-in-out infinite;
         }
 
@@ -218,11 +226,11 @@
 
             0%,
             100% {
-                box-shadow: 0 6px 18px rgba(236, 72, 153, 0.35);
+                box-shadow: 0 6px 18px rgba(45, 106, 98, 0.32);
             }
 
             50% {
-                box-shadow: 0 8px 26px rgba(236, 72, 153, 0.5);
+                box-shadow: 0 8px 26px rgba(45, 106, 98, 0.45);
             }
         }
 
@@ -235,14 +243,14 @@
             position: relative;
             z-index: 1;
             transition: color 0.3s ease;
-            background: linear-gradient(135deg, #1a1a1a, #374151);
+            background: linear-gradient(135deg, #1d2b33, #3d524d);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .pg-dash__card:hover .pg-dash__card-value {
-            background: linear-gradient(135deg, #ec4899, #ea580c);
+            background: linear-gradient(135deg, var(--dash-teal-deep), var(--dash-teal) 50%, var(--dash-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -251,7 +259,7 @@
         .pg-dash__card-label {
             font-family: 'Poppins', system-ui, sans-serif;
             font-size: 0.9375rem;
-            color: #6b7280;
+            color: #5f6f68;
             margin-top: 0.25rem;
             font-weight: 500;
             position: relative;
@@ -303,26 +311,36 @@
                 font-size: 1.65rem;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            .pg-dash__banner::before,
+            .pg-dash__welcome-title,
+            .pg-dash__welcome-subtitle,
+            .pg-dash__card-icon.brand {
+                animation: none !important;
+            }
+
+            .pg-dash__card {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
     </style>
 @endpush
 
 @section('content')
     <section class="content pg-dash">
-        @php
-            /* $sliderIndex = Route::has('homeslider.index') ? route('homeslider.index') : '#'; */
-           /*  $bannerIndex = Route::has('banner.index') ? route('banner.index') : '#'; */
-            /* $testimonialIndex = Route::has('testimonial.index') ? route('testimonial.index') : '#'; */
-            $contactUsIndex = Route::has('contactus.index') ? route('contactus.index') : '#';
-           /*  $shopContactIndex = Route::has('shopcontact.index') ? route('shopcontact.index') : '#'; */
-           /*  $galleryIndex = Route::has('photogallery.index') ? route('photogallery.index') : '#'; */
-            $videoIndex = Route::has('video.index') ? route('video.index') : '#';
-           /*  $audioIndex = Route::has('audio.index') ? route('audio.index') : '#'; */
+        @php 
+            $contactUsIndex = Route::has('contactus.index') ? route('contactus.index') : '#'; 
+            $faqIndex = Route::has('faq.index') ? route('faq.index') : '#'; 
+            $policyIndex = Route::has('policy.index') ? route('policy.index') : '#';
         @endphp
 
         <div class="pg-dash__banner">
             <div class="pg-dash__welcome">
-                <h1 class="pg-dash__welcome-title">Welcome <br>Lyllianna Aguayo</h1>
-                <p class="pg-dash__welcome-subtitle">Manage your portfolio</p>
+                <h1 class="pg-dash__welcome-title">Welcome <br>Balanced Body IV Wellness</h1>
+                <p class="pg-dash__welcome-subtitle">Manage your website</p>
             </div>
         </div>
 
@@ -351,13 +369,24 @@
                 <div class="pg-dash__card-label">Contact Messages</div>
             </a>
 
+            <a href="{{ $faqIndex }}" class="pg-dash__card">
+                <div class="pg-dash__card-icon brand"><i class="fa fa-question-circle" aria-hidden="true"></i></div>
+                <div class="pg-dash__card-value">{{ $faqTotal ?? 0 }}</div>
+                <div class="pg-dash__card-label">FAQs</div>
+            </a>
+
+            <a href="{{ $policyIndex }}" class="pg-dash__card">
+                <div class="pg-dash__card-icon brand"><i class="fa fa-file-text" aria-hidden="true"></i></div>
+                <div class="pg-dash__card-value">{{ $policyTotal ?? 0 }}</div>
+                <div class="pg-dash__card-label">Policies</div>
+            </a>
             {{-- <a href="{{ $shopContactIndex }}" class="pg-dash__card">
                 <div class="pg-dash__card-icon brand"><i class="fa fa-shopping-bag" aria-hidden="true"></i></div>
                 <div class="pg-dash__card-value">{{ $shopContactTotal ?? 0 }}</div>
                 <div class="pg-dash__card-label">Shop Contacts</div>
             </a> --}}
 
-            <a href="{{ $videoIndex }}" class="pg-dash__card">
+            {{-- <a href="{{ $videoIndex }}" class="pg-dash__card">
                 <div class="pg-dash__card-icon brand"><i class="fa fa-video-camera" aria-hidden="true"></i></div>
                 <div class="pg-dash__card-value">{{ $videoTotal ?? 0 }}</div>
                 <div class="pg-dash__card-label">Videos</div>
