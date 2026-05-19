@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2026 at 10:16 PM
+-- Generation Time: May 19, 2026 at 07:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -159,8 +159,8 @@ CREATE TABLE `failed_jobs` (
 CREATE TABLE `faqs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `created_by` bigint(20) NOT NULL,
-  `question` varchar(255) NOT NULL,
-  `answer` varchar(255) NOT NULL,
+  `question` text NOT NULL,
+  `answer` text NOT NULL,
   `status` varchar(255) NOT NULL DEFAULT '1' COMMENT '0=inactive, 1= active',
   `deleted_at` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -172,14 +172,15 @@ CREATE TABLE `faqs` (
 --
 
 INSERT INTO `faqs` (`id`, `created_by`, `question`, `answer`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Do I need medical clearance before my first visit?', 'Yes. Every client completes a brief intake and is reviewed by our medical provider before any IV, peptide, or injection is administered. This protects your safety and lets us tailor the right protocol.', '1', NULL, '2026-05-14 12:24:24', '2026-05-14 12:24:24'),
-(2, 1, 'How long does an IV session take?', 'Most drips run 30–60 minutes depending on the formulation. Wellness injections take just a few minutes. Plan to arrive about 10 minutes early for your first visit.', '1', NULL, '2026-05-14 12:25:32', '2026-05-14 12:25:32'),
-(3, 1, 'How do I pay?', 'Payment is collected in person at your appointment. We accept [accepted methods]. We do not offer online booking deposits or e-commerce.', '1', NULL, '2026-05-14 12:26:30', '2026-05-14 12:26:30'),
-(4, 1, 'Do you accept insurance?', 'IV wellness services are generally not covered by insurance. We can provide a receipt upon request.', '1', NULL, '2026-05-14 12:27:16', '2026-05-14 12:27:16'),
-(5, 1, 'Is IV therapy safe?', 'When delivered by trained professionals after medical screening, IV therapy is well tolerated. We use sterile technique and quality compounds, and our provider reviews every order.', '1', NULL, '2026-05-14 12:27:43', '2026-05-14 12:43:49'),
-(6, 1, 'How often should I come in?', 'It depends on your goals. Some clients visit weekly for ongoing support, others monthly. We\'ll recommend a cadence at your consultation.', '1', NULL, '2026-05-14 12:28:12', '2026-05-14 12:44:22'),
-(7, 1, 'Can I bring a friend?', 'Absolutely — just let us know in advance so we can prepare the space.', '1', NULL, '2026-05-14 12:28:38', '2026-05-14 12:44:53'),
-(8, 1, 'What if I need to cancel?', 'We ask for [24–48 hours] notice. See our Policies page for full details.', '1', NULL, '2026-05-14 12:29:05', '2026-05-14 12:45:23');
+(1, 1, 'What IV Drips do you offer?', 'We offer an extensive menu of IV Drips, including New Myers, Hangover, and Amplified Beauty. You can always work with your studio\'s registered nurse to create a custom blend tailored for your needs.', '1', NULL, '2026-05-14 12:24:24', '2026-05-18 14:31:54'),
+(2, 1, 'What is IV Therapy?', 'IV is an abbreviation for intravenous. It refers to a method of administering saline solution fluids, vitamin infusions or nutrients directly into your bloodstream for maximum absorption using a needle or small tube inserted into the vein.', '1', NULL, '2026-05-14 12:25:32', '2026-05-18 14:32:17'),
+(3, 1, 'How much does IV Drip Therapy cost?', 'Prices vary by studio. Visit your local studio or check out your studio\'s local page for pricing menus.\r\nFor all active Members: A $30 up-charge will be added to Universal Membership IV appointments in California Studios for all visiting Members.', '1', NULL, '2026-05-14 12:26:30', '2026-05-18 14:33:15'),
+(4, 1, 'Are there any potential side effects of IV Drip Therapy?', 'Side effects are rare and usually limited to local irritation and swelling of the insertion area. The most common sensations are heat and flushing (from magnesium). Your medical history and concerns should be shared during your Telemed call.', '1', NULL, '2026-05-14 12:27:16', '2026-05-18 14:33:41'),
+(5, 1, 'Is IV Drip Therapy safe?', 'For healthy adults, intravenous therapy is generally considered safe and effective. However, it can cause side effects. Please discuss concerns with your healthcare provider before receiving IV infusions', '1', NULL, '2026-05-14 12:27:43', '2026-05-18 14:34:18'),
+(6, 1, 'What is the typical duration of an IV Drip Therapy session?', 'IV infusions typically take between 60-90 minutes.', '1', NULL, '2026-05-14 12:28:12', '2026-05-18 14:34:48'),
+(7, 1, 'When should I get IV Drip Therapy?', 'There are many reasons to get an IV Drip. Many clients get IV infusions before they travel to help boost their immunity. Some clients like to schedule their IV vitamin therapy after an Infrared Sauna session to help replenish their hydration hi and essential nutrients after sweating. Depending on your goals and with the help of expert guidance, you can choose potent vitamin infusions packed with ingredients that can help improve your skin\'s youthful glow, enhance your athletic performance and recovery and increase your energy.', '1', NULL, '2026-05-14 12:28:38', '2026-05-18 14:38:21'),
+(8, 1, 'What are some commonly used ingredients in IV Drip Therapy?', 'While ingredients vary by studio, clients will likely find immune-boosting Vitamin C, energy-boosting B Complex, antioxidants like Glutathione and a variety of essential minerals. No matter your goal, this therapy can help restore your body with critical nutrients to help you perform at your best.', '1', NULL, '2026-05-14 12:29:05', '2026-05-18 14:38:45'),
+(9, 1, 'What is IV Drip Therapy like?', 'IV vitamin therapy or IV hydration therapy is a relaxing, 60-90 minute experience that may leave you feeling energized, hydrated and ready to take on your next challenge.', '1', NULL, '2026-05-18 14:39:44', '2026-05-18 14:39:44');
 
 -- --------------------------------------------------------
 
@@ -345,7 +346,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (161, '2026_05_06_000001_add_thumbnail_url_to_videos_table', 111),
 (162, '2026_05_06_120000_add_thumbnail_url_to_videos_table', 112),
 (163, '2022_04_12_203003_create_faqs_table', 113),
-(164, '2026_05_14_175626_create_policies_table', 114);
+(164, '2026_05_14_175626_create_policies_table', 114),
+(165, '2026_05_18_200321_create_services_table', 115),
+(166, '2026_05_19_120000_alter_services_questions_benefits_to_text', 116);
 
 -- --------------------------------------------------------
 
@@ -770,7 +773,11 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `permission`, `deleted_at
 (261, 'policy-list', 'web', 'list', NULL, '2026-05-14 13:08:12', '2026-05-14 13:08:12'),
 (262, 'policy-create', 'web', 'create', NULL, '2026-05-14 13:08:12', '2026-05-14 13:08:12'),
 (263, 'policy-edit', 'web', 'edit', NULL, '2026-05-14 13:08:12', '2026-05-14 13:08:12'),
-(264, 'policy-delete', 'web', 'delete', NULL, '2026-05-14 13:08:12', '2026-05-14 13:08:12');
+(264, 'policy-delete', 'web', 'delete', NULL, '2026-05-14 13:08:12', '2026-05-14 13:08:12'),
+(265, 'service-list', 'web', 'list', NULL, '2026-05-18 15:32:28', '2026-05-18 15:32:28'),
+(266, 'service-create', 'web', 'create', NULL, '2026-05-18 15:32:28', '2026-05-18 15:32:28'),
+(267, 'service-edit', 'web', 'edit', NULL, '2026-05-18 15:32:28', '2026-05-18 15:32:28'),
+(268, 'service-delete', 'web', 'delete', NULL, '2026-05-18 15:32:28', '2026-05-18 15:32:28');
 
 -- --------------------------------------------------------
 
@@ -960,7 +967,11 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (261, 1),
 (262, 1),
 (263, 1),
-(264, 1);
+(264, 1),
+(265, 1),
+(266, 1),
+(267, 1),
+(268, 1);
 
 -- --------------------------------------------------------
 
@@ -997,6 +1008,34 @@ INSERT INTO `schedule_shop_contacts` (`id`, `title`, `heading`, `heading_2`, `de
 (2, 'Once I had a Dream..Available for download from Amazon and Apple Music', NULL, 'New Album “Frankly Perry” available for download and purchase very soon', NULL, NULL, '2', 'black-about-section-2', '1773365771_69b36a0b67c42.webp', '1773365771_69b36a0b67ef7.webp', NULL, 'https://www.amazon.com/music/player/albums/B08CYBJ1GV', 'Buy On Amazon', '1', NULL, '2026-03-12 20:36:11', '2026-03-12 20:36:11'),
 (3, 'By Request …Available for download from Amazon and Apple Music', NULL, NULL, NULL, NULL, '1', 'black-about-section', '1773366057_69b36b2911681.webp', '1773366057_69b36b2911835.webp', NULL, 'https://music.amazon.com/albums/B09J1XSPCY', 'Buy On Amazon', '1', NULL, '2026-03-12 20:40:57', '2026-03-12 20:40:57'),
 (4, 'Perry Grant Merchandise and Shop:', 'CD/DVD/MEDIA', NULL, 'Available for download from Amazon and Apple Music', NULL, '0', 'black-about-section-2', '1773366615_69b36d57286c6.webp', NULL, NULL, 'https://music.amazon.com/albums/B09J1XSPCY', 'Buy On Amazon', '1', NULL, '2026-03-12 20:50:15', '2026-03-12 20:50:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `services`
+--
+
+CREATE TABLE `services` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_by` bigint(20) NOT NULL,
+  `heading` varchar(255) NOT NULL,
+  `questions` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `benefits` text DEFAULT NULL,
+  `status` varchar(255) NOT NULL DEFAULT '1' COMMENT '0=inactive, 1= active',
+  `deleted_at` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`id`, `created_by`, `heading`, `questions`, `description`, `benefits`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 'ALA (Alpha Lipoic Acid)', '[\"Are you a diabetic?\",\"Do you take medication (often a \\u201cstatin\\u201d drug) to treat high cholesterol?\",\"Do you often feel fatigued?\",\"Do you often feel fatigued?\",\"Do you suffer from inflammation?\",\"Do you have an autoimmune disorder\\/condition?\",\"Do you have a history of a neurological condition?\",\"Do you want to lose weight?\",\"Do you struggle with PCOS and\\/or infertility?\",\"Do you have a neurological disease?\"]', 'ALA is known as the “universal antioxidant”—meaning it is a free radical scavenger. Free radicals are an aging accelerator and form when the body is under a significant amount of physical or chemical stress. ALA can only be purchased as a 3-pack or 6-pack and cannot be added as a single ingredient to an IV Drip.', '[\"Potentiating other antioxidants\\u2014glutathione, vitamin C and vitamin E\",\"Blood sugar control\",\"Inhibiting fat cell formation\",\"Decreased LDL (\\u201cbad cholesterol\\u201d), Increases HDL (\\u201cgood cholesterol\\u201d)\",\"Energy production\",\"Crosses the blood brain barrier\\u2014helpful in neurological conditions (Alzheimer\\u2019s, multiple sclerosis, neuropathy, traumatic brain injury, and seizure)\",\"Liver regeneration\",\"Symptom management of certain cancers (ex. Mucositis)\"]', '1', NULL, '2026-05-18 15:44:23', '2026-05-18 15:44:23'),
+(2, 1, 'Amino Blend (Arginine + Citrulline + Lysine + Proline', '[\"Are you an athlete?\",\"Do you exercise regularly?\",\"Do you have erectile dysfunction?\",\"Do you have a slow metabolism\",\"Do you often feel fatigued?\",\"Do you have sore muscles and achy joints?\",\"Do you have heart disease?\"]', 'These amino acids may help maximize performance by supporting the function of healthy joints and muscles.', '[\"Arginine\\r\\n\\u2022 Improved blood flow by creating nitric oxide (NO), a gas that helps dilate blood vessels\\r\\n\\u2022 Improved arteries for people with heart disease or clogged arteries due to its vessel-widening abilities\\r\\n\\u2022 Improved symptoms of erectile dysfunction (ED)\",\"Citrulline\\r\\n\\u2022 Longer lasting effects than just arginine alone, this nutrient is converted to arginine in the kidneys\\r\\n\\u2022 Improved vasodilation, blood flow and immune function\",\"Lysine\\r\\n\\u2022 Improved carnitine creation, which converts fatty acids into energy and also lowers cholesterol levels\\r\\n\\u2022 Improved calcium absorption and collagen formation, which aids in growth and maintenance of bones and connective tissues\",\"Proline\\r\\n\\u2022 Improved skin health\\r\\n\\u2022 Improved joint and tissue health\"]', '1', NULL, '2026-05-18 16:17:11', '2026-05-18 16:17:11'),
+(3, 1, 'B5 (Dexpanthenonol)', '[\"Do you take medication to treat acne?\",\"Do you take a \\u201cstatin\\u201d drug to treat high cholesterol?\",\"Do you follow a plant-based diet?\",\"Do you have stress in your life?\",\"Are you interested in better gut health?\"]', 'B5 is a water-soluble B vitamin that helps the body use fats and proteins. It is often called the “Energy Vitamin.”', '[\"Boosted energy and metabolism\",\"Increased manufacturing of red blood cells\",\"Increased cholesterol synthesis\",\"Improved skin health\",\"Hormone production assistance\",\"A healthy digestive tract\",\"Boosted energy from breaking down carbs and fats\",\"Increased sex hormones\",\"Healthy skin and reduced signs of aging with moisture retention\"]', '1', NULL, '2026-05-18 16:22:27', '2026-05-18 16:22:27');
 
 -- --------------------------------------------------------
 
@@ -1564,6 +1603,12 @@ ALTER TABLE `schedule_shop_contacts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
@@ -1638,7 +1683,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `faqs`
 --
 ALTER TABLE `faqs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `home_sliders`
@@ -1656,7 +1701,7 @@ ALTER TABLE `latest_news`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -1674,7 +1719,7 @@ ALTER TABLE `page_settings`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=265;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=269;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1705,6 +1750,12 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `schedule_shop_contacts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `services`
+--
+ALTER TABLE `services`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `settings`

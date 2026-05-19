@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\VideoController;
 use App\Http\Controllers\admin\AudioController;
 use App\Http\Controllers\admin\PhotoGalleryController;
 use App\Http\Controllers\admin\ShopContactController;
+use App\Http\Controllers\admin\ServicesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -97,6 +98,9 @@ Route::group(['middleware' => ['auth']], function () {
     
     //Audios
     Route::resource('audio', AudioController::class);
+    
+    //Services
+    Route::resource('service', ServicesController::class);
 
     //Photo Gallery
     Route::resource('photogallery', PhotoGalleryController::class);

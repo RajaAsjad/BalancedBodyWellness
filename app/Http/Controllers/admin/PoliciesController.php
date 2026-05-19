@@ -45,10 +45,8 @@ class PoliciesController extends Controller
      */
     public function create()
     {
-        {
-            $page_title = 'Add Policies';
-            return view('admin.policies.create', compact('page_title'));
-        }
+        $page_title = 'Add Policies';
+        return view('admin.policies.create', compact('page_title'));
     }
 
     /**

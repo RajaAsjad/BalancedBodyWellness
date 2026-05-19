@@ -156,3 +156,31 @@ document.querySelectorAll('.video-card__thumb').forEach(thumb => {
     });
   });
 })();
+
+/** Services page: tab panels per service card */
+(() => {
+  document.querySelectorAll('[data-service-tab-card]').forEach((card) => {
+    const tabs = card.querySelectorAll('[data-service-tab]');
+    const panels = card.querySelectorAll('[data-service-panel]');
+    if (!tabs.length || !panels.length) return;
+
+    const activate = (id) => {
+      tabs.forEach((tab) => {
+        const on = tab.dataset.serviceTab === id;
+        tab.classList.toggle('is-active', on);
+        tab.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      panels.forEach((panel) => {
+        const on = panel.dataset.servicePanel === id;
+        panel.classList.toggle('is-active', on);
+        if (on) panel.removeAttribute('hidden');
+        else panel.setAttribute('hidden', '');
+      });
+      window.requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => activate(tab.dataset.serviceTab));
+    });
+  });
+})();
