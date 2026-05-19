@@ -50,6 +50,73 @@
 
         </div>
     </section>
+
+    <section class="services-section peptide-therapy--services" aria-labelledby="peptide-therapy-heading">
+        <div class="container-pns">
+            <header class="peptide-therapy__header">
+                <p class="peptide-therapy__eyebrow">
+                    <span class="peptide-therapy__eyebrow-icon" aria-hidden="true">
+                        @include('website.partials.peptide-pill-icon', ['size' => 18])
+                    </span>
+                    <span class="peptide-therapy__eyebrow-text">Our services</span>
+                </p>
+                <h2 class="peptide-therapy__title" id="peptide-therapy-heading">Services</h2>
+                <p class="peptide-therapy__sub">Each service is designed to address specific health concerns and promote overall well-being.</p>
+            </header>
+
+            @if ($services->isEmpty())
+                <p class="services__empty">Services will be published soon. Please check back or contact us to learn more.</p>
+            @else
+            <div class="services__grid" role="list">
+                @foreach ($services as $service)
+                    @php
+                        $benefitItems = $service->displayList('benefits');
+                        $questionItems = $service->displayList('questions');
+                    @endphp
+                    <article class="service-tab-card reveal" role="listitem" data-service-tab-card> 
+                        <h3 class="service-tab-card__title">{{ $service->heading }}</h3>
+
+                        <div class="service-tab-card__tabs" role="tablist" aria-label="{{ $service->heading }} details">
+                            <button type="button" class="service-tab-card__tab is-active service-tab-card__tab--alt" role="tab" aria-selected="true" data-service-tab="description">Description</button>
+                            <button type="button" class="service-tab-card__tab service-tab-card__tab--alt" role="tab" aria-selected="false" data-service-tab="benefits">Benefits</button>
+                            <button type="button" class="service-tab-card__tab service-tab-card__tab--alt" role="tab" aria-selected="false" data-service-tab="questions">Is it right for you?</button>
+                        </div>
+
+                        <div class="service-tab-card__panels">
+                            <div class="service-tab-card__panel is-active" role="tabpanel" data-service-panel="description">
+                                <div class="service-tab-card__text">
+                                    {!! nl2br(e($service->description)) !!}
+                                </div>
+                            </div>
+                            <div class="service-tab-card__panel" role="tabpanel" data-service-panel="benefits" hidden>
+                                @if (count($benefitItems))
+                                    <ul class="service-tab-card__list">
+                                        @foreach ($benefitItems as $benefit)
+                                            <li>{!! nl2br(e($benefit)) !!}</li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                    <p class="service-tab-card__empty">Benefits information coming soon.</p>
+                                @endif
+                            </div>
+                            <div class="service-tab-card__panel" role="tabpanel" data-service-panel="questions" hidden>
+                                @if (count($questionItems))
+                                    <ul class="service-tab-card__list service-tab-card__list--questions">
+                                        @foreach ($questionItems as $question)
+                                            <li>{!! nl2br(e($question)) !!}</li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                    <p class="service-tab-card__empty">Ask our team during your consultation—we will help you decide if this service fits your goals.</p>
+                                @endif
+                            </div>
+                        </div>
+                    </article>
+                @endforeach
+            </div>
+            @endif
+        </div>
+    </section>
     <section class="peptide-therapy" aria-labelledby="peptide-therapy-heading">
         <div class="container-pns">
             <header class="peptide-therapy__header">

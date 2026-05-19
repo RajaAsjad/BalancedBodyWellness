@@ -7,7 +7,7 @@
                     <i class="fa fa-laptop"></i> <span>Dashboard</span>
                 </a>
             </li>
-            {{-- @can('role-list')
+            @can('role-list')
                 <li class="treeview">
                     <a href="{{ route('role.index') }}"
                         class="{{ request()->is('role') || request()->is('role/create') || request()->is('role/*/edit') ? 'active blk' : '' }}">
@@ -22,7 +22,7 @@
                         <i class="fa fa-lock"></i> <span>Permissions</span>
                     </a>
                 </li>
-            @endcan --}}
+            @endcan
             @can('page-list')
                 <li class="treeview">
                     <a href="{{ route('page.index') }}"
@@ -58,13 +58,13 @@
 
             
 
-            {{-- @can('shopcontact-list')
+            @can('service-list')
                 <li class="treeview mt-2">
-                    <a href="{{ route('shopcontact.index') }}" class="{{ request()->is('shopcontact') || request()->is('shopcontact/create') || request()->is('shopcontact/*/edit') || request()->is('shopcontact/*') ? 'active' : '' }}">
-                        <i class="fa fa-envelope"></i> <span>Shop & Contact Form</span>
+                    <a href="{{ route('service.index') }}" class="{{ request()->is('service') || request()->is('service/create') || request()->is('service/*/edit') || request()->is('service/*') ? 'active' : '' }}">
+                        <i class="fa fa-envelope"></i> <span>Services</span>
                     </a>
                 </li>
-            @endcan --}}
+            @endcan
 
              
             {{-- <li class="treeview mt-2 {{ (request()->is('video') || request()->is('video/create') || request()->is('video/*/edit') || request()->is('audio') || request()->is('audio/create') || request()->is('audio/*/edit') || request()->is('audio/*') || request()->is('photogallery') || request()->is('photogallery/*') ) ? 'active' : '' }}" style="height: auto;">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Video;
 use App\Models\Faq;
 use App\Models\Policies;
+use App\Models\Services;
 class WebController extends Controller
 {
     public function Index()
@@ -19,8 +20,12 @@ class WebController extends Controller
     public function Services()
     {
         $page_title = 'Services | Balanced Body IV Wellness';
+        $services = Services::query()
+            ->whereIn('status', [1, '1'])
+            ->orderBy('id')
+            ->get();
         $page_meta_description = 'Thoughtfully formulated IV drips, peptides, and vitamin injections — delivered with medical care in a calming, spa-inspired setting.';
-        return view('website.services', compact('page_title', 'page_meta_description'));
+        return view('website.services', compact('page_title', 'page_meta_description', 'services'));
     }
     public function AboutUs()
     {
