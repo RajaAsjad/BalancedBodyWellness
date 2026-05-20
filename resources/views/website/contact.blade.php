@@ -206,4 +206,9 @@
             </div>
         </div>
     </section>
+
+    @include('website.partials.page-faqs', [
+        'pageKey' => 'contact',
+        'sectionTitle' => 'Booking & contact questions',
+    ])
 @endsection

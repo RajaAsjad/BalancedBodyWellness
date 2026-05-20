@@ -72,9 +72,12 @@
                     @php
                         $benefitItems = $service->displayList('benefits');
                         $questionItems = $service->displayList('questions');
+                        $serviceSlug = \Illuminate\Support\Str::slug($service->heading);
                     @endphp
                     <article class="service-tab-card reveal" role="listitem" data-service-tab-card> 
-                        <h3 class="service-tab-card__title">{{ $service->heading }}</h3>
+                        <h3 class="service-tab-card__title">
+                            <a href="{{ route('service.detail', $serviceSlug) }}" class="service-tab-card__title-link">{{ $service->heading }}</a>
+                        </h3>
 
                         <div class="service-tab-card__tabs" role="tablist" aria-label="{{ $service->heading }} details">
                             <button type="button" class="service-tab-card__tab is-active service-tab-card__tab--alt" role="tab" aria-selected="true" data-service-tab="description">Description</button>
@@ -189,5 +192,11 @@
             </div>
         </div>
     </section>
+    @include('website.partials.page-faqs', [
+        'pageKey' => 'services',
+        'sectionTitle' => 'Service questions',
+        'sectionNote' => 'Common questions about our IV drips, peptides, and injections.',
+    ])
+
     @include('website.partials.book-your-visit')
 @endsection

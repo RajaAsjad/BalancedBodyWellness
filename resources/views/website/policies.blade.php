@@ -25,5 +25,10 @@
             </div>
         </div>
     </section>
+    @include('website.partials.page-faqs', [
+        'pageKey' => 'policies',
+        'sectionTitle' => 'Policy questions',
+    ])
+
     @include('website.partials.book-your-visit')
 @endsection

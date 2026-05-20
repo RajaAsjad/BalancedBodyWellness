@@ -2,9 +2,9 @@
 @section('title', $page_title)
 @section('meta_description', $page_meta_description)
 @section('content')
-    <section class="page-hero page-hero--wellness" aria-labelledby="services-hero-heading">
+    <section class="page-hero page-hero--wellness" aria-labelledby="about-hero-heading">
         <div class="container-pns">
-            <p class="page-hero__eyebrow">Our Story</p>
+            <p class="page-hero__eyebrow">About Us</p>
             <h1 class="page-hero__title" id="services-hero-heading">A practice rooted in genuine care.</h1>
             <p class="page-hero__note">Balanced Body IV Wellness was founded to bring thoughtful, medically-guided IV therapy to clients who take their health seriously — without the cold, clinical feel.</p>
         </div>
@@ -12,13 +12,13 @@
 
     <section class="section-pns section-pns--about-wellness" aria-label="About our practice">
         <div class="container-pns">
-            <div class="about-wellness-prose">
-                <p>[Founder Name] built Balanced Body around a simple belief: wellness should feel good, look beautiful,
-                    and be backed by real medical standards. With [X years] of experience in [background], she brings a
-                    clinician&rsquo;s discipline and a wellness practitioner&rsquo;s warmth to every visit.</p>
-                <p class="about-wellness-prose__last">Whether you&rsquo;re here for an energy reset, recovery support, or
-                    a longer-term peptide protocol, every session is built around your goals &mdash; and reviewed for
-                    safety first.</p>
+            <div class="about-wellness-prose about-wellness-prose--story">
+                <h2 class="about-wellness-prose__welcome">Welcome to Balanced Body IV &amp; Wellness</h2>
+                <p>My name is <strong>Carmen</strong>, owner and operator of Balanced Body IV &amp; Wellness. I am a Critical Care Registered Nurse with over <strong>15 years of experience</strong> in some of the most demanding areas of healthcare, including <strong>Cardiac Care, Transplants, Surgical Critical Care, and Medical ICU.</strong> Caring for others has always been at the heart of who I am &mdash; and wellness has always been my passion.</p>
+                <p>Throughout my career and personal health journey, I have seen firsthand the powerful impact that IV therapy, targeted nutrients, and wellness-focused treatments can have on the body. I&rsquo;ve personally experienced benefits such as <strong>increased energy, improved mental clarity, enhanced mood, better blood sugar balance, lower cholesterol</strong>, and an overall improvement in my quality of life. These transformations inspired me to create a space where others could experience the same level of support, healing, and vitality.</p>
+                <p>Balanced Body IV &amp; Wellness was founded with a simple mission: <strong>to help people feel better, live healthier, and support long-term wellness and longevity.</strong></p>
+                <p>Here, every client receives <strong>personalized care.</strong> I take the time to understand your medical history, review your labs, listen to your concerns, and learn about your goals so I can tailor your treatments to your individual needs. Whether you&rsquo;re seeking more energy, stronger immunity, improved metabolism, better recovery, or overall balance, I&rsquo;m here to guide you every step of the way.</p>
+                <p class="about-wellness-prose__last">My goal is to help you become the <strong>healthiest, strongest, and most vibrant version of yourself</strong> &mdash; because when we feel our best, we live our best.</p>
             </div>
         </div>
     </section>
@@ -86,6 +86,11 @@
             </ul>
         </div>
     </section>
+    @include('website.partials.page-faqs', [
+        'pageKey' => 'about-us',
+        'sectionTitle' => 'About our practice',
+    ])
+
     @include('website.partials.book-your-visit')
 
 @endsection

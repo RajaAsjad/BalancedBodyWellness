@@ -1,69 +1,63 @@
 @extends('layouts.admin.app')
+@section('title', $page_title)
 @section('content')
+@include('admin.partials.wellness_crud_theme')
 
-<section class="content-header">
-	<div class="content-header-left">
-		<h1>Show Service Details</h1>
-	</div>
-	<div class="content-header-right">
-		<a href="{{ route('service.index') }}" class="btn btn-primary btn-sm">View All</a>
-	</div>
-</section>
-
-<section class="content">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<table class="table bordered">
-					<tr>
-						<th>Image</th>
-						<td>
-							@if($service->image)
-								<img src="{{ asset('public/admin/assets/images/services') }}/{{ $service->image }}" alt="Slider Image" height="400px" width="500px">
-							@else 
-								<img src="{{ asset('public/admin/assets/images/services/no-photo1.jpg') }}" alt="Slider Image" height="400px" width="500px">
-							@endif
-						</td>
-					</tr>
-					<tr>
-						<th>Name</th>
-						<td><span class="badge badge-success">{{ $service->name }}</span></td>
-					</tr>
-					<tr>
-						<th>Short Description</th>
-						<td>{!! $service->short_description !!}</td>
-					</tr>
-					<tr>
-						<th>Full Description</th>
-						<td>{!! $service->description !!}</td>
-					</tr>
-					<tr>
-						<th>Status</th>
-						<td>
-							@if($service->status)
-								<span class="badge badge-success">Active</span>
-							@else 
-								<span class="badge badge-danger">In-Active</span>
-							@endif
-						</td>
-					</tr>
-					<tr>
-						<th>Date</th>
-						<td>
-							<span class="badge badge-success">{{ date('d, F-Y H:i:s A', strtotime($service->created_at)) }}</span>
-						</td>
-					</tr>
-				</table>
+<section class="content bbw-crud-theme" style="margin-bottom: 0;">
+	<div class="bbw-form-card">
+		<div class="bbw-form-header">
+			<h1>{{ $page_title }}</h1>
+			<a href="{{ route('faq.index') }}" class="bbw-form-back"><i class="fa fa-list"></i> View all</a>
+		</div>
+		<div class="bbw-form-body">
+			<table class="table table-bordered" style="margin:0;background:#fff;">
+				<tr>
+					<th width="180">Website page</th>
+					<td><span class="bbw-badge-on" style="background:#1a3f3c;">{{ $model->displayPageLabel() }}</span> <code>{{ $model->page_key }}</code></td>
+				</tr>
+				@if ($model->service_id)
+				<tr>
+					<th>Service</th>
+					<td>{{ $model->service?->heading ?? 'Service #' . $model->service_id }}</td>
+				</tr>
+				@endif
+				<tr>
+					<th>Display order</th>
+					<td>{{ $model->sort_order ?? 0 }}</td>
+				</tr>
+				<tr>
+					<th>Question</th>
+					<td>{{ $model->question }}</td>
+				</tr>
+				<tr>
+					<th>Answer</th>
+					<td style="white-space:pre-wrap;">{{ $model->answer }}</td>
+				</tr>
+				<tr>
+					<th>Status</th>
+					<td>
+						@if ($model->status)
+							<span class="bbw-badge-on">Active</span>
+						@else
+							<span class="bbw-badge-off">Inactive</span>
+						@endif
+					</td>
+				</tr>
+				<tr>
+					<th>Created by</th>
+					<td>{{ $model->hasCreatedBy->name ?? 'N/A' }}</td>
+				</tr>
+				<tr>
+					<th>Created</th>
+					<td>{{ $model->created_at?->format('M j, Y g:i A') }}</td>
+				</tr>
+			</table>
+			<div class="bbw-form-actions" style="margin-top:1.25rem;">
+				@can('faq-edit')
+				<a href="{{ route('faq.edit', $model->id) }}" class="btn bbw-btn-submit"><i class="fa fa-edit"></i> Edit</a>
+				@endcan
 			</div>
 		</div>
 	</div>
 </section>
-
-<script>
-	$(document).ready(function() {
-		$('.editor_short').summernote({
-			height: 150
-		});
-	});
-</script>
 @endsection
