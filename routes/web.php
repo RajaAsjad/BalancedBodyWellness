@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\WebController; 
+use App\Http\Controllers\WebController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\HomeSliderController;
 use App\Http\Controllers\admin\TestimonialController;
@@ -42,13 +43,17 @@ Route::post('/admin/profile/update', 'admin\AdminController@updateProfile')->nam
 Route::post('admin/logout', 'admin\AdminController@logOut')->name('admin.logout');
 
 
-// Frontend — Phoenix Neat Space Cleaning
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+
+// Frontend — Balanced Body IV Wellness
 Route::get('/', [WebController::class, 'Index'])->name('index'); 
-Route::get('services', [WebController::class, 'Services'])->name('services'); 
+Route::get('services', [WebController::class, 'Services'])->name('services');
+Route::get('services/{slug}', [WebController::class, 'ServiceDetail'])->name('service.detail');
 Route::get('about-us', [WebController::class, 'AboutUs'])->name('about-us');
 Route::get('faqs', [WebController::class, 'Faqs'])->name('faqs');
 Route::get('policies', [WebController::class, 'Policies'])->name('policies');
-Route::get('contact', [WebController::class, 'Contact'])->name('contact');  
+Route::get('contact', [WebController::class, 'Contact'])->name('contact');
+Route::get('locations', [WebController::class, 'Locations'])->name('locations');
 
 
 // Redirect /login to admin login (session expired or user types /login in URL)

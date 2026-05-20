@@ -2,6 +2,7 @@
     $navSections = [
         ['key' => 'home', 'href' => url('/'), 'label' => 'Home'],
         ['key' => 'services', 'href' => url('/services'), 'label' => 'Services'],
+        ['key' => 'locations', 'href' => url('/locations'), 'label' => 'Locations'],
         ['key' => 'about', 'href' => url('/about-us'), 'label' => 'About'],
         ['key' => 'faq', 'href' => url('/faqs'), 'label' => 'FAQ'],
         ['key' => 'policies', 'href' => url('/policies'), 'label' => 'Policies'],
@@ -9,7 +10,8 @@
     ];
     $navActiveKey = match (true) {
         request()->routeIs('index') => 'home',
-        request()->routeIs('services') => 'services',
+        request()->routeIs('services', 'service.detail') => 'services',
+        request()->routeIs('locations') => 'locations',
         request()->routeIs('about-us') => 'about',
         request()->routeIs('faqs') => 'faq',
         request()->routeIs('policies') => 'policies',
@@ -58,7 +60,7 @@
                         @if ($navLinkActive) aria-current="page" @endif>{{ $item['label'] }}</a>
                 @endforeach
                 @auth
-                    <a href="{{ route('dashboard') }}" class="nav__link">Dashboard</a>
+                    <a href="{{ route('dashboard') }}" class="nav__link" rel="nofollow">Dashboard</a>
                     <a href="{{ route('logout') }}" class="nav__link"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 @endauth
@@ -96,7 +98,7 @@
                     @if ($navLinkActive) aria-current="page" @endif>{{ $item['label'] }}</a>
             @endforeach
             @auth
-                <a href="{{ route('dashboard') }}" class="mobile-menu__link">Dashboard</a>
+                <a href="{{ route('dashboard') }}" class="mobile-menu__link" rel="nofollow">Dashboard</a>
                 <a href="{{ route('logout') }}" class="mobile-menu__link"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
             @endauth

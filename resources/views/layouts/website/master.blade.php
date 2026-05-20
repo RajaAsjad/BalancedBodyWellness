@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="@yield('meta_description')">
     <title>@yield('title')</title>
+    @include('layouts.website.partials.seo-head')
     @php
         $fav = trim($home_page_data['header_favicon'] ?? '');
     @endphp
@@ -28,6 +28,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/website/css/portfolio.css') }}">
     @stack('styles')
+    @include('layouts.website.partials.structured-data')
 </head>
 
 <body @if (request()->routeIs('index')) data-nav-hash-root @endif>

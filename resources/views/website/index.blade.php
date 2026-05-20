@@ -127,5 +127,11 @@
       </div>
     </section>
 
+    @include('website.partials.page-faqs', [
+        'pageKey' => 'home',
+        'sectionTitle' => 'Questions about IV wellness',
+        'sectionNote' => 'Quick answers before you book your first visit.',
+    ])
+
     @include('website.partials.book-your-visit')
 @endsection

@@ -2,11 +2,12 @@
     $primaryEmail = 'info@balancedbodyivwellness.com';
     $phoneDisplay = '(626) 406-6538';
     $phoneTel = '6264066538';
-    $instagramUrl = 'https://instagram.com/balancedbodyivwellness';
+    $instagramUrl = 'https://www.instagram.com/balancedbodyivwellness/';
     $instagramHandle = '@balancedbodyivwellness';
     $footerNav = [
         ['href' => url('/'), 'label' => 'Home'],
         ['href' => url('/services'), 'label' => 'Services'],
+        ['href' => url('/locations'), 'label' => 'Locations'],
         ['href' => url('/about-us'), 'label' => 'About'],
         ['href' => url('/faqs'), 'label' => 'FAQ'],
         ['href' => url('/policies'), 'label' => 'Policies'],
@@ -96,7 +97,7 @@
                     </li>
                     <li>
                         <a href="{{ $instagramUrl }}" class="footer__connect-link" target="_blank"
-                            rel="noopener noreferrer">
+                            rel="noopener noreferrer" title="Balanced Body IV Wellness on Instagram">
                             <span class="footer__connect-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
                                     stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
