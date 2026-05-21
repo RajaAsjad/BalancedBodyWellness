@@ -94,7 +94,7 @@ select.form-control {
 .navbar-nav>.user-menu .user-image {
     width: 40px;
     height: 40px;
-    margin-top: -10px;
+    margin-top: 0px;
 }
 
 .login-logo {
@@ -356,7 +356,7 @@ img.existing-photo {
 .skin-blue .main-header .logo:hover,
 .skin-blue .main-header .navbar,
 .skin-blue .main-header .navbar .sidebar-toggle:hover {
-    background-color: var(--admin-shell);
+    background-color: #222d32 !important;
 }
 
 .skin-blue .sidebar-menu>li:hover>a,
