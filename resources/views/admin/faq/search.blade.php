@@ -13,18 +13,18 @@
 		@endif
 	</td>
 	<td>{{ isset($model->hasCreatedBy) ? $model->hasCreatedBy->name : 'N/A' }}</td>
-	<td>
-		<div class="bbw-action-cell">
-			@can('faq-list')
-			<a href="{{ route('faq.show', $model->id) }}" class="btn btn-default btn-xs" title="View"><i class="fa fa-eye"></i></a>
-			@endcan
-			@can('faq-edit')
-			<a href="{{ route('faq.edit', $model->id) }}" class="btn btn-xs bbw-btn-edit"><i class="fa fa-edit"></i> Edit</a>
-			@endcan
-			@can('faq-delete')
-			<button type="button" class="btn btn-danger btn-xs delete" data-slug="{{ $model->id }}" data-del-url="{{ url('faq', $model->id) }}"><i class="fa fa-trash"></i></button>
-			@endcan
-		</div>
+	<td class="bbw-action-td">
+		@php $faqActions = ['itemId' => $model->id]; @endphp
+		@can('faq-list')
+			@php $faqActions['showUrl'] = route('faq.show', $model->id); @endphp
+		@endcan
+		@can('faq-edit')
+			@php $faqActions['editUrl'] = route('faq.edit', $model->id); @endphp
+		@endcan
+		@can('faq-delete')
+			@php $faqActions['deleteUrl'] = url('faq', $model->id); @endphp
+		@endcan
+		@include('admin.partials.bbw-table-actions', $faqActions)
 	</td>
 </tr>
 @endforeach

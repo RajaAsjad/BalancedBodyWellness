@@ -6,11 +6,12 @@
     @php
         use Illuminate\Support\Str;
 
-        $heroImg = asset('assets/website/images/hero-wellness.jpg');
-        $imgA = asset('assets/website/images/hero-wellness.jpg');
-        $imgB = asset('assets/website/images/hero-wellness.jpg');
-        $imgC = asset('assets/website/images/hero-wellness.jpg');
-        $imgD = asset('assets/website/images/hero-wellness.jpg');
+        $placeholder = \App\Models\Services::imagePlaceholderUrl();
+        $heroImg = $service ? $service->imageUrl('description_image') : $placeholder;
+        $imgA = $service ? $service->imageUrl('description_image') : $placeholder;
+        $imgB = $service ? $service->imageUrl('benefit_image') : $placeholder;
+        $imgC = $placeholder;
+        $imgD = $service ? $service->imageUrl('question_image') : $placeholder;
 
         $serviceName = $service?->heading ?? 'Hydration Revival IV Drip';
         $serviceIntro = filled($service?->description)

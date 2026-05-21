@@ -71,6 +71,22 @@ class Services extends Model
         return \Illuminate\Support\Str::limit(strip_tags($text), $limit);
     }
 
+    public static function imagePlaceholderUrl(): string
+    {
+        return asset('assets/website/images/hero-wellness.jpg');
+    }
+
+    public function imageUrl(?string $column): string
+    {
+        $file = trim((string) ($this->{$column} ?? ''));
+
+        if ($file !== '') {
+            return asset('assets/website/images/services/' . $file);
+        }
+
+        return self::imagePlaceholderUrl();
+    }
+
     public function hasCreatedBy()
     {
         return $this->hasOne(User::class, 'id', 'created_by');

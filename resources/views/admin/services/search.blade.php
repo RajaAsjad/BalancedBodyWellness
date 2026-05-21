@@ -1,11 +1,11 @@
 @foreach($models as $key=>$model)
 <tr id="id-{{ $model->id }}">
 	<td>{{ $models->firstItem()+$key }}.</td>
-	<td>{{ \Illuminate\Support\Str::limit($model->heading, 40) }}</td>
-	<td>{{ $model->listPreview('questions') }}</td>
-	<td>{{ \Illuminate\Support\Str::limit(strip_tags($model->description), 60) }}</td>
+	<td>{{ \Illuminate\Support\Str::limit($model->heading, 40) }}</td> 
+	<td>{{ \Illuminate\Support\Str::limit(strip_tags($model->description), 60) }}</td> 
 	<td>{{ $model->listPreview('benefits') }}</td>
-	<td>
+	<td>{{ $model->listPreview('questions') }}</td> 
+	<td> 
 		@if($model->status)
 		<span class="bbw-badge-on">Active</span>
 		@else
@@ -13,15 +13,18 @@
 		@endif
 	</td>
 	<td>{{ isset($model->hasCreatedBy) ? $model->hasCreatedBy->name : 'N/A' }}</td>
-	<td>
-		<div class="bbw-action-cell">
-			@can('service-edit')
-			<a href="{{ route('service.edit', $model->id) }}" data-toggle="tooltip" data-placement="top" title="Edit Service" class="btn btn-xs bbw-btn-edit"><i class="fa fa-edit"></i> Edit</a>
-			@endcan
-			@can('service-delete')
-			<button type="button" class="btn btn-danger btn-xs delete" data-slug="{{ $model->id }}" data-del-url="{{ url('service', $model->id) }}"><i class="fa fa-trash"></i> Delete</button>
-			@endcan
-		</div>
+	<td class="bbw-action-td">
+		@php $serviceActions = ['itemId' => $model->id]; @endphp
+		@can('service-list')
+			@php $serviceActions['showUrl'] = route('service.show', $model->id); @endphp
+		@endcan
+		@can('service-edit')
+			@php $serviceActions['editUrl'] = route('service.edit', $model->id); @endphp
+		@endcan
+		@can('service-delete')
+			@php $serviceActions['deleteUrl'] = url('service', $model->id); @endphp
+		@endcan
+		@include('admin.partials.bbw-table-actions', $serviceActions)
 	</td>
 </tr>
 @endforeach

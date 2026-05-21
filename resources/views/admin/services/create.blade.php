@@ -6,6 +6,7 @@
 @php
     $questionItems = \App\Models\Services::listItemsForForm(null, old('questions'));
     $benefitItems = \App\Models\Services::listItemsForForm(null, old('benefits'));
+    $placeholder = \App\Models\Services::imagePlaceholderUrl();
 @endphp
 
 <section class="content bbw-crud-theme" style="margin-bottom: 0;">
@@ -15,7 +16,7 @@
 			<a href="{{ route('service.index') }}" class="bbw-form-back"><i class="fa fa-list"></i> View all</a>
 		</div>
 		<div class="bbw-form-body">
-			<form action="{{ route('service.store') }}" id="regform" method="post" accept-charset="utf-8">
+			<form action="{{ route('service.store') }}" id="regform" method="post" enctype="multipart/form-data" accept-charset="utf-8">
 				@csrf
 				<div class="bbw-form-inner">
 					<div class="bbw-form-group">
@@ -26,11 +27,13 @@
 						@enderror
 					</div>
 
-					@include('admin.partials.bbw-list-repeater', [
-						'name' => 'questions',
-						'label' => 'Questions',
-						'items' => $questionItems,
-						'placeholder' => 'Enter a question',
+					@include('admin.services.partials.image-field', [
+						'inputId' => 'service_description_image',
+						'previewId' => 'description_image_preview',
+						'name' => 'description_image',
+						'label' => 'Description Image',
+						'required' => true,
+						'currentUrl' => $placeholder,
 					])
 
 					<div class="bbw-form-group">
@@ -41,6 +44,15 @@
 						@enderror
 					</div>
 
+					@include('admin.services.partials.image-field', [
+						'inputId' => 'service_benefit_image',
+						'previewId' => 'benefit_image_preview',
+						'name' => 'benefit_image',
+						'label' => 'Benefit Image',
+						'required' => true,
+						'currentUrl' => $placeholder,
+					])
+
 					@include('admin.partials.bbw-list-repeater', [
 						'name' => 'benefits',
 						'label' => 'Benefits',
@@ -48,6 +60,22 @@
 						'placeholder' => 'Enter a benefit',
 						'fieldType' => 'textarea',
 						'rows' => 4,
+					])
+
+					@include('admin.services.partials.image-field', [
+						'inputId' => 'service_question_image',
+						'previewId' => 'question_image_preview',
+						'name' => 'question_image',
+						'label' => 'Question Image',
+						'required' => true,
+						'currentUrl' => $placeholder,
+					])
+
+					@include('admin.partials.bbw-list-repeater', [
+						'name' => 'questions',
+						'label' => 'Questions',
+						'items' => $questionItems,
+						'placeholder' => 'Enter a question',
 					])
 
 					<div class="bbw-form-actions">
@@ -61,3 +89,7 @@
 
 @include('admin.partials.bbw-list-repeater-script')
 @endsection
+
+@push('js')
+@include('admin.services.partials.image-preview-script')
+@endpush

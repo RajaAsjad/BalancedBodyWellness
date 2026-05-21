@@ -14,7 +14,7 @@
 @section('content')
     <section class="page-hero page-hero--wellness" aria-labelledby="faqs-hero-heading">
         <div class="container-pns">
-            <p class="page-hero__eyebrow">Frequently Asked</p>
+            <p class="page-hero__eyebrow">Frequently Asked Questions</p>
             <h1 class="page-hero__title" id="faqs-hero-heading">Good questions, clear answers.</h1>
             <p class="page-hero__note">Browse FAQs by page — each section of our website has its own questions.</p>
         </div>
