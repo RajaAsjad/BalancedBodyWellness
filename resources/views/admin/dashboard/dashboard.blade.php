@@ -335,7 +335,7 @@
             $contactUsIndex = Route::has('contactus.index') ? route('contactus.index') : '#'; 
             $faqIndex = Route::has('faq.index') ? route('faq.index') : '#'; 
             $policyIndex = Route::has('policy.index') ? route('policy.index') : '#';
-            $servicesIndex = Route::has('services.index') ? route('services.index') : '#';
+            $servicesIndex = Route::has('service.index') ? route('service.index') : '#';
         @endphp
 
         <div class="pg-dash__banner">
