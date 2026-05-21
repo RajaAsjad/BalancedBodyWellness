@@ -335,6 +335,7 @@
             $contactUsIndex = Route::has('contactus.index') ? route('contactus.index') : '#'; 
             $faqIndex = Route::has('faq.index') ? route('faq.index') : '#'; 
             $policyIndex = Route::has('policy.index') ? route('policy.index') : '#';
+            $servicesIndex = Route::has('services.index') ? route('services.index') : '#';
         @endphp
 
         <div class="pg-dash__banner">
@@ -379,6 +380,11 @@
                 <div class="pg-dash__card-icon brand"><i class="fa fa-file-text" aria-hidden="true"></i></div>
                 <div class="pg-dash__card-value">{{ $policyTotal ?? 0 }}</div>
                 <div class="pg-dash__card-label">Policies</div>
+            </a>
+            <a href="{{ $servicesIndex }}" class="pg-dash__card">
+                <div class="pg-dash__card-icon brand"><i class="fa fa-cogs" aria-hidden="true"></i></div>
+                <div class="pg-dash__card-value">{{ $servicesTotal ?? 0 }}</div>
+                <div class="pg-dash__card-label">Services</div>
             </a>
             {{-- <a href="{{ $shopContactIndex }}" class="pg-dash__card">
                 <div class="pg-dash__card-icon brand"><i class="fa fa-shopping-bag" aria-hidden="true"></i></div>

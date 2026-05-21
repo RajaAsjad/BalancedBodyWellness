@@ -15,6 +15,7 @@ use App\Models\Faq;
 use App\Models\Policy;
 use App\Models\Audio;
 use App\Models\Policies;
+use App\Models\Services;
 
 class HomeController extends Controller
 {
@@ -36,6 +37,7 @@ class HomeController extends Controller
             $slidersTotal = HomeSlider::count(); 
             $faqTotal = Faq::count();
             $policyTotal = Policies::count(); 
+            $servicesTotal = Services::count();
 
             $bannersTotal = Banner::count(); 
 
