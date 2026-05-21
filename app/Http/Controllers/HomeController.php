@@ -58,6 +58,7 @@ class HomeController extends Controller
                 'slidersTotal', 
                 'faqTotal',
                 'policyTotal',
+                'servicesTotal',
                 'bannersTotal', 
                 'testimonialsTotal', 
                 'contactUsTotal', 
