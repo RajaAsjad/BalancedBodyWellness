@@ -1,17 +1,46 @@
 @php
+    $navMenus = config('nav_menus');
+
+    $serviceDropdownItems = collect($navMenus['services']['items'] ?? [])->map(fn ($item) => [
+        'label' => $item['label'],
+        'slug' => $item['slug'],
+        'href' => route('service.detail', $item['slug']),
+    ])->all();
+
+    $locationDropdownItems = collect($navMenus['locations']['items'] ?? [])->map(fn ($item) => [
+        'label' => $item['label'],
+        'slug' => $item['slug'],
+        'href' => route('location.detail', $item['slug']),
+    ])->all();
+
     $navSections = [
-        ['key' => 'home', 'href' => url('/'), 'label' => 'Home'],
-        ['key' => 'services', 'href' => url('/services'), 'label' => 'Services'],
-        ['key' => 'locations', 'href' => url('/locations'), 'label' => 'Locations'],
-        ['key' => 'about', 'href' => url('/about-us'), 'label' => 'About'],
-        ['key' => 'faq', 'href' => url('/faqs'), 'label' => 'FAQ'],
-        ['key' => 'policies', 'href' => url('/policies'), 'label' => 'Policies'],
-        ['key' => 'contact', 'href' => url('/contact'), 'label' => 'Contact'],
+        ['key' => 'home', 'type' => 'link', 'href' => url('/'), 'label' => 'Home'],
+        [
+            'key' => 'services',
+            'type' => 'dropdown',
+            'label' => 'Services',
+            'items' => $serviceDropdownItems,
+            'allHref' => route('services'),
+            'allLabel' => $navMenus['services']['all_label'] ?? 'All Services',
+        ],
+        [
+            'key' => 'locations',
+            'type' => 'dropdown',
+            'label' => 'Locations',
+            'items' => $locationDropdownItems,
+            'allHref' => route('locations'),
+            'allLabel' => $navMenus['locations']['all_label'] ?? 'All Locations',
+        ],
+        ['key' => 'about', 'type' => 'link', 'href' => url('/about-us'), 'label' => 'About'],
+        ['key' => 'faq', 'type' => 'link', 'href' => url('/faqs'), 'label' => 'FAQ'],
+        ['key' => 'policies', 'type' => 'link', 'href' => url('/policies'), 'label' => 'Policies'],
+        ['key' => 'contact', 'type' => 'link', 'href' => url('/contact'), 'label' => 'Contact'],
     ];
+
     $navActiveKey = match (true) {
         request()->routeIs('index') => 'home',
         request()->routeIs('services', 'service.detail') => 'services',
-        request()->routeIs('locations') => 'locations',
+        request()->routeIs('locations', 'location.detail') => 'locations',
         request()->routeIs('about-us') => 'about',
         request()->routeIs('faqs') => 'faq',
         request()->routeIs('policies') => 'policies',
@@ -51,13 +80,23 @@
         <div class="nav__right">
             <nav class="nav__links" role="navigation" aria-label="Primary navigation">
                 @foreach ($navSections as $item)
-                    @php
-                        $navLinkActive = $navActiveKey === $item['key'];
-                    @endphp
-                    <a href="{{ $item['href'] }}"
-                        class="nav__link{{ $navLinkActive ? ' nav__link--active' : '' }}"
-                        data-nav-key="{{ $item['key'] }}"
-                        @if ($navLinkActive) aria-current="page" @endif>{{ $item['label'] }}</a>
+                    @if (($item['type'] ?? 'link') === 'dropdown')
+                        @include('layouts.website.partials.nav-dropdown', [
+                            'menuKey' => $item['key'],
+                            'label' => $item['label'],
+                            'items' => $item['items'],
+                            'allHref' => $item['allHref'],
+                            'allLabel' => $item['allLabel'],
+                        ])
+                    @else
+                        @php
+                            $navLinkActive = $navActiveKey === $item['key'];
+                        @endphp
+                        <a href="{{ $item['href'] }}"
+                            class="nav__link{{ $navLinkActive ? ' nav__link--active' : '' }}"
+                            data-nav-key="{{ $item['key'] }}"
+                            @if ($navLinkActive) aria-current="page" @endif>{{ $item['label'] }}</a>
+                    @endif
                 @endforeach
                 @auth
                     <a href="{{ route('dashboard') }}" class="nav__link" rel="nofollow">Dashboard</a>
@@ -89,13 +128,23 @@
     <div class="mobile-menu__inner">
         <nav class="mobile-menu__links" role="navigation">
             @foreach ($navSections as $item)
-                @php
-                    $navLinkActive = $navActiveKey === $item['key'];
-                @endphp
-                <a href="{{ $item['href'] }}"
-                    class="mobile-menu__link{{ $navLinkActive ? ' mobile-menu__link--active' : '' }}"
-                    data-nav-key="{{ $item['key'] }}"
-                    @if ($navLinkActive) aria-current="page" @endif>{{ $item['label'] }}</a>
+                @if (($item['type'] ?? 'link') === 'dropdown')
+                    @include('layouts.website.partials.mobile-nav-dropdown', [
+                        'menuKey' => $item['key'],
+                        'label' => $item['label'],
+                        'items' => $item['items'],
+                        'allHref' => $item['allHref'],
+                        'allLabel' => $item['allLabel'],
+                    ])
+                @else
+                    @php
+                        $navLinkActive = $navActiveKey === $item['key'];
+                    @endphp
+                    <a href="{{ $item['href'] }}"
+                        class="mobile-menu__link{{ $navLinkActive ? ' mobile-menu__link--active' : '' }}"
+                        data-nav-key="{{ $item['key'] }}"
+                        @if ($navLinkActive) aria-current="page" @endif>{{ $item['label'] }}</a>
+                @endif
             @endforeach
             @auth
                 <a href="{{ route('dashboard') }}" class="mobile-menu__link" rel="nofollow">Dashboard</a>

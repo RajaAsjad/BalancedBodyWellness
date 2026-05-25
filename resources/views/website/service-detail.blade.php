@@ -13,7 +13,7 @@
         $imgC = $placeholder;
         $imgD = $service ? $service->imageUrl('question_image') : $placeholder;
 
-        $serviceName = $service?->heading ?? 'Hydration Revival IV Drip';
+        $serviceName = $service?->heading ?? ($placeholder['label'] ?? 'Hydration Revival IV Drip');
         $serviceIntro = filled($service?->description)
             ? $service->description
             : 'A thoughtfully formulated IV drip designed to restore fluids, support energy, and help you feel refreshed — with medical oversight in a calm, spa-inspired setting.';

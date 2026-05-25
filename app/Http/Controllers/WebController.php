@@ -12,10 +12,9 @@ class WebController extends Controller
 {
     public function Index()
     {
-        $page_title = 'Balanced Body IV Wellness';
-        $page_meta_description = 'Balanced Body IV Wellness in Los Angeles — IV hydration, peptides, and vitamin injections with medical oversight in a calming, spa-inspired studio. Book your visit.';
+        $page_title = 'IV Therapy NYC | Premium Vitamin Infusions | Balanced Body IV';
+        $page_meta_description = 'Experience premium IV therapy in NYC with Balanced Body. NAD+, vitamin infusions, medical weight loss & peptide therapy. Book your consultation today. ';
          
-        
         return view('website.index', compact('page_title', 'page_meta_description'));
     }
 
@@ -31,20 +30,36 @@ class WebController extends Controller
     }
     public function ServiceDetail($slug)
     {
+        $page = config("service_pages.{$slug}");
+
+        if ($page) {
+            $page_title = $page['meta_title'] ?? (($page['name'] ?? 'Service') . ' | Balanced Body IV Wellness');
+            $page_meta_description = $page['meta_description'] ?? 'Explore this IV wellness service at Balanced Body IV Wellness in Los Angeles.';
+
+            return view('website.service-page', compact('page_title', 'page_meta_description', 'slug', 'page'));
+        }
+
         $service = Services::query()
             ->whereIn('status', [1, '1'])
             ->get()
             ->first(fn ($item) => Str::slug($item->heading) === $slug);
 
-        $page_title = $service
-            ? $service->heading . ' | Balanced Body IV Wellness'
-            : 'IV Wellness Service | Balanced Body IV Wellness';
+        $placeholder = collect(config('nav_menus.services.items', []))->firstWhere('slug', $slug);
 
-        $page_meta_description = $service && trim((string) $service->description) !== ''
-            ? Str::limit(strip_tags($service->description), 160)
-            : 'Explore this IV wellness service — benefits, process, and personalized care at Balanced Body IV Wellness in Los Angeles.';
+        if ($service) {
+            $page_title = $service->heading . ' | Balanced Body IV Wellness';
+            $page_meta_description = trim((string) $service->description) !== ''
+                ? Str::limit(strip_tags($service->description), 160)
+                : 'Explore this IV wellness service — benefits, process, and personalized care at Balanced Body IV Wellness in Los Angeles.';
+        } elseif ($placeholder) {
+            $page_title = $placeholder['label'] . ' | Balanced Body IV Wellness';
+            $page_meta_description = 'Explore ' . $placeholder['label'] . ' — benefits, process, and personalized IV wellness care at Balanced Body IV Wellness in Los Angeles.';
+        } else {
+            $page_title = 'IV Wellness Service | Balanced Body IV Wellness';
+            $page_meta_description = 'Explore this IV wellness service — benefits, process, and personalized care at Balanced Body IV Wellness in Los Angeles.';
+        }
 
-        return view('website.service-detail', compact('page_title', 'page_meta_description', 'service', 'slug'));
+        return view('website.service-detail', compact('page_title', 'page_meta_description', 'service', 'slug', 'placeholder'));
     }
     public function AboutUs()
     {
@@ -80,5 +95,16 @@ class WebController extends Controller
         $page_title = 'Locations | Balanced Body IV Wellness';
         $page_meta_description = 'Visit our Los Angeles location for IV therapy, peptide therapy, and vitamin injections — a calming, spa-inspired studio with medical oversight.';
         return view('website.locations', compact('page_title', 'page_meta_description'));
+    }
+
+    public function LocationDetail($slug)
+    {
+        $placeholder = collect(config('nav_menus.locations.items', []))->firstWhere('slug', $slug);
+        $locationLabel = $placeholder['label'] ?? 'Location';
+
+        $page_title = $locationLabel . ' | Balanced Body IV Wellness';
+        $page_meta_description = 'Visit ' . $locationLabel . ' for IV therapy, peptide therapy, and vitamin injections — a calming, spa-inspired studio with medical oversight.';
+
+        return view('website.location-detail', compact('page_title', 'page_meta_description', 'locationLabel', 'slug'));
     }
 }

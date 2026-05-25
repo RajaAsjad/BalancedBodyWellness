@@ -345,24 +345,7 @@
             </div>
         </div>
 
-        <div class="pg-dash__grid">
-            {{-- <a href="{{ $sliderIndex }}" class="pg-dash__card">
-                <div class="pg-dash__card-icon brand"><i class="fa fa-sliders" aria-hidden="true"></i></div>
-                <div class="pg-dash__card-value">{{ $slidersTotal ?? 0 }}</div>
-                <div class="pg-dash__card-label">Home Sliders</div>
-            </a> --}}
-
-            {{-- <a href="{{ $bannerIndex }}" class="pg-dash__card">
-                <div class="pg-dash__card-icon brand"><i class="fa fa-picture-o" aria-hidden="true"></i></div>
-                <div class="pg-dash__card-value">{{ $bannersTotal ?? 0 }}</div>
-                <div class="pg-dash__card-label">Banners</div>
-            </a> --}}
-
-            {{-- <a href="{{ $testimonialIndex }}" class="pg-dash__card">
-                <div class="pg-dash__card-icon brand"><i class="fa fa-quote-left" aria-hidden="true"></i></div>
-                <div class="pg-dash__card-value">{{ $testimonialsTotal ?? 0 }}</div>
-                <div class="pg-dash__card-label">Testimonials</div>
-            </a> --}}
+        <div class="pg-dash__grid"> 
 
             <a href="{{ $contactUsIndex }}" class="pg-dash__card">
                 <div class="pg-dash__card-icon brand"><i class="fa fa-envelope" aria-hidden="true"></i></div>

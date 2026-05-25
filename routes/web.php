@@ -48,12 +48,19 @@ Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap')
 // Frontend — Balanced Body IV Wellness
 Route::get('/', [WebController::class, 'Index'])->name('index'); 
 Route::get('services', [WebController::class, 'Services'])->name('services');
+Route::redirect('services/methylene-blue', '/services/methylene-blue-iv-therapy-nyc', 301);
+Route::redirect('services/nad', '/services/nad-therapy-nyc', 301);
+Route::redirect('services/peptide-therapy', '/services/peptide-therapy-nyc', 301);
+Route::redirect('services/iv-vitamin-therapy', '/services/iv-vitamin-therapy-nyc', 301);
+Route::redirect('services/medical-weight-loss', '/services/medical-weight-loss-nyc', 301);
+Route::redirect('services/iron-infusion', '/services/iron-infusion-therapy-nyc', 301);
 Route::get('services/{slug}', [WebController::class, 'ServiceDetail'])->name('service.detail');
 Route::get('about-us', [WebController::class, 'AboutUs'])->name('about-us');
 Route::get('faqs', [WebController::class, 'Faqs'])->name('faqs');
 Route::get('policies', [WebController::class, 'Policies'])->name('policies');
 Route::get('contact', [WebController::class, 'Contact'])->name('contact');
 Route::get('locations', [WebController::class, 'Locations'])->name('locations');
+Route::get('locations/{slug}', [WebController::class, 'LocationDetail'])->name('location.detail');
 
 
 // Redirect /login to admin login (session expired or user types /login in URL)

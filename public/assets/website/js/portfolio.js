@@ -8,7 +8,7 @@ if (nav) {
 
 const hamburger = document.querySelector('.nav__hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
-const mobileLinks = document.querySelectorAll('.mobile-menu__link, .mobile-menu__cta');
+const mobileLinks = document.querySelectorAll('.mobile-menu__link, .mobile-menu__dropdown-link, .mobile-menu__cta');
 
 if (hamburger && mobileMenu) {
   const toggleMenu = (open) => {
@@ -34,6 +34,43 @@ if (hamburger && mobileMenu) {
     }
   });
 }
+
+document.querySelectorAll('[data-nav-dropdown] .nav__dropdown-trigger').forEach((trigger) => {
+  trigger.addEventListener('mousedown', (e) => {
+    if (window.matchMedia('(min-width: 900px)').matches) {
+      e.preventDefault();
+    }
+  });
+
+  trigger.addEventListener('click', (e) => {
+    if (window.matchMedia('(min-width: 900px)').matches) {
+      e.preventDefault();
+      trigger.blur();
+    }
+  });
+});
+
+document.querySelectorAll('[data-mobile-nav-dropdown]').forEach((dropdown) => {
+  const trigger = dropdown.querySelector('.mobile-menu__dropdown-trigger');
+  const panel = dropdown.querySelector('.mobile-menu__dropdown-panel');
+  if (!trigger || !panel) return;
+
+  trigger.addEventListener('click', () => {
+    const willOpen = !dropdown.classList.contains('is-open');
+    document.querySelectorAll('[data-mobile-nav-dropdown].is-open').forEach((openDropdown) => {
+      if (openDropdown === dropdown) return;
+      openDropdown.classList.remove('is-open');
+      const openTrigger = openDropdown.querySelector('.mobile-menu__dropdown-trigger');
+      const openPanel = openDropdown.querySelector('.mobile-menu__dropdown-panel');
+      if (openTrigger) openTrigger.setAttribute('aria-expanded', 'false');
+      if (openPanel) openPanel.hidden = true;
+    });
+
+    dropdown.classList.toggle('is-open', willOpen);
+    trigger.setAttribute('aria-expanded', String(willOpen));
+    panel.hidden = !willOpen;
+  });
+});
 
 const revealElements = document.querySelectorAll('.reveal, .reveal--right');
 const revealObserver = new IntersectionObserver(

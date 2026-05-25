@@ -1,0 +1,494 @@
+<?php
+
+/**
+ * Static service landing pages (nav dropdown services).
+ * Keys must match slugs in config/nav_menus.php
+ * Content matches client reference copy (NYC) — do not paraphrase.
+ */
+return [
+    'methylene-blue-iv-therapy-nyc' => [
+        'name' => 'Methylene Blue',
+        'meta_title' => 'Methylene Blue IV Therapy NYC | Brain & Energy Support',
+        'meta_description' => 'Enhance energy and focus with methylene blue IV therapy in NYC. Precision-dosed infusions for mitochondrial support, cognitive clarity, and longevity.',
+        'hero' => [
+            'eyebrow' => 'MITOCHONDRIAL SUPPORT · COGNITIVE WELLNESS · NYC',
+            'title_main' => 'Methylene Blue',
+            'title_accent' => 'IV Therapy NYC',
+            'lead' => 'Precision-dosed methylene blue IV therapy NYC for mitochondrial energy, cognitive clarity, and cellular longevity — administered under full clinical oversight.',
+        ],
+        'overview' => [
+            'label' => 'WHAT IT IS',
+            'title' => 'IV Methylene Blue Therapy NYC',
+            'paragraphs' => [
+                'Methylene blue <strong>IV therapy NYC</strong> is one of the most clinically fascinating infusions available in modern wellness medicine. Methylene blue is a synthetic compound with over a century of medical history, now used in integrative wellness settings to support mitochondrial energy production, cognitive clarity, and cellular repair. At Balanced Body IV & Wellness, our <strong>IV methylene blue therapy NYC</strong> protocol is administered after full medical clearance, ensuring each session is safe, appropriate, and precisely dosed for your goals.',
+                'Methylene blue works by donating electrons directly to the mitochondrial respiratory chain — supporting ATP production at the cellular level. This makes it a particularly valuable tool for clients experiencing cognitive fatigue, low energy, neurological stress, or those pursuing longevity-focused wellness protocols. As an antioxidant, it also helps neutralize reactive oxygen species that accelerate cellular aging.',
+                'Our <strong>methylene blue infusions for mitochondrial NYC</strong> support are formulated with precision. Dosing is conservative and evidence-informed, and every infusion is monitored by a licensed Critical Care RN from start to finish. Sessions typically run 60 to 90 minutes.',
+            ],
+            'features' => [
+                [
+                    'title' => 'Cognitive & Brain Support',
+                    'text' => 'Methylene blue crosses the blood-brain barrier, supporting mitochondrial function in neurons and enhancing memory consolidation, mental clarity, and cognitive processing speed.',
+                ],
+                [
+                    'title' => 'Mitochondrial Energy Production',
+                    'text' => 'By enhancing the electron transport chain, methylene blue supports cellular ATP generation — addressing energy deficits at the root level rather than symptom level.',
+                ],
+                [
+                    'title' => 'Antioxidant & Cellular Protection',
+                    'text' => 'As a potent antioxidant, methylene blue helps reduce oxidative stress and reactive oxygen species — supporting cellular longevity and systemic resilience.',
+                ],
+                [
+                    'title' => 'Neuroprotective Support',
+                    'text' => 'Evidence-informed use of methylene blue is associated with neuroprotective effects — supporting healthy neurological function and mitochondrial integrity over time.',
+                ],
+            ],
+        ],
+        'supports' => [
+            'label' => 'CLINICAL NUTRIENT SUPPORT',
+            'title' => 'What Supports Methylene Blue Therapy',
+            'lead' => 'These nutrients are commonly paired with methylene blue IV therapy NYC to support mitochondrial function, antioxidant capacity, and neurological wellness.',
+            'items' => [
+                [
+                    'title' => 'NAD+',
+                    'text' => 'Supports ATP production and cellular energy generation; works synergistically with methylene blue at the mitochondrial level.',
+                ],
+                [
+                    'title' => 'Glutathione',
+                    'text' => 'Master antioxidant supporting detoxification and oxidative stress reduction — a natural complement to mitochondrial support protocols.',
+                ],
+                [
+                    'title' => 'Alpha-Lipoic Acid (ALA)',
+                    'text' => 'Mitochondrial antioxidant that supports nerve pathways and metabolic function; amplifies cellular protection alongside methylene blue.',
+                ],
+                [
+                    'title' => 'CoQ10',
+                    'text' => 'Supports mitochondrial energy production and antioxidant activity; directly involved in the electron transport chain.',
+                ],
+                [
+                    'title' => 'B-Complex Vitamins',
+                    'text' => 'Support energy production, methylation, and neurologic function — essential cofactors for mitochondrial health.',
+                ],
+                [
+                    'title' => 'Magnesium',
+                    'text' => 'Supports muscle relaxation, mitochondrial function, and immune balance; involved in over 300 enzymatic reactions.',
+                ],
+            ],
+        ],
+    ],
+
+    'nad-therapy-nyc' => [
+        'name' => 'NAD',
+        'meta_title' => 'NAD IV Therapy NYC | Energy, Brain & Cellular Repair',
+        'meta_description' => 'Replenish energy with NAD IV therapy in NYC. Support brain function, DNA repair, and cellular health with medically supervised infusions.',
+        'hero' => [
+            'eyebrow' => 'CELLULAR LONGEVITY · COGNITIVE SUPPORT · NYC',
+            'title_main' => 'NAD',
+            'title_accent' => 'Therapy NYC',
+            'lead' => 'Medically supervised NAD IV therapy NYC to replenish cellular energy, support DNA repair, and restore cognitive clarity from the inside out.',
+        ],
+        'overview' => [
+            'label' => 'WHAT IT IS',
+            'title' => 'NAD IV Therapy NYC',
+            'paragraphs' => [
+                '<strong>NAD therapy NYC</strong> is one of the most sought-after intravenous treatments in modern integrative wellness. NAD+ (Nicotinamide Adenine Dinucleotide) is a coenzyme found in every cell of the body, playing a critical role in energy metabolism, DNA repair, and cellular communication. As we age, NAD+ levels naturally decline — contributing to fatigue, cognitive fog, slower recovery, and accelerated cellular aging. <strong>NAD IV therapy NYC</strong> replenishes these levels directly into the bloodstream for maximum bioavailability.',
+                'Our <strong>NAD infusion therapy NYC</strong> protocol begins with a full medical clearance and consultation. NAD+ infusions are administered slowly — typically over 2 to 4 hours — to maximize comfort and clinical safety. Many clients notice improvements in mental clarity, energy, mood, and sleep quality following their sessions, with results deepening over a series of infusions.',
+                'At <strong>Balanced Body IV & Wellness</strong>, <strong>NAD+ IV therapy NYC</strong> is not a quick-fix service. It is a foundational longevity protocol designed for clients committed to optimizing their cellular health, performance, and long-term vitality from the inside out.',
+            ],
+            'features' => [
+                [
+                    'title' => 'Cellular Energy & ATP Production',
+                    'text' => 'NAD+ is essential for mitochondrial function and the production of ATP — the primary energy currency of every cell in your body. Declining NAD+ directly correlates with fatigue and reduced cellular performance.',
+                ],
+                [
+                    'title' => 'DNA Repair & Cellular Longevity',
+                    'text' => 'NAD+ activates sirtuins — proteins involved in DNA repair and cellular aging regulation. Replenishing NAD+ supports the body\'s ability to maintain healthy cellular function over time.',
+                ],
+                [
+                    'title' => 'Cognitive Clarity & Neuroprotection',
+                    'text' => 'NAD+ supports neurological function by fueling brain cell mitochondria and supporting neurotransmitter synthesis — improving mental clarity, mood, and cognitive resilience.',
+                ],
+                [
+                    'title' => 'Recovery & Performance',
+                    'text' => 'Athletes and high-performers use NAD IV therapy NYC to accelerate recovery, reduce muscle fatigue, and support sustained physical and mental output.',
+                ],
+            ],
+        ],
+        'supports' => [
+            'label' => 'SUPPORTING NUTRIENTS',
+            'title' => 'What We Pair with NAD+ Infusion Therapy NYC',
+            'lead' => 'These compounds are commonly combined with NAD+ therapy to amplify mitochondrial support, antioxidant capacity, and metabolic optimization.',
+            'items' => [
+                [
+                    'title' => 'L-Carnitine',
+                    'text' => 'Facilitates fatty acid transport into mitochondria for energy production — works synergistically with NAD+ to support metabolic efficiency.',
+                ],
+                [
+                    'title' => 'Glutathione',
+                    'text' => "The body's master antioxidant — protects cells from oxidative stress generated during increased metabolic activity following NAD+ infusion.",
+                ],
+                [
+                    'title' => 'Vitamin B12 (methylcobalamin)',
+                    'text' => 'Supports nerve health and energy metabolism; often paired with NAD+ for comprehensive neurological and energy support.',
+                ],
+                [
+                    'title' => 'CoQ10',
+                    'text' => 'Directly involved in the mitochondrial electron transport chain alongside NAD+; supports cellular energy and antioxidant protection.',
+                ],
+                [
+                    'title' => 'Magnesium',
+                    'text' => 'Supports mitochondrial function and over 300 enzymatic reactions; a critical cofactor for NAD+-dependent cellular processes.',
+                ],
+                [
+                    'title' => 'Alpha-Lipoic Acid (ALA)',
+                    'text' => 'A mitochondrial antioxidant that regenerates other antioxidants including Vitamin C, E, and glutathione — amplifying NAD+ therapy benefits.',
+                ],
+            ],
+            'stats' => [
+                ['value' => '100%', 'label' => 'Bioavailability'],
+                ['value' => '2–4h', 'label' => 'Session Duration'],
+                ['value' => 'Cellular', 'label' => 'Level Results', 'serif' => true],
+                ['value' => '1:1', 'label' => 'Clinical Care'],
+            ],
+        ],
+    ],
+
+    'peptide-therapy-nyc' => [
+        'name' => 'Peptide Therapy',
+        'meta_title' => 'Peptide Therapy NYC | Recovery, Anti-Aging & Hormone Support',
+        'meta_description' => 'Optimize recovery and longevity with peptide therapy NYC. Precision protocols for tissue repair, hormone balance, and immune resilience.',
+        'hero' => [
+            'eyebrow' => 'REGENERATIVE WELLNESS · ANTI-AGING · NYC',
+            'title_main' => 'Peptide Therapy',
+            'title_accent' => 'NYC',
+            'title_style' => 'gold_first',
+            'lead' => 'Precision peptide therapy NYC — individualized protocols for recovery, anti-aging, hormone support, and immune resilience, administered under full clinical oversight.',
+        ],
+        'overview' => [
+            'label' => 'WHAT IT IS',
+            'title' => 'NYC Peptide Therapy',
+            'paragraphs' => [
+                '<strong>Peptide therapy NYC</strong> represents one of the most targeted and clinically precise approaches to regenerative wellness available today. Peptides are short chains of amino acids — the building blocks of proteins — that act as biological messengers, signaling specific cellular processes including tissue repair, hormone regulation, immune function, and metabolic optimization. At Balanced Body IV & Wellness, our <strong>NYC peptide therapy</strong> protocols are individualized after a comprehensive health evaluation and medical clearance review.',
+                'Unlike broad-spectrum supplement approaches, peptide therapy works with the body\'s own signaling pathways to produce targeted effects. Whether the goal is accelerated tissue recovery, growth hormone support, immune resilience, or healthy aging, each peptide protocol is selected based on your specific health history and objectives — not a generic template.',
+                'Peptide therapy is administered through precise subcutaneous injections or, in some cases, as part of a broader IV wellness protocol. All programs at our NYC studio include ongoing clinical oversight, periodic reassessment, and plan adjustments as your response evolves over time.',
+            ],
+            'features' => [
+                [
+                    'title' => 'BPC-157 — Tissue Repair & Recovery',
+                    'text' => 'BPC-157 supports tissue healing, gut health, and musculoskeletal recovery. Widely used by athletes and individuals recovering from injury or chronic inflammation.',
+                ],
+                [
+                    'title' => 'Sermorelin — Growth Hormone Support',
+                    'text' => 'Sermorelin stimulates the pituitary gland to produce natural growth hormone — supporting sleep quality, body composition, recovery, and overall vitality without synthetic HGH.',
+                ],
+                [
+                    'title' => 'CJC-1295 + Ipamorelin',
+                    'text' => 'A synergistic peptide combination that supports sustained, pulsatile growth hormone release for body composition, recovery, and anti-aging support.',
+                ],
+                [
+                    'title' => 'Thymosin Alpha-1 — Immune Modulation',
+                    'text' => 'Supports immune resilience and modulation — particularly valuable for clients with chronic illness, autoimmune concerns, or those seeking enhanced immune defense.',
+                ],
+            ],
+        ],
+        'supports' => [
+            'label' => 'SUPPORTING NUTRIENTS',
+            'title' => 'Nutrient Foundations for Peptide Therapy',
+            'lead' => 'These nutrients support the cellular environment that peptide therapy acts upon — maximizing tissue repair, mitochondrial function, and recovery outcomes.',
+            'items' => [
+                [
+                    'title' => 'Glutathione',
+                    'text' => 'Master antioxidant that supports cellular repair and detoxification — creates an optimal environment for peptide-driven tissue regeneration.',
+                ],
+                [
+                    'title' => 'Vitamin C',
+                    'text' => 'Supports collagen synthesis and immune function; a key cofactor in tissue healing and repair pathways targeted by peptides like BPC-157 and Proline.',
+                ],
+                [
+                    'title' => 'Magnesium',
+                    'text' => 'Supports muscle relaxation and mitochondrial function; important during tissue recovery and regeneration protocols.',
+                ],
+                [
+                    'title' => 'NAC (N-Acetylcysteine)',
+                    'text' => 'Precursor to glutathione; supports detox pathways and antioxidant capacity during cellular repair and regeneration.',
+                ],
+                [
+                    'title' => 'B-Complex Vitamins',
+                    'text' => 'Support methylation, energy production, and neurologic function — essential foundations for peptide therapy efficacy.',
+                ],
+                [
+                    'title' => 'Zinc',
+                    'text' => 'Involved in over 300 enzymatic processes including immune function, wound healing, and protein synthesis — directly relevant to peptide repair protocols.',
+                ],
+            ],
+        ],
+    ],
+
+    'iv-vitamin-therapy-nyc' => [
+        'name' => 'IV Vitamin Therapy',
+        'meta_title' => 'IV Vitamin Therapy NYC | Energy, Immunity & Hydration Drips',
+        'meta_description' => 'Boost energy and immunity with IV vitamin therapy NYC. 11 custom drips, fast results, and 100% nutrient absorption with clinical care.',
+        'hero' => [
+            'eyebrow' => '11 DRIP FORMULATIONS • 100% BIOAVAILABILITY • NYC',
+            'title_style' => 'iv_vitamin',
+            'title_prefix' => 'IV',
+            'title_main' => 'Vitamin Therapy',
+            'title_suffix' => 'NYC',
+            'lead' => 'Premium vitamin IV therapy NYC — 11 thoughtfully formulated drips delivering 100% bioavailable nutrients for energy, immunity, recovery, beauty, and lasting wellness.',
+        ],
+        'overview' => [
+            'label' => 'WHAT IT IS',
+            'title' => 'Vitamin IV Therapy NYC',
+            'paragraphs' => [
+                '<strong>IV vitamin therapy NYC</strong> delivers a precisely formulated blend of vitamins, minerals, and amino acids directly into the bloodstream — bypassing the digestive system entirely for complete bioavailability. Where oral supplements may achieve 20–50% absorption depending on gut health and metabolism, intravenous delivery ensures every nutrient reaches your cells at full therapeutic concentration. At Balanced Body IV & Wellness, our <strong>vitamin IV therapy NYC</strong> menu includes 11 thoughtfully formulated drip blends, each targeting specific wellness goals.',
+                'Whether you are seeking rapid rehydration, immune reinforcement, skin radiance, energy restoration, post-athletic recovery, or cognitive clarity, our clinical team helps you identify the right formulation based on your health history and current needs. Every <strong>IV vitamin therapy NYC</strong> session begins with a medical clearance review to confirm suitability and safety.',
+                'Sessions typically run 30 to 60 minutes depending on the drip selected. Add-on ingredients — including glutathione, NAC, ALA, or additional amino acids — can be incorporated into most base formulations for a more comprehensive effect. Payment is in person, and pricing is discussed transparently at consultation.',
+            ],
+            'features' => [
+                [
+                    'title' => '100% Bioavailability',
+                    'text' => 'Intravenous delivery ensures every nutrient reaches your bloodstream at full dose — unlike oral supplements, which are limited by digestive absorption and first-pass metabolism.',
+                ],
+                [
+                    'title' => 'Rapid Results',
+                    'text' => 'Most clients notice the effects of IV vitamin therapy NYC within hours — a significant advantage over oral supplementation, which may take days or weeks to produce noticeable change.',
+                ],
+                [
+                    'title' => 'Fully Customizable',
+                    'text' => 'Every drip is customized at consultation. Add-on ingredients including glutathione, NAD+ adjuncts, ALA, and amino blends can be incorporated based on your specific health goals.',
+                ],
+                [
+                    'title' => 'Medically Supervised',
+                    'text' => 'All vitamin IV therapy NYC sessions are administered by a licensed Critical Care RN under full clinical oversight. Medical clearance is completed before every first visit.',
+                ],
+            ],
+        ],
+        'drip_menu' => [
+            'title' => 'The IV Drip Menu — 11 Formulations',
+            'items' => [
+                [
+                    'title' => 'Energy Boost',
+                    'text' => 'B-complex, B12, amino acids and electrolytes to restore vitality and combat fatigue at the cellular level.',
+                ],
+                [
+                    'title' => 'Immunity Defense',
+                    'text' => 'High-dose Vitamin C, zinc, and minerals to strengthen your immune response and support antioxidant capacity.',
+                ],
+                [
+                    'title' => 'Beauty Glow',
+                    'text' => 'Glutathione, biotin, and Vitamin C for radiant skin, stronger hair, and nail support.',
+                ],
+                [
+                    'title' => 'Recovery & Performance',
+                    'text' => 'Amino acids and electrolytes to support muscle recovery, reduce soreness, and restore athletic output.',
+                ],
+                [
+                    'title' => 'Hangover Relief',
+                    'text' => 'Rapid rehydration with anti-nausea and anti-inflammatory support to restore comfort and clarity.',
+                ],
+                [
+                    'title' => 'Mental Clarity',
+                    'text' => 'Magnesium, taurine, and B-vitamins to support focus, reduce mental fog, and sharpen cognitive processing.',
+                ],
+                [
+                    'title' => "Myers' Cocktail",
+                    'text' => 'The classic blend of vitamins and minerals for overall wellness, energy, and immune support.',
+                ],
+                [
+                    'title' => 'Anti-Aging',
+                    'text' => 'NAD+ adjuncts, glutathione, and antioxidants to support cellular longevity and oxidative stress reduction.',
+                ],
+                [
+                    'title' => 'Pure Hydration',
+                    'text' => 'Sterile saline and electrolytes for fast, deep cellular hydration.',
+                ],
+                [
+                    'title' => 'Migraine Relief',
+                    'text' => 'Magnesium, B2, and anti-inflammatory support to ease tension headaches and migraine symptoms.',
+                ],
+                [
+                    'title' => 'Detox & Reset',
+                    'text' => 'A glutathione-forward blend to support natural detox pathways and liver health.',
+                ],
+            ],
+        ],
+        'supports' => [
+            'label' => 'KEY INGREDIENTS',
+            'title' => 'What Goes Into Vitamin IV Therapy NYC',
+            'lead' => 'Our IV vitamin therapy NYC formulations draw from a comprehensive ingredient library — each selected for clinical relevance, purity, and therapeutic value.',
+            'items' => [
+                [
+                    'title' => 'Vitamin C (Ascorbic Acid)',
+                    'text' => 'An antihistamine and antioxidant that reduces oxidative stress, supports immune function, and promotes collagen synthesis. High-dose options available.',
+                ],
+                [
+                    'title' => 'Glutathione',
+                    'text' => "The body's master antioxidant — supports detoxification, skin health, liver function, and oxidative stress reduction. Push or drip administration available.",
+                ],
+                [
+                    'title' => 'B-Complex (B1, B2, B3, B5, B6)',
+                    'text' => "A family of vitamins that support energy production, methylation, nervous system health, and the body's response to stress.",
+                ],
+                [
+                    'title' => 'Vitamin B12 (methylcobalamin)',
+                    'text' => 'Essential for nerve health, energy metabolism, red blood cell production, and cognitive function. Pairs well with B-Complex.',
+                ],
+                [
+                    'title' => 'Magnesium Sulfate',
+                    'text' => 'Supports muscle and nerve function, energy production, migraine relief, and over 300 enzymatic processes throughout the body.',
+                ],
+                [
+                    'title' => 'Zinc',
+                    'text' => 'Supports immune function, wound healing, DNA synthesis, and protein metabolism — a critical trace mineral in immune and recovery formulations.',
+                ],
+            ],
+        ],
+    ],
+
+    'medical-weight-loss-nyc' => [
+        'name' => 'Medical Weight Loss',
+        'meta_title' => 'Medical Weight Loss NYC | GLP-1 Programs & Fat Loss',
+        'meta_description' => 'Lose weight safely with medical weight loss NYC. GLP-1 programs, weight loss shots, and metabolic support for sustainable results.',
+        'hero' => [
+            'eyebrow' => 'GLP-1 PROGRAMS · METABOLIC SUPPORT · NYC',
+            'title_main' => 'Medical Weight Loss',
+            'title_accent' => 'NYC',
+            'lead' => 'Clinically supervised medical weight loss NYC — personalized GLP-1 programs, weight loss shots, and metabolic IV support for sustainable, meaningful results.',
+        ],
+        'overview' => [
+            'label' => 'WHAT IT IS',
+            'title' => 'IV Therapy for Weight Loss NYC',
+            'paragraphs' => [
+                '<strong>Medical weight loss NYC</strong> at Balanced Body IV & Wellness is a clinically guided program built around your metabolic health — not a one-size-fits-all diet plan. Our approach begins with a comprehensive consultation and metabolic assessment, followed by a personalized GLP-1 program and ongoing progress monitoring designed to support sustainable, meaningful results.',
+                'GLP-1 (glucagon-like peptide-1) receptor agonists including Semaglutide and Tirzepatide are FDA-approved medications that support appetite regulation, glucose metabolism, and gradual, sustained weight reduction. As part of our <strong>GLP-1 weight loss NYC</strong> program, these medications are prescribed and monitored by licensed clinical professionals throughout your entire treatment journey.',
+                'Alongside GLP-1 therapy, many clients benefit from <strong>weight loss shots NYC</strong> — including MIC/Lipo-Mino injections and B12 — to support fat metabolism, energy levels, and metabolic efficiency during their weight loss journey. Our programs also incorporate targeted IV nutrient support to maintain energy, immune resilience, and overall wellbeing as your body composition changes.',
+            ],
+            'features' => [
+                [
+                    'title' => 'Semaglutide (GLP-1)',
+                    'text' => 'A once-weekly injectable GLP-1 receptor agonist that reduces appetite, regulates blood sugar, and supports gradual, sustained weight loss under clinical supervision.',
+                ],
+                [
+                    'title' => 'Tirzepatide (GLP-1/GIP)',
+                    'text' => 'A dual GLP-1 and GIP receptor agonist demonstrating strong clinical results for weight reduction, appetite control, and metabolic improvement.',
+                ],
+                [
+                    'title' => 'Weight Loss Shots NYC',
+                    'text' => 'MIC/Lipo-Mino injections (Methionine, Inositol, Choline) support fat metabolism, liver function, and lipotropic pathways — often combined with B12 for energy support.',
+                ],
+                [
+                    'title' => 'Metabolic IV Support',
+                    'text' => 'Targeted IV nutrient blends including L-Carnitine, B-Complex, and Magnesium support metabolic function and energy levels throughout your weight loss program.',
+                ],
+            ],
+        ],
+        'supports' => [
+            'label' => 'METABOLIC SUPPORT NUTRIENTS',
+            'title' => 'Nutrients That Support Your Weight Loss Program',
+            'lead' => 'These clinically utilized nutrients support metabolic function, fat oxidation, blood sugar balance, and energy — forming the nutritional foundation of our medical weight loss NYC programs.',
+            'items' => [
+                [
+                    'title' => 'L-Carnitine',
+                    'text' => 'Facilitates fatty acid transport into mitochondria for energy production; supports metabolic flexibility and fat oxidation during caloric restriction.',
+                ],
+                [
+                    'title' => 'Alpha-Lipoic Acid (ALA)',
+                    'text' => 'Supports insulin sensitivity and glucose metabolism; a mitochondrial antioxidant with direct relevance to blood sugar and metabolic pathways.',
+                ],
+                [
+                    'title' => 'B-Complex Vitamins',
+                    'text' => "Support energy metabolism, methylation, and the body's stress response — essential during active weight loss when nutritional demands increase.",
+                ],
+                [
+                    'title' => 'Magnesium',
+                    'text' => 'Low magnesium is associated with insulin resistance; supports glucose metabolism and mitochondrial function throughout weight loss protocols.',
+                ],
+                [
+                    'title' => 'MIC (Methionine, Inositol, Choline)',
+                    'text' => 'Lipotropic support for fat metabolism and liver detox pathways; the foundation of our weight loss shots NYC injections.',
+                ],
+                [
+                    'title' => 'CoQ10',
+                    'text' => 'Supports mitochondrial energy production and antioxidant activity; particularly useful for maintaining energy during caloric restriction phases.',
+                ],
+            ],
+        ],
+    ],
+
+    'iron-infusion-therapy-nyc' => [
+        'name' => 'Iron Infusion',
+        'meta_title' => 'Iron Infusion Therapy NYC | Treat Iron Deficiency Fast',
+        'meta_description' => 'Treat iron deficiency with iron infusion therapy NYC. Lab-guided dosing, clinical monitoring, and fast absorption for energy and recovery.',
+        'hero' => [
+            'eyebrow' => 'IRON DEFICIENCY · IV INFUSION · NYC',
+            'title_style' => 'iv_vitamin',
+            'title_prefix' => 'Iron Infusion',
+            'title_main' => 'Therapy',
+            'title_suffix' => 'NYC',
+            'lead' => 'Lab-guided iron infusion therapy NYC for iron deficiency anemia — complete bioavailability, clinical monitoring, and a protocol built around your specific lab values.',
+        ],
+        'overview' => [
+            'label' => 'WHAT IT IS',
+            'title' => 'Iron IV Infusion Therapy',
+            'paragraphs' => [
+                'Iron infusion therapy NYC is a medically indicated intravenous treatment that delivers therapeutic doses of iron directly into the bloodstream for complete, rapid absorption. Iron deficiency and iron-deficiency anemia are among the most common nutritional deficiencies worldwide — and oral iron supplements are notoriously difficult for many people to tolerate or absorb effectively. For clients with confirmed iron deficiency, gastrointestinal intolerance to oral iron, inflammatory bowel disease, or chronic conditions that impair absorption, <strong>iron IV therapy NYC</strong> offers a clinically superior alternative.',
+                'At Balanced Body IV & Wellness, our <strong>iron iv infusion therapy</strong> protocol begins with a review of your relevant labs — including serum ferritin, hemoglobin, transferrin saturation, and TIBC — to confirm iron deficiency and determine appropriate dosing. Iron infusions are administered slowly over 30 to 60 minutes in a private, monitored setting with full clinical oversight throughout.',
+                'Many clients notice significant improvement in energy levels, cognitive clarity, exercise tolerance, and overall vitality within days to weeks of their iron infusion. A single session may be sufficient for mild deficiency; more significant deficiency may require a series of infusions guided by follow-up lab review.',
+            ],
+            'features' => [
+                [
+                    'title' => 'Who Benefits from Iron Infusion Therapy NYC',
+                    'text' => 'Iron IV therapy is particularly beneficial for clients with iron-deficiency anemia, heavy menstrual bleeding, inflammatory bowel disease, post-surgical iron loss, malabsorption conditions, or confirmed ferritin deficiency who have not responded adequately to oral supplementation.',
+                ],
+                [
+                    'title' => 'Lab-Guided Dosing',
+                    'text' => 'All iron infusion therapy NYC at Balanced Body is guided by laboratory confirmation of deficiency. We review your ferritin, hemoglobin, and iron panel before administering any infusion to ensure accurate dosing and clinical appropriateness.',
+                ],
+                [
+                    'title' => 'What to Expect',
+                    'text' => 'Iron infusions are administered over 30 to 60 minutes in a private, monitored setting. You will be observed throughout for any infusion reactions. Most clients experience no significant side effects and leave feeling comfortable and informed.',
+                ],
+                [
+                    'title' => 'Supportive Nutrients',
+                    'text' => 'Certain vitamins and co-factors support optimal iron metabolism and utilization — including Vitamin C, B12, and folate — which may be incorporated into your broader wellness plan alongside iron infusion therapy.',
+                ],
+            ],
+        ],
+        'supports' => [
+            'label' => 'SUPPORTIVE NUTRIENTS',
+            'title' => 'What Vitamins Help with Iron Deficiency',
+            'lead' => 'These nutrients support iron absorption, red blood cell production, and the broader nutritional environment that iron therapy depends upon.',
+            'items' => [
+                [
+                    'title' => 'Vitamin C (Ascorbic Acid)',
+                    'text' => 'Significantly enhances non-heme iron absorption and supports the conversion of ferric to ferrous iron — the form more readily used by the body. Essential alongside iron protocols.',
+                ],
+                [
+                    'title' => 'Vitamin B12 (methylcobalamin)',
+                    'text' => 'Essential for red blood cell formation and nerve health; B12 deficiency can present similarly to iron deficiency anemia and is often assessed alongside iron panels.',
+                ],
+                [
+                    'title' => 'Folate (B9)',
+                    'text' => 'Required for DNA synthesis and red blood cell production; folate deficiency alongside iron deficiency can compound anemia symptoms and slow recovery.',
+                ],
+                [
+                    'title' => 'B-Complex Vitamins',
+                    'text' => 'Support energy metabolism, methylation, and the neurological symptoms — such as brain fog and fatigue — that often accompany iron deficiency.',
+                ],
+                [
+                    'title' => 'Glutathione',
+                    'text' => 'Supports overall cellular health and detoxification during iron repletion; particularly relevant for clients with liver involvement or systemic oxidative stress.',
+                ],
+                [
+                    'title' => 'Magnesium',
+                    'text' => 'Supports mitochondrial energy production and over 300 enzymatic processes; helps maintain overall vitality and metabolic function during iron repletion.',
+                ],
+            ],
+            'stats' => [
+                ['value' => '100%', 'label' => 'Bioavailability'],
+                ['value' => '30–60', 'label' => 'Min Sessions'],
+                ['value' => 'Lab', 'label' => 'Guided Dosing', 'serif' => true],
+                ['value' => '1:1', 'label' => 'Clinical Care'],
+            ],
+        ],
+    ],
+];
