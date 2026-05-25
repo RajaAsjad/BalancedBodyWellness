@@ -5,10 +5,11 @@
     $sectionTitle = $sectionTitle ?? 'Frequently asked questions';
     $sectionNote = $sectionNote ?? null;
     $serviceId = $serviceId ?? null;
+    $serviceSlug = $serviceSlug ?? null;
     $pageFaqs = isset($pageFaqs)
         ? $pageFaqs
-        : Faq::forPage($pageKey, $serviceId)->get();
-    $sectionId = $pageKey . ($serviceId ? '-service-' . $serviceId : '');
+        : Faq::forPage($pageKey, $serviceId, $serviceSlug)->get();
+    $sectionId = $pageKey . ($serviceSlug ? '-slug-' . $serviceSlug : ($serviceId ? '-service-' . $serviceId : ''));
 @endphp
 
 @if ($pageFaqs->isNotEmpty())

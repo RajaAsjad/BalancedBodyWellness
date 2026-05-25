@@ -88,9 +88,13 @@ class FaqController extends Controller
         $model = Faq::findOrFail($id);
         $faqPages = Faq::pageOptions();
         $services = $this->servicesForPicker();
-        $selectedServiceId = $model->service_id;
+        $selectedServiceSlug = $model->service_slug;
+        if (! $selectedServiceSlug && $model->service_id) {
+            $heading = Services::query()->whereKey($model->service_id)->value('heading');
+            $selectedServiceSlug = $heading ? \Illuminate\Support\Str::slug($heading) : '';
+        }
 
-        return view('admin.faq.edit', compact('model', 'page_title', 'faqPages', 'services', 'selectedServiceId'));
+        return view('admin.faq.edit', compact('model', 'page_title', 'faqPages', 'services', 'selectedServiceSlug'));
     }
 
     public function update(Request $request, $id)
@@ -132,18 +136,35 @@ class FaqController extends Controller
         return Services::query()->orderBy('heading')->get(['id', 'heading', 'status']);
     }
 
+    /** @return list<string> */
+    private function allowedServiceSlugs(): array
+    {
+        return collect(Faq::serviceLandingPagesForPicker())
+            ->pluck('slug')
+            ->merge(
+                $this->servicesForPicker()->map(fn (Services $s) => \Illuminate\Support\Str::slug($s->heading))
+            )
+            ->filter()
+            ->unique()
+            ->values()
+            ->all();
+    }
+
     /** @return array<string, mixed> */
     private function validateFaq(Request $request, bool $requireStatus = false): array
     {
         $pageKeys = array_keys(Faq::pageOptions());
 
+        $landingSlugs = $this->allowedServiceSlugs();
+
         $rules = [
             'page_key' => ['required', Rule::in($pageKeys)],
-            'service_id' => [
+            'service_slug' => [
                 Rule::requiredIf(fn () => $request->page_key === Faq::PAGE_SERVICE_DETAIL),
                 'nullable',
-                'integer',
-                Rule::exists('services', 'id'),
+                'string',
+                'max:120',
+                Rule::in($landingSlugs),
             ],
             'question' => 'required|max:255',
             'answer' => 'required|max:5000',
@@ -164,8 +185,10 @@ class FaqController extends Controller
         $model->status = $validated['status'] ?? $model->status ?? 1;
 
         if ($validated['page_key'] === Faq::PAGE_SERVICE_DETAIL) {
-            $model->service_id = (int) $validated['service_id'];
+            $model->service_slug = $validated['service_slug'];
+            $model->service_id = null;
         } else {
+            $model->service_slug = null;
             $model->service_id = null;
         }
     }

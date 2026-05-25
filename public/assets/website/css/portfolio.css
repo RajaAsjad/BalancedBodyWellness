@@ -5744,7 +5744,7 @@ button {
 .hp-promise__body {
   max-width: 52rem;
   margin: 0 auto;
-  text-align: left;
+  text-align: center;
 }
 
 .hp-promise__body p {
@@ -5756,10 +5756,11 @@ button {
 }
 
 .hp-promise__actions {
-  display: flex;
+  /* display: flex; */
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1.5rem;
+  text-align: center;
 }
 
 /* Areas */

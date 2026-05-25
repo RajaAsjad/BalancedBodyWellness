@@ -16,7 +16,7 @@ return [
         ],
         'all_label' => 'All Services',
     ],
-    'locations' => [
+    /* 'locations' => [
         'items' => [
             ['slug' => 'location-1', 'label' => 'Location 1'],
             ['slug' => 'location-2', 'label' => 'Location 2'],
@@ -25,5 +25,5 @@ return [
             ['slug' => 'location-5', 'label' => 'Location 5'],
         ],
         'all_label' => 'All Locations',
-    ],
+    ], */
 ];

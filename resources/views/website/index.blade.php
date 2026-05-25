@@ -196,7 +196,7 @@
                             @if (!empty($formula['entries']))
                                 <ul class="hp-formula-card__list">
                                     @foreach ($formula['entries'] as $entry)
-                                        <li><strong>{{ $entry['name'] }}</strong> — {{ $entry['text'] }}</li>
+                                        <li><strong>{{ $entry['name'] }} :</strong> {{ $entry['text'] }}</li>
                                     @endforeach
                                 </ul>
                             @endif

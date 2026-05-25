@@ -3,7 +3,7 @@
 return [
     'hero' => [
         'eyebrow' => 'PREMIUM IV THERAPY · IM BOOSTERS · PEPTIDE THERAPY · MEDICAL WEIGHT-LOSS',
-        'lead' => 'Thoughtfully formulated IV drips, peptides, and vitamin injections — delivered with medical care in a calming, spa-inspired setting. Treatments designed for energy, beauty, immunity, performance, and longevity.',
+        'lead' => 'Thoughtfully formulated IV drips, peptides, and vitamin injections delivered with medical care in a calming, spa-inspired setting. Treatments designed for energy, beauty, immunity, performance, and longevity.',
         'footnote' => 'Medical clearance required · In-person payment only',
         'why_choose' => [
             'Medical-grade formulations & premium ingredients',
@@ -31,22 +31,22 @@ return [
     ],
 
     'services' => [
-        ['icon' => '💧', 'title' => 'IV Hydration', 'text' => '10+ targeted drip formulations for energy, recovery, immunity, and beauty — customized to your specific wellness goals.'],
+        ['icon' => '💧', 'title' => 'IV Hydration', 'text' => '10+ targeted drip formulations for energy, recovery, immunity, and beauty customized to your specific wellness goals.'],
         ['icon' => '🧬', 'title' => 'Peptide Therapy', 'text' => 'Curated peptide protocols supporting longevity, performance, and cellular repair. Advanced regenerative and anti-aging support.'],
-        ['icon' => '⚡', 'title' => 'Wellness Injections', 'text' => 'Vitamin B12, MIC, glutathione, and more — fast-acting IM boosters for metabolism, mood, immunity, and recovery support.'],
+        ['icon' => '⚡', 'title' => 'Wellness Injections', 'text' => 'Vitamin B12, MIC, glutathione, and more fast-acting IM boosters for metabolism, mood, immunity, and recovery support.'],
         ['icon' => '⚖️', 'title' => 'Medical Weight Loss', 'text' => 'GLP-1 medications and metabolic support for sustainable results. Clinically guided programs for appetite control and metabolic health.'],
-        ['icon' => '🛡️', 'title' => 'Medical Clearance', 'text' => 'Every client is reviewed for safety before any therapy is administered — because your wellbeing is our first priority.'],
+        ['icon' => '🛡️', 'title' => 'Medical Clearance', 'text' => 'Every client is reviewed for safety before any therapy is administered because your wellbeing is our first priority.'],
         ['icon' => '🩺', 'title' => '45-Min Consultation', 'text' => 'Complimentary one-on-one wellness consultation covering your health history, lab insights, and personalized treatment strategy.'],
     ],
 
     'featured' => [
         'badge' => 'SIGNATURE FORMULAS',
         'title' => 'Featured Medical Treatments',
-        'lead' => 'Premium, clinically curated treatments for every wellness goal — each designed for maximum absorption and lasting results.',
+        'lead' => 'Premium, clinically curated treatments for every wellness goal each designed for maximum absorption and lasting results.',
         'items' => [
             ['label' => 'ENERGY & CLARITY', 'title' => 'Vital Spark IV', 'text' => 'A targeted energy and mental clarity drip to combat fatigue, sharpen focus, and support sustained cognitive performance.'],
             ['label' => 'BEAUTY & RADIANCE', 'title' => 'Glow Getter IV', 'text' => 'Glutathione, Vitamin C, and beauty-focused nutrients to support skin radiance, collagen synthesis, and a luminous complexion.'],
-            ['label' => 'IMMUNE DEFENSE', 'title' => 'Shield Wall IV', 'text' => 'High-dose immune support with Vitamin C, zinc, and antioxidants — your frontline defense against illness and oxidative stress.'],
+            ['label' => 'IMMUNE DEFENSE', 'title' => 'Shield Wall IV', 'text' => 'High-dose immune support with Vitamin C, zinc, and antioxidants your frontline defense against illness and oxidative stress.'],
             ['label' => 'PERFORMANCE & FOCUS', 'title' => 'Limitless Drive IV', 'text' => 'Amino acids, B-vitamins, and performance nutrients to fuel mental clarity, athletic drive, and peak physical output.'],
             ['label' => 'CELLULAR ENERGY & LONGEVITY', 'title' => 'NAD+ IM / IV', 'text' => 'Mitochondrial repair, cognitive support, and cellular energy restoration. NAD+ therapy for deep, systemic rejuvenation.'],
             ['label' => 'MEDICAL WEIGHT LOSS', 'title' => 'Semaglutide / Tirzepatide', 'text' => 'Clinically proven GLP-1 weight-loss medications with metabolic monitoring and personalized support for sustainable results.'],
@@ -55,7 +55,7 @@ return [
 
     'process' => [
         'badge' => 'STEP-BY-STEP WELLNESS',
-        'title' => 'IV Drip Therapy NYC — Our Step-by-Step Wellness Process',
+        'title' => 'IV Drip Therapy NYC Our Step-by-Step Wellness Process',
         'lead' => 'A seamless, medically guided journey from your first consultation to lasting results.',
         'items' => [
             [
@@ -215,8 +215,8 @@ return [
     'promise' => [
         'badge' => 'OUR PROMISE',
         'title' => 'Wellness That Feels Intentional with IV Infusion Therapy NYC',
-        'lead' => 'Every visit is designed around clarity, comfort, and clinical rigor — so you always know what you are receiving, why it matters, and how it supports your goals.',
-        'body' => 'From your first conversation through follow-up care, we prioritize education, consent, and a calm environment that respects your time and your body. Our IV infusion therapy in NYC is administered with the same precision you\'d expect in a clinical setting — in a space designed to feel like a retreat.',
+        'lead' => 'Every visit is designed around clarity, comfort, and clinical rigor so you always know what you are receiving, why it matters, and how it supports your goals.',
+        'body' => 'From your first conversation through follow-up care, we prioritize education, consent, and a calm environment that respects your time and your body. Our IV infusion therapy in NYC is administered with the same precision you\'d expect in a clinical setting in a space designed to feel like a retreat.',
         'closing' => 'Your wellness journey starts here. Book your treatment and experience the difference of elevated care. Optimize your health with precision-driven care. Schedule your consultation today.',
     ],
 
@@ -235,7 +235,7 @@ return [
             ],
             [
                 'title' => 'CONCIERGE PHONE & TEXT LINE',
-                'lines' => ['Reach out anytime — we\'re here to support your wellness goals.', '(626) 406-6538'],
+                'lines' => ['Reach out anytime we\'re here to support your wellness goals.', '(626) 406-6538'],
             ],
             [
                 'title' => 'EMAIL OUR CLINICAL TEAM',
@@ -247,6 +247,6 @@ return [
     'cta' => [
         'badge' => 'GET STARTED',
         'title' => 'Ready for the IV drip therapy in NYC that makes you feel restored?',
-        'lead' => 'All visits begin with a quick medical clearance. Reach out to schedule your appointment — we\'ll guide you the rest of the way.',
+        'lead' => 'All visits begin with a quick medical clearance. Reach out to schedule your appointment we\'ll guide you the rest of the way.',
     ],
 ];

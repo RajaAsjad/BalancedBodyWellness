@@ -128,6 +128,7 @@
     @include('website.partials.page-faqs', [
         'pageKey' => 'service-detail',
         'serviceId' => $service?->id,
+        'serviceSlug' => $slug,
         'sectionTitle' => 'Questions about ' . ($serviceName ?? 'this service'),
     ])
 
