@@ -45,7 +45,7 @@
             </div>
             <div class="hero__visual hero-w__visual">
                 <div class="hero-w__art-card">
-                    <img src="{{ asset('assets/website/images/hero-wellness.jpg') }}" alt="Calm wellness illustration — restorative IV care" width="640" height="640" loading="eager" class="hero-w__art-img">
+                    <img src="{{ asset('assets/website/images/hero-wellness.png') }}" alt="Calm wellness illustration — restorative IV care" width="640" height="640" loading="eager" class="hero-w__art-img">
                 </div>
             </div>
         </div>

@@ -1257,8 +1257,7 @@ button {
 .hero-w__art-img {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: min(52vh, 520px);
+  height: auto; 
   object-fit: contain;
   border-radius: var(--radius-lg);
 }
