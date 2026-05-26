@@ -37,12 +37,11 @@
         }
     @endphp
 
-    <section class="lp-hero lp-hero--service" aria-labelledby="service-hero-heading">
-        <div class="lp-hero__bg" style="background-image: url('{{ $heroImg }}');" aria-hidden="true"></div>
-        <div class="lp-hero__overlay" aria-hidden="true"></div>
-        <div class="lp-hero__inner container-pns">
-            <h1 class="lp-hero__title" id="service-hero-heading">{{ $serviceName }}</h1>
-            <p class="lp-hero__lead">Personalized IV wellness with clinical standards and a calm, restorative experience.</p>
+    <section class="page-hero page-hero--wellness page-hero--service" aria-labelledby="service-hero-heading">
+        <div class="container-pns">
+            <p class="page-hero__eyebrow">IV Wellness</p>
+            <h1 class="page-hero__title" id="service-hero-heading">{{ $serviceName }}</h1>
+            <p class="page-hero__note">Personalized IV wellness with clinical standards and a calm, restorative experience.</p>
         </div>
     </section>
 

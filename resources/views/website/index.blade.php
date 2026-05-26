@@ -8,40 +8,46 @@
     @endphp
 
     {{-- Hero --}}
-    <section class="hero hero--wellness hero--wellness-dark" aria-label="Hero section">
-        <div class="hero__bg" aria-hidden="true"><div class="hero-w__gradient hero-w__gradient--dark"></div></div>
-        <div class="hero__inner hero__inner--wide">
+    <section class="hero hero--wellness" aria-label="Hero section">
+        <div class="hero__bg" aria-hidden="true">
+            <div class="hero-w__gradient"></div>
+        </div>
+        <div class="hero__inner">
             <div class="hero__content">
-                @if (!empty($hp['hero']['eyebrow']))
-                    <p class="hero-w__eyebrow hero-w__eyebrow--plain">{{ $hp['hero']['eyebrow'] }}</p>
-                @endif
-                <h1 class="hero-w__title hero-w__title--dark">
-                    <span class="hero-w__title-line"><em class="hero-w__title-accent hero-w__title-accent--gold">Restore</em> your balance</span>
-                    <span class="hero-w__title-line">with IV Therapy</span>
-                    <span class="hero-w__title-line">NYC,</span>
-                    <span class="hero-w__title-line">from the inside out.</span>
+                <div class="hero-w__eyebrow">
+                    <svg class="hero-w__eyebrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                    </svg>
+                    <span>Holistic IV Wellness</span>
+                </div>
+                <h1 class="hero-w__title">
+                    Restore your <em class="hero-w__title-accent">balance</em>, from the inside out.
                 </h1>
                 @if (!empty($hp['hero']['lead']))
-                    <p class="hero-w__lead hero-w__lead--dark">{{ $hp['hero']['lead'] }}</p>
+                    <p class="hero-w__lead">{{ $hp['hero']['lead'] }}</p>
                 @endif
                 <div class="hero__ctas hero-w__ctas">
-                    <a href="{{ url('/contact') }}" class="btn btn--gold btn--lg">Book a Consultation</a>
-                    <a href="{{ url('/services') }}" class="btn btn--ghost-light btn--lg">Explore Services</a>
+                    <a href="{{ url('/contact') }}" class="btn btn--wellness-primary btn--lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        Book a Consultation
+                    </a>
+                    <a href="{{ url('services') }}" class="btn btn--wellness-outline btn--lg">Explore Services</a>
                 </div>
                 @if (!empty($hp['hero']['footnote']))
-                    <p class="hero-w__footnote hero-w__footnote--dark">{{ $hp['hero']['footnote'] }}</p>
+                    <p class="hero-w__footnote">{{ $hp['hero']['footnote'] }}</p>
                 @endif
             </div>
-            @if (!empty($hp['hero']['why_choose']))
-                <aside class="hero-w__why" aria-labelledby="why-choose-heading">
-                    <h2 class="hero-w__why-title" id="why-choose-heading">Why Choose Balanced Body</h2>
-                    <ul class="hero-w__why-list">
-                        @foreach ($hp['hero']['why_choose'] as $item)
-                            <li>{{ $item }}</li>
-                        @endforeach
-                    </ul>
-                </aside>
-            @endif
+            <div class="hero__visual hero-w__visual">
+                <div class="hero-w__art-card">
+                    <img src="{{ asset('assets/website/images/hero-wellness.jpg') }}" alt="Calm wellness illustration — restorative IV care" width="640" height="640" loading="eager" class="hero-w__art-img">
+                </div>
+            </div>
         </div>
     </section>
 

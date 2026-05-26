@@ -11,44 +11,11 @@
         $serviceName = $page['name'] ?? 'Service';
     @endphp
 
-    {{-- Hero --}}
-    <section class="sp-hero" aria-labelledby="sp-hero-heading">
-        <div class="sp-hero__inner container-pns">
-            @if (!empty($hero['eyebrow']))
-                <p class="sp-hero__eyebrow">{{ $hero['eyebrow'] }}</p>
-            @endif
-            <h1 class="sp-hero__title" id="sp-hero-heading">
-                @if (($hero['title_style'] ?? 'white_first') === 'iv_vitamin')
-                    @if (!empty($hero['title_prefix']))
-                        <span class="sp-hero__title-main sp-hero__title-main--inline">{{ $hero['title_prefix'] }}</span>
-                    @endif
-                    @if (!empty($hero['title_main']))
-                        <span class="sp-hero__title-accent sp-hero__title-accent--inline">{{ $hero['title_main'] }}</span>
-                    @endif
-                    @if (!empty($hero['title_suffix']))
-                        <span class="sp-hero__title-accent sp-hero__title-accent--inline sp-hero__title-accent--plain">{{ $hero['title_suffix'] }}</span>
-                    @endif
-                @elseif (($hero['title_style'] ?? 'white_first') === 'gold_first')
-                    @if (!empty($hero['title_main']))
-                        <span class="sp-hero__title-accent">{{ $hero['title_main'] }}</span>
-                    @endif
-                    @if (!empty($hero['title_accent']))
-                        <span class="sp-hero__title-main sp-hero__title-main--plain">{{ $hero['title_accent'] }}</span>
-                    @endif
-                @else
-                    @if (!empty($hero['title_main']))
-                        <span class="sp-hero__title-main">{{ $hero['title_main'] }}</span>
-                    @endif
-                    @if (!empty($hero['title_accent']))
-                        <span class="sp-hero__title-accent">{{ $hero['title_accent'] }}</span>
-                    @endif
-                @endif
-            </h1>
-            @if (!empty($hero['lead']))
-                <p class="sp-hero__lead">{{ $hero['lead'] }}</p>
-            @endif
-        </div>
-    </section>
+    @include('website.partials.wellness-page-hero', [
+        'hero' => $hero,
+        'headingId' => 'sp-hero-heading',
+        'modifier' => 'page-hero--service',
+    ])
 
     {{-- What It Is --}}
     @if (!empty($overview))

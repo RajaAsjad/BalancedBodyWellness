@@ -160,7 +160,6 @@ return [
             'eyebrow' => 'REGENERATIVE WELLNESS · ANTI-AGING · NYC',
             'title_main' => 'Peptide Therapy',
             'title_accent' => 'NYC',
-            'title_style' => 'gold_first',
             'lead' => 'Precision peptide therapy NYC individualized protocols for recovery, anti-aging, hormone support, and immune resilience, administered under full clinical oversight.',
         ],
         'overview' => [
