@@ -5313,8 +5313,8 @@ button {
 
 /* Services grid */
 .hp-services {
-  background: var(--hp-cream);
-  padding: 0 0 clamp(4rem, 8vw, 5.5rem);
+  background: #e8f5f0;
+  padding: 100px 0 clamp(4rem, 8vw, 5.5rem);
 }
 
 .hp-services__grid {
@@ -5649,7 +5649,7 @@ button {
 
 /* Add-ons */
 .hp-addons {
-  background: var(--hp-cream);
+  background: #e8f5f0;
   padding: clamp(4rem, 9vw, 6rem) 0;
 }
 
