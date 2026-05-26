@@ -22,7 +22,7 @@
                     <span>Holistic IV Wellness</span>
                 </div>
                 <h1 class="hero-w__title">
-                    Restore your <em class="hero-w__title-accent">balance</em>, from the inside out.
+                    Restore Your <em class="hero-w__title-accent">Balance</em>, From The Inside Out With <em class="hero-w__title-accent"> Balanced Body IV Therapy.</em> 
                 </h1>
                 @if (!empty($hp['hero']['lead']))
                     <p class="hero-w__lead">{{ $hp['hero']['lead'] }}</p>

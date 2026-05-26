@@ -93,18 +93,32 @@ class WebController extends Controller
     public function Locations()
     {
         $page_title = 'Locations | Balanced Body IV Wellness';
-        $page_meta_description = 'Visit our Los Angeles location for IV therapy, peptide therapy, and vitamin injections — a calming, spa-inspired studio with medical oversight.';
-        return view('website.locations', compact('page_title', 'page_meta_description'));
+        $page_meta_description = 'IV therapy across Rockland County, Westchester, Putnam, Dutchess, and Jefferson Valley — medically guided drips and wellness injections at Balanced Body IV & Wellness.';
+        $locations = config('location_pages', []);
+
+        return view('website.locations', compact('page_title', 'page_meta_description', 'locations'));
+    }
+
+    public function LocationPage(string $slug)
+    {
+        $page = config("location_pages.{$slug}");
+
+        if (! $page) {
+            abort(404);
+        }
+
+        $page_title = $page['meta_title'] ?? (($page['name'] ?? 'Location') . ' | Balanced Body IV Wellness');
+        $page_meta_description = $page['meta_description'] ?? 'Visit Balanced Body IV & Wellness for IV therapy, peptide therapy, and vitamin injections in a calm, spa-inspired studio with medical oversight.';
+
+        return view('website.location-page', compact('page_title', 'page_meta_description', 'slug', 'page'));
     }
 
     public function LocationDetail($slug)
     {
-        $placeholder = collect(config('nav_menus.locations.items', []))->firstWhere('slug', $slug);
-        $locationLabel = $placeholder['label'] ?? 'Location';
+        if (config("location_pages.{$slug}")) {
+            return redirect('/' . $slug, 301);
+        }
 
-        $page_title = $locationLabel . ' | Balanced Body IV Wellness';
-        $page_meta_description = 'Visit ' . $locationLabel . ' for IV therapy, peptide therapy, and vitamin injections — a calming, spa-inspired studio with medical oversight.';
-
-        return view('website.location-detail', compact('page_title', 'page_meta_description', 'locationLabel', 'slug'));
+        abort(404);
     }
 }

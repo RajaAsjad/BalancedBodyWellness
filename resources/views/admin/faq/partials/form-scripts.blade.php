@@ -3,17 +3,28 @@ $(document).ready(function() {
     var $pageKey = $('#faq_page_key');
     var $serviceWrap = $('#faq_service_wrap');
     var $serviceSelect = $('#faq_service_slug');
+    var $locationWrap = $('#faq_location_wrap');
+    var $locationSelect = $('#faq_location_slug');
 
-    function toggleServicePicker() {
-        var isServiceDetail = $pageKey.val() === 'service-detail';
+    function togglePickers() {
+        var key = $pageKey.val();
+        var isServiceDetail = key === 'service-detail';
+        var isLocationDetail = key === 'location-detail';
+
         $serviceWrap.toggle(isServiceDetail);
         $serviceSelect.prop('required', isServiceDetail);
         if (!isServiceDetail) {
             $serviceSelect.val('');
         }
+
+        $locationWrap.toggle(isLocationDetail);
+        $locationSelect.prop('required', isLocationDetail);
+        if (!isLocationDetail) {
+            $locationSelect.val('');
+        }
     }
 
-    $pageKey.on('change', toggleServicePicker);
-    toggleServicePicker();
+    $pageKey.on('change', togglePickers);
+    togglePickers();
 });
 </script>

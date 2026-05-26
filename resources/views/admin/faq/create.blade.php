@@ -27,6 +27,7 @@
 						@enderror
 					</div>
                     @include('admin.faq.partials.service-picker', ['selectedServiceSlug' => old('service_slug')])
+                    @include('admin.faq.partials.location-picker', ['selectedLocationSlug' => old('location_slug')])
 					<div class="bbw-form-group">
 						<label for="faq_sort_order">Display order</label>
 						<input type="number" id="faq_sort_order" name="sort_order" class="form-control" min="0" max="9999" value="{{ old('sort_order', 0) }}" style="max-width: 120px;">
@@ -73,6 +74,11 @@ $(document).ready(function() {
 			service_slug: {
 				required: function() {
 					return $('#faq_page_key').val() === 'service-detail';
+				}
+			},
+			location_slug: {
+				required: function() {
+					return $('#faq_page_key').val() === 'location-detail';
 				}
 			},
 			question: 'required',

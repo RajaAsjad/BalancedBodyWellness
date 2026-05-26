@@ -10,7 +10,9 @@
     $locationDropdownItems = collect($navMenus['locations']['items'] ?? [])->map(fn ($item) => [
         'label' => $item['label'],
         'slug' => $item['slug'],
-        'href' => route('location.detail', $item['slug']),
+        'href' => config("location_pages.{$item['slug']}")
+            ? route('location.page', ['slug' => $item['slug']])
+            : route('location.detail', $item['slug']),
     ])->all();
 
     $navSections = [
@@ -28,8 +30,6 @@
             'type' => 'dropdown',
             'label' => 'Locations',
             'items' => $locationDropdownItems,
-            'allHref' => route('locations'),
-            'allLabel' => $navMenus['locations']['all_label'] ?? 'All Locations',
         ],
         ['key' => 'about', 'type' => 'link', 'href' => url('/about-us'), 'label' => 'About'],
         ['key' => 'faq', 'type' => 'link', 'href' => url('/faqs'), 'label' => 'FAQ'],
@@ -40,7 +40,7 @@
     $navActiveKey = match (true) {
         request()->routeIs('index') => 'home',
         request()->routeIs('services', 'service.detail') => 'services',
-        request()->routeIs('locations', 'location.detail') => 'locations',
+        request()->routeIs('locations', 'location.detail', 'location.page') => 'locations',
         request()->routeIs('about-us') => 'about',
         request()->routeIs('faqs') => 'faq',
         request()->routeIs('policies') => 'policies',
@@ -85,8 +85,8 @@
                             'menuKey' => $item['key'],
                             'label' => $item['label'],
                             'items' => $item['items'],
-                            'allHref' => $item['allHref'],
-                            'allLabel' => $item['allLabel'],
+                            'allHref' => $item['allHref'] ?? null,
+                            'allLabel' => $item['allLabel'] ?? null,
                         ])
                     @else
                         @php
@@ -133,8 +133,8 @@
                         'menuKey' => $item['key'],
                         'label' => $item['label'],
                         'items' => $item['items'],
-                        'allHref' => $item['allHref'],
-                        'allLabel' => $item['allLabel'],
+                        'allHref' => $item['allHref'] ?? null,
+                        'allLabel' => $item['allLabel'] ?? null,
                     ])
                 @else
                     @php

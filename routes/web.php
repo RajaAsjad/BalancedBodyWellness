@@ -60,7 +60,16 @@ Route::get('faqs', [WebController::class, 'Faqs'])->name('faqs');
 Route::get('policies', [WebController::class, 'Policies'])->name('policies');
 Route::get('contact', [WebController::class, 'Contact'])->name('contact');
 Route::get('locations', [WebController::class, 'Locations'])->name('locations');
+Route::redirect('iv-therapy-jefferson-valley', '/iv-therapy-jefferson-valley-ny', 301);
+Route::redirect('iv-therapy-westchester', '/iv-therapy-westchester-county', 301);
 Route::get('locations/{slug}', [WebController::class, 'LocationDetail'])->name('location.detail');
+
+$locationPageSlugs = array_keys(config('location_pages', []));
+if ($locationPageSlugs !== []) {
+    Route::get('{slug}', [WebController::class, 'LocationPage'])
+        ->where('slug', implode('|', $locationPageSlugs))
+        ->name('location.page');
+}
 
 
 // Redirect /login to admin login (session expired or user types /login in URL)

@@ -16,14 +16,13 @@ return [
         ],
         'all_label' => 'All Services',
     ],
-    /* 'locations' => [
+    'locations' => [
         'items' => [
-            ['slug' => 'location-1', 'label' => 'Location 1'],
-            ['slug' => 'location-2', 'label' => 'Location 2'],
-            ['slug' => 'location-3', 'label' => 'Location 3'],
-            ['slug' => 'location-4', 'label' => 'Location 4'],
-            ['slug' => 'location-5', 'label' => 'Location 5'],
-        ],
-        'all_label' => 'All Locations',
-    ], */
+            ['slug' => 'iv-therapy-rockland-county', 'label' => 'Rockland County'],
+            ['slug' => 'iv-therapy-jefferson-valley-ny', 'label' => 'Jefferson Valley'],
+            ['slug' => 'iv-therapy-putnam-county', 'label' => 'Putnam County'],
+            ['slug' => 'iv-therapy-dutchess-county', 'label' => 'Dutchess County'],
+            ['slug' => 'iv-therapy-westchester-county', 'label' => 'Westchester'],
+        ], 
+    ],
 ];

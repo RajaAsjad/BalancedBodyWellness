@@ -14,6 +14,10 @@
         <h1 class="page-hero__title" id="{{ $headingId }}">
             @if (!empty($titleHtml))
                 {!! $titleHtml !!}
+            @elseif (str_contains($modifier ?? '', 'page-hero--location-landing'))
+                @if (!empty($hero['title_main']))
+                    <span class="page-hero__title-line page-hero__title-line--primary">{{ $hero['title_main'] }}</span>
+                @endif
             @elseif (($hero['title_style'] ?? 'white_first') === 'iv_vitamin')
                 @if (!empty($hero['title_prefix']))
                     <span class="page-hero__title-line">{{ $hero['title_prefix'] }} <em class="page-hero__title-accent">{{ $hero['title_main'] ?? '' }}</em>@if (!empty($hero['title_suffix'])) {{ $hero['title_suffix'] }}@endif</span>

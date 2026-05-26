@@ -9,7 +9,7 @@ return [
     'services' => 'Services',
     'service-detail' => 'Service detail page',
     'about-us' => 'About Us',
-    'locations' => 'Locations',
+    'location-detail' => 'Location page',
     'contact' => 'Contact',
     'policies' => 'Policies',
     'faqs' => 'FAQs',

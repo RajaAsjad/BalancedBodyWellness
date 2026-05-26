@@ -93,8 +93,16 @@ class FaqController extends Controller
             $heading = Services::query()->whereKey($model->service_id)->value('heading');
             $selectedServiceSlug = $heading ? \Illuminate\Support\Str::slug($heading) : '';
         }
+        $selectedLocationSlug = $model->location_slug;
 
-        return view('admin.faq.edit', compact('model', 'page_title', 'faqPages', 'services', 'selectedServiceSlug'));
+        return view('admin.faq.edit', compact(
+            'model',
+            'page_title',
+            'faqPages',
+            'services',
+            'selectedServiceSlug',
+            'selectedLocationSlug'
+        ));
     }
 
     public function update(Request $request, $id)
@@ -126,6 +134,7 @@ class FaqController extends Controller
             ->with(['hasCreatedBy', 'service'])
             ->orderBy('page_key')
             ->orderBy('service_id')
+            ->orderBy('location_slug')
             ->orderBy('sort_order')
             ->orderBy('id');
     }
@@ -150,12 +159,21 @@ class FaqController extends Controller
             ->all();
     }
 
+    /** @return list<string> */
+    private function allowedLocationSlugs(): array
+    {
+        return collect(Faq::locationLandingPagesForPicker())
+            ->pluck('slug')
+            ->filter()
+            ->unique()
+            ->values()
+            ->all();
+    }
+
     /** @return array<string, mixed> */
     private function validateFaq(Request $request, bool $requireStatus = false): array
     {
         $pageKeys = array_keys(Faq::pageOptions());
-
-        $landingSlugs = $this->allowedServiceSlugs();
 
         $rules = [
             'page_key' => ['required', Rule::in($pageKeys)],
@@ -164,7 +182,14 @@ class FaqController extends Controller
                 'nullable',
                 'string',
                 'max:120',
-                Rule::in($landingSlugs),
+                Rule::in($this->allowedServiceSlugs()),
+            ],
+            'location_slug' => [
+                Rule::requiredIf(fn () => $request->page_key === Faq::PAGE_LOCATION_DETAIL),
+                'nullable',
+                'string',
+                'max:120',
+                Rule::in($this->allowedLocationSlugs()),
             ],
             'question' => 'required|max:255',
             'answer' => 'required|max:5000',
@@ -187,9 +212,15 @@ class FaqController extends Controller
         if ($validated['page_key'] === Faq::PAGE_SERVICE_DETAIL) {
             $model->service_slug = $validated['service_slug'];
             $model->service_id = null;
+            $model->location_slug = null;
+        } elseif ($validated['page_key'] === Faq::PAGE_LOCATION_DETAIL) {
+            $model->location_slug = $validated['location_slug'];
+            $model->service_slug = null;
+            $model->service_id = null;
         } else {
             $model->service_slug = null;
             $model->service_id = null;
+            $model->location_slug = null;
         }
     }
 }

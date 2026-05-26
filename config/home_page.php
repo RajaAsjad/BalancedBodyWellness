@@ -55,13 +55,13 @@ return [
 
     'process' => [
         'badge' => 'STEP-BY-STEP WELLNESS',
-        'title' => 'IV Drip Therapy NYC Our Step-by-Step Wellness Process',
+        'title' => 'IV Drip Therapy Our Step-by-Step Wellness Process',
         'lead' => 'A seamless, medically guided journey from your first consultation to lasting results.',
         'items' => [
             [
                 'title' => 'IV Infusion Therapy',
                 'steps' => ['Consultation', 'Medical Clearance', 'Custom IV Selection', 'Infusion Session', 'Wellness Follow-Up'],
-                'text' => 'Targeted IV drip therapy in NYC designed to support hydration, energy, recovery, beauty, immunity, and long-term vitality. Every drip formulation is medically reviewed and precisely administered.',
+                'text' => 'Targeted IV drip therapy in designed to support hydration, energy, recovery, beauty, immunity, and long-term vitality. Every drip formulation is medically reviewed and precisely administered.',
             ],
             [
                 'title' => 'IM Boosters',
@@ -214,9 +214,9 @@ return [
 
     'promise' => [
         'badge' => 'OUR PROMISE',
-        'title' => 'Wellness That Feels Intentional with IV Infusion Therapy NYC',
+        'title' => 'Wellness That Feels Intentional with IV Infusion Therapy',
         'lead' => 'Every visit is designed around clarity, comfort, and clinical rigor so you always know what you are receiving, why it matters, and how it supports your goals.',
-        'body' => 'From your first conversation through follow-up care, we prioritize education, consent, and a calm environment that respects your time and your body. Our IV infusion therapy in NYC is administered with the same precision you\'d expect in a clinical setting in a space designed to feel like a retreat.',
+        'body' => 'From your first conversation through follow-up care, we prioritize education, consent, and a calm environment that respects your time and your body. Our IV infusion therapy in is administered with the same precision you\'d expect in a clinical setting in a space designed to feel like a retreat.',
         'closing' => 'Your wellness journey starts here. Book your treatment and experience the difference of elevated care. Optimize your health with precision-driven care. Schedule your consultation today.',
     ],
 
@@ -246,7 +246,7 @@ return [
 
     'cta' => [
         'badge' => 'GET STARTED',
-        'title' => 'Ready for the IV drip therapy in NYC that makes you feel restored?',
+        'title' => 'Ready for the IV drip therapy in that makes you feel restored?',
         'lead' => 'All visits begin with a quick medical clearance. Reach out to schedule your appointment we\'ll guide you the rest of the way.',
     ],
 ];
