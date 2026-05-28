@@ -278,7 +278,7 @@
                     @endif
                     <div class="hp-promise__actions">
                         <a href="{{ url('/contact') }}" class="btn btn--gold btn--lg">Book Consultation</a>
-                        <a href="tel:6264066538" class="btn btn--ghost-light btn--lg">Call (626) 406-6538</a>
+                        <a href="tel:9147456924" class="btn btn--ghost-light btn--lg">Call (914) 745-6924</a>
                     </div>
                 </div>
             </div>
@@ -322,7 +322,7 @@
                 @endif
                 <div class="hp-cta__actions">
                     <a href="{{ url('/contact') }}" class="btn btn--wellness-primary btn--lg">Request Appointment</a>
-                    <a href="tel:6264066538" class="btn btn--wellness-outline btn--lg">Call (626) 406-6538</a>
+                    <a href="tel:9147456924" class="btn btn--wellness-outline btn--lg">Call (914) 745-6924</a>
                 </div>
             </div>
         </section>
@@ -339,8 +339,8 @@
                                 <h3 class="hp-contact__title">{{ $column['title'] }}</h3>
                             @endif
                             @foreach ($column['lines'] ?? [] as $line)
-                                @if ($column['title'] === 'CONCIERGE PHONE & TEXT LINE' && str_contains($line, '(626)'))
-                                    <p><a href="tel:6264066538" class="hp-contact__link">{{ $line }}</a></p>
+                                @if ($column['title'] === 'CONCIERGE PHONE & TEXT LINE' && str_contains($line, '(914)'))
+                                    <p><a href="tel:9147456924" class="hp-contact__link">{{ $line }}</a></p>
                                 @elseif ($column['title'] === 'EMAIL OUR CLINICAL TEAM' && str_contains($line, '@'))
                                     <p><a href="mailto:{{ $line }}" class="hp-contact__link">{{ $line }}</a></p>
                                 @else

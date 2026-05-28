@@ -1,7 +1,7 @@
 @php
     $primaryEmail = 'info@balancedbodyivwellness.com';
-    $phoneDisplay = '(626) 406-6538';
-    $phoneTel = '6264066538';
+    $phoneDisplay = '914-745-6924';
+    $phoneTel = '9147456924';
     $instagramUrl = 'https://www.instagram.com/balancedbodyivwellness/';
     $instagramHandle = '@balancedbodyivwellness';
     $footerNav = [

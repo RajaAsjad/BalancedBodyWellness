@@ -3,15 +3,15 @@
 @section('meta_description', $page_meta_description)
 @section('content')
     @php
-        $contactPhoneDisplay = '(626) 406-6538';
-        $contactPhoneTel = '6264066538';
+        $contactPhoneDisplay = '(914) 745-6924';
+        $contactPhoneTel = '9147456924';
         $contactEmail = 'info@balancedbodyivwellness.com';
         $contactInstagramUrl = 'https://instagram.com/balancedbodyivwellness';
         $contactInstagramHandle = '@balancedbodyivwellness';
         $rawAddress = trim((string) ($home_page_data['contact_address'] ?? $home_page_data['footer_address'] ?? ''));
         $studioLines = $rawAddress !== ''
             ? array_values(array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', $rawAddress))))
-            : ['Los Angeles area studio', 'Address shared when your visit is confirmed.'];
+            : ['Rockland County area studio', 'Address shared when your visit is confirmed.'];
     @endphp
 
     <section class="page-hero page-hero--wellness page-hero--contact" aria-labelledby="contact-hero-heading">
@@ -75,7 +75,7 @@
                                                 class="contact-appt__req" aria-hidden="true">*</span></label>
                                         <input class="contact-appt__input" id="contact-phone" name="phone" type="tel"
                                             autocomplete="tel" required maxlength="50" value="{{ old('phone') }}"
-                                            placeholder="(626) 406-6538">
+                                            placeholder="(914) 745-6924">
                                     </div>
                                 </div>
                                 <div class="contact-appt__field">

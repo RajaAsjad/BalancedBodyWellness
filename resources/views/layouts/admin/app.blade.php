@@ -64,7 +64,7 @@
             --admin-orange: #4a9a8e;
             --admin-cream: #fafaf8;
             --admin-cream-mid: #eef2f0;
-            --admin-text: #1d2b33;
+            --admin-text: #ffffff;
             --admin-gold: #c9a157;
         }
 

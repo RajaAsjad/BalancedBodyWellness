@@ -13,6 +13,8 @@ return [
             ['slug' => 'iv-vitamin-therapy-nyc', 'label' => 'IV Vitamin Therapy'],
             ['slug' => 'medical-weight-loss-nyc', 'label' => 'Medical Weight Loss'],
             ['slug' => 'iron-infusion-therapy-nyc', 'label' => 'Iron Infusion'],
+            ['slug' => 'high-dose-vitamin-c-drip-nyc', 'label' => 'High-Dose Vitamin C Drip'],
+            ['slug' => 'ala-drips-nyc', 'label' => 'ALA Drips'],
         ],
         'all_label' => 'All Services',
     ],

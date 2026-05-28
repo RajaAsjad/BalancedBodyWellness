@@ -235,7 +235,7 @@ return [
             ],
             [
                 'title' => 'CONCIERGE PHONE & TEXT LINE',
-                'lines' => ['Reach out anytime we\'re here to support your wellness goals.', '(626) 406-6538'],
+                'lines' => ['Reach out anytime we\'re here to support your wellness goals.', '(914) 745-6924'],
             ],
             [
                 'title' => 'EMAIL OUR CLINICAL TEAM',

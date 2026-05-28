@@ -17,7 +17,7 @@
                     <p class="drip-menu__eyebrow">IV hydration drips</p>
                     <h2 class="drip-menu__title" id="drip-menu-heading">The Drip Menu</h2>
                 </div>
-                <p class="drip-menu__lede">11 thoughtfully formulated IV blends. Sessions typically 30–60 minutes.</p>
+                <p class="drip-menu__lede">11 thoughtfully formulated IV blends. Sessions typically 60–90 minutes.</p>
             </header>
 
             <div class="drip-menu__grid" role="list">
@@ -58,10 +58,10 @@
                     <span class="peptide-therapy__eyebrow-icon" aria-hidden="true">
                         @include('website.partials.peptide-pill-icon', ['size' => 18])
                     </span>
-                    <span class="peptide-therapy__eyebrow-text">Our services</span>
+                    <span class="peptide-therapy__eyebrow-text">Common nutrients</span>
                 </p>
-                <h2 class="peptide-therapy__title" id="peptide-therapy-heading">Services</h2>
-                <p class="peptide-therapy__sub">Each service is designed to address specific health concerns and promote overall well-being.</p>
+                <h2 class="peptide-therapy__title" id="peptide-therapy-heading">Common Nutrients</h2>  
+                <p class="peptide-therapy__sub">Common nutrients that are used in our services.</p>
             </header>
 
             @if ($services->isEmpty())
@@ -125,7 +125,7 @@
             <header class="peptide-therapy__header">
                 <p class="peptide-therapy__eyebrow">
                     <span class="peptide-therapy__eyebrow-icon" aria-hidden="true">
-                        @include('website.partials.peptide-pill-icon', ['size' => 18])
+                        @include('website.partials.syringe-icon', ['size' => 18])
                     </span>
                     <span class="peptide-therapy__eyebrow-text">Peptide therapy</span>
                 </p>
@@ -140,13 +140,19 @@
                         ['title' => 'Sermorelin', 'desc' => 'Stimulates natural growth hormone production for sleep, recovery and vitality.'],
                         ['title' => 'GLP-1 Programs', 'desc' => 'Medically supervised metabolic support for weight & appetite goals.'],
                         ['title' => 'Thymosin Alpha-1', 'desc' => 'Immune modulation and resilience support.'],
+                        ['title' => 'TB-500', 'desc' => 'Promotes faster muscle and tissue recovery, helps reduce inflammation, and supports healing after injuries or intense physical activity.'],
+                        ['title' => 'PTD-DBM', 'desc' => 'May support cellular regeneration, tissue repair, and overall recovery while promoting healthy inflammatory response.'],
+                        ['title' => 'GHK-CU', 'desc' => 'Copper peptide known for skin rejuvenation, collagen production, improved hair health, and enhanced wound healing.'],
+                        ['title' => 'Tesamorelin', 'desc' => 'Growth hormone-releasing peptide commonly used to help improve body composition, reduce abdominal fat, and support recovery and energy levels.'],
+                        ['title' => 'MOTS-C', 'desc' => 'Mitochondrial peptide designed to enhance metabolism, improve energy production, support fat utilization, and promote exercise performance.'],
+                        ['title' => 'CJC-1295', 'desc' => 'Long-acting growth hormone peptide that may help improve sleep quality, muscle recovery, lean muscle development, and overall vitality.'],
                     ];
                 @endphp
 
                 @foreach ($peptides as $peptide)
                     <article class="peptide-card reveal" role="listitem">
                         <div class="peptide-card__icon-wrap" aria-hidden="true">
-                            @include('website.partials.peptide-pill-icon', ['size' => 20, 'class' => 'peptide-card__pill'])
+                            @include('website.partials.syringe-icon', ['size' => 20, 'class' => 'peptide-card__pill'])
                         </div>
                         <div class="peptide-card__body">
                             <h3 class="peptide-card__title">{{ $peptide['title'] }}</h3>

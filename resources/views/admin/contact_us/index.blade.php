@@ -26,7 +26,7 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.5px;
-		color: #fff;
+		color: #fff !important;
 		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
 	}
 	.contact-stats {
