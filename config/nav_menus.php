@@ -25,6 +25,7 @@ return [
             ['slug' => 'iv-therapy-putnam-county', 'label' => 'Putnam County'],
             ['slug' => 'iv-therapy-dutchess-county', 'label' => 'Dutchess County'],
             ['slug' => 'iv-therapy-westchester-county', 'label' => 'Westchester'],
+            ['slug' => 'iv-therapy-new-york-city', 'label' => 'New York City'],
         ], 
     ],
 ];

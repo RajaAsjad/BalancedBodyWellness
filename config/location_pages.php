@@ -269,4 +269,45 @@ return [
             ],
         ],
     ],
+    'iv-therapy-new-york-city' => [
+        'name' => 'New York City',
+        'meta_title' => 'IV Therapy New York City | Balanced Body IV',
+        'meta_description' => 'Experience IV therapy in New York City. Personalized drips, clinical oversight, and calm private sessions for energy, recovery, and wellness.',
+        'hero' => [
+            'eyebrow' => 'New York City · IV Wellness Studio',
+            'title_main' => 'IV Therapy New York City',
+            'lead' => 'Restorative IV drips, peptide support, and vitamin injections — administered with clinical precision in a calm, spa-inspired setting serving New York City.',
+        ],
+    ],
+    'welcome' => [
+        'label' => 'WELCOME',
+        'title' => 'IV Wellness Studio in New York City',
+        'paragraphs' => [
+            'Balanced Body IV & Wellness is proud to offer <strong>IV therapy in New York City</strong> through a calm, thoughtfully designed studio built for restorative care. <strong>IV Therapy New York City</strong> is delivered using medical-grade formulations, sterile technique, and the kind of personalized attention that makes each visit feel intentional from the first consultation through aftercare.',
+            'Whether you are exploring an <strong>iv drip in New York City</strong> for the first time or returning for ongoing wellness support, we begin every session with a thorough review of your health history, current goals, and comfort. The studio environment is quiet, private, and unhurried — designed so you can fully relax while your treatment is administered.',
+            'From deep hydration and immune defense to metabolic support and cellular recovery, our clinical team guides you toward the formulation that serves your body best. Studio location details and parking are confirmed when your visit is scheduled.',
+        ],
+    ],
+    'process' => [
+        'label' => 'HOW IT WORKS',
+        'title' => 'The Process at Our New York City Studio',
+        'items' => [
+            [
+                'title' => 'Step 1 — Consultation & Clearance',
+                'text' => 'Your visit begins with a brief consultation where we review your health history, any relevant labs, and your wellness goals. Medical clearance is completed before any IV drip New York City service begins — your safety is the first priority.',
+            ],
+        ],
+        [
+            'title' => 'Step 2 — Your Infusion Session',
+            'text' => 'You relax in a private, comfortable setting while your IV therapy is administered with full clinical oversight. Sessions run 30 to 60 minutes depending on your selected formulation. You are monitored throughout for comfort and response.',
+        ],
+        [
+            'title' => 'Step 3 — Aftercare Guidance',
+            'text' => 'After your session we walk you through simple aftercare steps and answer any questions. If ongoing IV therapy in New York City is part of your plan, we help coordinate follow-up scheduling and track your results over time.',
+        ],
+        [
+            'title' => 'Ongoing Wellness Planning',
+            'text' => 'Many New York City clients build regular IV therapy routines — monthly maintenance, seasonal immune support, or performance recovery cycles. We support your long-term wellness with consistent oversight and evolving treatment plans.',
+        ],
+    ]
 ];

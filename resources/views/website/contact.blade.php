@@ -8,10 +8,7 @@
         $contactEmail = 'info@balancedbodyivwellness.com';
         $contactInstagramUrl = 'https://instagram.com/balancedbodyivwellness';
         $contactInstagramHandle = '@balancedbodyivwellness';
-        $rawAddress = trim((string) ($home_page_data['contact_address'] ?? $home_page_data['footer_address'] ?? ''));
-        $studioLines = $rawAddress !== ''
-            ? array_values(array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', $rawAddress))))
-            : ['Rockland County area studio', 'Address shared when your visit is confirmed.'];
+        $rawAddress = 'Mobile Services';
     @endphp
 
     <section class="page-hero page-hero--wellness page-hero--contact" aria-labelledby="contact-hero-heading">
@@ -139,9 +136,7 @@
                                     </svg>
                                 </span>
                                 <span class="contact-appt__studio-text">
-                                    @foreach ($studioLines as $line)
-                                        <span class="contact-appt__studio-line">{{ $line }}</span>
-                                    @endforeach
+                                    <span class="contact-appt__studio-line">{{ $rawAddress }}</span>
                                 </span>
                             </li>
                             <li class="contact-appt__studio-item">
