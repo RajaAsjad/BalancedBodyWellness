@@ -87,8 +87,13 @@ class WebController extends Controller
     public function Contact()
     {
         $page_title = 'Contact Us | Balanced Body IV Wellness';
+        $services = Services::query()
+            ->whereIn('status', [1, '1'])
+            ->orderBy('heading')
+            ->get();
+        $servicePages = Faq::serviceLandingPagesForPicker();
         $page_meta_description = "Send us a request and we'll confirm your appointment, share intake forms, and walk you through medical clearance.";
-        return view('website.contact', compact('page_title', 'page_meta_description'));
+        return view('website.contact', compact('page_title', 'page_meta_description', 'services', 'servicePages'));
     }
     public function Locations()
     {

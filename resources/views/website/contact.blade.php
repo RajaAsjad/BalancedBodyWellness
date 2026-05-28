@@ -84,13 +84,43 @@
                                 </div>
                                 <div class="contact-appt__row contact-appt__row--2">
                                     <div class="contact-appt__field">
-                                        <label class="contact-appt__label" for="contact-service">Service of interest</label>
-                                        <select class="contact-appt__input" id="contact-service" name="service_of_interest">
-                                            <option value="">Select a service</option>
-                                            @foreach ($services as $service)
-                                                <option value="{{ $service->id }}">{{ $service->heading }}</option>
-                                            @endforeach
-                                        </select>
+                                        <label class="contact-appt__label" id="contact-service-label" for="contact-service-trigger">Service of interest</label>
+                                        <div class="contact-appt__select" data-contact-service-select>
+                                            <select class="contact-appt__select-native" id="contact-service" name="service_of_interest" tabindex="-1" aria-hidden="true">
+                                                <option value="">Select a service</option>
+                                                @if (!empty($servicePages))
+                                                    <optgroup label="Service pages">
+                                                        @foreach ($servicePages as $servicePage)
+                                                            @php $pageValue = 'page:' . $servicePage['slug']; @endphp
+                                                            <option value="{{ $pageValue }}" {{ old('service_of_interest') === $pageValue ? 'selected' : '' }}>
+                                                                {{ $servicePage['label'] }}
+                                                            </option>
+                                                        @endforeach
+                                                    </optgroup>
+                                                @endif
+                                                @if ($services->isNotEmpty())
+                                                    <optgroup label="Common Nutrients">
+                                                        @foreach ($services as $service)
+                                                            @php $serviceValue = 'service:' . $service->id; @endphp
+                                                            <option value="{{ $serviceValue }}" {{ old('service_of_interest') === $serviceValue ? 'selected' : '' }}>
+                                                                {{ $service->heading }}
+                                                            </option>
+                                                        @endforeach
+                                                    </optgroup>
+                                                @endif
+                                            </select>
+                                            <button type="button" class="contact-appt__input contact-appt__select-trigger" id="contact-service-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="contact-service-label">
+                                                <span class="contact-appt__select-label" data-select-label>Select a service</span>
+                                                <span class="contact-appt__select-chevron" aria-hidden="true">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                            <div class="contact-appt__select-panel" role="listbox" aria-labelledby="contact-service-label" hidden>
+                                                <div class="contact-appt__select-scroll"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="contact-appt__field">
                                         <label class="contact-appt__label" for="contact-date">Preferred date</label>

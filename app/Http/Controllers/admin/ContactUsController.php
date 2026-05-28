@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ContactUs;
+use App\Models\Faq;
+use App\Models\Services;
 use App\Mail\ContactFormMail;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -83,6 +85,7 @@ class ContactUsController extends Controller
             'phone' => 'required|string|max:50',
             'venue_event' => 'nullable|string|max:255',
             'preferred_date' => 'nullable|date',
+            'service_of_interest' => 'nullable|string|max:150',
             'message' => 'nullable|string|max:2000',
         ]);
 
@@ -104,6 +107,10 @@ class ContactUsController extends Controller
         }
 
         $messageBlocks = [];
+        $serviceLabel = $this->resolveServiceOfInterest($request->input('service_of_interest'));
+        if ($serviceLabel) {
+            $messageBlocks[] = 'Service of interest: ' . $serviceLabel;
+        }
         if ($preferredDate !== null) {
             $messageBlocks[] = 'Preferred date: ' . $preferredDate;
         }
@@ -133,6 +140,7 @@ class ContactUsController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'venue_event' => $request->venue_event,
+            'service_of_interest' => $serviceLabel,
             'message' => $composedMessage,
         ];
 
@@ -157,6 +165,32 @@ class ContactUsController extends Controller
         }
 
         return redirect()->route('contact')->with('status', 'Your message has been sent. Thank you!');
+    }
+
+    private function resolveServiceOfInterest(?string $value): ?string
+    {
+        $value = trim((string) $value);
+        if ($value === '') {
+            return null;
+        }
+
+        if (str_starts_with($value, 'page:')) {
+            $slug = substr($value, 5);
+
+            return Faq::landingPageLabel($slug) ?: $slug;
+        }
+
+        if (str_starts_with($value, 'service:')) {
+            $id = (int) substr($value, 8);
+
+            return Services::query()->whereKey($id)->value('heading');
+        }
+
+        if (ctype_digit($value)) {
+            return Services::query()->whereKey((int) $value)->value('heading');
+        }
+
+        return $value;
     }
 
     /**

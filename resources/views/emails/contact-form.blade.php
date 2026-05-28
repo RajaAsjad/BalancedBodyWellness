@@ -75,6 +75,10 @@
     </div>
     <div class="field"><span class="label">Email:</span><span class="value">{{ $contact['email'] }}</span></div>
     <div class="field"><span class="label">Phone:</span><span class="value">{{ $contact['phone'] }}</span></div>
+    @if (!empty($contact['service_of_interest']))
+        <div class="field"><span class="label">Service of interest:</span><span
+                class="value">{{ $contact['service_of_interest'] }}</span></div>
+    @endif
     @if (!empty($contact['venue_event']))
         <div class="field"><span class="label">Service / venue:</span><span
                 class="value">{{ $contact['venue_event'] }}</span></div>

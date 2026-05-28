@@ -221,3 +221,113 @@ document.querySelectorAll('.video-card__thumb').forEach(thumb => {
     });
   });
 })();
+
+/** Contact form: scrollable service picker with visible scrollbar */
+(() => {
+  const root = document.querySelector('[data-contact-service-select]');
+  if (!root) return;
+
+  const native = root.querySelector('.contact-appt__select-native');
+  const trigger = root.querySelector('.contact-appt__select-trigger');
+  const labelEl = root.querySelector('[data-select-label]');
+  const panel = root.querySelector('.contact-appt__select-panel');
+  const scroll = root.querySelector('.contact-appt__select-scroll');
+  if (!native || !trigger || !labelEl || !panel || !scroll) return;
+
+  const placeholder = labelEl.textContent.trim();
+
+  const syncLabel = () => {
+    const selected = native.selectedOptions[0];
+    labelEl.textContent = selected && selected.value ? selected.textContent.trim() : placeholder;
+  };
+
+  const updateSelectedStates = () => {
+    scroll.querySelectorAll('.contact-appt__select-option').forEach((btn) => {
+      const isSelected = btn.dataset.value === native.value;
+      btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+      btn.classList.toggle('is-selected', isSelected);
+    });
+  };
+
+  const selectValue = (value) => {
+    native.value = value;
+    syncLabel();
+    updateSelectedStates();
+    close();
+    native.dispatchEvent(new Event('change', { bubbles: true }));
+  };
+
+  const createOptionButton = (option) => {
+    if (!option.value) return null;
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'contact-appt__select-option';
+    btn.role = 'option';
+    btn.dataset.value = option.value;
+    btn.textContent = option.textContent.trim();
+    btn.addEventListener('click', () => selectValue(option.value));
+    return btn;
+  };
+
+  const buildMenu = () => {
+    scroll.innerHTML = '';
+
+    Array.from(native.children).forEach((node) => {
+      if (node.tagName === 'OPTGROUP') {
+        const group = document.createElement('div');
+        group.className = 'contact-appt__select-group';
+
+        const title = document.createElement('p');
+        title.className = 'contact-appt__select-group-label';
+        title.textContent = node.label;
+        group.appendChild(title);
+
+        Array.from(node.children).forEach((option) => {
+          const btn = createOptionButton(option);
+          if (btn) group.appendChild(btn);
+        });
+
+        scroll.appendChild(group);
+        return;
+      }
+
+      if (node.tagName === 'OPTION') {
+        const btn = createOptionButton(node);
+        if (btn) scroll.appendChild(btn);
+      }
+    });
+  };
+
+  const open = () => {
+    panel.hidden = false;
+    trigger.setAttribute('aria-expanded', 'true');
+    root.classList.add('is-open');
+  };
+
+  const close = () => {
+    panel.hidden = true;
+    trigger.setAttribute('aria-expanded', 'false');
+    root.classList.remove('is-open');
+  };
+
+  trigger.addEventListener('click', () => {
+    if (panel.hidden) open();
+    else close();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!root.contains(event.target)) close();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !panel.hidden) {
+      close();
+      trigger.focus();
+    }
+  });
+
+  buildMenu();
+  syncLabel();
+  updateSelectedStates();
+})();
