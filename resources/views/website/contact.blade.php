@@ -85,9 +85,12 @@
                                 <div class="contact-appt__row contact-appt__row--2">
                                     <div class="contact-appt__field">
                                         <label class="contact-appt__label" for="contact-service">Service of interest</label>
-                                        <input class="contact-appt__input" id="contact-service" name="venue_event"
-                                            type="text" maxlength="255" value="{{ old('venue_event') }}"
-                                            placeholder="e.g. Energy Boost drip">
+                                        <select class="contact-appt__input" id="contact-service" name="service_of_interest">
+                                            <option value="">Select a service</option>
+                                            @foreach ($services as $service)
+                                                <option value="{{ $service->id }}">{{ $service->heading }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="contact-appt__field">
                                         <label class="contact-appt__label" for="contact-date">Preferred date</label>
