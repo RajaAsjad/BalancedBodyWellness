@@ -189,12 +189,10 @@
                             Hours
                         </h2>
                         <ul class="contact-appt__hours-list">
-                            <li><span class="contact-appt__hours-day">Mon &ndash; Fri</span> <span class="contact-appt__hours-time">9:00
-                                    &ndash; 6:00</span></li>
-                            <li><span class="contact-appt__hours-day">Saturday</span> <span class="contact-appt__hours-time">10:00
-                                    &ndash; 4:00</span></li>
-                            <li><span class="contact-appt__hours-day">Sunday</span> <span
-                                    class="contact-appt__hours-time contact-appt__hours-time--closed">Closed</span></li>
+                            <li><span class="contact-appt__hours-day">Monday &ndash; Friday</span> <span class="contact-appt__hours-time">9:00 AM
+                                    &ndash; 7:00 PM</span></li>
+                            <li><span class="contact-appt__hours-day">Sunday</span> <span class="contact-appt__hours-time">10:00 AM
+                                    &ndash; 4:00 PM</span></li> 
                         </ul>
                     </div>
                 </aside>
