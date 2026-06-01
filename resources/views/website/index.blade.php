@@ -136,7 +136,7 @@
 
     {{-- Step-by-step process --}}
     @if (!empty($hp['process']))
-        <section class="hp-process" aria-labelledby="hp-process-heading">
+        <section class="hp-services" aria-labelledby="hp-process-heading">
             <div class="hp-process__inner container-pns">
                 <header class="hp-process__header">
                     @if (!empty($hp['process']['badge']))
