@@ -231,7 +231,7 @@ return [
         'columns' => [
             [
                 'title' => 'LOCATION',
-                'lines' => ['Balanced Body IV & Wellness', '[Insert Full Address]', 'New York'],
+                'lines' => ['Balanced Body IV & Wellness', 'New York - By Appointment Only'],
             ],
             [
                 'title' => 'CONCIERGE PHONE & TEXT LINE',
