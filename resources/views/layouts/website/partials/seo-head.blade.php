@@ -13,6 +13,21 @@
 <meta name="description" content="{{ $seoDescription }}">
 <meta name="robots" content="{{ $seoRobots }}">
 <meta name="googlebot" content="{{ $seoRobots }}">
+@if (WebsiteSeo::isIndexable())
+    @php $geo = config('seo.geo', []); @endphp
+    @if (!empty($geo['region']))
+        <meta name="geo.region" content="{{ $geo['region'] }}">
+    @endif
+    @if (!empty($geo['placename']))
+        <meta name="geo.placename" content="{{ $geo['placename'] }}">
+    @endif
+    @if (!empty($geo['position']))
+        <meta name="geo.position" content="{{ $geo['position'] }}">
+    @endif
+    @if (!empty($geo['icbm']))
+        <meta name="ICBM" content="{{ $geo['icbm'] }}">
+    @endif
+@endif
 <link rel="canonical" href="{{ $seoCanonical }}">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="{{ $seoLocale }}">

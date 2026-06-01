@@ -99,7 +99,7 @@
                     @endif
                 @endforeach
                 @auth
-                    <a href="{{ route('dashboard') }}" class="nav__link" rel="nofollow">Dashboard</a>
+                    <a href="{{ route('dashboard') }}" class="nav__link">Dashboard</a>
                     <a href="{{ route('logout') }}" class="nav__link"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 @endauth
@@ -147,7 +147,7 @@
                 @endif
             @endforeach
             @auth
-                <a href="{{ route('dashboard') }}" class="mobile-menu__link" rel="nofollow">Dashboard</a>
+                <a href="{{ route('dashboard') }}" class="mobile-menu__link">Dashboard</a>
                 <a href="{{ route('logout') }}" class="mobile-menu__link"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
             @endauth

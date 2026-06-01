@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     @include('layouts.website.partials.seo-head')
+    @include('layouts.website.partials.analytics-head')
     @php
         $fav = trim($home_page_data['header_favicon'] ?? '');
     @endphp
@@ -32,6 +33,14 @@
 </head>
 
 <body @if (request()->routeIs('index')) data-nav-hash-root @endif>
+    @if (trim((string) config('seo.gtm_container_id')) !== '')
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id={{ config('seo.gtm_container_id') }}"
+                height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+    @endif
     @include('layouts.website.header')
 
     <main id="main">

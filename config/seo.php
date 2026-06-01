@@ -12,21 +12,44 @@ return [
 
     'default_description' => env(
         'SEO_DEFAULT_DESCRIPTION',
-        'Holistic IV wellness in Los Angeles — IV drips, peptides, and vitamin injections with medical oversight in a calming, spa-inspired studio.'
+        'Experience advanced IV therapy and wellness solutions in NYC. Offering NAD+ therapy, IV infusions, peptide therapy, and medical weight loss treatments. Book your consultation with Balanced Body IV Wellness today.'
     ),
 
     'default_og_image' => env('SEO_OG_IMAGE', ''),
+
+    'default_logo' => env('SEO_LOGO', 'admin/assets/images/page/13052026235412.png'),
 
     'twitter_handle' => env('SEO_TWITTER', '@balancedbodyivwellness'),
 
     'locale' => 'en_US',
 
+    'google_site_verification' => env('SEO_GOOGLE_VERIFICATION', 'sJcDcW92mysdY4J1n_FWh_9IAVQyjb36tk4Tnw9Twpg'),
+
+    'ga_measurement_id' => env('SEO_GA_ID', 'G-Y2EZVYVB8L'),
+
+    'gtm_container_id' => env('SEO_GTM_ID', 'GTM-5933CKDT'),
+
+    'geo' => [
+        'region' => 'US-NY',
+        'placename' => 'Town of Yorktown',
+        'position' => '41.32861;-73.807808',
+        'icbm' => '41.32861, -73.807808',
+    ],
+
     'business' => [
-        'type' => 'MedicalBusiness',
-        'phone' => '+16264066538',
+        'type' => 'LocalBusiness',
+        'alternate_name' => 'Mobile IV Therapy NYC',
+        'phone' => '914-745-6924',
         'email' => 'info@balancedbodyivwellness.com',
         'instagram' => 'https://www.instagram.com/balancedbodyivwellness/',
-        'area_served' => 'Los Angeles, CA',
+        'area_served' => 'New York City, Westchester, Putnam, Dutchess, Rockland County',
+        'street_address' => '650 Lee blvd',
+        'address_locality' => 'Jefferson Valley',
+        'address_region' => 'NY',
+        'postal_code' => '10598',
+        'address_country' => 'US',
+        'latitude' => 41.3286166,
+        'longitude' => -73.8077192,
     ],
 
     /*

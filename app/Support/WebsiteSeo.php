@@ -11,6 +11,11 @@ class WebsiteSeo
         return (string) config('seo.site_name');
     }
 
+    public static function siteUrl(): string
+    {
+        return rtrim((string) config('app.url'), '/');
+    }
+
     public static function canonicalUrl(?string $override = null): string
     {
         $override = trim((string) $override);
@@ -74,45 +79,22 @@ class WebsiteSeo
             return asset('admin/assets/images/page/' . $logo);
         }
 
-        return asset('assets/website/favicon-la.svg');
+        return self::logoUrl($homePageData);
     }
 
-    /**
-     * @return array<int, array<string, mixed>>
-     */
-    public static function organizationJsonLd(array $homePageData = []): array
+    public static function logoUrl(array $homePageData = []): string
     {
-        $business = config('seo.business', []);
-        $siteUrl = rtrim((string) config('app.url'), '/');
-
-        $address = trim((string) ($homePageData['contact_address'] ?? $homePageData['footer_address'] ?? ''));
-        $payload = [
-            '@context' => 'https://schema.org',
-            '@type' => $business['type'] ?? 'MedicalBusiness',
-            '@id' => $siteUrl . '/#organization',
-            'name' => self::siteName(),
-            'url' => $siteUrl,
-            'description' => (string) config('seo.default_description'),
-            'telephone' => $business['phone'] ?? null,
-            'email' => $business['email'] ?? null,
-            'areaServed' => $business['area_served'] ?? null,
-            'sameAs' => array_values(array_filter([
-                $business['instagram'] ?? null,
-            ])),
-        ];
-
-        if ($address !== '') {
-            $lines = array_values(array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', $address))));
-            $payload['address'] = [
-                '@type' => 'PostalAddress',
-                'streetAddress' => $lines[0] ?? $address,
-                'addressLocality' => $lines[1] ?? ($business['area_served'] ?? 'Los Angeles'),
-                'addressRegion' => 'CA',
-                'addressCountry' => 'US',
-            ];
+        $adminLogo = trim((string) ($homePageData['header_logo'] ?? ''));
+        if ($adminLogo !== '') {
+            return asset('admin/assets/images/page/' . $adminLogo);
         }
 
-        return array_filter($payload, fn ($value) => $value !== null && $value !== [] && $value !== '');
+        $configured = trim((string) config('seo.default_logo'));
+        if ($configured !== '') {
+            return asset($configured);
+        }
+
+        return asset('assets/website/favicon-la.svg');
     }
 
     /**
@@ -120,17 +102,81 @@ class WebsiteSeo
      */
     public static function websiteJsonLd(): array
     {
-        $siteUrl = rtrim((string) config('app.url'), '/');
+        $siteUrl = self::siteUrl();
 
         return [
             '@context' => 'https://schema.org',
             '@type' => 'WebSite',
             '@id' => $siteUrl . '/#website',
-            'url' => $siteUrl,
             'name' => self::siteName(),
-            'publisher' => ['@id' => $siteUrl . '/#organization'],
-            'inLanguage' => 'en-US',
+            'url' => $siteUrl . '/',
+            'potentialAction' => [
+                '@type' => 'SearchAction',
+                'target' => [
+                    '@type' => 'EntryPoint',
+                    'urlTemplate' => $siteUrl . '/?s={search_term_string}',
+                ],
+                'query-input' => 'required name=search_term_string',
+            ],
         ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public static function organizationJsonLd(array $homePageData = []): array
+    {
+        $business = config('seo.business', []);
+        $siteUrl = self::siteUrl();
+
+        return array_filter([
+            '@context' => 'https://schema.org',
+            '@type' => 'Organization',
+            '@id' => $siteUrl . '/#organization',
+            'name' => self::siteName(),
+            'alternateName' => $business['alternate_name'] ?? null,
+            'url' => $siteUrl . '/',
+            'logo' => self::logoUrl($homePageData),
+            'sameAs' => array_values(array_filter([
+                $business['instagram'] ?? null,
+            ])),
+        ], fn ($value) => $value !== null && $value !== [] && $value !== '');
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public static function localBusinessJsonLd(array $homePageData = []): array
+    {
+        $business = config('seo.business', []);
+        $siteUrl = self::siteUrl();
+
+        return array_filter([
+            '@context' => 'https://schema.org',
+            '@type' => 'LocalBusiness',
+            '@id' => $siteUrl . '/#localbusiness',
+            'name' => self::siteName(),
+            'image' => self::ogImageUrl($homePageData),
+            'url' => $siteUrl . '/',
+            'telephone' => $business['phone'] ?? null,
+            'email' => $business['email'] ?? null,
+            'address' => [
+                '@type' => 'PostalAddress',
+                'streetAddress' => $business['street_address'] ?? null,
+                'addressLocality' => $business['address_locality'] ?? null,
+                'addressRegion' => $business['address_region'] ?? null,
+                'postalCode' => $business['postal_code'] ?? null,
+                'addressCountry' => $business['address_country'] ?? 'US',
+            ],
+            'geo' => [
+                '@type' => 'GeoCoordinates',
+                'latitude' => $business['latitude'] ?? null,
+                'longitude' => $business['longitude'] ?? null,
+            ],
+            'sameAs' => array_values(array_filter([
+                $business['instagram'] ?? null,
+            ])),
+        ], fn ($value) => $value !== null && $value !== [] && $value !== '');
     }
 
     /**
