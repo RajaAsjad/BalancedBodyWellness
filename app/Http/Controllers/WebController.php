@@ -12,8 +12,8 @@ class WebController extends Controller
 {
     public function Index()
     {
-        $page_title = 'IV Therapy NYC | Balanced Body IV Wellness';
-        $page_meta_description = 'Experience premium IV therapy in NYC with Balanced Body IV Wellness. NAD+, vitamin infusions, medical weight loss & peptide therapy. Book your consultation today. ';
+        $page_title = 'IV Therapy NYC | Wellness Solutions | Balanced Body IV Wellness';
+        $page_meta_description = 'Experience advanced IV therapy and wellness solutions in NYC. Offering NAD+ therapy, IV infusions, peptide therapy, and medical weight loss treatments. Book your consultation with Balanced Body IV Wellness today.';
          
         return view('website.index', compact('page_title', 'page_meta_description'));
     }
