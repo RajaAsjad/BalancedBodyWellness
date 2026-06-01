@@ -90,7 +90,108 @@ class WebsiteSeo
             return asset($configured);
         }
 
-        return asset('assets/website/favicon-la.svg');
+        return asset('assets/website/favicon.svg');
+    }
+
+    /** Absolute URL for favicon (prefers /favicon.png when a raster file exists). */
+    public static function faviconPublicUrl(array $homePageData = []): string
+    {
+        if (self::faviconDiskPath($homePageData) !== null && self::faviconIsRaster($homePageData)) {
+            return route('favicon.png');
+        }
+
+        $path = self::faviconDiskPath($homePageData);
+        if ($path !== null) {
+            return asset(self::publicRelativePath($path));
+        }
+
+        return asset(ltrim(str_replace('\\', '/', (string) config('seo.default_favicon', 'assets/website/favicon.svg')), '/'));
+    }
+
+    protected static function publicRelativePath(string $fullPath): string
+    {
+        $base = rtrim(str_replace('\\', '/', public_path()), '/');
+        $full = str_replace('\\', '/', $fullPath);
+
+        if (str_starts_with($full, $base.'/')) {
+            return substr($full, strlen($base) + 1);
+        }
+
+        return ltrim($full, '/');
+    }
+
+    public static function faviconDiskPath(array $homePageData = []): ?string
+    {
+        foreach (self::faviconCandidates($homePageData) as $relative) {
+            $full = public_path($relative);
+            if (is_file($full)) {
+                return $full;
+            }
+        }
+
+        return null;
+    }
+
+    public static function faviconIsRaster(array $homePageData = []): bool
+    {
+        $path = self::faviconDiskPath($homePageData);
+
+        if ($path === null) {
+            return false;
+        }
+
+        $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+
+        return in_array($ext, ['png', 'jpg', 'jpeg', 'gif', 'webp', 'ico'], true);
+    }
+
+    public static function faviconMime(string $path): string
+    {
+        return self::faviconMimeFromExtension(strtolower(pathinfo($path, PATHINFO_EXTENSION)));
+    }
+
+    public static function faviconMimeFromUrl(string $url): string
+    {
+        $path = parse_url($url, PHP_URL_PATH) ?: $url;
+        $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+
+        return self::faviconMimeFromExtension($ext);
+    }
+
+    protected static function faviconMimeFromExtension(string $ext): string
+    {
+        return match ($ext) {
+            'png' => 'image/png',
+            'jpg', 'jpeg' => 'image/jpeg',
+            'gif' => 'image/gif',
+            'ico' => 'image/x-icon',
+            'webp' => 'image/webp',
+            'svg' => 'image/svg+xml',
+            default => '',
+        };
+    }
+
+    /** @return list<string> Public-relative paths under /public */
+    protected static function faviconCandidates(array $homePageData): array
+    {
+        $items = [];
+
+        foreach ([
+            trim((string) ($homePageData['header_favicon'] ?? '')),
+            trim((string) ($homePageData['header_logo'] ?? '')),
+            basename((string) config('seo.default_logo', '')),
+        ] as $filename) {
+            if ($filename !== '') {
+                $items[] = 'admin/assets/images/page/' . $filename;
+            }
+        }
+
+        $configured = trim((string) config('seo.default_favicon', ''));
+        if ($configured !== '') {
+            $items[] = ltrim(str_replace('\\', '/', $configured), '/');
+        }
+
+        return array_values(array_unique($items));
     }
 
     /**

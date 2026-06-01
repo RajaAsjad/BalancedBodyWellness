@@ -6,6 +6,7 @@ use App\Models\Video;
 use App\Models\Faq;
 use App\Models\Policies;
 use App\Models\Services;
+use App\Services\ContactImageCaptcha;
 use Illuminate\Support\Str;
 
 class WebController extends Controller
@@ -84,7 +85,7 @@ class WebController extends Controller
         return view('website.policies', compact('page_title', 'page_meta_description', 'policies'));
     }
 
-    public function Contact()
+    public function Contact(ContactImageCaptcha $captcha)
     {
         $page_title = 'Contact Us | Balanced Body IV Wellness';
         $services = Services::query()
@@ -92,8 +93,9 @@ class WebController extends Controller
             ->orderBy('heading')
             ->get();
         $servicePages = Faq::serviceLandingPagesForPicker();
+        $captchaToken = $captcha->createTokenChallenge()['token'];
         $page_meta_description = "Send us a request and we'll confirm your appointment, share intake forms, and walk you through medical clearance.";
-        return view('website.contact', compact('page_title', 'page_meta_description', 'services', 'servicePages'));
+        return view('website.contact', compact('page_title', 'page_meta_description', 'services', 'servicePages', 'captchaToken'));
     }
     public function Locations()
     {

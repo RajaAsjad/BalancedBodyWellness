@@ -135,6 +135,45 @@
                                     <textarea class="contact-appt__textarea" id="contact-message" name="message" rows="4"
                                         maxlength="2000" placeholder="Health goals, medical concerns, questions...">{{ old('message') }}</textarea>
                                 </div>
+
+                                <div class="contact-appt__field contact-appt__captcha">
+                                    <label class="contact-appt__label" for="captcha_code">Security code <span class="contact-appt__req" aria-hidden="true">*</span></label>
+                                    <input type="hidden" name="captcha_token" id="captcha_token" value="{{ $captchaToken ?? '' }}">
+                                    <div class="contact-appt__captcha-row">
+                                        <img
+                                            src="{{ route('contact.captcha.image', ['token' => $captchaToken ?? '']) }}"
+                                            alt="Security code"
+                                            id="contact-captcha-image"
+                                            class="contact-appt__captcha-image"
+                                            width="200"
+                                            height="60"
+                                        >
+                                        <button type="button" class="contact-appt__captcha-refresh" id="contact-captcha-refresh" title="Get a new code" aria-label="Refresh security code">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <polyline points="23 4 23 10 17 10"></polyline>
+                                                <polyline points="1 20 1 14 7 14"></polyline>
+                                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                                            </svg>
+                                        </button>
+                                        <input
+                                            type="text"
+                                            class="contact-appt__input contact-appt__captcha-input"
+                                            id="captcha_code"
+                                            name="captcha_code"
+                                            value="{{ old('captcha_code') }}"
+                                            placeholder="Enter code shown"
+                                            required
+                                            maxlength="5"
+                                            autocomplete="off"
+                                            autocapitalize="characters"
+                                            spellcheck="false"
+                                        >
+                                    </div>
+                                    <p class="contact-appt__captcha-hint">Type the letters and numbers from the image (not case-sensitive).</p>
+                                    @error('captcha_code')
+                                        <p class="contact-appt__field-error" role="alert">{{ $message }}</p>
+                                    @enderror
+                                </div>
                             </div>
 
                             <button class="contact-appt__submit" type="submit">
@@ -237,4 +276,25 @@
         'pageKey' => 'contact',
         'sectionTitle' => 'Booking & contact questions',
     ])
+
+    @push('js')
+        <script>
+            (function () {
+                var img = document.getElementById('contact-captcha-image');
+                var refreshBtn = document.getElementById('contact-captcha-refresh');
+                var tokenInput = document.getElementById('captcha_token');
+                var codeInput = document.getElementById('captcha_code');
+                if (!img || !refreshBtn || !tokenInput) return;
+
+                var imageBase = @json(route('contact.captcha.image'));
+
+                refreshBtn.addEventListener('click', function () {
+                    var token = tokenInput.value;
+                    img.src = imageBase + '?token=' + encodeURIComponent(token) + '&refresh=1&t=' + Date.now();
+                    if (codeInput) codeInput.value = '';
+                    if (codeInput) codeInput.focus();
+                });
+            })();
+        </script>
+    @endpush
 @endsection

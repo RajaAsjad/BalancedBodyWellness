@@ -79,14 +79,20 @@
         <div class="field"><span class="label">Service of interest:</span><span
                 class="value">{{ $contact['service_of_interest'] }}</span></div>
     @endif
+    @if (!empty($contact['preferred_date']))
+        <div class="field"><span class="label">Preferred date:</span><span
+                class="value">{{ $contact['preferred_date'] }}</span></div>
+    @endif
     @if (!empty($contact['venue_event']))
         <div class="field"><span class="label">Service / venue:</span><span
                 class="value">{{ $contact['venue_event'] }}</span></div>
     @endif
-    <div class="field">
-        <span class="label">Message:</span>
-        <div class="message-box">{!! nl2br(e($contact['message'])) !!}</div>
-    </div>
+    @if (trim((string) ($contact['message'] ?? '')) !== '')
+        <div class="field">
+            <span class="label">Message:</span>
+            <div class="message-box">{!! nl2br(e($contact['message'])) !!}</div>
+        </div>
+    @endif
 
     <p class="footer-note">Sent from Balanced Body IV Wellness website contact form.</p>
 </body>

@@ -9,20 +9,7 @@
     <title>@yield('title')</title>
     @include('layouts.website.partials.seo-head')
     @include('layouts.website.partials.analytics-head')
-    @php
-        $fav = trim($home_page_data['header_favicon'] ?? '');
-    @endphp
-    @if ($fav !== '')
-        <link rel="apple-touch-icon" sizes="180x180"
-            href="{{ asset('admin/assets/images/page/' . $fav) }}">
-        <link rel="icon" href="{{ asset('admin/assets/images/page/' . $fav) }}" type="image/png"
-            sizes="32x32">
-    @else
-        {{-- Default tab / PWA icon: LA mark (matches nav fallback when no admin favicon) --}}
-        <link rel="icon" href="{{ asset('assets/website/favicon-la.svg') }}" type="image/svg+xml"
-            sizes="any">
-        <link rel="apple-touch-icon" href="{{ asset('assets/website/favicon-la.svg') }}">
-    @endif
+    @include('layouts.website.partials.favicon')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">

@@ -19,6 +19,8 @@ return [
 
     'default_logo' => env('SEO_LOGO', 'admin/assets/images/page/13052026235412.png'),
 
+    'default_favicon' => env('SEO_FAVICON', 'assets/website/favicon.svg'),
+
     'twitter_handle' => env('SEO_TWITTER', '@balancedbodyivwellness'),
 
     'locale' => 'en_US',

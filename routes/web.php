@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\ContactCaptchaController;
+use App\Http\Controllers\FaviconController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\HomeSliderController;
 use App\Http\Controllers\admin\TestimonialController;
@@ -44,6 +46,8 @@ Route::post('admin/logout', 'admin\AdminController@logOut')->name('admin.logout'
 
 
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+Route::get('/favicon.ico', [FaviconController::class, 'ico'])->name('favicon.ico');
+Route::get('/favicon.png', [FaviconController::class, 'png'])->name('favicon.png');
 
 // Frontend — Balanced Body IV Wellness
 Route::get('/', [WebController::class, 'Index'])->name('index'); 
@@ -59,6 +63,7 @@ Route::get('about-us', [WebController::class, 'AboutUs'])->name('about-us');
 Route::get('faqs', [WebController::class, 'Faqs'])->name('faqs');
 Route::get('policies', [WebController::class, 'Policies'])->name('policies');
 Route::get('contact', [WebController::class, 'Contact'])->name('contact');
+Route::get('contact/captcha-image', [ContactCaptchaController::class, 'image'])->name('contact.captcha.image');
 Route::get('locations', [WebController::class, 'Locations'])->name('locations');
 Route::redirect('iv-therapy-jefferson-valley', '/iv-therapy-jefferson-valley-ny', 301);
 Route::redirect('iv-therapy-westchester', '/iv-therapy-westchester-county', 301);

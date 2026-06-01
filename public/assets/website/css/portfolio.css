@@ -3169,6 +3169,68 @@ button {
   pointer-events: none;
 }
 
+.contact-appt__captcha {
+  margin-top: 0.15rem;
+}
+
+.contact-appt__captcha-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.contact-appt__captcha-image {
+  display: block;
+  width: 200px;
+  height: 60px;
+  border-radius: 0.65rem;
+  border: 1px solid #c5d4cf;
+  background: #f8fdfc;
+  object-fit: cover;
+}
+
+.contact-appt__captcha-refresh {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid #c5d4cf;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  color: #2d6a62;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.contact-appt__captcha-refresh:hover {
+  background: #eef6f4;
+  border-color: #557c62;
+}
+
+.contact-appt__captcha-input {
+  flex: 1 1 140px;
+  min-width: 140px;
+  max-width: 220px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-appt__captcha-hint {
+  margin: 0.45rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #7d8f8a;
+}
+
+.contact-appt__field-error {
+  margin: 0.5rem 0 0;
+  font-size: 0.8125rem;
+  color: #b42318;
+}
+
 .contact-appt__submit {
   display: flex;
   width: 100%;

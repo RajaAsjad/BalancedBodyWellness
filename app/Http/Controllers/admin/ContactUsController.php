@@ -8,6 +8,7 @@ use App\Models\ContactUs;
 use App\Models\Faq;
 use App\Models\Services;
 use App\Mail\ContactFormMail;
+use App\Rules\ContactCaptchaRule;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
@@ -87,6 +88,8 @@ class ContactUsController extends Controller
             'preferred_date' => 'nullable|date',
             'service_of_interest' => 'nullable|string|max:150',
             'message' => 'nullable|string|max:2000',
+            'captcha_token' => 'required|string|size:40',
+            'captcha_code' => ['required', 'string', 'max:5', new ContactCaptchaRule()],
         ]);
 
         $note = trim((string) $request->message);
@@ -141,7 +144,8 @@ class ContactUsController extends Controller
             'phone' => $request->phone,
             'venue_event' => $request->venue_event,
             'service_of_interest' => $serviceLabel,
-            'message' => $composedMessage,
+            'preferred_date' => $preferredDate,
+            'message' => $note,
         ];
 
         // Notify configured forwarder inboxes (see CONTACT_FORM_RECIPIENTS in .env)

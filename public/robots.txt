@@ -11,4 +11,4 @@ Disallow: /route-clear
 Disallow: /contactus
 Disallow: /shopcontact
 
-Sitemap: /sitemap.xml
+Sitemap: https://balancedbodyivwellness.com/sitemap.xml
