@@ -109,6 +109,24 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Contact form notification recipients
+    |--------------------------------------------------------------------------
+    |
+    | Comma-separated in CONTACT_FORM_RECIPIENTS (.env). Each address receives
+    | a copy when someone submits the public /contact form.
+    |
+    */
+
+    'contact_form_recipients' => array_values(array_filter(array_map(
+        'trim',
+        explode(',', (string) env(
+            'CONTACT_FORM_RECIPIENTS',
+            'marketing@americandigitalagency.us,officialamericandigitalusa@gmail.com'
+        ))
+    ))),
+
+    /*
+    |--------------------------------------------------------------------------
     | Markdown Mail Settings
     |--------------------------------------------------------------------------
     |

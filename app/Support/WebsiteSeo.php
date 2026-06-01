@@ -50,10 +50,6 @@ class WebsiteSeo
             return $yielded;
         }
 
-        if (! app()->environment('production')) {
-            return 'noindex, nofollow';
-        }
-
         return 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
     }
 

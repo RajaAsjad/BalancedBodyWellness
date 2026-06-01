@@ -144,17 +144,19 @@ class ContactUsController extends Controller
             'message' => $composedMessage,
         ];
 
-        // Always send contact form notification to admin
-        $adminEmail = 'asjadmmc67@gmail.com';
-        try {
-            Mail::to($adminEmail)->send(new ContactFormMail($contactData));
-            Log::info('Contact form email sent to ' . $adminEmail);
-        } catch (\Exception $e) {
-            Log::error('Contact form email failed', [
-                'to' => $adminEmail,
-                'message' => $e->getMessage(),
-                'trace' => $e->getTraceAsString(),
-            ]);
+        // Notify configured forwarder inboxes (see CONTACT_FORM_RECIPIENTS in .env)
+        $recipients = array_values(array_filter(config('mail.contact_form_recipients', [])));
+        if ($recipients !== []) {
+            try {
+                Mail::to($recipients)->send(new ContactFormMail($contactData));
+                Log::info('Contact form email sent', ['to' => $recipients]);
+            } catch (\Exception $e) {
+                Log::error('Contact form email failed', [
+                    'to' => $recipients,
+                    'message' => $e->getMessage(),
+                    'trace' => $e->getTraceAsString(),
+                ]);
+            }
         }
 
         if ($request->ajax() || $request->wantsJson()) {
