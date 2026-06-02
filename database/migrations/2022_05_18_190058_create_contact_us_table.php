@@ -20,8 +20,7 @@ class CreateContactUsTable extends Migration
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
-            $table->string('message')->nullable();
-            $table->string('captcha_code')->nullable();
+            $table->string('message')->nullable(); 
             $table->string('status')->default(1)->comment('0=inactive , 1=active');
             $table->string('deleted_at')->nullable();
             $table->timestamps();

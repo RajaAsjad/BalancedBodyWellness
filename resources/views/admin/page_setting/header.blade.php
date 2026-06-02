@@ -284,28 +284,28 @@
 							</div>
 						</div>
 
-						<div class="section-block">
+						{{-- <div class="section-block">
 							<div class="section-heading">
 								<h4><i class="fa fa-share-alt"></i> Social Media Links</h4>
 							</div>
+ 
+							<div class="social-links-grid">
+								<div class="form-group">
+									<label for="footer_facebook"><i class="fa fa-instagram"></i> Instagram</label>
+									<input type="url" id="footer_instagram" name="footer_instagram" class="form-control" value="{{ isset($page_data['footer_instagram']) ? $page_data['footer_instagram'] : '' }}" placeholder="https://instagram.com/yourpage">
+								</div>
 
-						<div class="social-links-grid">
-							<div class="form-group">
-								<label for="footer_facebook"><i class="fa fa-instagram"></i> Instagram</label>
-								<input type="url" id="footer_instagram" name="footer_instagram" class="form-control" value="{{ isset($page_data['footer_instagram']) ? $page_data['footer_instagram'] : '' }}" placeholder="https://instagram.com/yourpage">
-							</div>
+								<div class="form-group">
+									<label for="footer_fieldlevel"><i class="fa fa-futbol-o"></i> Field Level</label>
+									<input type="url" id="footer_fieldlevel" name="footer_fieldlevel" class="form-control" value="{{ isset($page_data['footer_fieldlevel']) ? $page_data['footer_fieldlevel'] : '' }}" placeholder="https://fieldlevel.com/yourprofile">
+								</div>
 
-							<div class="form-group">
-								<label for="footer_fieldlevel"><i class="fa fa-futbol-o"></i> Field Level</label>
-								<input type="url" id="footer_fieldlevel" name="footer_fieldlevel" class="form-control" value="{{ isset($page_data['footer_fieldlevel']) ? $page_data['footer_fieldlevel'] : '' }}" placeholder="https://fieldlevel.com/yourprofile">
+								<div class="form-group">
+									<label for="footer_twitter"><i class="fa fa-twitter"></i> X (Twitter) Link</label>
+									<input type="url" id="footer_twitter" name="footer_twitter" class="form-control" value="{{ isset($page_data['footer_twitter']) ? $page_data['footer_twitter'] : '' }}" placeholder="https://twitter.com/yourhandle">
+								</div>
 							</div>
-
-							<div class="form-group">
-								<label for="footer_twitter"><i class="fa fa-twitter"></i> X (Twitter) Link</label>
-								<input type="url" id="footer_twitter" name="footer_twitter" class="form-control" value="{{ isset($page_data['footer_twitter']) ? $page_data['footer_twitter'] : '' }}" placeholder="https://twitter.com/yourhandle">
-							</div>
-						</div>
-						</div>
+						</div> --}}
 
 						<div class="action-section">
 							<button type="submit" class="btn-update" name="form_header">
