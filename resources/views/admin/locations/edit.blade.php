@@ -10,7 +10,7 @@
 			<a href="{{ route('location.index') }}" class="bbw-form-back"><i class="fa fa-list"></i> View all</a>
 		</div>
 		<div class="bbw-form-body">
-			<form action="{{ route('location.update', $model->id) }}" id="regform" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+			<form action="{{ route('location.update', $model->id) }}" id="regform" method="post" enctype="multipart/form-data" accept-charset="utf-8" novalidate>
 				@csrf
 				@method('PATCH')
 				<div class="bbw-form-inner">
@@ -18,7 +18,7 @@
 
 					<div class="bbw-form-actions">
 						<button type="submit" class="bbw-btn-submit"><i class="fa fa-save"></i> Update Location</button>
-						<a href="{{ $model->publicUrl() }}" class="btn btn-default" target="_blank" rel="noopener">View live page</a>
+						<a href="{{ $model->publicUrl() }}" class="btn bbw-btn-outline" target="_blank" rel="noopener"><i class="fa fa-external-link"></i> View live page</a>
 					</div>
 				</div>
 			</form>
@@ -31,6 +31,20 @@
 <style>
 .bbw-form-section { margin-bottom: 28px; padding-bottom: 8px; border-bottom: 1px solid rgba(45,106,98,0.1); }
 .bbw-form-section__title { font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: #2d6a62; margin: 0 0 16px; }
+.bbw-btn-outline {
+	background: #fff !important;
+	color: #2d6a62 !important;
+	border: 2px solid #2d6a62 !important;
+	font-weight: 600;
+	padding: 10px 22px !important;
+	border-radius: 9999px !important;
+	text-decoration: none !important;
+	transition: all 0.2s ease;
+}
+.bbw-btn-outline:hover {
+	background: #2d6a62 !important;
+	color: #fff !important;
+}
 </style>
 @endpush
 

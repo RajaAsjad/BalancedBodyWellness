@@ -29,9 +29,9 @@
 		</div>
 
 		<div class="bbw-crud-body">
-			@if (session('status') || session('message'))
+			{{-- @if (session('status') || session('message'))
 			<div class="bbw-callout">{{ session('message') ?? session('status') }}</div>
-			@endif
+			@endif --}}
 
 			<div class="bbw-crud-table-wrap">
 				<div class="table-responsive p-0">

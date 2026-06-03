@@ -28,6 +28,7 @@
     data-bbw-repeater="{{ $name }}"
     data-bbw-repeater-field="{{ $fieldType }}"
     data-bbw-repeater-rows="{{ $rows }}"
+    data-bbw-repeater-required="{{ $required ? '1' : '0' }}"
 >
     <div class="bbw-repeater__head">
         <label class="bbw-repeater__label">{{ $label }} @if($required)<span class="text-danger">*</span>@endif</label>

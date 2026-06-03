@@ -5,7 +5,6 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Location;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class LocationController extends Controller
 {
@@ -182,10 +181,9 @@ class LocationController extends Controller
             'process_items.*.text' => 'nullable|string|max:2000',
             'sort_order' => 'nullable|integer|min:0|max:9999',
             'status' => 'nullable|in:0,1',
-            'image' => array_merge(
-                [Rule::requiredIf(fn () => ! $model || ! $model->image)],
-                $imageRule
-            ),
+            'image' => $model === null
+                ? array_merge(['required'], $imageRule)
+                : $imageRule,
         ];
     }
 

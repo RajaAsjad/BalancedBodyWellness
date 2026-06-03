@@ -1,10 +1,14 @@
 @push('js')
 <script>
 (function () {
+	function repeaterIsRequired($repeater) {
+		return String($repeater.data('bbw-repeater-required')) === '1';
+	}
+
 	function syncRepeaterRequired($repeater) {
 		var $inputs = $repeater.find('.bbw-repeater__input');
 		$inputs.prop('required', false);
-		if ($inputs.length) {
+		if (repeaterIsRequired($repeater) && $inputs.length) {
 			$inputs.first().prop('required', true);
 		}
 	}

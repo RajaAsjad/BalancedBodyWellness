@@ -9,40 +9,59 @@
 	<div class="bbw-form-card">
 		<div class="bbw-form-header">
 			<h1>{{ $page_title }}</h1>
-			<div style="position:absolute;right:20px;top:50%;transform:translateY(-50%);display:flex;gap:8px;">
-				<a href="{{ $model->publicUrl() }}" class="bbw-form-back" target="_blank" rel="noopener"><i class="fa fa-external-link"></i> Live page</a>
-				<a href="{{ route('location.index') }}" class="bbw-form-back"><i class="fa fa-list"></i> View all</a>
-			</div>
+			<a href="{{ route('location.index') }}" class="bbw-form-back"><i class="fa fa-list"></i> View all</a>
 		</div>
 		<div class="bbw-form-body">
-			<div class="bbw-form-inner">
-				<div class="bbw-form-section">
-					<h3 class="bbw-form-section__title">Overview</h3>
-					<p><strong>Name:</strong> {{ $model->name }}</p>
-					<p><strong>Slug:</strong> <code>{{ $model->slug }}</code></p>
-					<p><strong>Status:</strong> {{ $model->status ? 'Active' : 'Inactive' }}</p>
-					<p><strong>Sort order:</strong> {{ $model->sort_order }}</p>
-				</div>
-
-				@if($model->image)
-				<div class="bbw-form-section">
-					<h3 class="bbw-form-section__title">Image</h3>
-					<img src="{{ $model->cardImageUrl() }}" alt="{{ $model->name }}" style="max-width:200px;border-radius:8px;">
-				</div>
+			<table class="table table-bordered bbw-show-table" style="margin:0;background:#fff;">
+				<tr>
+					<th width="180">Name</th>
+					<td>{{ $model->name }}</td>
+				</tr>
+				<tr>
+					<th>Slug</th>
+					<td><code>{{ $model->slug }}</code></td>
+				</tr>
+				<tr>
+					<th>Status</th>
+					<td>
+						@if ($model->status)
+							<span class="bbw-badge-on">Active</span>
+						@else
+							<span class="bbw-badge-off">Inactive</span>
+						@endif
+					</td>
+				</tr>
+				<tr>
+					<th>Sort order</th>
+					<td>{{ $model->sort_order }}</td>
+				</tr>
+				@if ($model->image)
+				<tr>
+					<th>Image</th>
+					<td>
+						<img src="{{ $model->cardImageUrl() }}" alt="{{ $model->name }}" style="max-width:200px;border-radius:8px;">
+					</td>
+				</tr>
 				@endif
+				<tr>
+					<th>Banner Title</th>
+					<td>{{ $page['hero']['eyebrow'] ?? '—' }}</td>
+				</tr>
+				<tr>
+					<th>Banner Heading</th>
+					<td>{{ $page['hero']['title_main'] ?? '—' }}</td>
+				</tr>
+				<tr>
+					<th>Banner Description</th>
+					<td style="white-space:pre-wrap;">{{ $page['hero']['lead'] ?? '—' }}</td>
+				</tr>
+			</table>
 
-				<div class="bbw-form-section">
-					<h3 class="bbw-form-section__title">Hero preview</h3>
-					<p class="text-muted small">{{ $page['hero']['eyebrow'] ?? '—' }}</p>
-					<h4>{{ $page['hero']['title_main'] ?? '—' }}</h4>
-					<p>{{ $page['hero']['lead'] ?? '—' }}</p>
-				</div>
-
-				<div class="bbw-form-actions">
-					@can('location-edit')
-					<a href="{{ route('location.edit', $model->id) }}" class="bbw-btn-submit"><i class="fa fa-edit"></i> Edit location</a>
-					@endcan
-				</div>
+			<div class="bbw-form-actions bbw-show-actions">
+				@can('location-edit')
+				<a href="{{ route('location.edit', $model->id) }}" class="btn bbw-btn-submit"><i class="fa fa-edit"></i> Edit</a>
+				@endcan
+				<a href="{{ $model->publicUrl() }}" class="btn bbw-btn-outline" target="_blank" rel="noopener"><i class="fa fa-external-link"></i> View live page</a>
 			</div>
 		</div>
 	</div>
@@ -51,7 +70,30 @@
 
 @push('css')
 <style>
-.bbw-form-section { margin-bottom: 28px; padding-bottom: 8px; border-bottom: 1px solid rgba(45,106,98,0.1); }
-.bbw-form-section__title { font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: #2d6a62; margin: 0 0 16px; }
+.bbw-show-table th {
+	background: #fafaf8;
+	font-weight: 600;
+	color: #1d2b33;
+	vertical-align: middle;
+}
+.bbw-show-actions {
+	margin-top: 1.25rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid rgba(45, 106, 98, 0.12);
+}
+.bbw-btn-outline {
+	background: #fff !important;
+	color: #2d6a62 !important;
+	border: 2px solid #2d6a62 !important;
+	font-weight: 600;
+	padding: 10px 22px !important;
+	border-radius: 9999px !important;
+	text-decoration: none !important;
+	transition: all 0.2s ease;
+}
+.bbw-btn-outline:hover {
+	background: #2d6a62 !important;
+	color: #fff !important;
+}
 </style>
 @endpush

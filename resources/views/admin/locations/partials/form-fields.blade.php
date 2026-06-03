@@ -100,7 +100,7 @@
     <h3 class="bbw-form-section__title">Hero section</h3>
 
     <div class="bbw-form-group">
-        <label for="hero_eyebrow">Eyebrow</label>
+        <label for="hero_eyebrow">Banner Title</label>
         <input type="text" id="hero_eyebrow" class="form-control" name="hero_eyebrow" value="{{ old('hero_eyebrow', $model?->hero_eyebrow) }}" placeholder="Rockland County · IV Wellness Studio">
         @error('hero_eyebrow')
         <span class="bbw-field-error">{{ $message }}</span>
@@ -108,7 +108,7 @@
     </div>
 
     <div class="bbw-form-group">
-        <label for="hero_title">Hero title</label>
+        <label for="hero_title">Banner Heading</label>
         <input type="text" id="hero_title" class="form-control" name="hero_title" value="{{ old('hero_title', $model?->hero_title) }}" placeholder="IV Therapy Rockland County">
         @error('hero_title')
         <span class="bbw-field-error">{{ $message }}</span>
@@ -116,7 +116,7 @@
     </div>
 
     <div class="bbw-form-group">
-        <label for="hero_lead">Lead text</label>
+        <label for="hero_lead">Banner Description</label>
         <textarea id="hero_lead" class="form-control" name="hero_lead" rows="3" placeholder="Short intro under the hero title">{{ old('hero_lead', $model?->hero_lead) }}</textarea>
         @error('hero_lead')
         <span class="bbw-field-error">{{ $message }}</span>
