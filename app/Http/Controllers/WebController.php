@@ -101,14 +101,14 @@ class WebController extends Controller
     {
         $page_title = 'Locations | Balanced Body IV Wellness';
         $page_meta_description = 'IV therapy across Rockland County, Westchester, Putnam, Dutchess, and Jefferson Valley — medically guided drips and wellness injections at Balanced Body IV & Wellness.';
-        $locations = config('location_pages', []);
+        $locations = \App\Models\Location::pagesForPublicIndex();
 
         return view('website.locations', compact('page_title', 'page_meta_description', 'locations'));
     }
 
     public function LocationPage(string $slug)
     {
-        $page = config("location_pages.{$slug}");
+        $page = \App\Models\Location::findPublishedPageBySlug($slug);
 
         if (! $page) {
             abort(404);
@@ -122,7 +122,7 @@ class WebController extends Controller
 
     public function LocationDetail($slug)
     {
-        if (config("location_pages.{$slug}")) {
+        if (\App\Models\Location::findPublishedPageBySlug($slug)) {
             return redirect('/' . $slug, 301);
         }
 

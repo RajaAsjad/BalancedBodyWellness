@@ -89,12 +89,7 @@ class SitemapBuilder
     /** @return list<string> */
     private static function locationSlugs(): array
     {
-        return collect(config('nav_menus.locations.items', []))
-            ->pluck('slug')
-            ->filter(fn ($slug) => $slug !== '' && config("location_pages.{$slug}"))
-            ->unique()
-            ->values()
-            ->all();
+        return LocationPageRegistry::publishedSlugs();
     }
 
     public static function xml(?string $baseUrl = null): string

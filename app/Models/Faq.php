@@ -132,6 +132,14 @@ class Faq extends Model
             return null;
         }
 
+        try {
+            $location = \App\Models\Location::query()->where('slug', $slug)->first();
+            if ($location) {
+                return $location->name;
+            }
+        } catch (\Throwable) {
+        }
+
         $fromNav = collect(config('nav_menus.locations.items', []))->firstWhere('slug', $slug);
         if ($fromNav && ! empty($fromNav['label'])) {
             return $fromNav['label'];
@@ -145,6 +153,21 @@ class Faq extends Model
     /** @return array<int, array{slug: string, label: string}> */
     public static function locationLandingPagesForPicker(): array
     {
+        try {
+            $fromDb = \App\Models\Location::query()
+                ->orderBy('sort_order')
+                ->orderBy('name')
+                ->get(['slug', 'name']);
+
+            if ($fromDb->isNotEmpty()) {
+                return $fromDb->map(fn ($location) => [
+                    'slug' => $location->slug,
+                    'label' => $location->name,
+                ])->all();
+            }
+        } catch (\Throwable) {
+        }
+
         $items = [];
 
         foreach (config('nav_menus.locations.items', []) as $item) {
@@ -158,7 +181,13 @@ class Faq extends Model
         }
 
         foreach (config('location_pages', []) as $slug => $page) {
+            if (in_array($slug, ['welcome', 'process'], true)) {
+                continue;
+            }
             if (collect($items)->contains('slug', $slug)) {
+                continue;
+            }
+            if (! is_array($page) || ! isset($page['hero'])) {
                 continue;
             }
             $items[] = [

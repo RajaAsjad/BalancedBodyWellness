@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\AudioController;
 use App\Http\Controllers\admin\PhotoGalleryController;
 use App\Http\Controllers\admin\ShopContactController;
 use App\Http\Controllers\admin\ServicesController;
+use App\Http\Controllers\admin\LocationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,10 +70,10 @@ Route::redirect('iv-therapy-jefferson-valley', '/iv-therapy-jefferson-valley-ny'
 Route::redirect('iv-therapy-westchester', '/iv-therapy-westchester-county', 301);
 Route::get('locations/{slug}', [WebController::class, 'LocationDetail'])->name('location.detail');
 
-$locationPageSlugs = array_keys(config('location_pages', []));
+$locationPageSlugs = \App\Support\LocationPageRegistry::publishedSlugs();
 if ($locationPageSlugs !== []) {
     Route::get('{slug}', [WebController::class, 'LocationPage'])
-        ->where('slug', implode('|', $locationPageSlugs))
+        ->where('slug', implode('|', array_map('preg_quote', $locationPageSlugs)))
         ->name('location.page');
 }
 
@@ -130,4 +131,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     //Photo Gallery
     Route::resource('photogallery', PhotoGalleryController::class);
+    //Locations
+    Route::resource('location', LocationController::class);
 });

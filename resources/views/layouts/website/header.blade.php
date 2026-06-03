@@ -7,10 +7,10 @@
         'href' => route('service.detail', $item['slug']),
     ])->all();
 
-    $locationDropdownItems = collect($navMenus['locations']['items'] ?? [])->map(fn ($item) => [
+    $locationDropdownItems = collect(\App\Models\Location::navItems())->map(fn ($item) => [
         'label' => $item['label'],
         'slug' => $item['slug'],
-        'href' => config("location_pages.{$item['slug']}")
+        'href' => \App\Models\Location::findPublishedPageBySlug($item['slug'])
             ? route('location.page', ['slug' => $item['slug']])
             : route('location.detail', $item['slug']),
     ])->all();
