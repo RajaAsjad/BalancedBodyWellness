@@ -34,6 +34,7 @@
                         ['title' => 'Pure Hydration', 'desc' => 'Sterile saline + electrolytes for fast, deep hydration.', 'icon' => 'droplet'],
                         ['title' => 'Migraine Relief', 'desc' => 'Magnesium, B2 and anti-inflammatory support to ease tension and migraines.', 'icon' => 'pulse'],
                         ['title' => 'Detox & Reset', 'desc' => 'Glutathione-forward blend to support natural detox pathways.', 'icon' => 'leaf'],
+                        ['title' => 'High Dose Glutathione', 'desc' => 'Decreases inflammation and supports detoxification.', 'icon' => 'glutathione'],
                     ];
                 @endphp
 
@@ -51,6 +52,164 @@
         </div>
     </section>
 
+    <section class="vitamin-injections" aria-labelledby="vitamin-injections-heading">
+        <div class="container-pns">
+            <header class="vitamin-injections__header">
+                <p class="vitamin-injections__eyebrow">
+                    <span class="vitamin-injections__eyebrow-icon" aria-hidden="true">
+                        @include('website.partials.syringe-icon', ['size' => 16])
+                    </span>
+                    <span class="vitamin-injections__eyebrow-text">Wellness injections</span>
+                </p>
+                <h2 class="vitamin-injections__title" id="vitamin-injections-heading">IM Injections</h2>
+            </header>
+
+            <div class="vitamin-injections__tier">
+                <header class="vitamin-injections__tier-header">
+                    <h3 class="vitamin-injections__tier-title" id="standard-im-injections-heading">⭐ Standard IM Injections</h3>
+                    <p class="vitamin-injections__tier-lede">Foundational wellness boosters for everyday vitality.</p>
+                </header>
+
+                <div class="vitamin-injections__grid" role="list" aria-labelledby="standard-im-injections-heading">
+                    @php
+                        $standardInjections = [
+                            ['title' => 'B12 — Energy & Mood Support', 'desc' => 'A fast acting boost that supports natural energy, mood balance, and mental clarity while helping reduce fatigue.'],
+                            ['title' => 'B Complex — Energy & Stress Relief', 'desc' => 'A blend of essential B vitamins that enhances metabolism, supports the nervous system, and improves stress resilience.'],
+                            ['title' => 'Vitamin D — Immunity & Bone Health', 'desc' => 'Supports immune strength, mood balance, and calcium absorption for bone health and overall vitality.'],
+                            ['title' => 'Biotin — Hair, Skin & Nail Support', 'desc' => 'Promotes stronger hair and nails, supports healthy skin, and aids metabolic function.'],
+                            ['title' => 'L Carnitine — Fat Metabolism & Energy', 'desc' => 'Enhances fat burning, boosts energy, and supports heart and muscle health.'],
+                            ['title' => 'Lipo (MIC) — Metabolism Support', 'desc' => 'Supports fat metabolism, liver detoxification, and energy production — a favorite for weight loss programs.'],
+                            ['title' => 'Chromium', 'desc' => 'Supports healthy blood sugar metabolism and appetite regulation.'],
+                            ['title' => 'Glutathione — Antioxidant & Detox', 'desc' => 'A master antioxidant that supports detoxification, brightens the skin, and reduces oxidative stress.'],
+                            ['title' => 'Toradol — Anti Inflammatory Relief', 'desc' => 'Helps reduce pain, inflammation, and headaches when clinically appropriate.'],
+                            ['title' => 'Zofran — Anti Nausea Support', 'desc' => 'Provides relief from nausea and vomiting, ideal for motion sickness, migraines, or pregnancy.'],
+                        ];
+                    @endphp
+
+                    @foreach ($standardInjections as $inj)
+                        <article class="inject-card reveal" role="listitem">
+                            <div class="inject-card__icon" aria-hidden="true">
+                                @include('website.partials.syringe-icon', ['size' => 20, 'class' => 'inject-card__syringe'])
+                            </div>
+                            <h4 class="inject-card__title">{{ $inj['title'] }}</h4>
+                            <p class="inject-card__desc">{{ $inj['desc'] }}</p>
+                        </article>
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="vitamin-injections__tier vitamin-injections__tier--premium">
+                <header class="vitamin-injections__tier-header">
+                    <h3 class="vitamin-injections__tier-title" id="premium-im-injections-heading">💎 Premium IM Injections</h3>
+                    <p class="vitamin-injections__tier-lede">Advanced, high value boosters for elevated wellness.</p>
+                </header>
+
+                <div class="vitamin-injections__grid" role="list" aria-labelledby="premium-im-injections-heading">
+                    @php
+                        $premiumInjections = [
+                            ['title' => 'NAD+ IM — Cellular Energy & Anti Aging', 'desc' => 'Supports mitochondrial function, brain clarity, metabolism, and longevity. Ideal for fatigue, brain fog, and anti aging support.'],
+                            ['title' => 'CoQ10 IM — Heart & Cellular Energy', 'desc' => 'Boosts cellular energy, supports cardiovascular health, and reduces inflammation — especially beneficial for clients on statins.'],
+                            ['title' => 'ALA IM — Antioxidant & Nerve Support', 'desc' => 'A powerful antioxidant that supports nerve health, blood sugar balance, and detoxification.'],
+                            ['title' => 'Amino Blend — Performance & Recovery', 'desc' => 'Supports muscle recovery, joint health, and physical performance — ideal for active lifestyles.'],
+                            ['title' => 'Tri Immune Blend — Immunity & Vitality', 'desc' => 'A powerful combination of Glutathione, Vitamin C, and Zinc to strengthen immunity and reduce inflammation.'],
+                            ['title' => 'L Carnitine + B12 Combo — Metabolism & Energy', 'desc' => 'A dual action metabolic and energy booster for clients seeking fat burning and stamina support.'],
+                            ['title' => 'Biotin + B Complex Combo — Beauty & Vitality', 'desc' => 'A beauty focused blend that supports hair, skin, nails, energy, and mood.'],
+                            ['title' => 'Glutathione IM — Detox & Skin Brightening', 'desc' => 'Advanced antioxidant therapy for detoxification, liver support, and complexion enhancement.'],
+                        ];
+                    @endphp
+
+                    @foreach ($premiumInjections as $inj)
+                        <article class="inject-card inject-card--premium reveal" role="listitem">
+                            <div class="inject-card__icon" aria-hidden="true">
+                                @include('website.partials.syringe-icon', ['size' => 20, 'class' => 'inject-card__syringe'])
+                            </div>
+                            <h4 class="inject-card__title">{{ $inj['title'] }}</h4>
+                            <p class="inject-card__desc">{{ $inj['desc'] }}</p>
+                        </article>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="peptide-therapy" aria-labelledby="peptide-therapy-heading">
+        <div class="container-pns">
+            <header class="peptide-therapy__header">
+                <p class="peptide-therapy__eyebrow">
+                    <span class="peptide-therapy__eyebrow-icon" aria-hidden="true">
+                        @include('website.partials.syringe-icon', ['size' => 18])
+                    </span>
+                    <span class="peptide-therapy__eyebrow-text">Peptide therapy</span>
+                </p>
+                <h2 class="peptide-therapy__title" id="peptide-therapy-heading">Targeted Peptide Protocols</h2>
+                <p class="peptide-therapy__sub">Programs are individualized after consultation and medical screening.</p>
+            </header>
+
+            <div class="peptide-therapy__grid" role="list">
+                @php
+                    $peptides = [
+                        ['title' => 'BPC-157', 'desc' => 'Supports tissue repair, gut health and recovery.'],
+                        ['title' => 'Sermorelin', 'desc' => 'Stimulates natural growth hormone production for sleep, recovery and vitality.'],
+                        ['title' => 'GLP-1 Programs', 'desc' => 'Medically supervised metabolic support for weight & appetite goals.'],
+                        ['title' => 'Thymosin Alpha-1', 'desc' => 'Immune modulation and resilience support.'],
+                        ['title' => 'TB-500', 'desc' => 'Promotes faster muscle and tissue recovery, hair growth, helps reduce inflammation, and supports healing after injuries or intense physical activity.'],
+                        ['title' => 'PTD-DBM', 'desc' => 'May support cellular regeneration, tissue repair, hair growth, and overall recovery while promoting healthy inflammatory response.'],
+                        ['title' => 'GHK-CU', 'desc' => 'Copper peptide known for skin rejuvenation, collagen production, improved hair health, and enhanced wound healing.'],
+                        ['title' => 'Tesamorelin', 'desc' => 'Growth hormone-releasing peptide commonly used to help improve body composition, reduce abdominal fat, and support recovery and energy levels.'],
+                        ['title' => 'MOTS-C', 'desc' => 'Mitochondrial peptide designed to enhance metabolism, improve energy production, support fat utilization, and promote exercise performance.'],
+                        ['title' => 'CJC-1295', 'desc' => 'Long-acting growth hormone peptide that may help improve sleep quality, muscle recovery, lean muscle development, and overall vitality.'],
+                    ];
+                @endphp
+
+                @foreach ($peptides as $peptide)
+                    <article class="peptide-card reveal" role="listitem">
+                        <div class="peptide-card__icon-wrap" aria-hidden="true">
+                            @include('website.partials.syringe-icon', ['size' => 20, 'class' => 'peptide-card__pill'])
+                        </div>
+                        <div class="peptide-card__body">
+                            <h3 class="peptide-card__title">{{ $peptide['title'] }}</h3>
+                            <p class="peptide-card__desc">{{ $peptide['desc'] }}</p>
+                        </div>
+                    </article>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <section class="vitamin-injections vitamin-injections--quick-boost" aria-labelledby="quick-boost-injections-heading">
+        <div class="container-pns">
+            <header class="vitamin-injections__header">
+                <p class="vitamin-injections__eyebrow">
+                    <span class="vitamin-injections__eyebrow-icon" aria-hidden="true">
+                        @include('website.partials.syringe-icon', ['size' => 16])
+                    </span>
+                    <span class="vitamin-injections__eyebrow-text">Wellness injections</span>
+                </p>
+                <h2 class="vitamin-injections__title" id="quick-boost-injections-heading">Quick Boost Injections</h2>
+            </header>
+
+            <div class="vitamin-injections__grid vitamin-injections__grid--quad" role="list">
+                @php
+                    $injections = [
+                        ['title' => 'Vitamin B12', 'desc' => 'Energy, mood and metabolic support in minutes.'],
+                        ['title' => 'MIC / Lipo-Mino', 'desc' => 'Methionine, inositol & choline to support fat metabolism.'],
+                        ['title' => 'Glutathione', 'desc' => "The body's master antioxidant for skin, liver and detox."],
+                        ['title' => 'Vitamin D3', 'desc' => 'Immune, mood and bone health support.'],
+                    ];
+                @endphp
+
+                @foreach ($injections as $inj)
+                    <article class="inject-card reveal" role="listitem">
+                        <div class="inject-card__icon" aria-hidden="true">
+                            @include('website.partials.syringe-icon', ['size' => 20, 'class' => 'inject-card__syringe'])
+                        </div>
+                        <h3 class="inject-card__title">{{ $inj['title'] }}</h3>
+                        <p class="inject-card__desc">{{ $inj['desc'] }}</p>
+                    </article>
+                @endforeach
+            </div>
+        </div>
+    </section>
     <section class="services-section peptide-therapy--services" aria-labelledby="peptide-therapy-heading">
         <div class="container-pns">
             <header class="peptide-therapy__header">
@@ -118,84 +277,6 @@
                 @endforeach
             </div>
             @endif
-        </div>
-    </section>
-    <section class="peptide-therapy" aria-labelledby="peptide-therapy-heading">
-        <div class="container-pns">
-            <header class="peptide-therapy__header">
-                <p class="peptide-therapy__eyebrow">
-                    <span class="peptide-therapy__eyebrow-icon" aria-hidden="true">
-                        @include('website.partials.syringe-icon', ['size' => 18])
-                    </span>
-                    <span class="peptide-therapy__eyebrow-text">Peptide therapy</span>
-                </p>
-                <h2 class="peptide-therapy__title" id="peptide-therapy-heading">Targeted Peptide Protocols</h2>
-                <p class="peptide-therapy__sub">Programs are individualized after consultation and medical screening.</p>
-            </header>
-
-            <div class="peptide-therapy__grid" role="list">
-                @php
-                    $peptides = [
-                        ['title' => 'BPC-157', 'desc' => 'Supports tissue repair, gut health and recovery.'],
-                        ['title' => 'Sermorelin', 'desc' => 'Stimulates natural growth hormone production for sleep, recovery and vitality.'],
-                        ['title' => 'GLP-1 Programs', 'desc' => 'Medically supervised metabolic support for weight & appetite goals.'],
-                        ['title' => 'Thymosin Alpha-1', 'desc' => 'Immune modulation and resilience support.'],
-                        ['title' => 'TB-500', 'desc' => 'Promotes faster muscle and tissue recovery, hair growth, helps reduce inflammation, and supports healing after injuries or intense physical activity.'],
-                        ['title' => 'PTD-DBM', 'desc' => 'May support cellular regeneration, tissue repair, hair growth, and overall recovery while promoting healthy inflammatory response.'],
-                        ['title' => 'GHK-CU', 'desc' => 'Copper peptide known for skin rejuvenation, collagen production, improved hair health, and enhanced wound healing.'],
-                        ['title' => 'Tesamorelin', 'desc' => 'Growth hormone-releasing peptide commonly used to help improve body composition, reduce abdominal fat, and support recovery and energy levels.'],
-                        ['title' => 'MOTS-C', 'desc' => 'Mitochondrial peptide designed to enhance metabolism, improve energy production, support fat utilization, and promote exercise performance.'],
-                        ['title' => 'CJC-1295', 'desc' => 'Long-acting growth hormone peptide that may help improve sleep quality, muscle recovery, lean muscle development, and overall vitality.'],
-                    ];
-                @endphp
-
-                @foreach ($peptides as $peptide)
-                    <article class="peptide-card reveal" role="listitem">
-                        <div class="peptide-card__icon-wrap" aria-hidden="true">
-                            @include('website.partials.syringe-icon', ['size' => 20, 'class' => 'peptide-card__pill'])
-                        </div>
-                        <div class="peptide-card__body">
-                            <h3 class="peptide-card__title">{{ $peptide['title'] }}</h3>
-                            <p class="peptide-card__desc">{{ $peptide['desc'] }}</p>
-                        </div>
-                    </article>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    <section class="vitamin-injections" aria-labelledby="vitamin-injections-heading">
-        <div class="container-pns">
-            <header class="vitamin-injections__header">
-                <p class="vitamin-injections__eyebrow">
-                    <span class="vitamin-injections__eyebrow-icon" aria-hidden="true">
-                        @include('website.partials.syringe-icon', ['size' => 16])
-                    </span>
-                    <span class="vitamin-injections__eyebrow-text">Wellness injections</span>
-                </p>
-                <h2 class="vitamin-injections__title" id="vitamin-injections-heading">Quick Boost Injections</h2>
-            </header>
-
-            <div class="vitamin-injections__grid" role="list">
-                @php
-                    $injections = [
-                        ['title' => 'Vitamin B12', 'desc' => 'Energy, mood and metabolic support in minutes.'],
-                        ['title' => 'MIC / Lipo-Mino', 'desc' => 'Methionine, inositol & choline to support fat metabolism.'],
-                        ['title' => 'Glutathione', 'desc' => "The body's master antioxidant for skin, liver and detox."],
-                        ['title' => 'Vitamin D3', 'desc' => 'Immune, mood and bone health support.'],
-                    ];
-                @endphp
-
-                @foreach ($injections as $inj)
-                    <article class="inject-card reveal" role="listitem">
-                        <div class="inject-card__icon" aria-hidden="true">
-                            @include('website.partials.syringe-icon', ['size' => 20, 'class' => 'inject-card__syringe'])
-                        </div>
-                        <h3 class="inject-card__title">{{ $inj['title'] }}</h3>
-                        <p class="inject-card__desc">{{ $inj['desc'] }}</p>
-                    </article>
-                @endforeach
-            </div>
         </div>
     </section>
     @include('website.partials.page-faqs', [
