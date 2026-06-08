@@ -52,7 +52,7 @@
         </div>
     </section>
 
-    <section class="vitamin-injections vitamin-injections--quick-boost" aria-labelledby="quick-boost-injections-heading">
+    <section class="services-section vitamin-injections--quick-boost" aria-labelledby="quick-boost-injections-heading">
         <div class="container-pns">
             <header class="vitamin-injections__header">
                 <p class="vitamin-injections__eyebrow">
@@ -86,7 +86,7 @@
             </div>
         </div>
     </section>
-    
+
     <section class="vitamin-injections" aria-labelledby="vitamin-injections-heading">
         <div class="container-pns">
             <header class="vitamin-injections__header">
