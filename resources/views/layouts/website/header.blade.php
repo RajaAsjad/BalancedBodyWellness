@@ -124,9 +124,11 @@
     </div>
 </header>
 
-<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
-    <div class="mobile-menu__inner">
-        <nav class="mobile-menu__links" role="navigation">
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation"
+    aria-hidden="true">
+    <div class="mobile-menu__panel">
+        <div class="mobile-menu__scroll">
+            <nav class="mobile-menu__links" role="navigation" aria-label="Mobile primary navigation">
             @foreach ($navSections as $item)
                 @if (($item['type'] ?? 'link') === 'dropdown')
                     @include('layouts.website.partials.mobile-nav-dropdown', [
@@ -151,17 +153,20 @@
                 <a href="{{ route('logout') }}" class="mobile-menu__link"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
             @endauth
-        </nav>
-        <a href="{{ url('/contact') }}" class="mobile-menu__cta">
-            <svg class="nav__cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-            </svg>
-            Book Now
-        </a>
+            </nav>
+        </div>
+        <div class="mobile-menu__footer">
+            <a href="{{ url('/contact') }}" class="mobile-menu__cta">
+                <svg class="nav__cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Book Now
+            </a>
+        </div>
     </div>
 </div>
 

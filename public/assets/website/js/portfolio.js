@@ -8,7 +8,18 @@ if (nav) {
 
 const hamburger = document.querySelector('.nav__hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuScroll = document.querySelector('.mobile-menu__scroll');
 const mobileLinks = document.querySelectorAll('.mobile-menu__link, .mobile-menu__dropdown-link, .mobile-menu__cta');
+
+const closeMobileDropdowns = () => {
+  document.querySelectorAll('[data-mobile-nav-dropdown].is-open').forEach((dropdown) => {
+    dropdown.classList.remove('is-open');
+    const trigger = dropdown.querySelector('.mobile-menu__dropdown-trigger');
+    const panel = dropdown.querySelector('.mobile-menu__dropdown-panel');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    if (panel) panel.setAttribute('aria-hidden', 'true');
+  });
+};
 
 if (hamburger && mobileMenu) {
   const toggleMenu = (open) => {
@@ -16,7 +27,14 @@ if (hamburger && mobileMenu) {
     mobileMenu.classList.toggle('open', open);
     mobileMenu.setAttribute('aria-hidden', String(!open));
     hamburger.setAttribute('aria-expanded', String(open));
+    document.body.classList.toggle('mobile-menu-open', open);
     document.body.style.overflow = open ? 'hidden' : '';
+
+    if (!open) {
+      closeMobileDropdowns();
+    } else if (mobileMenuScroll) {
+      mobileMenuScroll.scrollTop = 0;
+    }
   };
 
   hamburger.addEventListener('click', () => {
@@ -55,7 +73,8 @@ document.querySelectorAll('[data-mobile-nav-dropdown]').forEach((dropdown) => {
   const panel = dropdown.querySelector('.mobile-menu__dropdown-panel');
   if (!trigger || !panel) return;
 
-  trigger.addEventListener('click', () => {
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
     const willOpen = !dropdown.classList.contains('is-open');
     document.querySelectorAll('[data-mobile-nav-dropdown].is-open').forEach((openDropdown) => {
       if (openDropdown === dropdown) return;
@@ -63,12 +82,12 @@ document.querySelectorAll('[data-mobile-nav-dropdown]').forEach((dropdown) => {
       const openTrigger = openDropdown.querySelector('.mobile-menu__dropdown-trigger');
       const openPanel = openDropdown.querySelector('.mobile-menu__dropdown-panel');
       if (openTrigger) openTrigger.setAttribute('aria-expanded', 'false');
-      if (openPanel) openPanel.hidden = true;
+      if (openPanel) openPanel.setAttribute('aria-hidden', 'true');
     });
 
     dropdown.classList.toggle('is-open', willOpen);
     trigger.setAttribute('aria-expanded', String(willOpen));
-    panel.hidden = !willOpen;
+    panel.setAttribute('aria-hidden', String(!willOpen));
   });
 });
 
