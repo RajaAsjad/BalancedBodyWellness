@@ -52,6 +52,41 @@
         </div>
     </section>
 
+    <section class="vitamin-injections vitamin-injections--quick-boost" aria-labelledby="quick-boost-injections-heading">
+        <div class="container-pns">
+            <header class="vitamin-injections__header">
+                <p class="vitamin-injections__eyebrow">
+                    <span class="vitamin-injections__eyebrow-icon" aria-hidden="true">
+                        @include('website.partials.syringe-icon', ['size' => 16])
+                    </span>
+                    <span class="vitamin-injections__eyebrow-text">Wellness injections</span>
+                </p>
+                <h2 class="vitamin-injections__title" id="quick-boost-injections-heading">Quick Boost Injections</h2>
+            </header>
+
+            <div class="vitamin-injections__grid vitamin-injections__grid--quad" role="list">
+                @php
+                    $injections = [
+                        ['title' => 'Vitamin B12', 'desc' => 'Energy, mood and metabolic support in minutes.'],
+                        ['title' => 'MIC / Lipo-Mino', 'desc' => 'Methionine, inositol & choline to support fat metabolism.'],
+                        ['title' => 'Glutathione', 'desc' => "The body's master antioxidant for skin, liver and detox."],
+                        ['title' => 'Vitamin D3', 'desc' => 'Immune, mood and bone health support.'],
+                    ];
+                @endphp
+
+                @foreach ($injections as $inj)
+                    <article class="inject-card reveal" role="listitem">
+                        <div class="inject-card__icon" aria-hidden="true">
+                            @include('website.partials.syringe-icon', ['size' => 20, 'class' => 'inject-card__syringe'])
+                        </div>
+                        <h3 class="inject-card__title">{{ $inj['title'] }}</h3>
+                        <p class="inject-card__desc">{{ $inj['desc'] }}</p>
+                    </article>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    
     <section class="vitamin-injections" aria-labelledby="vitamin-injections-heading">
         <div class="container-pns">
             <header class="vitamin-injections__header">
@@ -176,40 +211,7 @@
         </div>
     </section>
 
-    <section class="vitamin-injections vitamin-injections--quick-boost" aria-labelledby="quick-boost-injections-heading">
-        <div class="container-pns">
-            <header class="vitamin-injections__header">
-                <p class="vitamin-injections__eyebrow">
-                    <span class="vitamin-injections__eyebrow-icon" aria-hidden="true">
-                        @include('website.partials.syringe-icon', ['size' => 16])
-                    </span>
-                    <span class="vitamin-injections__eyebrow-text">Wellness injections</span>
-                </p>
-                <h2 class="vitamin-injections__title" id="quick-boost-injections-heading">Quick Boost Injections</h2>
-            </header>
-
-            <div class="vitamin-injections__grid vitamin-injections__grid--quad" role="list">
-                @php
-                    $injections = [
-                        ['title' => 'Vitamin B12', 'desc' => 'Energy, mood and metabolic support in minutes.'],
-                        ['title' => 'MIC / Lipo-Mino', 'desc' => 'Methionine, inositol & choline to support fat metabolism.'],
-                        ['title' => 'Glutathione', 'desc' => "The body's master antioxidant for skin, liver and detox."],
-                        ['title' => 'Vitamin D3', 'desc' => 'Immune, mood and bone health support.'],
-                    ];
-                @endphp
-
-                @foreach ($injections as $inj)
-                    <article class="inject-card reveal" role="listitem">
-                        <div class="inject-card__icon" aria-hidden="true">
-                            @include('website.partials.syringe-icon', ['size' => 20, 'class' => 'inject-card__syringe'])
-                        </div>
-                        <h3 class="inject-card__title">{{ $inj['title'] }}</h3>
-                        <p class="inject-card__desc">{{ $inj['desc'] }}</p>
-                    </article>
-                @endforeach
-            </div>
-        </div>
-    </section>
+    
     <section class="services-section peptide-therapy--services" aria-labelledby="peptide-therapy-heading">
         <div class="container-pns">
             <header class="peptide-therapy__header">
