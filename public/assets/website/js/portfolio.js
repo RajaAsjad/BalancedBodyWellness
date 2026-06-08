@@ -1,6 +1,13 @@
 // Inlined from script.js
 const nav = document.getElementById('nav');
 if (nav) {
+  const syncNavHeight = () => {
+    document.documentElement.style.setProperty('--nav-height', `${nav.offsetHeight}px`);
+  };
+
+  syncNavHeight();
+  window.addEventListener('resize', syncNavHeight, { passive: true });
+
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
@@ -23,6 +30,10 @@ const closeMobileDropdowns = () => {
 
 if (hamburger && mobileMenu) {
   const toggleMenu = (open) => {
+    if (nav) {
+      document.documentElement.style.setProperty('--nav-height', `${nav.offsetHeight}px`);
+    }
+
     hamburger.classList.toggle('open', open);
     mobileMenu.classList.toggle('open', open);
     mobileMenu.setAttribute('aria-hidden', String(!open));

@@ -648,9 +648,8 @@ button {
 }
 
 .mobile-menu {
-  --mobile-menu-top: 72px;
   position: fixed;
-  top: var(--mobile-menu-top);
+  top: var(--nav-height, 92px);
   left: 0;
   right: 0;
   bottom: 0;
@@ -695,7 +694,7 @@ body.mobile-menu-open {
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  padding: 0.5rem 0 1rem;
+  padding: 1rem 0 1rem;
   scrollbar-width: thin;
   scrollbar-color: rgba(90, 125, 108, 0.35) transparent;
 }
