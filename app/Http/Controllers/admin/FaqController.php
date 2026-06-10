@@ -55,7 +55,7 @@ class FaqController extends Controller
 
     public function create()
     {
-        $page_title = 'Add FAQ';
+        $page_title = 'Add FAQs';
         $faqPages = Faq::pageOptions();
         $services = $this->servicesForPicker();
 
@@ -64,14 +64,29 @@ class FaqController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $this->validateFaq($request);
+        $this->normalizeFaqItems($request);
+        $validated = $this->validateFaqBulk($request, true);
 
-        $model = new Faq();
-        $model->created_by = Auth::id();
-        $this->fillFaqFromValidated($model, $validated);
-        $model->save();
+        $baseSortOrder = (int) ($validated['sort_order'] ?? 0);
+        $created = 0;
 
-        return redirect()->route('faq.index')->with('message', 'FAQ added successfully.');
+        foreach ($validated['faqs'] as $index => $item) {
+            $model = new Faq();
+            $model->created_by = Auth::id();
+            $this->fillFaqFromValidated($model, array_merge($validated, [
+                'question' => $item['question'],
+                'answer' => $item['answer'],
+                'sort_order' => $baseSortOrder + $index,
+            ]));
+            $model->save();
+            $created++;
+        }
+
+        $message = $created === 1
+            ? 'FAQ added successfully.'
+            : $created . ' FAQs added successfully.';
+
+        return redirect()->route('faq.index')->with('message', $message);
     }
 
     public function show($id)
@@ -107,13 +122,35 @@ class FaqController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validated = $this->validateFaq($request, true);
+        $this->normalizeFaqItems($request);
+        $validated = $this->validateFaqBulk($request, true);
 
         $update = Faq::findOrFail($id);
-        $this->fillFaqFromValidated($update, $validated);
-        $update->save();
+        $baseSortOrder = (int) ($validated['sort_order'] ?? 0);
+        $created = 0;
 
-        return redirect()->route('faq.index')->with('message', 'FAQ updated successfully.');
+        foreach ($validated['faqs'] as $index => $item) {
+            if ($index === 0) {
+                $faq = $update;
+            } else {
+                $faq = new Faq();
+                $faq->created_by = Auth::id();
+                $created++;
+            }
+
+            $this->fillFaqFromValidated($faq, array_merge($validated, [
+                'question' => $item['question'],
+                'answer' => $item['answer'],
+                'sort_order' => $baseSortOrder + $index,
+            ]));
+            $faq->save();
+        }
+
+        $message = $created > 0
+            ? 'FAQ updated and ' . $created . ' more added successfully.'
+            : 'FAQ updated successfully.';
+
+        return redirect()->route('faq.index')->with('message', $message);
     }
 
     public function destroy($id)
@@ -171,7 +208,7 @@ class FaqController extends Controller
     }
 
     /** @return array<string, mixed> */
-    private function validateFaq(Request $request, bool $requireStatus = false): array
+    private function validateFaqBulk(Request $request, bool $requireStatus = false): array
     {
         $pageKeys = array_keys(Faq::pageOptions());
 
@@ -191,13 +228,28 @@ class FaqController extends Controller
                 'max:120',
                 Rule::in($this->allowedLocationSlugs()),
             ],
-            'question' => 'required|max:255',
-            'answer' => 'required|max:5000',
+            'faqs' => 'required|array|min:1',
+            'faqs.*.question' => 'required|max:255',
+            'faqs.*.answer' => 'required|max:5000',
             'sort_order' => 'nullable|integer|min:0|max:9999',
             'status' => ($requireStatus ? 'required' : 'nullable') . '|in:0,1',
         ];
 
         return $request->validate($rules);
+    }
+
+    private function normalizeFaqItems(Request $request): void
+    {
+        $items = collect($request->input('faqs', []))
+            ->map(fn ($item) => [
+                'question' => trim((string) ($item['question'] ?? '')),
+                'answer' => trim((string) ($item['answer'] ?? '')),
+            ])
+            ->filter(fn ($item) => $item['question'] !== '' || $item['answer'] !== '')
+            ->values()
+            ->all();
+
+        $request->merge(['faqs' => $items]);
     }
 
     /** @param  array<string, mixed>  $validated */

@@ -30,21 +30,15 @@
 					<div class="bbw-form-group">
 						<label for="faq_sort_order">Display order</label>
 						<input type="number" id="faq_sort_order" name="sort_order" class="form-control" min="0" max="9999" value="{{ old('sort_order', $model->sort_order ?? 0) }}" style="max-width: 120px;">
+						<p class="help-block" style="margin:0.35rem 0 0;font-size:12px;color:#5f6f68;">Lower numbers appear first. Additional FAQs added here will follow in order.</p>
 					</div>
-					<div class="bbw-form-group">
-						<label for="faq_question">Question <span class="text-danger">*</span></label>
-						<textarea id="faq_question" class="form-control" name="question" rows="3" required>{{ old('question', $model->question) }}</textarea>
-						@error('question')
-						<span class="bbw-field-error">{{ $message }}</span>
-						@enderror
-					</div>
-					<div class="bbw-form-group">
-						<label for="faq_answer">Answer <span class="text-danger">*</span></label>
-						<textarea id="faq_answer" class="form-control" name="answer" rows="6" required>{{ old('answer', $model->answer) }}</textarea>
-						@error('answer')
-						<span class="bbw-field-error">{{ $message }}</span>
-						@enderror
-					</div>
+
+					@include('admin.faq.partials.faq-items-repeater', [
+						'items' => old('faqs', [['question' => $model->question, 'answer' => $model->answer]]),
+						'editMode' => true,
+						'helpText' => 'The first entry updates this FAQ. Use Add more to create additional FAQs with the same page settings.',
+					])
+
 					<div class="bbw-form-group">
 						<label for="faq_status">Status</label>
 						<select id="faq_status" name="status" class="form-control" style="max-width: 280px;">
@@ -53,7 +47,7 @@
 						</select>
 					</div>
 					<div class="bbw-form-actions">
-						<button type="submit" class="btn bbw-btn-submit"><i class="fa fa-save"></i> Update FAQ</button>
+						<button type="submit" class="btn bbw-btn-submit"><i class="fa fa-save"></i> Save changes</button>
 					</div>
 				</div>
 			</form>
@@ -64,6 +58,7 @@
 
 @push('js')
 @include('admin.faq.partials.form-scripts')
+@include('admin.faq.partials.faq-items-repeater-script')
 <script>
 $(document).ready(function() {
 	$('#regform').validate({
@@ -78,9 +73,23 @@ $(document).ready(function() {
 				required: function() {
 					return $('#faq_page_key').val() === 'location-detail';
 				}
-			},
-			question: 'required',
-			answer: 'required'
+			}
+		},
+		submitHandler: function(form) {
+			var hasFaq = false;
+			$('[data-bbw-faq-repeater] .bbw-faq-repeater__row').each(function() {
+				var question = $.trim($(this).find('.bbw-faq-repeater__question').val());
+				var answer = $.trim($(this).find('.bbw-faq-repeater__answer').val());
+				if (question !== '' || answer !== '') {
+					hasFaq = true;
+					return false;
+				}
+			});
+			if (!hasFaq) {
+				alert('Please add at least one question and answer.');
+				return false;
+			}
+			form.submit();
 		}
 	});
 });
