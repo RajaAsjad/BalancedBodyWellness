@@ -85,16 +85,7 @@ class SitemapBuilder
 
     private static function withoutWwwHost(string $url): string
     {
-        $parts = parse_url($url);
-        if (! is_array($parts) || empty($parts['host'])) {
-            return preg_replace('#(https?://)www\.#i', '$1', $url) ?: $url;
-        }
-
-        $scheme = app()->environment('production') ? 'https' : ($parts['scheme'] ?? 'https');
-        $host = preg_replace('/^www\./i', '', $parts['host']);
-        $port = isset($parts['port']) ? ':'.$parts['port'] : '';
-
-        return $scheme.'://'.$host.$port;
+        return preg_replace('#(https?://)www\.#i', '$1', $url) ?: $url;
     }
 
     private static function normalizeLoc(string $loc): string
