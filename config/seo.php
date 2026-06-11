@@ -10,6 +10,8 @@ return [
 
     'site_name' => env('SEO_SITE_NAME', 'Balanced Body IV Wellness'),
 
+    'canonical_url' => rtrim(env('SEO_CANONICAL_URL', env('APP_URL', 'https://balancedbodyivwellness.com')), '/'),
+
     'default_description' => env(
         'SEO_DEFAULT_DESCRIPTION',
         'Experience advanced IV therapy and wellness solutions in NYC. Offering NAD+ therapy, IV infusions, peptide therapy, and medical weight loss treatments. Book your consultation with Balanced Body IV Wellness today.'

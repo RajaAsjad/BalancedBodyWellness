@@ -70,7 +70,7 @@ class SitemapBuilder
 
     public static function baseUrl(): string
     {
-        $url = rtrim((string) config('app.url'), '/');
+        $url = rtrim((string) config('seo.canonical_url', config('app.url')), '/');
 
         if ($url === '') {
             $url = 'https://balancedbodyivwellness.com';
@@ -80,7 +80,26 @@ class SitemapBuilder
             $url = 'https://'.(parse_url($url, PHP_URL_HOST) ?: 'balancedbodyivwellness.com');
         }
 
-        return $url;
+        return self::withoutWwwHost($url);
+    }
+
+    private static function withoutWwwHost(string $url): string
+    {
+        $parts = parse_url($url);
+        if (! is_array($parts) || empty($parts['host'])) {
+            return preg_replace('#(https?://)www\.#i', '$1', $url) ?: $url;
+        }
+
+        $scheme = app()->environment('production') ? 'https' : ($parts['scheme'] ?? 'https');
+        $host = preg_replace('/^www\./i', '', $parts['host']);
+        $port = isset($parts['port']) ? ':'.$parts['port'] : '';
+
+        return $scheme.'://'.$host.$port;
+    }
+
+    private static function normalizeLoc(string $loc): string
+    {
+        return self::withoutWwwHost($loc);
     }
 
     /**
@@ -90,7 +109,7 @@ class SitemapBuilder
     private static function entry(string $loc, array $meta): array
     {
         return [
-            'loc' => $loc,
+            'loc' => self::normalizeLoc($loc),
             'lastmod' => $meta['lastmod'] ?? now()->toAtomString(),
             'changefreq' => $meta['changefreq'] ?? 'monthly',
             'priority' => $meta['priority'] ?? '0.5',
