@@ -2,8 +2,9 @@
 
 namespace App\Support;
 
-use App\Support\LocationPageRegistry;
-use App\Support\ServicePageRegistry;
+use App\Models\Services;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 class SitemapBuilder
 {
