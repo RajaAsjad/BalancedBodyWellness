@@ -2,9 +2,8 @@
 
 namespace App\Support;
 
-use App\Models\Services;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Str;
+use App\Support\LocationPageRegistry;
+use App\Support\ServicePageRegistry;
 
 class SitemapBuilder
 {
@@ -24,19 +23,19 @@ class SitemapBuilder
             $urls[] = self::entry(self::absoluteUrl($baseUrl, route($routeName, [], false)), $meta);
         }
 
-        foreach (self::serviceSlugs() as $slug => $lastmod) {
+        foreach (ServicePageRegistry::publishedSlugs() as $slug) {
             $urls[] = self::entry(
                 self::absoluteUrl($baseUrl, route('service.detail', ['slug' => $slug], false)),
                 [
                     'priority' => '0.85',
                     'changefreq' => 'monthly',
-                    'lastmod' => $lastmod,
+                    'lastmod' => self::serviceLastmod($slug),
                 ]
             );
         }
 
         foreach (self::locationSlugs() as $slug) {
-            $urls[] = self::entry(self::absoluteUrl($baseUrl, route('location.page', ['slug' => $slug], false)), [
+            $urls[] = self::entry(self::absoluteUrl($baseUrl, route('service.detail', ['slug' => $slug], false)), [
                 'priority' => '0.8',
                 'changefreq' => 'monthly',
             ]);
@@ -45,45 +44,14 @@ class SitemapBuilder
         return self::dedupe($urls);
     }
 
-    /**
-     * Service page slugs => optional lastmod (from admin DB record).
-     *
-     * @return array<string, string|null>
-     */
-    private static function serviceSlugs(): array
+    private static function serviceLastmod(string $slug): ?string
     {
-        $slugs = [];
-
-        foreach (array_keys(config('service_pages', [])) as $slug) {
-            if ($slug !== '') {
-                $slugs[$slug] = null;
-            }
-        }
-
-        foreach (config('nav_menus.services.items', []) as $item) {
-            $slug = $item['slug'] ?? '';
-            if ($slug !== '') {
-                $slugs[$slug] = null;
-            }
-        }
-
-        Services::query()
+        $service = Services::query()
             ->whereIn('status', [1, '1'])
-            ->orderBy('id')
             ->get(['heading', 'updated_at'])
-            ->each(function (Services $service) use (&$slugs) {
-                $slug = Str::slug((string) $service->heading);
-                if ($slug === '') {
-                    return;
-                }
+            ->first(fn (Services $item) => Str::slug((string) $item->heading) === $slug);
 
-                $lastmod = $service->updated_at?->toAtomString();
-                if (! isset($slugs[$slug]) || $lastmod !== null) {
-                    $slugs[$slug] = $lastmod ?? ($slugs[$slug] ?? null);
-                }
-            });
-
-        return $slugs;
+        return $service?->updated_at?->toAtomString();
     }
 
     /** @return list<string> */

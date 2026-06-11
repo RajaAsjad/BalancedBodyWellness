@@ -7,6 +7,8 @@ use App\Models\Faq;
 use App\Models\Policies;
 use App\Models\Services;
 use App\Services\ContactImageCaptcha;
+use App\Support\LocationPageRegistry;
+use App\Support\ServicePageRegistry;
 use Illuminate\Support\Str;
 
 class WebController extends Controller
@@ -45,22 +47,36 @@ class WebController extends Controller
             ->get()
             ->first(fn ($item) => Str::slug($item->heading) === $slug);
 
-        $placeholder = collect(config('nav_menus.services.items', []))->firstWhere('slug', $slug);
+        $navItem = collect(config('nav_menus.services.items', []))->firstWhere('slug', $slug);
+        $placeholder = $navItem;
 
         if ($service) {
             $page_title = $service->heading . ' | Balanced Body IV Wellness';
             $page_meta_description = trim((string) $service->description) !== ''
                 ? Str::limit(strip_tags($service->description), 160)
                 : 'Explore this IV wellness service — benefits, process, and personalized care at Balanced Body IV Wellness in Los Angeles.';
-        } elseif ($placeholder) {
-            $page_title = $placeholder['label'] . ' | Balanced Body IV Wellness';
-            $page_meta_description = 'Explore ' . $placeholder['label'] . ' — benefits, process, and personalized IV wellness care at Balanced Body IV Wellness in Los Angeles.';
+        } elseif ($navItem) {
+            $page_title = $navItem['label'] . ' | Balanced Body IV Wellness';
+            $page_meta_description = 'Explore ' . $navItem['label'] . ' — benefits, process, and personalized IV wellness care at Balanced Body IV Wellness in Los Angeles.';
         } else {
             $page_title = 'IV Wellness Service | Balanced Body IV Wellness';
             $page_meta_description = 'Explore this IV wellness service — benefits, process, and personalized care at Balanced Body IV Wellness in Los Angeles.';
         }
 
         return view('website.service-detail', compact('page_title', 'page_meta_description', 'service', 'slug', 'placeholder'));
+    }
+
+    public function PublicSlugPage(string $slug)
+    {
+        if (in_array($slug, ServicePageRegistry::publishedSlugs(), true)) {
+            return $this->ServiceDetail($slug);
+        }
+
+        if (in_array($slug, LocationPageRegistry::publishedSlugs(), true)) {
+            return $this->LocationPage($slug);
+        }
+
+        abort(404);
     }
     public function AboutUs()
     {

@@ -15,7 +15,7 @@
         <div class="loc-index__inner container-pns">
             <div class="loc-index__grid">
                 @foreach ($locations as $slug => $location)
-                    <a href="{{ route('location.page', ['slug' => $slug]) }}" class="loc-index-card">
+                    <a href="{{ route('service.detail', $slug) }}" class="loc-index-card">
                         <h2 class="loc-index-card__title">{{ $location['name'] ?? $slug }}</h2>
                         @if (!empty($location['hero']['lead']))
                             <p class="loc-index-card__text">{{ \Illuminate\Support\Str::limit($location['hero']['lead'], 120) }}</p>

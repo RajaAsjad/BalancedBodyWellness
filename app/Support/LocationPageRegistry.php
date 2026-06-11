@@ -40,4 +40,10 @@ class LocationPageRegistry
             ->values()
             ->all();
     }
+
+    /** @param  list<string>  $slugs */
+    public static function routePattern(array $slugs): string
+    {
+        return implode('|', array_map('preg_quote', $slugs));
+    }
 }

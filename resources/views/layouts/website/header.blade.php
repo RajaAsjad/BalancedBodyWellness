@@ -11,9 +11,12 @@
         'label' => $item['label'],
         'slug' => $item['slug'],
         'href' => \App\Models\Location::findPublishedPageBySlug($item['slug'])
-            ? route('location.page', ['slug' => $item['slug']])
+            ? route('service.detail', $item['slug'])
             : route('location.detail', $item['slug']),
     ])->all();
+
+    $locationNavSlugs = collect($locationDropdownItems)->pluck('slug')->all();
+    $currentNavSlug = request()->route('slug');
 
     $navSections = [
         ['key' => 'home', 'type' => 'link', 'href' => url('/'), 'label' => 'Home'],
@@ -39,8 +42,10 @@
 
     $navActiveKey = match (true) {
         request()->routeIs('index') => 'home',
-        request()->routeIs('services', 'service.detail') => 'services',
-        request()->routeIs('locations', 'location.detail', 'location.page') => 'locations',
+        request()->routeIs('services') => 'services',
+        request()->routeIs('service.detail') && in_array($currentNavSlug, $locationNavSlugs, true) => 'locations',
+        request()->routeIs('service.detail') => 'services',
+        request()->routeIs('locations', 'location.detail') => 'locations',
         request()->routeIs('about-us') => 'about',
         request()->routeIs('faqs') => 'faq',
         request()->routeIs('policies') => 'policies',

@@ -27,7 +27,7 @@
                 @php
                     $isItemActive = match ($menuKey) {
                         'services' => request()->routeIs('service.detail') && $currentSlug === ($entry['slug'] ?? null),
-                        'locations' => request()->routeIs('location.page', 'location.detail') && $currentSlug === ($entry['slug'] ?? null),
+                        'locations' => request()->routeIs('service.detail', 'location.detail') && $currentSlug === ($entry['slug'] ?? null),
                         default => false,
                     };
                 @endphp

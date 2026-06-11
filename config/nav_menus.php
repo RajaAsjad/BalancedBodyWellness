@@ -2,7 +2,7 @@
 
 /**
  * Header dropdown menus (Services & Locations).
- * Slugs must match routes: services/{slug}, locations/{slug}
+ * Slugs must match public routes: /{slug} for services, /{slug} for location pages.
  */
 return [
     'services' => [

@@ -5,6 +5,8 @@ use App\Http\Controllers\WebController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\ContactCaptchaController;
 use App\Http\Controllers\FaviconController;
+use App\Support\LocationPageRegistry;
+use App\Support\ServicePageRegistry;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\HomeSliderController;
 use App\Http\Controllers\admin\TestimonialController;
@@ -53,13 +55,13 @@ Route::get('/favicon.png', [FaviconController::class, 'png'])->name('favicon.png
 // Frontend — Balanced Body IV Wellness
 Route::get('/', [WebController::class, 'Index'])->name('index'); 
 Route::get('services', [WebController::class, 'Services'])->name('services');
-Route::redirect('services/methylene-blue', '/services/methylene-blue-iv-therapy-nyc', 301);
-Route::redirect('services/nad', '/services/nad-therapy-nyc', 301);
-Route::redirect('services/peptide-therapy', '/services/peptide-therapy-nyc', 301);
-Route::redirect('services/iv-vitamin-therapy', '/services/iv-vitamin-therapy-nyc', 301);
-Route::redirect('services/medical-weight-loss', '/services/medical-weight-loss-nyc', 301);
-Route::redirect('services/iron-infusion', '/services/iron-infusion-therapy-nyc', 301);
-Route::get('services/{slug}', [WebController::class, 'ServiceDetail'])->name('service.detail');
+Route::redirect('services/methylene-blue', '/methylene-blue-iv-therapy-nyc', 301);
+Route::redirect('services/nad', '/nad-therapy-nyc', 301);
+Route::redirect('services/peptide-therapy', '/peptide-therapy-nyc', 301);
+Route::redirect('services/iv-vitamin-therapy', '/iv-vitamin-therapy-nyc', 301);
+Route::redirect('services/medical-weight-loss', '/medical-weight-loss-nyc', 301);
+Route::redirect('services/iron-infusion', '/iron-infusion-therapy-nyc', 301);
+
 Route::get('about-us', [WebController::class, 'AboutUs'])->name('about-us');
 Route::get('faqs', [WebController::class, 'Faqs'])->name('faqs');
 Route::get('policies', [WebController::class, 'Policies'])->name('policies');
@@ -70,11 +72,21 @@ Route::redirect('iv-therapy-jefferson-valley', '/iv-therapy-jefferson-valley-ny'
 Route::redirect('iv-therapy-westchester', '/iv-therapy-westchester-county', 301);
 Route::get('locations/{slug}', [WebController::class, 'LocationDetail'])->name('location.detail');
 
-$locationPageSlugs = \App\Support\LocationPageRegistry::publishedSlugs();
-if ($locationPageSlugs !== []) {
-    Route::get('{slug}', [WebController::class, 'LocationPage'])
-        ->where('slug', implode('|', array_map('preg_quote', $locationPageSlugs)))
-        ->name('location.page');
+$servicePageSlugs = ServicePageRegistry::publishedSlugs();
+$locationPageSlugs = LocationPageRegistry::publishedSlugs();
+$publicSlugs = array_values(array_unique(array_merge($servicePageSlugs, $locationPageSlugs)));
+
+if ($publicSlugs !== []) {
+    $publicSlugPattern = ServicePageRegistry::routePattern($publicSlugs);
+
+    if ($servicePageSlugs !== []) {
+        Route::get('services/{slug}', fn (string $slug) => redirect('/'.$slug, 301))
+            ->where('slug', ServicePageRegistry::routePattern($servicePageSlugs));
+    }
+
+    Route::get('{slug}', [WebController::class, 'PublicSlugPage'])
+        ->where('slug', $publicSlugPattern)
+        ->name('service.detail');
 }
 
 
