@@ -6,14 +6,15 @@
     @php
         use Illuminate\Support\Str;
 
-        $placeholder = \App\Models\Services::imagePlaceholderUrl();
-        $heroImg = $service ? $service->imageUrl('description_image') : $placeholder;
-        $imgA = $service ? $service->imageUrl('description_image') : $placeholder;
-        $imgB = $service ? $service->imageUrl('benefit_image') : $placeholder;
-        $imgC = $placeholder;
-        $imgD = $service ? $service->imageUrl('question_image') : $placeholder;
+        $fallbackImage = \App\Models\Services::imagePlaceholderUrl();
+        $heroImg = $service ? $service->imageUrl('description_image') : $fallbackImage;
+        $imgA = $service ? $service->imageUrl('description_image') : $fallbackImage;
+        $imgB = $service ? $service->imageUrl('benefit_image') : $fallbackImage;
+        $imgC = $fallbackImage;
+        $imgD = $service ? $service->imageUrl('question_image') : $fallbackImage;
 
-        $serviceName = $service?->heading ?? ($placeholder['label'] ?? 'Hydration Revival IV Drip');
+        $navItem = $placeholder ?? null;
+        $serviceName = $service?->heading ?? ($navItem['label'] ?? 'IV Wellness Service');
         $serviceIntro = filled($service?->description)
             ? $service->description
             : 'A thoughtfully formulated IV drip designed to restore fluids, support energy, and help you feel refreshed — with medical oversight in a calm, spa-inspired setting.';
