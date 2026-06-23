@@ -2,8 +2,16 @@
     $primaryEmail = 'info@balancedbodyivwellness.com';
     $phoneDisplay = '914-745-6924';
     $phoneTel = '9147456924';
-    $instagramUrl = 'https://www.instagram.com/balancedbodyivwellness/';
-    $instagramHandle = '@balancedbodyivwellness';
+    $footerData = $home_page_data ?? [];
+    $instagramUrl = ! empty($footerData['footer_instagram']) ? $footerData['footer_instagram'] : config('seo.business.instagram', '');
+    $facebookUrl = ! empty($footerData['footer_facebook']) ? $footerData['footer_facebook'] : config('seo.business.facebook', '');
+    $instagramPath = trim((string) parse_url($instagramUrl, PHP_URL_PATH), '/');
+    $facebookPath = trim((string) parse_url($facebookUrl, PHP_URL_PATH), '/');
+    $instagramHandle = ! empty($footerData['footer_instagram']) ? '@' . strtok($instagramPath, '/') : '@balancedbodyivwellness';
+    $facebookHandle = 'Facebook';
+    if (! empty($footerData['footer_facebook']) && $facebookPath !== '' && ! str_contains($facebookPath, 'profile.php')) {
+        $facebookHandle = strtok($facebookPath, '/');
+    }
     $footerNav = [
         ['href' => url('/'), 'label' => 'Home'],
         ['href' => url('/services'), 'label' => 'Services'],
@@ -21,9 +29,9 @@
             <div class="footer__col footer__col--brand">
                 <div class="footer__brand-row">
                     <a href="{{ url('/') }}" class="footer__brand-mark" aria-label="Balanced Body IV Wellness home">
-                        @if (!empty($home_page_data['header_logo']))
+                        @if (!empty($home_page_data['footer_image']))
                             <img class="footer__logo-custom"
-                                src="{{ asset('admin/assets/images/page/' . $home_page_data['header_logo']) }}"
+                                src="{{ asset('admin/assets/images/page/' . $home_page_data['footer_image']) }}"
                                 alt="Balanced Body IV Wellness">
                         @else
                             <span class="footer__logo-icon" aria-hidden="true">
@@ -50,9 +58,10 @@
                         <p class="footer__brand-name">Balanced Body</p>
                         <p class="footer__brand-tag">IV WELLNESS</p>
                     </div>
-                </div>
-                <p class="footer__about">Premium IV hydration therapy, peptides, and wellness injections —
-                    thoughtfully delivered for clients who care about their health.</p>
+                </div> 
+                @if (!empty($home_page_data['footer_description']))
+                    <p class="footer__about">{{ $home_page_data['footer_description'] }}</p>
+                @endif
             </div>
 
             <div class="footer__col">
@@ -107,6 +116,18 @@
                                 </svg>
                             </span>
                             <span class="footer__connect-text">{{ $instagramHandle }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ $facebookUrl }}" class="footer__connect-link" target="_blank"
+                            rel="noopener noreferrer" title="Balanced Body IV Wellness on Facebook">
+                            <span class="footer__connect-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>
+                            </span>
+                            <span class="footer__connect-text">{{ $facebookHandle }}</span>
                         </a>
                     </li>
                 </ul>

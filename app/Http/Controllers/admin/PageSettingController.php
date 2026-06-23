@@ -145,7 +145,8 @@ class PageSettingController extends Controller
             $page_title = 'Header';
             return view('admin.page_setting.header', compact("model", "page_data", "page_title"));
         }elseif($slug=='footer'){
-            return view('admin.page_setting.footer', compact("model", "page_data"));
+            $page_title = 'Footer';
+            return view('admin.page_setting.footer', compact("model", "page_data", "page_title"));
         }elseif($slug=='privacy-policy'){
             return view('admin.page_setting.privacy', compact("model", "page_data"));
         }

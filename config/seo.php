@@ -46,6 +46,7 @@ return [
         'phone' => '914-745-6924',
         'email' => 'info@balancedbodyivwellness.com',
         'instagram' => 'https://www.instagram.com/balancedbodyivwellness/',
+        'facebook' => 'https://www.facebook.com/balancedbodyivwellness',
         'area_served' => 'New York City, Westchester, Putnam, Dutchess, Rockland County',
         'street_address' => '650 Lee blvd',
         'address_locality' => 'Jefferson Valley',
