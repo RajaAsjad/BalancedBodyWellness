@@ -22,6 +22,7 @@ class CreateContactUsTable extends Migration
             $table->string('service_of_interest', 150)->nullable();
             $table->date('preferred_date')->nullable();
             $table->text('message')->nullable();
+            $table->string('captcha_code')->nullable();
             $table->string('status')->default(1)->comment('0=inactive , 1=active');
             $table->string('deleted_at')->nullable();
             $table->timestamps();
