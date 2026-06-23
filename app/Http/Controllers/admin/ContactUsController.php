@@ -32,6 +32,8 @@ class ContactUsController extends Controller
                         ->orWhere('last_name', 'like', '%' . $search . '%')
                         ->orWhere('email', 'like', '%' . $search . '%')
                         ->orWhere('phone', 'like', '%' . $search . '%')
+                        ->orWhere('service_of_interest', 'like', '%' . $search . '%')
+                        ->orWhere('preferred_date', 'like', '%' . $search . '%')
                         ->orWhere('message', 'like', '%' . $search . '%');
                 });
             }
@@ -83,8 +85,7 @@ class ContactUsController extends Controller
         $request->validate([
             'full_name' => 'required|string|max:200',
             'email' => 'required|email|max:100',
-            'phone' => 'required|string|max:50',
-            'venue_event' => 'nullable|string|max:255',
+            'phone' => 'required|string|max:50', 
             'preferred_date' => 'nullable|date',
             'service_of_interest' => 'nullable|string|max:150',
             'message' => 'nullable|string|max:2000',
@@ -103,24 +104,13 @@ class ContactUsController extends Controller
             }
         }
 
-        if ($preferredDate === null && $note === '') {
+        $serviceLabel = $this->resolveServiceOfInterest($request->input('service_of_interest'));
+
+        if ($preferredDate === null && $note === '' && $serviceLabel === null) {
             return redirect()->route('contact')->withErrors([
-                'message' => 'Please add a preferred date, a note in the message field, or both.',
+                'message' => 'Please select a service, add a preferred date, or write a message.',
             ])->withInput();
         }
-
-        $messageBlocks = [];
-        $serviceLabel = $this->resolveServiceOfInterest($request->input('service_of_interest'));
-        if ($serviceLabel) {
-            $messageBlocks[] = 'Service of interest: ' . $serviceLabel;
-        }
-        if ($preferredDate !== null) {
-            $messageBlocks[] = 'Preferred date: ' . $preferredDate;
-        }
-        if ($note !== '') {
-            $messageBlocks[] = $note;
-        }
-        $composedMessage = implode("\n\n", $messageBlocks);
 
         $fullName = trim($request->full_name);
         $parts = preg_split('/\s+/', $fullName, 2);
@@ -132,8 +122,10 @@ class ContactUsController extends Controller
         $model->last_name = $lastName;
         $model->email = $request->email;
         $model->phone = $request->phone;
-        $model->address = $request->venue_event;
-        $model->message = $composedMessage;
+        $model->service_of_interest = $serviceLabel;
+        $model->preferred_date = $preferredDate;
+        $model->message = $note !== '' ? $note : null;
+        $model->captcha_code = strtoupper(trim((string) $request->captcha_code));
         $model->save();
 
         $contactData = [
@@ -141,8 +133,7 @@ class ContactUsController extends Controller
             'first_name' => $firstName,
             'last_name' => $lastName,
             'email' => $request->email,
-            'phone' => $request->phone,
-            'venue_event' => $request->venue_event,
+            'phone' => $request->phone, 
             'service_of_interest' => $serviceLabel,
             'preferred_date' => $preferredDate,
             'message' => $note,

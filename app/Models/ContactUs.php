@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ContactUs extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
+
     protected $guarded = [];
+
+    protected $casts = [
+        'preferred_date' => 'date',
+    ];
 }

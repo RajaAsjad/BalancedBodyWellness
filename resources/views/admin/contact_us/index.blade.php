@@ -239,7 +239,8 @@
 									<th>Name</th>
 									<th>Email</th>
 									<th>Phone</th>
-									<th>Venue/Event</th>
+									<th>Service of Interest</th>
+									<th>Preferred Date</th>
 									<th>Message</th>
 									<th width="160">Action</th>
 								</tr>
@@ -251,7 +252,8 @@
 									<td>{{ $model->first_name }} {{ $model->last_name }}</td>
 									<td>{{ $model->email }}</td>
 									<td>{{ $model->phone }}</td>
-									<td>{{ $model->address ?? '—' }}</td>
+									<td>{{ $model->service_of_interest ?: '—' }}</td>
+									<td>{{ $model->preferred_date ? $model->preferred_date->format('M j, Y') : '—' }}</td>
 									<td>{{ \Illuminate\Support\Str::limit($model->message, 50) }}</td>
 									<td>
 										<div class="contact-action-btns">
@@ -263,7 +265,7 @@
 								@endforeach
 								@if($models->hasPages())
 								<tr>
-									<td colspan="7">
+									<td colspan="8">
 										<div class="pagination-wrap" style="margin: 0; border-top: none;">
 											<div class="text-muted small mb-2">Displaying {{ $models->firstItem() }} to {{ $models->lastItem() }} of {{ $models->total() }} records</div>
 											{!! $models->appends(request()->query())->links('pagination::bootstrap-4') !!}

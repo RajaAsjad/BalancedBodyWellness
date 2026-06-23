@@ -103,8 +103,12 @@
 						<td>{{ $model->phone }}</td>
 					</tr>
 					<tr>
-						<th>Venue/Event</th>
-						<td>{{ $model->address ?? '—' }}</td>
+						<th>Service of Interest</th>
+						<td>{{ $model->service_of_interest ?: '—' }}</td>
+					</tr>
+					<tr>
+						<th>Preferred Date</th>
+						<td>{{ $model->preferred_date ? $model->preferred_date->format('F j, Y') : '—' }}</td>
 					</tr>
 					<tr>
 						<th>Message</th>

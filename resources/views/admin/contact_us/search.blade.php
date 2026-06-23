@@ -4,7 +4,8 @@
 	<td>{{ $model->first_name }} {{ $model->last_name }}</td>
 	<td>{{ $model->email }}</td>
 	<td>{{ $model->phone }}</td>
-	<td>{{ $model->address ?? '—' }}</td>
+	<td>{{ $model->service_of_interest ?: '—' }}</td>
+	<td>{{ $model->preferred_date ? $model->preferred_date->format('M j, Y') : '—' }}</td>
 	<td>{{ \Illuminate\Support\Str::limit($model->message, 50) }}</td>
 	<td>
 		<div class="contact-action-btns">
@@ -15,12 +16,12 @@
 </tr>
 @empty
 <tr>
-	<td colspan="7" class="text-center text-muted py-4">No contacts found.</td>
+	<td colspan="8" class="text-center text-muted py-4">No contacts found.</td>
 </tr>
 @endforelse
 @if($models->hasPages())
 <tr>
-	<td colspan="7">
+	<td colspan="8">
 		<div class="d-flex flex-column align-items-center">
 			<div class="text-muted small mb-2">Displaying {{ $models->firstItem() }} to {{ $models->lastItem() }} of {{ $models->total() }} records</div>
 			{!! $models->appends(request()->query())->links('pagination::bootstrap-4') !!}
