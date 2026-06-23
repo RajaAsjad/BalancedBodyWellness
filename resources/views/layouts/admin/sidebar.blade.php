@@ -7,7 +7,7 @@
                     <i class="fa fa-laptop"></i> <span>Dashboard</span>
                 </a>
             </li>
-            @can('role-list')
+           {{--  @can('role-list')
                 <li class="treeview">
                     <a href="{{ route('role.index') }}"
                         class="{{ request()->is('role') || request()->is('role/create') || request()->is('role/*/edit') ? 'active blk' : '' }}">
@@ -22,7 +22,7 @@
                         <i class="fa fa-lock"></i> <span>Permissions</span>
                     </a>
                 </li>
-            @endcan
+            @endcan --}}
             @can('page-list')
                 <li class="treeview">
                     <a href="{{ route('page.index') }}"
