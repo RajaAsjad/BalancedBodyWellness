@@ -9,16 +9,32 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('services', function (Blueprint $table) {
-            $table->string('description_image')->nullable()->after('description');
-            $table->string('benefit_image')->nullable()->after('benefits');
-            $table->string('question_image')->nullable()->after('questions');
+            if (! Schema::hasColumn('services', 'description_image')) {
+                $table->string('description_image')->nullable()->after('description');
+            }
+
+            if (! Schema::hasColumn('services', 'benefit_image')) {
+                $table->string('benefit_image')->nullable()->after('benefits');
+            }
+
+            if (! Schema::hasColumn('services', 'question_image')) {
+                $table->string('question_image')->nullable()->after('questions');
+            }
         });
     }
 
     public function down(): void
     {
         Schema::table('services', function (Blueprint $table) {
-            $table->dropColumn(['description_image', 'benefit_image', 'question_image']);
+            $columns = array_filter([
+                Schema::hasColumn('services', 'description_image') ? 'description_image' : null,
+                Schema::hasColumn('services', 'benefit_image') ? 'benefit_image' : null,
+                Schema::hasColumn('services', 'question_image') ? 'question_image' : null,
+            ]);
+
+            if ($columns !== []) {
+                $table->dropColumn($columns);
+            }
         });
     }
 };

@@ -8,17 +8,21 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('faqs', function (Blueprint $table) {
-            $table->string('location_slug', 120)->nullable()->after('service_slug');
-            $table->index(['page_key', 'location_slug']);
-        });
+        if (! Schema::hasColumn('faqs', 'location_slug')) {
+            Schema::table('faqs', function (Blueprint $table) {
+                $table->string('location_slug', 120)->nullable()->after('service_slug');
+                $table->index(['page_key', 'location_slug']);
+            });
+        }
     }
 
     public function down(): void
     {
-        Schema::table('faqs', function (Blueprint $table) {
-            $table->dropIndex(['page_key', 'location_slug']);
-            $table->dropColumn('location_slug');
-        });
+        if (Schema::hasColumn('faqs', 'location_slug')) {
+            Schema::table('faqs', function (Blueprint $table) {
+                $table->dropIndex(['page_key', 'location_slug']);
+                $table->dropColumn('location_slug');
+            });
+        }
     }
 };
