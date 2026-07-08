@@ -2,18 +2,12 @@
 
 /**
  * Header dropdown menus (Services & Locations).
- * Slugs must match public routes: /{slug} for services, /{slug} for location pages.
+ * Service items are loaded from the database (admin → Service Pages).
+ * Location items fall back to config until fully migrated to DB.
  */
 return [
     'services' => [
-        'items' => [
-            ['slug' => 'methylene-blue-iv-therapy-nyc', 'label' => 'Methylene Blue'],
-            ['slug' => 'nad-therapy-nyc', 'label' => 'NAD'],
-            ['slug' => 'peptide-therapy-nyc', 'label' => 'Peptide Therapy'],
-            ['slug' => 'iv-vitamin-therapy-nyc', 'label' => 'IV Vitamin Therapy'],
-            ['slug' => 'medical-weight-loss-nyc', 'label' => 'Medical Weight Loss'],
-            ['slug' => 'iron-infusion-therapy-nyc', 'label' => 'Iron Infusion'],
-        ],
+        'items' => [],
         'all_label' => 'All Services',
     ],
     'locations' => [
@@ -24,6 +18,6 @@ return [
             ['slug' => 'iv-therapy-dutchess-county', 'label' => 'Dutchess County'],
             ['slug' => 'iv-therapy-westchester-county', 'label' => 'Westchester'],
             ['slug' => 'iv-therapy-new-york-city', 'label' => 'New York City'],
-        ], 
+        ],
     ],
 ];

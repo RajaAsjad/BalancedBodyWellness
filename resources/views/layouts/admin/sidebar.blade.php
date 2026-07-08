@@ -7,7 +7,7 @@
                     <i class="fa fa-laptop"></i> <span>Dashboard</span>
                 </a>
             </li>
-           {{--  @can('role-list')
+            @can('role-list')
                 <li class="treeview">
                     <a href="{{ route('role.index') }}"
                         class="{{ request()->is('role') || request()->is('role/create') || request()->is('role/*/edit') ? 'active blk' : '' }}">
@@ -22,7 +22,7 @@
                         <i class="fa fa-lock"></i> <span>Permissions</span>
                     </a>
                 </li>
-            @endcan --}}
+            @endcan
             @can('page-list')
                 <li class="treeview">
                     <a href="{{ route('page.index') }}"
@@ -58,14 +58,42 @@
 
             
 
-            @can('service-list')
+           {{--  @can('service-list')
                 <li class="treeview mt-2">
                     <a href="{{ route('service.index') }}" class="{{ request()->is('service') || request()->is('service/create') || request()->is('service/*/edit') || request()->is('service/*') ? 'active' : '' }}">
                         <i class="fa fa-envelope"></i> <span>Services</span>
                     </a>
                 </li>
-            @endcan
+            @endcan --}}
+            
+            <li class="treeview mt-2 {{ (request()->is('service') || request()->is('service/create') || request()->is('service/*/edit') || request()->is('service/*') || request()->is('servicePage') || request()->is('servicePage/create') || request()->is('servicePage/*/edit') || request()->is('servicePage/*') ) ? 'active' : '' }}" style="height: auto;">
+                <a href="#" class="{{ (request()->is('service') || request()->is('service/create') || request()->is('service/*/edit') || request()->is('service/*') || request()->is('servicePage') || request()->is('servicePage/create') || request()->is('servicePage/*/edit') || request()->is('servicePage/*') ) ? 'active' : '' }}">
+                    <i class="fa fa-files-o"></i>
+                    <span>Services Management</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
 
+                <ul class="treeview-menu" style="display: {{ (request()->is('service') || request()->is('service/create') || request()->is('service/*/edit') || request()->is('service/*') || request()->is('servicePage') || request()->is('servicePage/create') || request()->is('servicePage/*/edit') || request()->is('servicePage/*') ) ? 'block' : 'none' }};">
+
+                    @can('service-list')
+                    <li class="treeview mt-2">
+                        <a href="{{ route('service.index') }}" class="{{ request()->is('service') || request()->is('service/create') || request()->is('service/*/edit') ? 'active' : '' }}">
+                            <i class="fa fa-sitemap"></i> <span>Services</span>
+                        </a>
+                    </li>
+                    @endcan
+
+                    @can('servicepage-list')
+                    <li class="treeview mt-2">
+                        <a href="{{ route('servicePage.index') }}" class="{{ request()->is('servicePage') || request()->is('servicePage/create') || request()->is('servicePage/*/edit') || request()->is('servicePage/*') ? 'active' : '' }}">
+                            <i class="fa fa-code-fork"></i> <span>Service Pages</span>
+                        </a>
+                    </li>
+                    @endcan   
+                </ul>
+            </li>
              
             {{-- <li class="treeview mt-2 {{ (request()->is('video') || request()->is('video/create') || request()->is('video/*/edit') || request()->is('audio') || request()->is('audio/create') || request()->is('audio/*/edit') || request()->is('audio/*') || request()->is('photogallery') || request()->is('photogallery/*') ) ? 'active' : '' }}" style="height: auto;">
                 <a href="#" class="{{ (request()->is('video') || request()->is('video/create') || request()->is('video/*/edit') || request()->is('audio') || request()->is('audio/create') || request()->is('audio/*/edit') || request()->is('audio/*') || request()->is('photogallery') || request()->is('photogallery/*') ) ? 'active' : '' }}">

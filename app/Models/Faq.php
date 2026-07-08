@@ -81,49 +81,44 @@ class Faq extends Model
         return $label;
     }
 
-    /** Label for a config / nav service landing page slug. */
+    /** Label for a config / nav / DB service landing page slug. */
     public static function landingPageLabel(?string $slug): ?string
     {
         if (! $slug) {
             return null;
         }
 
-        $fromNav = collect(config('nav_menus.services.items', []))->firstWhere('slug', $slug);
-        if ($fromNav && ! empty($fromNav['label'])) {
-            return $fromNav['label'];
+        try {
+            $fromDb = ServicePage::query()->where('slug', $slug)->first();
+            if ($fromDb) {
+                return $fromDb->nav_label ?: $fromDb->name;
+            }
+        } catch (\Throwable) {
         }
 
-        $page = config("service_pages.{$slug}");
-
-        return $page['name'] ?? null;
+        return null;
     }
 
     /** @return array<int, array{slug: string, label: string}> */
     public static function serviceLandingPagesForPicker(): array
     {
-        $items = [];
-
-        foreach (config('nav_menus.services.items', []) as $item) {
-            if (empty($item['slug'])) {
-                continue;
+        try {
+            if (ServicePage::tableExists()) {
+                return ServicePage::query()
+                    ->published()
+                    ->orderBy('sort_order')
+                    ->orderBy('name')
+                    ->get(['slug', 'nav_label', 'name'])
+                    ->map(fn (ServicePage $page) => [
+                        'slug' => $page->slug,
+                        'label' => $page->nav_label ?: $page->name,
+                    ])
+                    ->all();
             }
-            $items[] = [
-                'slug' => $item['slug'],
-                'label' => $item['label'] ?? $item['slug'],
-            ];
+        } catch (\Throwable) {
         }
 
-        foreach (config('service_pages', []) as $slug => $page) {
-            if (collect($items)->contains('slug', $slug)) {
-                continue;
-            }
-            $items[] = [
-                'slug' => $slug,
-                'label' => $page['name'] ?? $slug,
-            ];
-        }
-
-        return $items;
+        return [];
     }
 
     public static function locationLandingPageLabel(?string $slug): ?string

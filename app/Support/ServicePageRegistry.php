@@ -2,7 +2,9 @@
 
 namespace App\Support;
 
+use App\Models\ServicePage;
 use App\Models\Services;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
 class ServicePageRegistry
@@ -12,17 +14,21 @@ class ServicePageRegistry
     {
         $slugs = [];
 
-        foreach (array_keys(config('service_pages', [])) as $slug) {
-            if (is_string($slug) && $slug !== '') {
-                $slugs[$slug] = true;
+        try {
+            if (Schema::hasTable('service_pages')) {
+                foreach (
+                    ServicePage::query()
+                        ->published()
+                        ->orderBy('sort_order')
+                        ->orderBy('name')
+                        ->pluck('slug') as $slug
+                ) {
+                    if (is_string($slug) && $slug !== '') {
+                        $slugs[$slug] = true;
+                    }
+                }
             }
-        }
-
-        foreach (config('nav_menus.services.items', []) as $item) {
-            $slug = $item['slug'] ?? '';
-            if (is_string($slug) && $slug !== '') {
-                $slugs[$slug] = true;
-            }
+        } catch (\Throwable) {
         }
 
         Services::query()
@@ -37,6 +43,15 @@ class ServicePageRegistry
             });
 
         return array_values(array_keys($slugs));
+    }
+
+    /** @return list<string> Slugs from config/service_pages.php (import command only). */
+    public static function configSlugs(): array
+    {
+        return collect(array_keys(config('service_pages', [])))
+            ->filter(fn ($slug) => is_string($slug) && $slug !== '' && is_array(config("service_pages.{$slug}")))
+            ->values()
+            ->all();
     }
 
     /** @param  list<string>  $slugs */

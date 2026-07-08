@@ -6,6 +6,7 @@ use App\Models\Video;
 use App\Models\Faq;
 use App\Models\Policies;
 use App\Models\Services;
+use App\Models\ServicePage;
 use App\Services\ContactImageCaptcha;
 use App\Support\LocationPageRegistry;
 use App\Support\ServicePageRegistry;
@@ -33,7 +34,7 @@ class WebController extends Controller
     }
     public function ServiceDetail($slug)
     {
-        $page = config("service_pages.{$slug}");
+        $page = ServicePage::findPublishedPageBySlug($slug);
 
         if ($page) {
             $page_title = $page['meta_title'] ?? (($page['name'] ?? 'Service') . ' | Balanced Body IV Wellness');
@@ -47,7 +48,14 @@ class WebController extends Controller
             ->get()
             ->first(fn ($item) => Str::slug($item->heading) === $slug);
 
-        $navItem = collect(config('nav_menus.services.items', []))->firstWhere('slug', $slug);
+        $navItem = null;
+        $servicePage = ServicePage::findBySlug($slug);
+        if ($servicePage) {
+            $navItem = [
+                'slug' => $servicePage->slug,
+                'label' => $servicePage->nav_label ?: $servicePage->name,
+            ];
+        }
         $placeholder = $navItem;
 
         if ($service) {

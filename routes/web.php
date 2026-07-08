@@ -17,6 +17,7 @@ use App\Http\Controllers\admin\PhotoGalleryController;
 use App\Http\Controllers\admin\ShopContactController;
 use App\Http\Controllers\admin\ServicesController;
 use App\Http\Controllers\admin\LocationController;
+use App\Http\Controllers\admin\ServicePageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -145,4 +146,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('photogallery', PhotoGalleryController::class);
     //Locations
     Route::resource('location', LocationController::class);
+
+    //Service landing pages (NYC + dynamic)
+    Route::resource('servicePage', ServicePageController::class);
 });

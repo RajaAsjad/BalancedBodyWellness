@@ -1,7 +1,7 @@
 @php
     $navMenus = config('nav_menus');
 
-    $serviceDropdownItems = collect($navMenus['services']['items'] ?? [])->map(fn ($item) => [
+    $serviceDropdownItems = collect(\App\Models\ServicePage::navItems())->map(fn ($item) => [
         'label' => $item['label'],
         'slug' => $item['slug'],
         'href' => route('service.detail', $item['slug']),
