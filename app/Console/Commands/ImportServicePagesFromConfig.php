@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Models\ServicePage;
-use App\Support\ServicePageRegistry;
 use Illuminate\Console\Command;
 
 class ImportServicePagesFromConfig extends Command
@@ -14,13 +13,30 @@ class ImportServicePagesFromConfig extends Command
 
     public function handle(): int
     {
+        $pages = $this->configPages();
+        $slugs = $this->pageSlugs($pages);
+
+        if ($slugs === []) {
+            $this->error('No service pages found in config/service_pages.php.');
+            $this->line('');
+            $this->line('Common fixes on live:');
+            $this->line('  1. Upload config/service_pages.php to the server (full file with page data).');
+            $this->line('  2. Run: php artisan config:clear');
+            $this->line('  3. Re-run: php artisan service-pages:import-config --force');
+            $this->line('');
+            $this->line('Config path: ' . config_path('service_pages.php'));
+            $this->line('File exists: ' . (is_file(config_path('service_pages.php')) ? 'yes' : 'no'));
+
+            return self::FAILURE;
+        }
+
         $navLabels = collect(config('nav_menus.services.items', []))
             ->pluck('label', 'slug');
 
         $imported = 0;
 
-        foreach (ServicePageRegistry::configSlugs() as $index => $slug) {
-            $page = config("service_pages.{$slug}");
+        foreach ($slugs as $index => $slug) {
+            $page = $pages[$slug] ?? null;
             if (! is_array($page)) {
                 continue;
             }
@@ -56,5 +72,32 @@ class ImportServicePagesFromConfig extends Command
         $this->info("Done. {$imported} service page(s) imported.");
 
         return self::SUCCESS;
+    }
+
+    /** @return array<string, array<string, mixed>> */
+    private function configPages(): array
+    {
+        $pages = config('service_pages', []);
+        if (is_array($pages) && $pages !== []) {
+            return $pages;
+        }
+
+        $path = config_path('service_pages.php');
+        if (! is_file($path)) {
+            return [];
+        }
+
+        $pages = require $path;
+
+        return is_array($pages) ? $pages : [];
+    }
+
+    /** @param  array<string, mixed>  $pages */
+    private function pageSlugs(array $pages): array
+    {
+        return collect(array_keys($pages))
+            ->filter(fn ($slug) => is_string($slug) && $slug !== '' && is_array($pages[$slug]))
+            ->values()
+            ->all();
     }
 }
