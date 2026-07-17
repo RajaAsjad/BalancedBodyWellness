@@ -8,7 +8,8 @@
         $contactEmail = 'info@balancedbodyivwellness.com';
         $contactInstagramUrl = 'https://instagram.com/balancedbodyivwellness';
         $contactInstagramHandle = '@balancedbodyivwellness';
-        $rawAddress = 'Mobile Services';
+        $rawAddress = '1435 Bedford Street, Units 1P & 1L, Stamford, CT 06905';
+        $addressNote = 'By appointment only.';
     @endphp
 
     <section class="page-hero page-hero--wellness page-hero--contact" aria-labelledby="contact-hero-heading">
@@ -197,7 +198,7 @@
                 <aside class="contact-appt__aside" aria-label="Studio and hours">
                     <div class="contact-appt__card contact-appt__card--studio">
                         <h2 class="contact-appt__studio-title">Visit the studio</h2>
-                        <p class="contact-appt__studio-lede">By appointment only.</p>
+                        <p class="contact-appt__studio-lede">{{ $addressNote }}</p>
                         <ul class="contact-appt__studio-list">
                             <li class="contact-appt__studio-item">
                                 <span class="contact-appt__studio-icon" aria-hidden="true">

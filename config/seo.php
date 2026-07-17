@@ -37,7 +37,7 @@ return [
         'region' => 'US-NY',
         'placename' => 'Town of Yorktown',
         'position' => '41.32861;-73.807808',
-        'icbm' => '41.32861, -73.807808',
+        'icbm' => '41.05343, -73.53873',
     ],
 
     'business' => [
@@ -48,13 +48,13 @@ return [
         'instagram' => 'https://www.instagram.com/balancedbodyivwellness/',
         'facebook' => 'https://www.facebook.com/balancedbodyivwellness',
         'area_served' => 'New York City, Westchester, Putnam, Dutchess, Rockland County',
-        'street_address' => '650 Lee blvd',
-        'address_locality' => 'Jefferson Valley',
-        'address_region' => 'NY',
-        'postal_code' => '10598',
+        'street_address' => '1435 Bedford Street, Units 1P & 1L',
+        'address_locality' => 'Stamford',
+        'address_region' => 'CT',
+        'postal_code' => '06905',
         'address_country' => 'US',
-        'latitude' => 41.3286166,
-        'longitude' => -73.8077192,
+        'latitude' => 41.05343,
+        'longitude' => -73.53873,
     ],
 
     /*

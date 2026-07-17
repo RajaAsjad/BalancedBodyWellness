@@ -231,7 +231,12 @@ return [
         'columns' => [
             [
                 'title' => 'LOCATION',
-                'lines' => ['Balanced Body IV & Wellness', 'New York - By Appointment Only'],
+                'lines' => [
+                    'Balanced Body IV & Wellness',
+                    '1435 Bedford Street, Units 1P & 1L',
+                    'Stamford, CT 06905',
+                    'By Appointment Only',
+                ],
             ],
             [
                 'title' => 'CONCIERGE PHONE & TEXT LINE',
