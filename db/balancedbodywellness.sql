@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2026 at 07:24 PM
+-- Generation Time: Jul 29, 2026 at 02:21 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -71,6 +71,54 @@ INSERT INTO `banners` (`id`, `slug`, `title`, `heading`, `image`, `status`, `del
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `blogs`
+--
+
+CREATE TABLE `blogs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_by` bigint(20) NOT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_description` text DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `short_description` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `published_at` timestamp NULL DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `deleted_at` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `created_by`, `slug`, `meta_title`, `meta_description`, `name`, `short_description`, `description`, `image`, `published_at`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 'iv-hydration-therapy-benefits', 'Benefits of IV Hydration Therapy Near You', 'Discover the benefits of IV hydration therapy: instant energy, faster recovery, stronger immunity, and custom formulas. Find trusted clinics near you.', 'What Are the Benefits of IV Hydration Therapy Clinics Near Me?', '<p><span style=\"font-weight: 400;\">Let\'s be honest, most of us aren\'t drinking enough water. But here\'s the thing: even if you\'re chugging water all day, you might still be missing out on what your body really needs. </span></p>', '<p><span style=\"font-weight: 400;\">That\'s where IV therapy comes in. If you\'re looking at </span><a href=\"https://balancedbodyivwellness.com/iv-therapy-westchester-county\"><strong>IV hydration therapy clinics near me</strong></a><span style=\"font-weight: 400;\">, you\'re probably wondering what the actual benefits are beyond just staying hydrated. Spoiler alert? They\'re pretty significant.</span></p>\r\n<h2><strong>Why IV Hydration Actually Works Differently</strong></h2>\r\n<p><span style=\"font-weight: 400;\">Think about how drinking water works. You swallow it, your stomach processes it, and your body absorbs whatever it feels like taking. Lots of it just passes right through. Not exactly efficient, right?</span></p>\r\n<p><span style=\"font-weight: 400;\">Now compare that to getting hydration iv therapy. The stuff goes straight into your bloodstream. No digestion required. No waiting around. Your body gets immediate access to exactly what it needs. That\'s a completely different ball game. IV nutrient therapy essentially bypasses all the inefficiency built into normal drinking. You get faster results and better outcomes because there\'s zero waste involved.</span></p>\r\n<h2><strong>The Energy Boost Is Real</strong></h2>\r\n<p><span style=\"font-weight: 400;\">Feeling exhausted all the time? Before you blame your job or life circumstances, consider this: you might just be dehydrated. Most people are walking around dehydrated without even realizing it. When you\'re not properly hydrated, everything suffers, your energy, your mood, your ability to focus.</span></p>\r\n<p><span style=\"font-weight: 400;\">Get iv nutrient or and hydration therapy and something shifts pretty quickly. People typically feel more awake and alert within hours. Like, noticeably better. The benefits of iv hydration therapy for energy aren\'t some wellness trend thing, it\'s straightforward physiology. Your cells work better when they\'re properly hydrated. Your organs function more efficiently. Your brain literally works faster. That\'s not marketing fluff; that\'s just how your body operates.</span></p>\r\n<h2><strong>For Athletes This Is Actually Game-Changing</strong></h2>\r\n<p><span style=\"font-weight: 400;\">If you\'re into fitness or sports at any level, you\'ve probably thought about hydration or your daily nutrient dosage. IV nutrient therapy is what serious athletes do because it actually works. When you\'re training hard, you\'re losing fluids and electrolytes at an incredible rate. Plain water doesn\'t cut it.</span></p>\r\n<p><span style=\"font-weight: 400;\">IV hydration therapy lets you get custom formulations tailored to what you\'re doing. Need electrolytes? Done. Want amino acids for muscle recovery? They\'ve got that. The benefits of iv hydration therapy for athletic performance are legitimately transformative. People recover faster, get less sore, and bounce back quicker for their next session. That\'s why training facilities and gyms partner with clinics now.</span></p>\r\n<h2><strong>Your Immune System Needs This</strong></h2>\r\n<p><span style=\"font-weight: 400;\">Here\'s something people don\'t talk about enough: your immune system can\'t do its job when you\'re deficient. It\'s like asking your immune cells to work with one hand tied behind their back. When you get hydration iv therapy, you\'re basically giving your body the resources it needs to defend itself properly.</span></p>\r\n<p><span style=\"font-weight: 400;\">The benefits of iv hydration therapy show up in two ways. First, you get sick less often because your immune system actually works. Second, when you do catch something, you recover faster because your body has what it needs. People who get regular IV nutrients swear by it, especially during cold and flu season.</span></p>\r\n<h2><strong>Location Actually Counts: IV Therapy Westchester County</strong></h2>\r\n<p><span style=\"font-weight: 400;\">Living in Westchester? You\'re in a good spot for accessing quality IV hydration services. IV therapy Westchester County has established itself as a reliable hub for these clinics. Having solid options nearby means you can actually use these services without dealing with a ridiculous drive.</span></p>\r\n<p><span style=\"font-weight: 400;\">The interesting thing is, the benefits of iv hydration therapy don\'t change based on geography, but convenience absolutely matters. If you need IV therapy Westchester County services, having trustworthy clinics in your area means you can get treatment when you actually need it. Whether you\'re recovering from something, training, or just want an optimization boost, that accessibility matters.</span></p>\r\n<h2><strong>Customized Formulas Hit Different</strong></h2>\r\n<p><span style=\"font-weight: 400;\">Here\'s where it gets really cool. Most IV hydration and nutrient therapy clinics aren\'t just shooting you with plain salt water. They\'re building custom formulations based on what you\'re trying to accomplish.</span></p>\r\n<p><span style=\"font-weight: 400;\">Want to boost your immune system? They add vitamin C, zinc, all that stuff. Working on athletic recovery? Electrolytes plus amino acids. Dealing with jet lag? B vitamins get thrown in. The benefits of iv hydration therapy multiply when clinics personalize your treatment. That\'s why you see actual transformation instead of just minor improvements.</span></p>\r\n<h2><strong>Finding the Right Clinic Near You&nbsp;</strong></h2>\r\n<p><span style=\"font-weight: 400;\">When you start searching for IV hydration therapy clinics near me, the first move is talking to someone. Have a real conversation about what you\'re trying to achieve. A good clinic explains what benefits of iv hydration therapy apply to your specific situation.</span></p>\r\n<p><span style=\"font-weight: 400;\">Trustworthy clinics won\'t push you into doing stuff you don\'t need. They\'ll be honest about expectations and answer your questions without getting defensive. That transparency tells you whether they actually care about your results or just want your money.</span></p>\r\n<h2><strong>The Bottom Line</strong></h2>\r\n<p><span style=\"font-weight: 400;\">The benefits of iv hydration therapy are real and measurable. Better energy. Faster recovery. Sharper thinking. Stronger immunity. When you\'re ready to experience this yourself, IV hydration therapy clinics make it accessible and convenient.</span></p>\r\n<p><span style=\"font-weight: 400;\">If you\'re in Westchester, check out what IV Therapy Westchester County has available. When you find a solid provider like Balanced Body &amp; IV Wellness that prioritizes medical expertise and personal treatment plans, you\'ve found someone who actually cares about getting you results. Your body\'s been asking for proper hydration, give it what it actually needs.</span></p>', '28-07-2026-233057.png', '2026-07-28 18:30:57', 1, NULL, '2026-07-28 18:30:57', '2026-07-28 18:30:57');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog_categories`
+--
+
+CREATE TABLE `blog_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_by` bigint(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `deleted_at` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `brands`
 --
 
@@ -117,22 +165,15 @@ CREATE TABLE `contact_us` (
   `last_name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
+  `service_of_interest` varchar(150) DEFAULT NULL,
+  `preferred_date` date DEFAULT NULL,
   `message` text DEFAULT NULL,
+  `captcha_code` varchar(255) DEFAULT NULL,
   `status` varchar(255) NOT NULL DEFAULT '1' COMMENT '0=inactive , 1=active',
   `deleted_at` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `contact_us`
---
-
-INSERT INTO `contact_us` (`id`, `first_name`, `last_name`, `email`, `phone`, `address`, `message`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Tatiana', 'Patrick', 'qigetylova@mailinator.com', '+1 (104) 308-4146', 'Id et voluptatum co', 'Numquam quidem sit', '1', '2026-02-26 16:58:03', '2026-02-25 13:35:35', '2026-02-26 11:58:03'),
-(2, 'Solomon', 'Wooten', 'zodyw@mailinator.com', '+1 (867) 988-5696', 'Ezekiel Todd', 'Ducimus ut ullam fu', '1', NULL, '2026-04-16 18:44:01', '2026-04-16 18:44:01'),
-(3, 'Iris', 'Carpenter', 'asjadmmc67@gmail.com', '+1 (342) 322-3924', 'Voluptatem Voluptas dolor neque asperiores qui quia iusto est vel magnam excepteur ullamco at impedit laborum deleniti esse', 'Preferred date: 1984-12-07\n\nTempor porro similique nisi optio labore maxime ullam ex facere aut et maxime', '1', NULL, '2026-05-14 14:26:59', '2026-05-14 14:26:59');
 
 -- --------------------------------------------------------
 
@@ -159,6 +200,12 @@ CREATE TABLE `failed_jobs` (
 CREATE TABLE `faqs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `created_by` bigint(20) NOT NULL,
+  `page_key` varchar(50) NOT NULL DEFAULT 'faqs',
+  `service_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `service_slug` varchar(120) DEFAULT NULL,
+  `location_slug` varchar(120) DEFAULT NULL,
+  `blog_slug` varchar(120) DEFAULT NULL,
+  `sort_order` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `question` text NOT NULL,
   `answer` text NOT NULL,
   `status` varchar(255) NOT NULL DEFAULT '1' COMMENT '0=inactive, 1= active',
@@ -171,16 +218,24 @@ CREATE TABLE `faqs` (
 -- Dumping data for table `faqs`
 --
 
-INSERT INTO `faqs` (`id`, `created_by`, `question`, `answer`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'What IV Drips do you offer?', 'We offer an extensive menu of IV Drips, including New Myers, Hangover, and Amplified Beauty. You can always work with your studio\'s registered nurse to create a custom blend tailored for your needs.', '1', NULL, '2026-05-14 12:24:24', '2026-05-18 14:31:54'),
-(2, 1, 'What is IV Therapy?', 'IV is an abbreviation for intravenous. It refers to a method of administering saline solution fluids, vitamin infusions or nutrients directly into your bloodstream for maximum absorption using a needle or small tube inserted into the vein.', '1', NULL, '2026-05-14 12:25:32', '2026-05-18 14:32:17'),
-(3, 1, 'How much does IV Drip Therapy cost?', 'Prices vary by studio. Visit your local studio or check out your studio\'s local page for pricing menus.\r\nFor all active Members: A $30 up-charge will be added to Universal Membership IV appointments in California Studios for all visiting Members.', '1', NULL, '2026-05-14 12:26:30', '2026-05-18 14:33:15'),
-(4, 1, 'Are there any potential side effects of IV Drip Therapy?', 'Side effects are rare and usually limited to local irritation and swelling of the insertion area. The most common sensations are heat and flushing (from magnesium). Your medical history and concerns should be shared during your Telemed call.', '1', NULL, '2026-05-14 12:27:16', '2026-05-18 14:33:41'),
-(5, 1, 'Is IV Drip Therapy safe?', 'For healthy adults, intravenous therapy is generally considered safe and effective. However, it can cause side effects. Please discuss concerns with your healthcare provider before receiving IV infusions', '1', NULL, '2026-05-14 12:27:43', '2026-05-18 14:34:18'),
-(6, 1, 'What is the typical duration of an IV Drip Therapy session?', 'IV infusions typically take between 60-90 minutes.', '1', NULL, '2026-05-14 12:28:12', '2026-05-18 14:34:48'),
-(7, 1, 'When should I get IV Drip Therapy?', 'There are many reasons to get an IV Drip. Many clients get IV infusions before they travel to help boost their immunity. Some clients like to schedule their IV vitamin therapy after an Infrared Sauna session to help replenish their hydration hi and essential nutrients after sweating. Depending on your goals and with the help of expert guidance, you can choose potent vitamin infusions packed with ingredients that can help improve your skin\'s youthful glow, enhance your athletic performance and recovery and increase your energy.', '1', NULL, '2026-05-14 12:28:38', '2026-05-18 14:38:21'),
-(8, 1, 'What are some commonly used ingredients in IV Drip Therapy?', 'While ingredients vary by studio, clients will likely find immune-boosting Vitamin C, energy-boosting B Complex, antioxidants like Glutathione and a variety of essential minerals. No matter your goal, this therapy can help restore your body with critical nutrients to help you perform at your best.', '1', NULL, '2026-05-14 12:29:05', '2026-05-18 14:38:45'),
-(9, 1, 'What is IV Drip Therapy like?', 'IV vitamin therapy or IV hydration therapy is a relaxing, 60-90 minute experience that may leave you feeling energized, hydrated and ready to take on your next challenge.', '1', NULL, '2026-05-18 14:39:44', '2026-05-18 14:39:44');
+INSERT INTO `faqs` (`id`, `created_by`, `page_key`, `service_id`, `service_slug`, `location_slug`, `blog_slug`, `sort_order`, `question`, `answer`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 'faqs', NULL, NULL, NULL, NULL, 0, 'What IV Drips do you offer?', 'We offer an extensive menu of IV Drips, including New Myers, Hangover, and Amplified Beauty. You can always work with your studio\'s registered nurse to create a custom blend tailored for your needs.', '1', NULL, '2026-05-14 12:24:24', '2026-05-18 14:31:54'),
+(2, 1, 'faqs', NULL, NULL, NULL, NULL, 0, 'What is IV Therapy?', 'IV is an abbreviation for intravenous. It refers to a method of administering saline solution fluids, vitamin infusions or nutrients directly into your bloodstream for maximum absorption using a needle or small tube inserted into the vein.', '1', NULL, '2026-05-14 12:25:32', '2026-05-18 14:32:17'),
+(3, 1, 'faqs', NULL, NULL, NULL, NULL, 0, 'How much does IV Drip Therapy cost?', 'Prices vary by studio. Visit your local studio or check out your studio\'s local page for pricing menus.\r\nFor all active Members: A $30 up-charge will be added to Universal Membership IV appointments in California Studios for all visiting Members.', '1', NULL, '2026-05-14 12:26:30', '2026-05-18 14:33:15'),
+(4, 1, 'faqs', NULL, NULL, NULL, NULL, 0, 'Are there any potential side effects of IV Drip Therapy?', 'Side effects are rare and usually limited to local irritation and swelling of the insertion area. The most common sensations are heat and flushing (from magnesium). Your medical history and concerns should be shared during your Telemed call.', '1', NULL, '2026-05-14 12:27:16', '2026-05-18 14:33:41'),
+(5, 1, 'faqs', NULL, NULL, NULL, NULL, 0, 'Is IV Drip Therapy safe?', 'For healthy adults, intravenous therapy is generally considered safe and effective. However, it can cause side effects. Please discuss concerns with your healthcare provider before receiving IV infusions', '1', NULL, '2026-05-14 12:27:43', '2026-05-18 14:34:18'),
+(6, 1, 'faqs', NULL, NULL, NULL, NULL, 0, 'What is the typical duration of an IV Drip Therapy session?', 'IV infusions typically take between 60-90 minutes.', '1', NULL, '2026-05-14 12:28:12', '2026-05-18 14:34:48'),
+(7, 1, 'faqs', NULL, NULL, NULL, NULL, 0, 'When should I get IV Drip Therapy?', 'There are many reasons to get an IV Drip. Many clients get IV infusions before they travel to help boost their immunity. Some clients like to schedule their IV vitamin therapy after an Infrared Sauna session to help replenish their hydration hi and essential nutrients after sweating. Depending on your goals and with the help of expert guidance, you can choose potent vitamin infusions packed with ingredients that can help improve your skin\'s youthful glow, enhance your athletic performance and recovery and increase your energy.', '1', NULL, '2026-05-14 12:28:38', '2026-05-18 14:38:21'),
+(8, 1, 'faqs', NULL, NULL, NULL, NULL, 0, 'What are some commonly used ingredients in IV Drip Therapy?', 'While ingredients vary by studio, clients will likely find immune-boosting Vitamin C, energy-boosting B Complex, antioxidants like Glutathione and a variety of essential minerals. No matter your goal, this therapy can help restore your body with critical nutrients to help you perform at your best.', '1', NULL, '2026-05-14 12:29:05', '2026-05-18 14:38:45'),
+(9, 1, 'faqs', NULL, NULL, NULL, NULL, 0, 'What is IV Drip Therapy like?', 'IV vitamin therapy or IV hydration therapy is a relaxing, 60-90 minute experience that may leave you feeling energized, hydrated and ready to take on your next challenge.', '1', NULL, '2026-05-18 14:39:44', '2026-05-18 14:39:44'),
+(13, 1, 'service-detail', NULL, 'methylene-blue-iv-therapy-nyc', NULL, NULL, 0, 'test', 'test', '1', '2026-05-25 23:26:46', '2026-05-25 18:25:23', '2026-05-25 18:26:46'),
+(14, 1, 'service-detail', NULL, 'ala-alpha-lipoic-acid', NULL, NULL, 0, 'testibg', 'tsting', '1', '2026-05-25 23:26:59', '2026-05-25 18:26:26', '2026-05-25 18:26:59'),
+(15, 1, 'location-detail', NULL, NULL, 'iv-therapy-putnam-county', NULL, 0, 'test', 'sadfsd', '1', '2026-05-26 18:39:18', '2026-05-26 13:38:36', '2026-05-26 13:39:18'),
+(16, 1, 'blog-detail', NULL, NULL, NULL, 'iv-hydration-therapy-benefits', 0, 'How fast do you actually feel the difference?', 'Most people notice changes within 30 minutes to a few hours. Energy and mental clarity usually show up pretty quick. Some folks feel it almost immediately.', '1', NULL, '2026-07-28 19:13:29', '2026-07-28 19:13:29'),
+(17, 1, 'blog-detail', NULL, NULL, NULL, 'iv-hydration-therapy-benefits', 1, 'How often should you be getting this done?', 'Depends on what you\'re going for. Athletes might do weekly. Others do monthly. Talk to your clinic about what makes sense for your situation.', '1', NULL, '2026-07-28 19:13:29', '2026-07-28 19:13:29'),
+(18, 1, 'blog-detail', NULL, NULL, NULL, 'iv-hydration-therapy-benefits', 2, 'Is this something insurance covers?', 'Usually not unless it\'s medically necessary. Most clinics handle it as a wellness thing, so you\'re probably paying out of pocket.', '1', NULL, '2026-07-28 19:13:29', '2026-07-28 19:13:29'),
+(19, 1, 'blog-detail', NULL, NULL, NULL, 'iv-hydration-therapy-benefits', 3, 'Any weird side effects to worry about?', 'Minor bruising at the needle site occasionally. That\'s about it. Tell them about your medical history beforehand and you\'re good.', '1', NULL, '2026-07-28 19:13:29', '2026-07-28 19:13:29'),
+(20, 1, 'blog-detail', NULL, NULL, NULL, 'iv-hydration-therapy-benefits', 4, 'Will it help if you had too much to drink last night?', 'Actually, yeah. Electrolytes plus hydration work fast for hangovers. People swear by it for recovery.', '1', NULL, '2026-07-28 19:13:29', '2026-07-28 19:13:29');
 
 -- --------------------------------------------------------
 
@@ -252,6 +307,49 @@ INSERT INTO `latest_news` (`id`, `title`, `heading`, `description`, `section_typ
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `locations`
+--
+
+CREATE TABLE `locations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_description` text DEFAULT NULL,
+  `hero_eyebrow` varchar(255) DEFAULT NULL,
+  `hero_title` varchar(255) DEFAULT NULL,
+  `hero_lead` text DEFAULT NULL,
+  `welcome_label` varchar(255) DEFAULT NULL,
+  `welcome_title` varchar(255) DEFAULT NULL,
+  `welcome_paragraphs` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`welcome_paragraphs`)),
+  `welcome_highlights` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`welcome_highlights`)),
+  `welcome_services` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`welcome_services`)),
+  `process_label` varchar(255) DEFAULT NULL,
+  `process_title` varchar(255) DEFAULT NULL,
+  `process_items` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`process_items`)),
+  `sort_order` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `image` varchar(255) DEFAULT NULL,
+  `status` varchar(255) NOT NULL DEFAULT '1' COMMENT '0=inactive, 1= active',
+  `deleted_at` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `locations`
+--
+
+INSERT INTO `locations` (`id`, `name`, `slug`, `meta_title`, `meta_description`, `hero_eyebrow`, `hero_title`, `hero_lead`, `welcome_label`, `welcome_title`, `welcome_paragraphs`, `welcome_highlights`, `welcome_services`, `process_label`, `process_title`, `process_items`, `sort_order`, `image`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Rockland County', 'iv-therapy-rockland-county', 'IV Therapy Rockland County NY | Balanced Body IV', 'Premium IV therapy in Rockland County, NY. Hydration, vitamin infusions & wellness treatments at Balanced Body IV & Wellness. Book your session today.', 'Rockland County · IV Wellness Studio', 'IV Therapy Rockland County', 'Medically guided IV drips, vitamin injections, and peptide support — delivered in a calm, spa-inspired studio built around your comfort and clinical safety.', 'WELCOME', 'IV Wellness Studio in Rockland County', '[\"Balanced Body IV & Wellness brings <strong>IV therapy to Rockland County<\\/strong> through a calm, spa-inspired studio designed for restorative drips, peptide support, and vitamin injections. Every service is grounded in medical standards, sterile technique, and the personalized attention you deserve from the moment you arrive.\",\"Whether you are visiting for your first IV hydration therapy in Rockland County or continuing a longer wellness plan, every appointment begins with a review of your goals, health history, and comfort. We keep the environment quiet, private, and unhurried so you can fully relax while your treatment is prepared and administered with clinical oversight.\",\"From energy and immunity support to recovery and metabolic balance, our team helps you choose services that fit your lifestyle and health objectives. Parking and studio details are shared when your visit is confirmed so your experience is seamless from start to finish.\"]', '[\"Medical clearance included\",\"30\\u201360 minute sessions\",\"1:1 personal care\"]', '[{\"title\":\"IV Hydration & Drips\",\"text\":\"10+ targeted formulations for energy, immunity, beauty, recovery, and hydration \\u2014 each customized to your needs at consultation.\"},{\"title\":\"Peptide Therapy\",\"text\":\"Curated peptide protocols supporting longevity, cellular repair, and performance \\u2014 administered after a full medical review.\"},{\"title\":\"Wellness Injections\",\"text\":\"Vitamin B12, MIC, glutathione, and more \\u2014 quick IM boosts for metabolism, mood, immunity, and recovery support.\"},{\"title\":\"Medical Weight Loss\",\"text\":\"GLP-1 medications and metabolic support for sustainable, clinically guided results tailored to your goals.\"}]', 'HOW IT WORKS', 'The Process at Our Rockland County Studio', '[{\"title\":\"Step 1 \\u2014 Consultation & Medical Clearance\",\"text\":\"Your visit begins with a brief consultation. We review any labs you bring, discuss your health history and concerns, and confirm the IV therapy or injection plan that aligns best with your current goals. Medical clearance is completed before any treatment begins.\"},{\"title\":\"Step 2 \\u2014 Your Infusion Session\",\"text\":\"You relax in a comfortable, private setting while your IV drip or injection is administered with full clinical oversight. Sessions typically run 30 to 60 minutes depending on the formulation selected. You are monitored throughout for comfort and safety.\"},{\"title\":\"Step 3 \\u2014 Aftercare & Follow-Up\",\"text\":\"After your session we share simple aftercare guidance and answer any questions you have. If ongoing IV hydration therapy in Rockland County is part of your plan, we help you schedule follow-up appointments and track your progress over time.\"},{\"title\":\"Ongoing Wellness Support\",\"text\":\"Many clients build a regular IV therapy rhythm \\u2014 monthly, bi-weekly, or seasonally. We support that journey with consistent clinical oversight, updated treatment plans, and flexible scheduling to fit your lifestyle.\"}]', 1, NULL, '1', NULL, '2026-06-03 16:50:38', '2026-06-03 16:50:38'),
+(2, 'Jefferson Valley', 'iv-therapy-jefferson-valley-ny', 'IV Therapy Jefferson Valley NY | Balanced Body IV Clinic', 'Experience IV therapy in Jefferson Valley NY with personalized drips, medical oversight, and fast booking. Boost energy, immunity, and recovery today.', 'Jefferson Valley, NY · IV Wellness Studio', 'IV Therapy in Jefferson Valley, NY', 'Restorative IV infusion therapy in Jefferson Valley, NY — personalized drips, peptide protocols, and wellness injections delivered with medical care and quiet precision.', 'WELCOME', 'IV Wellness Studio Serving Jefferson Valley, NY', '[\"Balanced Body IV & Wellness is proud to offer <strong>IV therapy in Jefferson Valley, NY<\\/strong> through a calm, spa-inspired studio where every detail \\u2014 from the formulations we use to the pace of your session \\u2014 is designed around your comfort and clinical safety. Whether you are seeking energy restoration, immune defense, athletic recovery, or anti-aging support, our team brings the same medical standards to every visit.\",\"Our <strong>IV infusion therapy in Jefferson Valley, NY<\\/strong> begins with a thorough consultation and medical clearance review. We take time to understand your health history, current wellness goals, and any labs you bring before recommending a treatment plan. Sterile technique, medical-grade ingredients, and licensed clinical oversight are standard with every infusion.\",\"Sessions are private, quiet, and intentionally unhurried \\u2014 because true restorative care should never feel rushed. Whether this is your first IV session in Jefferson Valley or you are returning for an ongoing plan, we build your experience around your goals and your pace. Studio location and parking details are confirmed when your appointment is scheduled.\"]', '[\"Medical clearance included\",\"30\\u201360 min sessions\",\"Critical Care RN oversight\"]', '[{\"title\":\"IV Hydration Drips\",\"text\":\"10+ targeted formulations for energy, immunity, beauty, recovery, and hydration \\u2014 customized at consultation to match your health goals.\"},{\"title\":\"Peptide Therapy\",\"text\":\"Goal-based peptide protocols supporting longevity, cellular repair, and performance \\u2014 prescribed after a full medical evaluation.\"},{\"title\":\"Wellness Injections\",\"text\":\"B12, MIC, glutathione, Vitamin D3 \\u2014 fast-acting IM boosts for energy, metabolism, mood, and immune support.\"},{\"title\":\"Medical Weight Loss\",\"text\":\"GLP-1 programs with metabolic assessment and ongoing monitoring for sustainable, clinically guided weight loss results.\"}]', 'HOW IT WORKS', 'The Process at Our Jefferson Valley Studio', '[{\"title\":\"Step 1 \\u2014 Consultation & Medical Clearance\",\"text\":\"Your visit begins with a brief consultation where we review your health history, discuss your goals, and confirm the right IV infusion therapy in Jefferson Valley, NY for your needs. Medical clearance is completed before any treatment begins.\"},{\"title\":\"Step 2 \\u2014 Your IV Session\",\"text\":\"You relax comfortably while your IV therapy in Jefferson Valley, NY is administered under full clinical oversight. Sessions run 30 to 60 minutes. You are monitored throughout for comfort, safety, and treatment response.\"},{\"title\":\"Step 3 \\u2014 Aftercare & Follow-Up\",\"text\":\"After your session we walk you through simple aftercare guidance and help schedule any follow-up visits. Many Jefferson Valley clients establish ongoing IV therapy routines for sustained wellness results.\"},{\"title\":\"Ongoing Wellness Planning\",\"text\":\"From monthly maintenance drips to intensive performance or longevity protocols, we build evolving treatment plans that grow with your health goals over time.\"}]', 2, NULL, '1', NULL, '2026-06-03 16:50:38', '2026-06-03 16:50:38'),
+(3, 'Putnam County', 'iv-therapy-putnam-county', 'IV Infusion Therapy Putnam County | Book Today', 'Need IV infusion therapy in Putnam County? Book customized drips with clinical care, private sessions, and fast scheduling today.', 'Putnam County · IV Wellness Studio', 'IV Therapy in Putnam County', 'Restorative IV infusions, peptide protocols, and wellness injections — delivered with clinical precision and personal care throughout Putnam County.', 'WELCOME', 'IV Infusion Therapy in Putnam County', '[\"Balanced Body IV & Wellness offers <strong>IV therapy in Putnam County<\\/strong> for those seeking medically guided, restorative care in a calm and private studio setting. Every visit is built around your individual goals, whether you are looking for deep hydration, immune support, energy restoration, or a comprehensive wellness plan.\",\"Our <strong>IV infusion therapy in Putnam County<\\/strong> is administered using medical-grade ingredients and sterile technique under the oversight of a licensed Critical Care RN. Before any treatment begins, we conduct a brief medical clearance review to confirm the right formulation for your health status and objectives.\",\"The studio environment is quiet and intentionally unhurried \\u2014 so you can arrive, relax, and leave feeling genuinely restored. Whether this is your first Putnam County IV treatment or part of a longer wellness routine, our team is here to support every step of your journey. Studio location and parking details are shared when your appointment is confirmed.\"]', '[\"Medical clearance included\",\"30\\u201360 min sessions\",\"Critical Care RN oversight\"]', '[{\"title\":\"IV Hydration Drips\",\"text\":\"10+ targeted formulations for energy, immunity, beauty, recovery, and hydration \\u2014 customized at consultation to match your health goals.\"},{\"title\":\"Peptide Therapy\",\"text\":\"Goal-based peptide protocols supporting longevity, cellular repair, and performance \\u2014 prescribed after a full medical evaluation.\"},{\"title\":\"Wellness Injections\",\"text\":\"B12, MIC, glutathione, Vitamin D3 \\u2014 fast-acting IM boosts for energy, metabolism, mood, and immune support.\"},{\"title\":\"Medical Weight Loss\",\"text\":\"GLP-1 programs with metabolic assessment and ongoing monitoring for sustainable, clinically guided weight loss results.\"}]', 'HOW IT WORKS', 'The Process at Our Putnam County Studio', '[{\"title\":\"Step 1 \\u2014 Consultation & Medical Clearance\",\"text\":\"Your visit begins with a brief consultation. We review your health history, discuss your wellness goals, and confirm the Putnam County IV treatment plan that aligns with your needs. Medical clearance is completed before any infusion begins.\"},{\"title\":\"Step 2 \\u2014 Your Infusion Session\",\"text\":\"You relax in a private, comfortable setting while your IV therapy in Putnam County is administered with full clinical oversight. Sessions typically run 30 to 60 minutes based on the drip selected.\"},{\"title\":\"Step 3 \\u2014 Aftercare & Follow-Up\",\"text\":\"After your session, we provide simple aftercare guidance and help schedule any follow-up care. IV infusion therapy in Putnam County is most effective when part of a regular wellness routine, and we make that easy.\"},{\"title\":\"Ongoing Wellness Support\",\"text\":\"From monthly hydration maintenance to more intensive protocols, our Putnam County team builds a plan that evolves with your health goals over time.\"}]', 3, NULL, '1', NULL, '2026-06-03 16:50:38', '2026-06-03 16:50:38'),
+(4, 'Dutchess County', 'iv-therapy-dutchess-county', 'IV Drip Therapy Dutchess County | Feel Better Faster', 'Recharge your body with premium IV therapy in Dutchess County. Expert care, advanced formulations, and personalized wellness support in a calm setting.', 'Dutchess County · IV Wellness Studio', 'IV Therapy in Dutchess County', 'Medically guided IV infusions, peptide therapy, and wellness injections — delivered in a calm, spa-inspired studio for Dutchess County residents seeking restorative care.', 'WELCOME', 'IV Infusion Therapy in Dutchess County', '[\"Balanced Body IV & Wellness offers <strong>IV therapy in Dutchess County<\\/strong> for clients seeking a clinically guided, restorative wellness experience in a calm and private studio setting. Every visit is tailored to your goals \\u2014 from deep hydration and immune support to energy restoration and long-term vitality.\",\"Our <strong>IV infusion therapy in Dutchess County<\\/strong> uses premium, medical-grade formulations administered under the oversight of a licensed Critical Care RN. A medical clearance review is completed before any treatment begins, ensuring each session is safe, appropriate, and aligned with your health status.\",\"The studio environment is quiet, private, and intentionally unhurried \\u2014 so you can arrive, relax, and leave feeling genuinely restored. Whether this is your first Dutchess County IV session or part of an ongoing wellness plan, our team supports you at every step. Studio address and parking details are shared when your appointment is booked.\"]', '[\"Medical clearance included\",\"30\\u201360 min sessions\",\"Critical Care RN oversight\"]', '[{\"title\":\"IV Hydration Drips\",\"text\":\"10+ targeted formulations for energy, immunity, beauty, recovery, and hydration \\u2014 customized at consultation to match your health goals.\"},{\"title\":\"Peptide Therapy\",\"text\":\"Goal-based peptide protocols supporting longevity, cellular repair, and performance \\u2014 prescribed after a full medical evaluation.\"},{\"title\":\"Wellness Injections\",\"text\":\"B12, MIC, glutathione, Vitamin D3 \\u2014 fast-acting IM boosts for energy, metabolism, mood, and immune support.\"},{\"title\":\"Medical Weight Loss\",\"text\":\"GLP-1 programs with metabolic assessment and ongoing monitoring for sustainable, clinically guided weight loss results.\"}]', 'HOW IT WORKS', 'The Process at Our Dutchess County Studio', '[{\"title\":\"Step 1 \\u2014 Consultation & Medical Clearance\",\"text\":\"Every visit begins with a brief consultation reviewing your health history, current goals, and any relevant labs. Medical clearance is completed before any Dutchess County IV therapy session begins, ensuring each treatment is safe and appropriate for you.\"},{\"title\":\"Step 2 \\u2014 Your Infusion Session\",\"text\":\"You relax in a private, comfortable setting while your IV infusion therapy in Dutchess County is administered. Sessions run 30 to 60 minutes depending on your chosen formulation. Clinical monitoring continues throughout your infusion.\"},{\"title\":\"Step 3 \\u2014 Aftercare & Next Steps\",\"text\":\"After your session we share practical aftercare guidance and help coordinate any follow-up visits. Clients pursuing ongoing Dutchess County IV therapy benefit from consistent scheduling and evolving treatment plans.\"},{\"title\":\"Ongoing Wellness Support\",\"text\":\"From seasonal immune support to performance recovery and anti-aging protocols, our Dutchess County team builds long-term wellness plans that adapt as your goals and health change.\"}]', 4, NULL, '1', NULL, '2026-06-03 16:50:38', '2026-06-03 16:50:38'),
+(5, 'Westchester', 'iv-therapy-westchester-county', 'IV Therapy Westchester NY | Luxury Wellness & Recovery Drips', 'Experience luxury IV therapy in Westchester NY. Personalized drips, clinical oversight, and calm private sessions for energy, recovery, and wellness.', 'Westchester County · IV Wellness Studio', 'IV Therapy Westchester County', 'Restorative IV drips, peptide support, and vitamin injections — administered with clinical precision in a calm, spa-inspired setting serving Westchester, NY.', 'WELCOME', 'IV Wellness Studio in Westchester County', '[\"Balanced Body IV & Wellness is proud to offer <strong>IV therapy in Westchester, NY<\\/strong> through a calm, thoughtfully designed studio built for restorative care. <strong>IV Therapy Westchester County<\\/strong> is delivered using medical-grade formulations, sterile technique, and the kind of personalized attention that makes each visit feel intentional from the first consultation through aftercare.\",\"Whether you are exploring an <strong>iv drip in Westchester<\\/strong> for the first time or returning for ongoing wellness support, we begin every session with a thorough review of your health history, current goals, and comfort. The studio environment is quiet, private, and unhurried \\u2014 designed so you can fully relax while your treatment is administered.\",\"From deep hydration and immune defense to metabolic support and cellular recovery, our clinical team guides you toward the formulation that serves your body best. Studio location details and parking are confirmed when your visit is scheduled.\"]', '[\"Medical clearance every visit\",\"30\\u201360 min sessions\",\"Critical Care RN oversight\"]', '[{\"title\":\"IV Hydration Drips\",\"text\":\"10+ targeted blends for energy, immunity, beauty, recovery, and hydration \\u2014 customized at consultation based on your current health needs.\"},{\"title\":\"Peptide Therapy\",\"text\":\"Goal-based peptide protocols for longevity, performance, and cellular repair \\u2014 prescribed after a thorough medical evaluation.\"},{\"title\":\"Wellness Injections\",\"text\":\"B12, MIC, glutathione, Vitamin D3 \\u2014 fast-acting IM boosts for energy, metabolism, mood, and immune resilience.\"},{\"title\":\"Medical Weight Loss\",\"text\":\"GLP-1 programs with full metabolic assessment and ongoing progress monitoring for sustainable, clinically guided results.\"}]', 'HOW IT WORKS', 'The Process at Our Westchester Studio', '[{\"title\":\"Step 1 \\u2014 Consultation & Clearance\",\"text\":\"Your visit begins with a brief consultation where we review your health history, any relevant labs, and your wellness goals. Medical clearance is completed before any IV drip Westchester service begins \\u2014 your safety is the first priority.\"},{\"title\":\"Step 2 \\u2014 Your Infusion Session\",\"text\":\"You relax in a private, comfortable setting while your IV therapy is administered with full clinical oversight. Sessions run 30 to 60 minutes depending on your selected formulation. You are monitored throughout for comfort and response.\"},{\"title\":\"Step 3 \\u2014 Aftercare Guidance\",\"text\":\"After your session we walk you through simple aftercare steps and answer any questions. If ongoing IV therapy in Westchester, NY is part of your plan, we help coordinate follow-up scheduling and track your results over time.\"},{\"title\":\"Ongoing Wellness Planning\",\"text\":\"Many Westchester clients build regular IV therapy routines \\u2014 monthly maintenance, seasonal immune support, or performance recovery cycles. We support your long-term wellness with consistent oversight and evolving treatment plans.\"}]', 5, NULL, '1', NULL, '2026-06-03 16:50:39', '2026-06-03 16:50:39'),
+(6, 'New York City', 'iv-therapy-new-york-city', 'IV Therapy New York City | Balanced Body IV', 'Experience IV therapy in New York City. Personalized drips, clinical oversight, and calm private sessions for energy, recovery, and wellness.', 'New York City · IV Wellness Studio', 'IV Therapy New York City', 'Restorative IV drips, peptide support, and vitamin injections — administered with clinical precision in a calm, spa-inspired setting serving New York City.', NULL, NULL, '[]', '[]', '[]', NULL, NULL, '[]', 6, NULL, '1', NULL, '2026-06-03 16:50:39', '2026-06-03 17:57:52');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -272,7 +370,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2022_04_06_183800_create_permission_tables', 1),
 (13, '2022_04_19_205847_create_vehicles_table', 6),
 (14, '2022_03_09_150353_create_categories_table', 7),
-(15, '2022_03_09_150337_create_blogs_table', 8),
 (18, '2022_04_25_174651_create_r_v_s_table', 10),
 (19, '2022_04_25_211456_create_virtual_tours_table', 11),
 (23, '2022_04_27_183505_create_about_us_table', 13),
@@ -335,7 +432,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (145, '2022_05_19_182732_create_banners_table', 99),
 (147, '2022_02_03_082236_create_testimonials_table', 100),
 (148, '2026_02_23_174600_fix_testimonials_deleted_at_column', 101),
-(149, '2022_05_18_190058_create_contact_us_table', 102),
 (150, '2026_02_23_180000_change_contact_us_message_to_text', 103),
 (152, '2026_02_24_201800_create_audio_table', 105),
 (153, '2026_02_24_201807_create_photo_galleries_table', 106),
@@ -348,7 +444,24 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (163, '2022_04_12_203003_create_faqs_table', 113),
 (164, '2026_05_14_175626_create_policies_table', 114),
 (165, '2026_05_18_200321_create_services_table', 115),
-(166, '2026_05_19_120000_alter_services_questions_benefits_to_text', 116);
+(166, '2026_05_19_120000_alter_services_questions_benefits_to_text', 116),
+(167, '2026_05_19_140000_add_page_key_and_sort_order_to_faqs_table', 117),
+(168, '2026_05_19_150000_add_service_id_to_faqs_table', 118),
+(169, '2026_05_19_160000_add_service_images_to_services_table', 119),
+(170, '2026_05_19_170000_add_service_slug_to_faqs_table', 120),
+(171, '2026_05_20_120000_add_location_slug_to_faqs_table', 121),
+(172, '2026_06_03_211401_create_locations_table', 122),
+(173, '2026_06_03_220000_add_page_content_to_locations_table', 123),
+(175, '2026_06_06_120000_add_service_and_preferred_date_to_contact_us_table', 125),
+(176, '2022_05_18_190058_create_contact_us_table', 126),
+(177, '2026_06_06_120001_add_captcha_code_to_contact_us_table', 127),
+(178, '2026_07_08_120000_create_service_pages_table', 128),
+(179, '2026_07_08_120100_seed_service_page_permissions', 128),
+(180, '2026_07_08_121000_normalize_servicepage_permission_names', 129),
+(181, '2026_07_08_130000_default_service_pages_show_in_nav', 130),
+(182, '2022_03_09_150337_create_blogs_table', 131),
+(183, '2022_05_09_190227_create_blog_categories', 132),
+(184, '2026_07_29_050000_add_blog_slug_to_faqs_table', 133);
 
 -- --------------------------------------------------------
 
@@ -446,7 +559,8 @@ INSERT INTO `pages` (`id`, `created_by`, `title`, `slug`, `description`, `meta_t
 (23, 1, 'Latest News', 'latest-news', '<p>Latest News Page&nbsp;</p>\r\n<div>\r\n<div>2026 Future assignments</div>\r\n</div>', NULL, NULL, NULL, 1, '2026-04-29 22:18:15', '2026-03-03 12:38:40', '2026-04-29 17:18:15'),
 (24, 1, 'Schedule Shop & Contact', 'schedule-shop-contact', '<p>Schedule Shop &amp; Contact Page</p>', NULL, NULL, NULL, 1, '2026-04-29 22:18:19', '2026-03-11 15:10:09', '2026-04-29 17:18:19'),
 (25, 1, 'Home Shows & Appearances', 'shows-appearances', '<div>\r\n<div>Shows &amp; Appearances on home page</div>\r\n</div>', NULL, NULL, NULL, 1, '2026-04-29 22:18:23', '2026-04-03 18:49:05', '2026-04-29 17:18:23'),
-(26, 1, 'Britains Got Talent', 'britains-got-talent', '<p>Perry Grant On Britains Got Talent</p>', NULL, NULL, NULL, 1, '2026-04-29 22:18:26', '2026-04-10 14:45:19', '2026-04-29 17:18:26');
+(26, 1, 'Britains Got Talent', 'britains-got-talent', '<p>Perry Grant On Britains Got Talent</p>', NULL, NULL, NULL, 1, '2026-04-29 22:18:26', '2026-04-10 14:45:19', '2026-04-29 17:18:26'),
+(27, 1, 'Footer', 'footer', '<p>Website Footer</p>', NULL, NULL, NULL, 1, NULL, '2026-06-23 10:10:15', '2026-06-23 10:10:31');
 
 -- --------------------------------------------------------
 
@@ -476,15 +590,15 @@ INSERT INTO `page_settings` (`id`, `parent_slug`, `key`, `value`, `deleted_at`, 
 (5, 'header', 'header_logo', '13052026235412.png', NULL, '2022-06-03 18:31:33', '2026-05-13 18:54:12'),
 (6, 'footer', '_token', 'xEi2jZ3Kr1YPMfDlXuClmqFqa1bzdcXjay8JAo4b', NULL, '2022-06-03 18:41:30', '2023-05-18 17:45:43'),
 (7, 'footer', 'parent_slug', 'footer', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
-(8, 'footer', 'footer_description', '<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
+(8, 'footer', 'footer_description', 'Premium IV hydration therapy, peptides, and wellness injections — thoughtfully delivered for clients who care about their health.', NULL, '2022-06-03 18:41:30', '2026-06-23 10:16:28'),
 (9, 'footer', 'footer_whatsapp', 'https://web.whatsapp.com/', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
-(10, 'footer', 'footer_facebook', 'https://www.facebook.com/', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
+(10, 'footer', 'footer_facebook', 'https://www.facebook.com/profile.php?id=61590698368327', NULL, '2022-06-03 18:41:30', '2026-06-23 10:20:10'),
 (11, 'footer', 'footer_youtube', 'https://www.youtube.com/', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
-(12, 'footer', 'footer_instagram', 'https://www.instagram.com/', NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
+(12, 'footer', 'footer_instagram', 'https://www.instagram.com/balancedbodyiv/', NULL, '2022-06-03 18:41:30', '2026-06-23 10:19:59'),
 (13, 'footer', 'footer_copy_right_right_side', '<p style=\"margin-bottom:0\">Site Design and Developed by <a href=\"https://pixelslogo.com/\" target=\"_blank\" style=\"color: #ffffff;\">Pixels Logo</a></p>', NULL, '2022-06-03 18:41:30', '2022-10-07 11:39:10'),
 (14, 'footer', 'footer_copy_right_left_side', '© 2022 CARMALITA M MCQUEENAll Rights Reserved', NULL, '2022-06-03 18:41:30', '2022-10-07 11:31:45'),
 (15, 'footer', 'form_blog', NULL, NULL, '2022-06-03 18:41:30', '2022-06-03 18:41:30'),
-(16, 'footer', 'footer_image', '18052023224610.png', NULL, '2022-06-03 18:41:30', '2023-05-18 17:46:10'),
+(16, 'footer', 'footer_image', '23062026151559.png', NULL, '2022-06-03 18:41:30', '2026-06-23 10:15:59'),
 (17, 'privacy-policy', '_token', '82dfeZpiFjxHDPqgysPMaPkzUl1oawSchT9wNuXk', NULL, '2022-06-11 00:27:29', '2022-08-03 15:26:11'),
 (18, 'privacy-policy', 'parent_slug', 'privacy-policy', NULL, '2022-06-11 00:27:29', '2022-06-11 00:27:29'),
 (19, 'privacy-policy', 'mt_service', 'CHAFF MISSION', NULL, '2022-06-11 00:27:29', '2022-06-11 00:27:29'),
@@ -647,7 +761,8 @@ INSERT INTO `page_settings` (`id`, `parent_slug`, `key`, `value`, `deleted_at`, 
 (241, 'britains-got-talent', 'home_bgt_title', '<p><span class=\"d-block mb-3\">Perry Grant On </span>Britains Got Talent</p>', NULL, '2026-04-10 15:34:55', '2026-04-10 17:54:07'),
 (242, 'britains-got-talent', 'home_bgt_description', '<p>Simon Cowell described Perry Grant as &ldquo;The happiest performer we have ever ever had on BGT. <br />An amazing appearance on the show received praise from the panelists and Simon described Perry&rsquo;s performance as &ldquo;Bruno&rsquo;s vision of Heaven &ldquo;</p>', NULL, '2026-04-10 15:34:56', '2026-04-10 17:55:42'),
 (243, 'britains-got-talent', 'home_bgt_active_status', '1', NULL, '2026-04-10 15:34:56', '2026-04-10 17:36:53'),
-(244, 'header', 'footer_fieldlevel', NULL, NULL, '2026-05-13 18:54:12', '2026-05-13 18:54:12');
+(244, 'header', 'footer_fieldlevel', NULL, NULL, '2026-05-13 18:54:12', '2026-05-13 18:54:12'),
+(245, 'footer', 'form_footer', NULL, NULL, '2026-06-23 10:15:59', '2026-06-23 10:15:59');
 
 -- --------------------------------------------------------
 
@@ -777,7 +892,23 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `permission`, `deleted_at
 (265, 'service-list', 'web', 'list', NULL, '2026-05-18 15:32:28', '2026-05-18 15:32:28'),
 (266, 'service-create', 'web', 'create', NULL, '2026-05-18 15:32:28', '2026-05-18 15:32:28'),
 (267, 'service-edit', 'web', 'edit', NULL, '2026-05-18 15:32:28', '2026-05-18 15:32:28'),
-(268, 'service-delete', 'web', 'delete', NULL, '2026-05-18 15:32:28', '2026-05-18 15:32:28');
+(268, 'service-delete', 'web', 'delete', NULL, '2026-05-18 15:32:28', '2026-05-18 15:32:28'),
+(269, 'location-list', 'web', 'list', NULL, '2026-06-03 16:31:32', '2026-06-03 16:31:32'),
+(270, 'location-create', 'web', 'create', NULL, '2026-06-03 16:31:32', '2026-06-03 16:31:32'),
+(271, 'location-edit', 'web', 'edit', NULL, '2026-06-03 16:31:32', '2026-06-03 16:31:32'),
+(272, 'location-delete', 'web', 'delete', NULL, '2026-06-03 16:31:32', '2026-06-03 16:31:32'),
+(277, 'servicepage-list', 'web', 'list', NULL, '2026-07-08 12:35:11', '2026-07-08 12:35:11'),
+(278, 'servicepage-create', 'web', 'create', NULL, '2026-07-08 12:35:11', '2026-07-08 12:35:11'),
+(279, 'servicepage-edit', 'web', 'edit', NULL, '2026-07-08 12:35:11', '2026-07-08 12:35:11'),
+(280, 'servicepage-delete', 'web', 'delete', NULL, '2026-07-08 12:35:11', '2026-07-08 12:35:11'),
+(281, 'blogcategory-list', 'web', 'list', NULL, '2026-07-28 18:20:10', '2026-07-28 18:20:10'),
+(282, 'blogcategory-create', 'web', 'create', NULL, '2026-07-28 18:20:10', '2026-07-28 18:20:10'),
+(283, 'blogcategory-edit', 'web', 'edit', NULL, '2026-07-28 18:20:10', '2026-07-28 18:20:10'),
+(284, 'blogcategory-delete', 'web', 'delete', NULL, '2026-07-28 18:20:10', '2026-07-28 18:20:10'),
+(285, 'blog-list', 'web', 'list', NULL, '2026-07-28 18:20:24', '2026-07-28 18:20:24'),
+(286, 'blog-create', 'web', 'create', NULL, '2026-07-28 18:20:24', '2026-07-28 18:20:24'),
+(287, 'blog-edit', 'web', 'edit', NULL, '2026-07-28 18:20:25', '2026-07-28 18:20:25'),
+(288, 'blog-delete', 'web', 'delete', NULL, '2026-07-28 18:20:25', '2026-07-28 18:20:25');
 
 -- --------------------------------------------------------
 
@@ -971,7 +1102,23 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (265, 1),
 (266, 1),
 (267, 1),
-(268, 1);
+(268, 1),
+(269, 1),
+(270, 1),
+(271, 1),
+(272, 1),
+(277, 1),
+(278, 1),
+(279, 1),
+(280, 1),
+(281, 1),
+(282, 1),
+(283, 1),
+(284, 1),
+(285, 1),
+(286, 1),
+(287, 1),
+(288, 1);
 
 -- --------------------------------------------------------
 
@@ -999,16 +1146,6 @@ CREATE TABLE `schedule_shop_contacts` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `schedule_shop_contacts`
---
-
-INSERT INTO `schedule_shop_contacts` (`id`, `title`, `heading`, `heading_2`, `description`, `description_2`, `section_type`, `section_background`, `image_1`, `image_2`, `images`, `button_url`, `button_text`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Other DVD’S and Merchandise will soon be digitalized for purchase on line ..stay tuned.', NULL, NULL, NULL, NULL, '3', 'black-about-section-2', NULL, NULL, '[\"1773365442_69b368c250932.webp\",\"1773365442_69b368c250aff.webp\",\"1773365442_69b368c250c1a.webp\",\"1773365442_69b368c250d2b.webp\",\"1773365442_69b368c250e52.webp\",\"1773365442_69b368c251005.webp\",\"1773365442_69b368c251179.webp\",\"1773365442_69b368c2512ee.webp\",\"1773365442_69b368c251441.webp\"]', NULL, NULL, '1', NULL, '2026-03-12 20:30:42', '2026-03-12 20:30:42'),
-(2, 'Once I had a Dream..Available for download from Amazon and Apple Music', NULL, 'New Album “Frankly Perry” available for download and purchase very soon', NULL, NULL, '2', 'black-about-section-2', '1773365771_69b36a0b67c42.webp', '1773365771_69b36a0b67ef7.webp', NULL, 'https://www.amazon.com/music/player/albums/B08CYBJ1GV', 'Buy On Amazon', '1', NULL, '2026-03-12 20:36:11', '2026-03-12 20:36:11'),
-(3, 'By Request …Available for download from Amazon and Apple Music', NULL, NULL, NULL, NULL, '1', 'black-about-section', '1773366057_69b36b2911681.webp', '1773366057_69b36b2911835.webp', NULL, 'https://music.amazon.com/albums/B09J1XSPCY', 'Buy On Amazon', '1', NULL, '2026-03-12 20:40:57', '2026-03-12 20:40:57'),
-(4, 'Perry Grant Merchandise and Shop:', 'CD/DVD/MEDIA', NULL, 'Available for download from Amazon and Apple Music', NULL, '0', 'black-about-section-2', '1773366615_69b36d57286c6.webp', NULL, NULL, 'https://music.amazon.com/albums/B09J1XSPCY', 'Buy On Amazon', '1', NULL, '2026-03-12 20:50:15', '2026-03-12 20:50:15');
-
 -- --------------------------------------------------------
 
 --
@@ -1020,8 +1157,11 @@ CREATE TABLE `services` (
   `created_by` bigint(20) NOT NULL,
   `heading` varchar(255) NOT NULL,
   `questions` text DEFAULT NULL,
+  `question_image` varchar(255) DEFAULT NULL,
   `description` text DEFAULT NULL,
+  `description_image` varchar(255) DEFAULT NULL,
   `benefits` text DEFAULT NULL,
+  `benefit_image` varchar(255) DEFAULT NULL,
   `status` varchar(255) NOT NULL DEFAULT '1' COMMENT '0=inactive, 1= active',
   `deleted_at` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1032,10 +1172,48 @@ CREATE TABLE `services` (
 -- Dumping data for table `services`
 --
 
-INSERT INTO `services` (`id`, `created_by`, `heading`, `questions`, `description`, `benefits`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'ALA (Alpha Lipoic Acid)', '[\"Are you a diabetic?\",\"Do you take medication (often a \\u201cstatin\\u201d drug) to treat high cholesterol?\",\"Do you often feel fatigued?\",\"Do you often feel fatigued?\",\"Do you suffer from inflammation?\",\"Do you have an autoimmune disorder\\/condition?\",\"Do you have a history of a neurological condition?\",\"Do you want to lose weight?\",\"Do you struggle with PCOS and\\/or infertility?\",\"Do you have a neurological disease?\"]', 'ALA is known as the “universal antioxidant”—meaning it is a free radical scavenger. Free radicals are an aging accelerator and form when the body is under a significant amount of physical or chemical stress. ALA can only be purchased as a 3-pack or 6-pack and cannot be added as a single ingredient to an IV Drip.', '[\"Potentiating other antioxidants\\u2014glutathione, vitamin C and vitamin E\",\"Blood sugar control\",\"Inhibiting fat cell formation\",\"Decreased LDL (\\u201cbad cholesterol\\u201d), Increases HDL (\\u201cgood cholesterol\\u201d)\",\"Energy production\",\"Crosses the blood brain barrier\\u2014helpful in neurological conditions (Alzheimer\\u2019s, multiple sclerosis, neuropathy, traumatic brain injury, and seizure)\",\"Liver regeneration\",\"Symptom management of certain cancers (ex. Mucositis)\"]', '1', NULL, '2026-05-18 15:44:23', '2026-05-18 15:44:23'),
-(2, 1, 'Amino Blend (Arginine + Citrulline + Lysine + Proline', '[\"Are you an athlete?\",\"Do you exercise regularly?\",\"Do you have erectile dysfunction?\",\"Do you have a slow metabolism\",\"Do you often feel fatigued?\",\"Do you have sore muscles and achy joints?\",\"Do you have heart disease?\"]', 'These amino acids may help maximize performance by supporting the function of healthy joints and muscles.', '[\"Arginine\\r\\n\\u2022 Improved blood flow by creating nitric oxide (NO), a gas that helps dilate blood vessels\\r\\n\\u2022 Improved arteries for people with heart disease or clogged arteries due to its vessel-widening abilities\\r\\n\\u2022 Improved symptoms of erectile dysfunction (ED)\",\"Citrulline\\r\\n\\u2022 Longer lasting effects than just arginine alone, this nutrient is converted to arginine in the kidneys\\r\\n\\u2022 Improved vasodilation, blood flow and immune function\",\"Lysine\\r\\n\\u2022 Improved carnitine creation, which converts fatty acids into energy and also lowers cholesterol levels\\r\\n\\u2022 Improved calcium absorption and collagen formation, which aids in growth and maintenance of bones and connective tissues\",\"Proline\\r\\n\\u2022 Improved skin health\\r\\n\\u2022 Improved joint and tissue health\"]', '1', NULL, '2026-05-18 16:17:11', '2026-05-18 16:17:11'),
-(3, 1, 'B5 (Dexpanthenonol)', '[\"Do you take medication to treat acne?\",\"Do you take a \\u201cstatin\\u201d drug to treat high cholesterol?\",\"Do you follow a plant-based diet?\",\"Do you have stress in your life?\",\"Are you interested in better gut health?\"]', 'B5 is a water-soluble B vitamin that helps the body use fats and proteins. It is often called the “Energy Vitamin.”', '[\"Boosted energy and metabolism\",\"Increased manufacturing of red blood cells\",\"Increased cholesterol synthesis\",\"Improved skin health\",\"Hormone production assistance\",\"A healthy digestive tract\",\"Boosted energy from breaking down carbs and fats\",\"Increased sex hormones\",\"Healthy skin and reduced signs of aging with moisture retention\"]', '1', NULL, '2026-05-18 16:22:27', '2026-05-18 16:22:27');
+INSERT INTO `services` (`id`, `created_by`, `heading`, `questions`, `question_image`, `description`, `description_image`, `benefits`, `benefit_image`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 'ALA (Alpha Lipoic Acid)', '[\"Are you a diabetic?\",\"Do you take medication (often a \\u201cstatin\\u201d drug) to treat high cholesterol?\",\"Do you often feel fatigued?\",\"Do you often feel fatigued?\",\"Do you suffer from inflammation?\",\"Do you have an autoimmune disorder\\/condition?\",\"Do you have a history of a neurological condition?\",\"Do you want to lose weight?\",\"Do you struggle with PCOS and\\/or infertility?\",\"Do you have a neurological disease?\"]', '20260520235649_question_6a0e4a41382b4.jpg', 'ALA is known as the “universal antioxidant”—meaning it is a free radical scavenger. Free radicals are an aging accelerator and form when the body is under a significant amount of physical or chemical stress. ALA can only be purchased as a 3-pack or 6-pack and cannot be added as a single ingredient to an IV Drip.', '20260520235636_desc_6a0e4a34d1088.jpg', '[\"Potentiating other antioxidants\\u2014glutathione, vitamin C and vitamin E\",\"Blood sugar control\",\"Inhibiting fat cell formation\",\"Decreased LDL (\\u201cbad cholesterol\\u201d), Increases HDL (\\u201cgood cholesterol\\u201d)\",\"Energy production\",\"Crosses the blood brain barrier\\u2014helpful in neurological conditions (Alzheimer\\u2019s, multiple sclerosis, neuropathy, traumatic brain injury, and seizure)\",\"Liver regeneration\",\"Symptom management of certain cancers (ex. Mucositis)\"]', '20260520235649_benefit_6a0e4a4137740.webp', '1', NULL, '2026-05-18 15:44:23', '2026-05-20 18:56:49'),
+(2, 1, 'Amino Blend (Arginine + Citrulline + Lysine + Proline', '[\"Are you an athlete?\",\"Do you exercise regularly?\",\"Do you have erectile dysfunction?\",\"Do you have a slow metabolism\",\"Do you often feel fatigued?\",\"Do you have sore muscles and achy joints?\",\"Do you have heart disease?\"]', NULL, 'These amino acids may help maximize performance by supporting the function of healthy joints and muscles.', NULL, '[\"Arginine\\r\\n\\u2022 Improved blood flow by creating nitric oxide (NO), a gas that helps dilate blood vessels\\r\\n\\u2022 Improved arteries for people with heart disease or clogged arteries due to its vessel-widening abilities\\r\\n\\u2022 Improved symptoms of erectile dysfunction (ED)\",\"Citrulline\\r\\n\\u2022 Longer lasting effects than just arginine alone, this nutrient is converted to arginine in the kidneys\\r\\n\\u2022 Improved vasodilation, blood flow and immune function\",\"Lysine\\r\\n\\u2022 Improved carnitine creation, which converts fatty acids into energy and also lowers cholesterol levels\\r\\n\\u2022 Improved calcium absorption and collagen formation, which aids in growth and maintenance of bones and connective tissues\",\"Proline\\r\\n\\u2022 Improved skin health\\r\\n\\u2022 Improved joint and tissue health\"]', NULL, '1', NULL, '2026-05-18 16:17:11', '2026-05-18 16:17:11'),
+(3, 1, 'B5 (Dexpanthenonol)', '[\"Do you take medication to treat acne?\",\"Do you take a \\u201cstatin\\u201d drug to treat high cholesterol?\",\"Do you follow a plant-based diet?\",\"Do you have stress in your life?\",\"Are you interested in better gut health?\"]', NULL, 'B5 is a water-soluble B vitamin that helps the body use fats and proteins. It is often called the “Energy Vitamin.”', NULL, '[\"Boosted energy and metabolism\",\"Increased manufacturing of red blood cells\",\"Increased cholesterol synthesis\",\"Improved skin health\",\"Hormone production assistance\",\"A healthy digestive tract\",\"Boosted energy from breaking down carbs and fats\",\"Increased sex hormones\",\"Healthy skin and reduced signs of aging with moisture retention\"]', NULL, '1', NULL, '2026-05-18 16:22:27', '2026-05-18 16:22:27');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_pages`
+--
+
+CREATE TABLE `service_pages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `nav_label` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) NOT NULL,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_description` text DEFAULT NULL,
+  `hero` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`hero`)),
+  `overview` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`overview`)),
+  `drip_menu` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`drip_menu`)),
+  `supports` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`supports`)),
+  `sort_order` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `show_in_nav` tinyint(1) NOT NULL DEFAULT 1,
+  `is_legacy` tinyint(1) NOT NULL DEFAULT 0,
+  `status` varchar(255) NOT NULL DEFAULT '1' COMMENT '0=inactive, 1=active',
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `service_pages`
+--
+
+INSERT INTO `service_pages` (`id`, `name`, `nav_label`, `slug`, `meta_title`, `meta_description`, `hero`, `overview`, `drip_menu`, `supports`, `sort_order`, `show_in_nav`, `is_legacy`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Methylene Blue', NULL, 'methylene-blue-iv-therapy-nyc', 'Methylene Blue IV Therapy NYC | Brain & Energy Support', 'Enhance energy and focus with methylene blue IV therapy in NYC. Precision-dosed infusions for mitochondrial support, cognitive clarity, and longevity.', '{\"eyebrow\":\"MITOCHONDRIAL SUPPORT \\u00b7 COGNITIVE WELLNESS \\u00b7 NYC\",\"title_main\":\"Methylene Blue\",\"title_accent\":\"IV Therapy NYC\",\"lead\":\"Precision-dosed methylene blue IV therapy NYC for mitochondrial energy, cognitive clarity, and cellular longevity administered under full clinical oversight.\"}', '{\"label\":\"WHAT IT IS\",\"title\":\"IV Methylene Blue Therapy NYC\",\"paragraphs\":[\"Methylene blue IV therapy NYC is one of the most clinically fascinating infusions available in modern wellness medicine. Methylene blue is a synthetic compound with over a century of medical history, now used in integrative wellness settings to support mitochondrial energy production, cognitive clarity, and cellular repair. At Balanced Body IV & Wellness, our IV methylene blue therapy NYC protocol is administered after full medical clearance, ensuring each session is safe, appropriate, and precisely dosed for your goals.\",\"Methylene blue works by donating electrons directly to the mitochondrial respiratory chain supporting ATP production at the cellular level. This makes it a particularly valuable tool for clients experiencing cognitive fatigue, low energy, neurological stress, or those pursuing longevity-focused wellness protocols. As an antioxidant, it also helps neutralize reactive oxygen species that accelerate cellular aging.\",\"Our methylene blue infusions for mitochondrial NYC support are formulated with precision. Dosing is conservative and evidence-informed, and every infusion is monitored by a licensed Critical Care RN from start to finish. Sessions typically run 60 to 90 minutes.\"],\"features\":[{\"title\":\"Cognitive & Brain Support\",\"text\":\"Methylene blue crosses the blood-brain barrier, supporting mitochondrial function in neurons and enhancing memory consolidation, mental clarity, and cognitive processing speed.\"},{\"title\":\"Mitochondrial Energy Production\",\"text\":\"By enhancing the electron transport chain, methylene blue supports cellular ATP generation addressing energy deficits at the root level rather than symptom level.\"},{\"title\":\"Antioxidant & Cellular Protection\",\"text\":\"As a potent antioxidant, methylene blue helps reduce oxidative stress and reactive oxygen species supporting cellular longevity and systemic resilience.\"},{\"title\":\"Neuroprotective Support\",\"text\":\"Evidence-informed use of methylene blue is associated with neuroprotective effects supporting healthy neurological function and mitochondrial integrity over time.\"}]}', NULL, '{\"label\":\"CLINICAL NUTRIENT SUPPORT\",\"title\":\"What Supports Methylene Blue Therapy\",\"lead\":\"These nutrients are commonly paired with methylene blue IV therapy NYC to support mitochondrial function, antioxidant capacity, and neurological wellness.\",\"items\":[{\"title\":\"NAD+\",\"text\":\"Supports ATP production and cellular energy generation; works synergistically with methylene blue at the mitochondrial level.\"},{\"title\":\"Glutathione\",\"text\":\"Master antioxidant supporting detoxification and oxidative stress reduction a natural complement to mitochondrial support protocols.\"},{\"title\":\"Alpha-Lipoic Acid (ALA)\",\"text\":\"Mitochondrial antioxidant that supports nerve pathways and metabolic function; amplifies cellular protection alongside methylene blue.\"},{\"title\":\"CoQ10\",\"text\":\"Supports mitochondrial energy production and antioxidant activity; directly involved in the electron transport chain.\"},{\"title\":\"B-Complex Vitamins\",\"text\":\"Support energy production, methylation, and neurologic function essential cofactors for mitochondrial health.\"},{\"title\":\"Magnesium\",\"text\":\"Supports muscle relaxation, mitochondrial function, and immune balance; involved in over 300 enzymatic reactions.\"}]}', 1, 1, 1, '1', NULL, '2026-07-08 12:22:57', '2026-07-08 13:45:50'),
+(2, 'NAD', NULL, 'nad-therapy-nyc', 'NAD IV Therapy NYC | Energy, Brain & Cellular Repair', 'Replenish energy with NAD IV therapy in NYC. Support brain function, DNA repair, and cellular health with medically supervised infusions.', '{\"eyebrow\":\"CELLULAR LONGEVITY \\u00b7 COGNITIVE SUPPORT \\u00b7 NYC\",\"title_main\":\"NAD\",\"title_accent\":\"Therapy NYC\",\"lead\":\"Medically supervised NAD IV therapy NYC to replenish cellular energy, support DNA repair, and restore cognitive clarity from the inside out.\"}', '{\"label\":\"WHAT IT IS\",\"title\":\"NAD IV Therapy NYC\",\"paragraphs\":[\"NAD therapy NYC is one of the most sought-after intravenous treatments in modern integrative wellness. NAD+ (Nicotinamide Adenine Dinucleotide) is a coenzyme found in every cell of the body, playing a critical role in energy metabolism, DNA repair, and cellular communication. As we age, NAD+ levels naturally decline contributing to fatigue, cognitive fog, slower recovery, and accelerated cellular aging. NAD IV therapy NYC replenishes these levels directly into the bloodstream for maximum bioavailability.\",\"Our NAD infusion therapy NYC protocol begins with a full medical clearance and consultation. NAD+ infusions are administered slowly typically over 2 to 4 hours to maximize comfort and clinical safety. Many clients notice improvements in mental clarity, energy, mood, and sleep quality following their sessions, with results deepening over a series of infusions.\",\"At Balanced Body IV & Wellness, NAD+ IV therapy NYC is not a quick-fix service. It is a foundational longevity protocol designed for clients committed to optimizing their cellular health, performance, and long-term vitality from the inside out.\"],\"features\":[{\"title\":\"Cellular Energy & ATP Production\",\"text\":\"NAD+ is essential for mitochondrial function and the production of ATP the primary energy currency of every cell in your body. Declining NAD+ directly correlates with fatigue and reduced cellular performance.\"},{\"title\":\"DNA Repair & Cellular Longevity\",\"text\":\"NAD+ activates sirtuins proteins involved in DNA repair and cellular aging regulation. Replenishing NAD+ supports the body\'s ability to maintain healthy cellular function over time.\"},{\"title\":\"Cognitive Clarity & Neuroprotection\",\"text\":\"NAD+ supports neurological function by fueling brain cell mitochondria and supporting neurotransmitter synthesis improving mental clarity, mood, and cognitive resilience.\"},{\"title\":\"Recovery & Performance\",\"text\":\"Athletes and high-performers use NAD IV therapy NYC to accelerate recovery, reduce muscle fatigue, and support sustained physical and mental output.\"}]}', NULL, '{\"label\":\"SUPPORTING NUTRIENTS\",\"title\":\"What We Pair with NAD+ Infusion Therapy NYC\",\"lead\":\"These compounds are commonly combined with NAD+ therapy to amplify mitochondrial support, antioxidant capacity, and metabolic optimization.\",\"items\":[{\"title\":\"L-Carnitine\",\"text\":\"Facilitates fatty acid transport into mitochondria for energy production works synergistically with NAD+ to support metabolic efficiency.\"},{\"title\":\"Glutathione\",\"text\":\"The body\'s master antioxidant protects cells from oxidative stress generated during increased metabolic activity following NAD+ infusion.\"},{\"title\":\"Vitamin B12 (methylcobalamin)\",\"text\":\"Supports nerve health and energy metabolism; often paired with NAD+ for comprehensive neurological and energy support.\"},{\"title\":\"CoQ10\",\"text\":\"Directly involved in the mitochondrial electron transport chain alongside NAD+; supports cellular energy and antioxidant protection.\"},{\"title\":\"Magnesium\",\"text\":\"Supports mitochondrial function and over 300 enzymatic reactions; a critical cofactor for NAD+-dependent cellular processes.\"},{\"title\":\"Alpha-Lipoic Acid (ALA)\",\"text\":\"A mitochondrial antioxidant that regenerates other antioxidants including Vitamin C, E, and glutathione amplifying NAD+ therapy benefits.\"}],\"stats\":[{\"value\":\"100%\",\"label\":\"Bioavailability\"},{\"value\":\"2\\u20134h\",\"label\":\"Session Duration\"},{\"value\":\"Cellular\",\"label\":\"Level Results\",\"serif\":true},{\"value\":\"1:1\",\"label\":\"Clinical Care\"}]}', 2, 1, 1, '1', NULL, '2026-07-08 12:22:57', '2026-07-08 13:45:50'),
+(3, 'Peptide Therapy', NULL, 'peptide-therapy-nyc', 'Peptide Therapy NYC | Recovery, Anti-Aging & Hormone Support', 'Optimize recovery and longevity with peptide therapy NYC. Precision protocols for tissue repair, hormone balance, and immune resilience.', '{\"eyebrow\":\"REGENERATIVE WELLNESS \\u00b7 ANTI-AGING \\u00b7 NYC\",\"title_main\":\"Peptide Therapy\",\"title_accent\":\"NYC\",\"lead\":\"Precision peptide therapy NYC individualized protocols for recovery, anti-aging, hormone support, and immune resilience, administered under full clinical oversight.\"}', '{\"label\":\"WHAT IT IS\",\"title\":\"NYC Peptide Therapy\",\"paragraphs\":[\"Peptide therapy NYC represents one of the most targeted and clinically precise approaches to regenerative wellness available today. Peptides are short chains of amino acids the building blocks of proteins that act as biological messengers, signaling specific cellular processes including tissue repair, hormone regulation, immune function, and metabolic optimization. At Balanced Body IV & Wellness, our NYC peptide therapy protocols are individualized after a comprehensive health evaluation and medical clearance review.\",\"Unlike broad-spectrum supplement approaches, peptide therapy works with the body\'s own signaling pathways to produce targeted effects. Whether the goal is accelerated tissue recovery, growth hormone support, immune resilience, or healthy aging, each peptide protocol is selected based on your specific health history and objectives not a generic template.\",\"Peptide therapy is administered through precise subcutaneous injections or, in some cases, as part of a broader IV wellness protocol. All programs at our NYC studio include ongoing clinical oversight, periodic reassessment, and plan adjustments as your response evolves over time.\"],\"features\":[{\"title\":\"BPC-157 Tissue Repair & Recovery\",\"text\":\"BPC-157 supports tissue healing, gut health, and musculoskeletal recovery. Widely used by athletes and individuals recovering from injury or chronic inflammation.\"},{\"title\":\"Sermorelin Growth Hormone Support\",\"text\":\"Sermorelin stimulates the pituitary gland to produce natural growth hormone supporting sleep quality, body composition, recovery, and overall vitality without synthetic HGH.\"},{\"title\":\"CJC-1295 + Ipamorelin\",\"text\":\"A synergistic peptide combination that supports sustained, pulsatile growth hormone release for body composition, recovery, and anti-aging support.\"},{\"title\":\"Thymosin Alpha-1 Immune Modulation\",\"text\":\"Supports immune resilience and modulation particularly valuable for clients with chronic illness, autoimmune concerns, or those seeking enhanced immune defense.\"}]}', NULL, '{\"label\":\"SUPPORTING NUTRIENTS\",\"title\":\"Nutrient Foundations for Peptide Therapy\",\"lead\":\"These nutrients support the cellular environment that peptide therapy acts upon maximizing tissue repair, mitochondrial function, and recovery outcomes.\",\"items\":[{\"title\":\"Glutathione\",\"text\":\"Master antioxidant that supports cellular repair and detoxification creates an optimal environment for peptide-driven tissue regeneration.\"},{\"title\":\"Vitamin C\",\"text\":\"Supports collagen synthesis and immune function; a key cofactor in tissue healing and repair pathways targeted by peptides like BPC-157 and Proline.\"},{\"title\":\"Magnesium\",\"text\":\"Supports muscle relaxation and mitochondrial function; important during tissue recovery and regeneration protocols.\"},{\"title\":\"NAC (N-Acetylcysteine)\",\"text\":\"Precursor to glutathione; supports detox pathways and antioxidant capacity during cellular repair and regeneration.\"},{\"title\":\"B-Complex Vitamins\",\"text\":\"Support methylation, energy production, and neurologic function essential foundations for peptide therapy efficacy.\"},{\"title\":\"Zinc\",\"text\":\"Involved in over 300 enzymatic processes including immune function, wound healing, and protein synthesis directly relevant to peptide repair protocols.\"}]}', 3, 1, 1, '1', NULL, '2026-07-08 12:22:57', '2026-07-08 13:45:50'),
+(4, 'IV Vitamin Therapy', NULL, 'iv-vitamin-therapy-nyc', 'IV Vitamin Therapy NYC | Energy, Immunity & Hydration Drips', 'Boost energy and immunity with IV vitamin therapy NYC. 11 custom drips, fast results, and 100% nutrient absorption with clinical care.', '{\"eyebrow\":\"11 DRIP FORMULATIONS \\u2022 100% BIOAVAILABILITY \\u2022 NYC\",\"title_style\":\"iv_vitamin\",\"title_prefix\":\"IV\",\"title_main\":\"Vitamin Therapy\",\"title_suffix\":\"NYC\",\"lead\":\"Premium vitamin IV therapy NYC 11 thoughtfully formulated drips delivering 100% bioavailable nutrients for energy, immunity, recovery, beauty, and lasting wellness.\"}', '{\"label\":\"WHAT IT IS\",\"title\":\"Vitamin IV Therapy NYC\",\"paragraphs\":[\"IV vitamin therapy NYC delivers a precisely formulated blend of vitamins, minerals, and amino acids directly into the bloodstream bypassing the digestive system entirely for complete bioavailability. Where oral supplements may achieve 20\\u201350% absorption depending on gut health and metabolism, intravenous delivery ensures every nutrient reaches your cells at full therapeutic concentration. At Balanced Body IV & Wellness, our vitamin IV therapy NYC menu includes 11 thoughtfully formulated drip blends, each targeting specific wellness goals.\",\"Whether you are seeking rapid rehydration, immune reinforcement, skin radiance, energy restoration, post-athletic recovery, or cognitive clarity, our clinical team helps you identify the right formulation based on your health history and current needs. Every IV vitamin therapy NYC session begins with a medical clearance review to confirm suitability and safety.\",\"Sessions typically run 30 to 60 minutes depending on the drip selected. Add-on ingredients including glutathione, NAC, ALA, or additional amino acids can be incorporated into most base formulations for a more comprehensive effect. Payment is in person, and pricing is discussed transparently at consultation.\"],\"features\":[{\"title\":\"100% Bioavailability\",\"text\":\"Intravenous delivery ensures every nutrient reaches your bloodstream at full dose unlike oral supplements, which are limited by digestive absorption and first-pass metabolism.\"},{\"title\":\"Rapid Results\",\"text\":\"Most clients notice the effects of IV vitamin therapy NYC within hours a significant advantage over oral supplementation, which may take days or weeks to produce noticeable change.\"},{\"title\":\"Fully Customizable\",\"text\":\"Every drip is customized at consultation. Add-on ingredients including glutathione, NAD+ adjuncts, ALA, and amino blends can be incorporated based on your specific health goals.\"},{\"title\":\"Medically Supervised\",\"text\":\"All vitamin IV therapy NYC sessions are administered by a licensed Critical Care RN under full clinical oversight. Medical clearance is completed before every first visit.\"}]}', '{\"title\":\"The IV Drip Menu 11 Formulations\",\"items\":[{\"title\":\"Energy Boost\",\"text\":\"B-complex, B12, amino acids and electrolytes to restore vitality and combat fatigue at the cellular level.\"},{\"title\":\"Immunity Defense\",\"text\":\"High-dose Vitamin C, zinc, and minerals to strengthen your immune response and support antioxidant capacity.\"},{\"title\":\"Beauty Glow\",\"text\":\"Glutathione, biotin, and Vitamin C for radiant skin, stronger hair, and nail support.\"},{\"title\":\"Recovery & Performance\",\"text\":\"Amino acids and electrolytes to support muscle recovery, reduce soreness, and restore athletic output.\"},{\"title\":\"Hangover Relief\",\"text\":\"Rapid rehydration with anti-nausea and anti-inflammatory support to restore comfort and clarity.\"},{\"title\":\"Mental Clarity\",\"text\":\"Magnesium, taurine, and B-vitamins to support focus, reduce mental fog, and sharpen cognitive processing.\"},{\"title\":\"Myers\' Cocktail\",\"text\":\"The classic blend of vitamins and minerals for overall wellness, energy, and immune support.\"},{\"title\":\"Anti-Aging\",\"text\":\"NAD+ adjuncts, glutathione, and antioxidants to support cellular longevity and oxidative stress reduction.\"},{\"title\":\"Pure Hydration\",\"text\":\"Sterile saline and electrolytes for fast, deep cellular hydration.\"},{\"title\":\"Migraine Relief\",\"text\":\"Magnesium, B2, and anti-inflammatory support to ease tension headaches and migraine symptoms.\"},{\"title\":\"Detox & Reset\",\"text\":\"A glutathione-forward blend to support natural detox pathways and liver health.\"}]}', '{\"label\":\"KEY INGREDIENTS\",\"title\":\"What Goes Into Vitamin IV Therapy NYC\",\"lead\":\"Our IV vitamin therapy NYC formulations draw from a comprehensive ingredient library each selected for clinical relevance, purity, and therapeutic value.\",\"items\":[{\"title\":\"Vitamin C (Ascorbic Acid)\",\"text\":\"An antihistamine and antioxidant that reduces oxidative stress, supports immune function, and promotes collagen synthesis. High-dose options available.\"},{\"title\":\"Glutathione\",\"text\":\"The body\'s master antioxidant supports detoxification, skin health, liver function, and oxidative stress reduction. Push or drip administration available.\"},{\"title\":\"B-Complex (B1, B2, B3, B5, B6)\",\"text\":\"A family of vitamins that support energy production, methylation, nervous system health, and the body\'s response to stress.\"},{\"title\":\"Vitamin B12 (methylcobalamin)\",\"text\":\"Essential for nerve health, energy metabolism, red blood cell production, and cognitive function. Pairs well with B-Complex.\"},{\"title\":\"Magnesium Sulfate\",\"text\":\"Supports muscle and nerve function, energy production, migraine relief, and over 300 enzymatic processes throughout the body.\"},{\"title\":\"Zinc\",\"text\":\"Supports immune function, wound healing, DNA synthesis, and protein metabolism a critical trace mineral in immune and recovery formulations.\"}]}', 4, 1, 1, '1', NULL, '2026-07-08 12:22:57', '2026-07-08 13:45:50'),
+(5, 'Medical Weight Loss', NULL, 'medical-weight-loss-nyc', 'Medical Weight Loss NYC | GLP-1 Programs & Fat Loss', 'Lose weight safely with medical weight loss NYC. GLP-1 programs, weight loss shots, and metabolic support for sustainable results.', '{\"eyebrow\":\"GLP-1 PROGRAMS \\u00b7 METABOLIC SUPPORT \\u00b7 NYC\",\"title_main\":\"Medical Weight Loss\",\"title_accent\":\"NYC\",\"lead\":\"Clinically supervised medical weight loss NYC personalized GLP-1 programs, weight loss shots, and metabolic IV support for sustainable, meaningful results.\"}', '{\"label\":\"WHAT IT IS\",\"title\":\"IV Therapy for Weight Loss NYC\",\"paragraphs\":[\"Medical weight loss NYC at Balanced Body IV & Wellness is a clinically guided program built around your metabolic health not a one-size-fits-all diet plan. Our approach begins with a comprehensive consultation and metabolic assessment, followed by a personalized GLP-1 program and ongoing progress monitoring designed to support sustainable, meaningful results.\",\"GLP-1 (glucagon-like peptide-1) receptor agonists including Semaglutide and Tirzepatide are FDA-approved medications that support appetite regulation, glucose metabolism, and gradual, sustained weight reduction. As part of our GLP-1 weight loss NYC program, these medications are prescribed and monitored by licensed clinical professionals throughout your entire treatment journey.\",\"Alongside GLP-1 therapy, many clients benefit from weight loss shots NYC including MIC\\/Lipo-Mino injections and B12 to support fat metabolism, energy levels, and metabolic efficiency during their weight loss journey. Our programs also incorporate targeted IV nutrient support to maintain energy, immune resilience, and overall wellbeing as your body composition changes.\"],\"features\":[{\"title\":\"Semaglutide (GLP-1)\",\"text\":\"A once-weekly injectable GLP-1 receptor agonist that reduces appetite, regulates blood sugar, and supports gradual, sustained weight loss under clinical supervision.\"},{\"title\":\"Tirzepatide (GLP-1\\/GIP)\",\"text\":\"A dual GLP-1 and GIP receptor agonist demonstrating strong clinical results for weight reduction, appetite control, and metabolic improvement.\"},{\"title\":\"Weight Loss Shots NYC\",\"text\":\"MIC\\/Lipo-Mino injections (Methionine, Inositol, Choline) support fat metabolism, liver function, and lipotropic pathways often combined with B12 for energy support.\"},{\"title\":\"Metabolic IV Support\",\"text\":\"Targeted IV nutrient blends including L-Carnitine, B-Complex, and Magnesium support metabolic function and energy levels throughout your weight loss program.\"}]}', NULL, '{\"label\":\"METABOLIC SUPPORT NUTRIENTS\",\"title\":\"Nutrients That Support Your Weight Loss Program\",\"lead\":\"These clinically utilized nutrients support metabolic function, fat oxidation, blood sugar balance, and energy forming the nutritional foundation of our medical weight loss NYC programs.\",\"items\":[{\"title\":\"L-Carnitine\",\"text\":\"Facilitates fatty acid transport into mitochondria for energy production; supports metabolic flexibility and fat oxidation during caloric restriction.\"},{\"title\":\"Alpha-Lipoic Acid (ALA)\",\"text\":\"Supports insulin sensitivity and glucose metabolism; a mitochondrial antioxidant with direct relevance to blood sugar and metabolic pathways.\"},{\"title\":\"B-Complex Vitamins\",\"text\":\"Support energy metabolism, methylation, and the body\'s stress response essential during active weight loss when nutritional demands increase.\"},{\"title\":\"Magnesium\",\"text\":\"Low magnesium is associated with insulin resistance; supports glucose metabolism and mitochondrial function throughout weight loss protocols.\"},{\"title\":\"MIC (Methionine, Inositol, Choline)\",\"text\":\"Lipotropic support for fat metabolism and liver detox pathways; the foundation of our weight loss shots NYC injections.\"},{\"title\":\"CoQ10\",\"text\":\"Supports mitochondrial energy production and antioxidant activity; particularly useful for maintaining energy during caloric restriction phases.\"}]}', 5, 1, 1, '1', NULL, '2026-07-08 12:22:57', '2026-07-08 13:45:50'),
+(6, 'Iron Infusion', NULL, 'iron-infusion-therapy-nyc', 'Iron Infusion Therapy NYC | Treat Iron Deficiency Fast', 'Treat iron deficiency with iron infusion therapy NYC. Lab-guided dosing, clinical monitoring, and fast absorption for energy and recovery.', '{\"eyebrow\":\"IRON DEFICIENCY \\u00b7 IV INFUSION \\u00b7 NYC\",\"title_style\":\"iv_vitamin\",\"title_prefix\":\"Iron Infusion\",\"title_main\":\"Therapy\",\"title_suffix\":\"NYC\",\"lead\":\"Lab-guided iron infusion therapy NYC for iron deficiency anemia complete bioavailability, clinical monitoring, and a protocol built around your specific lab values.\"}', '{\"label\":\"WHAT IT IS\",\"title\":\"Iron IV Infusion Therapy\",\"paragraphs\":[\"Iron infusion therapy NYC is a medically indicated intravenous treatment that delivers therapeutic doses of iron directly into the bloodstream for complete, rapid absorption. Iron deficiency and iron-deficiency anemia are among the most common nutritional deficiencies worldwide and oral iron supplements are notoriously difficult for many people to tolerate or absorb effectively. For clients with confirmed iron deficiency, gastrointestinal intolerance to oral iron, inflammatory bowel disease, or chronic conditions that impair absorption, iron IV therapy NYC offers a clinically superior alternative.\",\"At Balanced Body IV & Wellness, our iron iv infusion therapy protocol begins with a review of your relevant labs including serum ferritin, hemoglobin, transferrin saturation, and TIBC to confirm iron deficiency and determine appropriate dosing. Iron infusions are administered slowly over 30 to 60 minutes in a private, monitored setting with full clinical oversight throughout.\",\"Many clients notice significant improvement in energy levels, cognitive clarity, exercise tolerance, and overall vitality within days to weeks of their iron infusion. A single session may be sufficient for mild deficiency; more significant deficiency may require a series of infusions guided by follow-up lab review.\"],\"features\":[{\"title\":\"Who Benefits from Iron Infusion Therapy NYC\",\"text\":\"Iron IV therapy is particularly beneficial for clients with iron-deficiency anemia, heavy menstrual bleeding, inflammatory bowel disease, post-surgical iron loss, malabsorption conditions, or confirmed ferritin deficiency who have not responded adequately to oral supplementation.\"},{\"title\":\"Lab-Guided Dosing\",\"text\":\"All iron infusion therapy NYC at Balanced Body is guided by laboratory confirmation of deficiency. We review your ferritin, hemoglobin, and iron panel before administering any infusion to ensure accurate dosing and clinical appropriateness.\"},{\"title\":\"What to Expect\",\"text\":\"Iron infusions are administered over 30 to 60 minutes in a private, monitored setting. You will be observed throughout for any infusion reactions. Most clients experience no significant side effects and leave feeling comfortable and informed.\"},{\"title\":\"Supportive Nutrients\",\"text\":\"Certain vitamins and co-factors support optimal iron metabolism and utilization including Vitamin C, B12, and folate which may be incorporated into your broader wellness plan alongside iron infusion therapy.\"}]}', NULL, '{\"label\":\"SUPPORTIVE NUTRIENTS\",\"title\":\"What Vitamins Help with Iron Deficiency\",\"lead\":\"These nutrients support iron absorption, red blood cell production, and the broader nutritional environment that iron therapy depends upon.\",\"items\":[{\"title\":\"Vitamin C (Ascorbic Acid)\",\"text\":\"Significantly enhances non-heme iron absorption and supports the conversion of ferric to ferrous iron the form more readily used by the body. Essential alongside iron protocols.\"},{\"title\":\"Vitamin B12 (methylcobalamin)\",\"text\":\"Essential for red blood cell formation and nerve health; B12 deficiency can present similarly to iron deficiency anemia and is often assessed alongside iron panels.\"},{\"title\":\"Folate (B9)\",\"text\":\"Required for DNA synthesis and red blood cell production; folate deficiency alongside iron deficiency can compound anemia symptoms and slow recovery.\"},{\"title\":\"B-Complex Vitamins\",\"text\":\"Support energy metabolism, methylation, and the neurological symptoms such as brain fog and fatigue that often accompany iron deficiency.\"},{\"title\":\"Glutathione\",\"text\":\"Supports overall cellular health and detoxification during iron repletion; particularly relevant for clients with liver involvement or systemic oxidative stress.\"},{\"title\":\"Magnesium\",\"text\":\"Supports mitochondrial energy production and over 300 enzymatic processes; helps maintain overall vitality and metabolic function during iron repletion.\"}],\"stats\":[{\"value\":\"100%\",\"label\":\"Bioavailability\"},{\"value\":\"30\\u201360\",\"label\":\"Min Sessions\"},{\"value\":\"Lab\",\"label\":\"Guided Dosing\",\"serif\":true},{\"value\":\"1:1\",\"label\":\"Clinical Care\"}]}', 6, 1, 1, '1', NULL, '2026-07-08 12:22:57', '2026-07-08 13:45:50');
 
 -- --------------------------------------------------------
 
@@ -1481,6 +1659,18 @@ ALTER TABLE `banners`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `blogs`
+--
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `blog_categories`
+--
+ALTER TABLE `blog_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `brands`
 --
 ALTER TABLE `brands`
@@ -1503,7 +1693,11 @@ ALTER TABLE `failed_jobs`
 -- Indexes for table `faqs`
 --
 ALTER TABLE `faqs`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `faqs_page_key_service_id_index` (`page_key`,`service_id`),
+  ADD KEY `faqs_page_key_service_slug_index` (`page_key`,`service_slug`),
+  ADD KEY `faqs_page_key_location_slug_index` (`page_key`,`location_slug`),
+  ADD KEY `faqs_page_key_blog_slug_index` (`page_key`,`blog_slug`);
 
 --
 -- Indexes for table `home_sliders`
@@ -1515,6 +1709,12 @@ ALTER TABLE `home_sliders`
 -- Indexes for table `latest_news`
 --
 ALTER TABLE `latest_news`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `locations`
+--
+ALTER TABLE `locations`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1609,6 +1809,13 @@ ALTER TABLE `services`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `service_pages`
+--
+ALTER TABLE `service_pages`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `service_pages_slug_unique` (`slug`);
+
+--
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
@@ -1662,6 +1869,18 @@ ALTER TABLE `banners`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `blogs`
+--
+ALTER TABLE `blogs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `blog_categories`
+--
+ALTER TABLE `blog_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
@@ -1671,7 +1890,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1683,7 +1902,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `faqs`
 --
 ALTER TABLE `faqs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `home_sliders`
@@ -1698,28 +1917,34 @@ ALTER TABLE `latest_news`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `locations`
+--
+ALTER TABLE `locations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
 
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `page_settings`
 --
 ALTER TABLE `page_settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=245;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=246;
 
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=269;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=289;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1749,13 +1974,19 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `schedule_shop_contacts`
 --
 ALTER TABLE `schedule_shop_contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `service_pages`
+--
+ALTER TABLE `service_pages`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `settings`

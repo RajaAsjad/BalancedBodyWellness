@@ -7,7 +7,7 @@
                     <i class="fa fa-laptop"></i> <span>Dashboard</span>
                 </a>
             </li>
-           {{--  @can('role-list')
+            @can('role-list')
                 <li class="treeview">
                     <a href="{{ route('role.index') }}"
                         class="{{ request()->is('role') || request()->is('role/create') || request()->is('role/*/edit') ? 'active blk' : '' }}">
@@ -22,7 +22,7 @@
                         <i class="fa fa-lock"></i> <span>Permissions</span>
                     </a>
                 </li>
-            @endcan --}}
+            @endcan
             @can('page-list')
                 <li class="treeview">
                     <a href="{{ route('page.index') }}"
@@ -54,17 +54,8 @@
                         <i class="fa fa-tasks"></i> <span>Testimonials</span>
                     </a>
                 </li>
-            @endcan   --}}
-
+            @endcan   --}} 
             
-
-           {{--  @can('service-list')
-                <li class="treeview mt-2">
-                    <a href="{{ route('service.index') }}" class="{{ request()->is('service') || request()->is('service/create') || request()->is('service/*/edit') || request()->is('service/*') ? 'active' : '' }}">
-                        <i class="fa fa-envelope"></i> <span>Services</span>
-                    </a>
-                </li>
-            @endcan --}}
             
             <li class="treeview mt-2 {{ (request()->is('service') || request()->is('service/create') || request()->is('service/*/edit') || request()->is('service/*') || request()->is('servicePage') || request()->is('servicePage/create') || request()->is('servicePage/*/edit') || request()->is('servicePage/*') ) ? 'active' : '' }}" style="height: auto;">
                 <a href="#" class="{{ (request()->is('service') || request()->is('service/create') || request()->is('service/*/edit') || request()->is('service/*') || request()->is('servicePage') || request()->is('servicePage/create') || request()->is('servicePage/*/edit') || request()->is('servicePage/*') ) ? 'active' : '' }}">
@@ -93,43 +84,7 @@
                     </li>
                     @endcan   
                 </ul>
-            </li>
-             
-            {{-- <li class="treeview mt-2 {{ (request()->is('video') || request()->is('video/create') || request()->is('video/*/edit') || request()->is('audio') || request()->is('audio/create') || request()->is('audio/*/edit') || request()->is('audio/*') || request()->is('photogallery') || request()->is('photogallery/*') ) ? 'active' : '' }}" style="height: auto;">
-                <a href="#" class="{{ (request()->is('video') || request()->is('video/create') || request()->is('video/*/edit') || request()->is('audio') || request()->is('audio/create') || request()->is('audio/*/edit') || request()->is('audio/*') || request()->is('photogallery') || request()->is('photogallery/*') ) ? 'active' : '' }}">
-                    <i class="fa fa-files-o"></i>
-                    <span>Highlight Videos</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-
-                <ul class="treeview-menu" style="display: {{ (request()->is('video') || request()->is('video/create') || request()->is('video/*/edit') || request()->is('audio') || request()->is('audio/create') || request()->is('audio/*/edit') || request()->is('audio/*') || request()->is('photogallery') || request()->is('photogallery/*') ) ? 'block' : 'none' }};">
-
-                    @can('video-list')
-                    <li class="treeview mt-2">
-                        <a href="{{ route('video.index') }}" class="{{ request()->is('video') || request()->is('video/create') || request()->is('video/*/edit') ? 'active' : '' }}">
-                            <i class="fa fa-sitemap"></i> <span>Videos</span>
-                        </a>
-                    </li>
-                    @endcan
-
-                     @can('audio-list')
-                    <li class="treeview mt-2">
-                        <a href="{{ route('audio.index') }}" class="{{ request()->is('audio') || request()->is('audio/create') || request()->is('audio/*/edit') || request()->is('audio/*') ? 'active' : '' }}">
-                            <i class="fa fa-code-fork"></i> <span>Audio</span>
-                        </a>
-                    </li>
-                    @endcan   
-                      @can('photogallery-list')
-                    <li class="treeview mt-2">
-                        <a href="{{ route('photogallery.index') }}" class="{{ request()->is('photogallery') || request()->is('photogallery/*') ? 'active' : '' }}">
-                            <i class="fa fa-camera"></i> <span>Photo Gallery</span>
-                        </a>
-                    </li>
-                    @endcan  
-                </ul>
-            </li> --}}
+            </li> 
             @can('contactus-list')
                 <li class="treeview mt-2">
                     <a href="{{ route('contactus.index') }}" class="{{ request()->is('contactus') || request()->is('contactus/create') || request()->is('contactus/*/edit') || request()->is('contactus/*') ? 'active' : '' }}">
@@ -158,23 +113,13 @@
                     </a>
                 </li>
             @endcan
-             
-            {{-- @can('brands-list')
-                <li class="treeview">
-                    <a href="{{ route('brands.index') }}"
-                        class="{{ request()->is('brands') || request()->is('brands/create') || request()->is('brands/*/edit') ? 'active blk' : '' }}">
-                        <i class="fa fa-pencil-square-o"></i> <span>All Brands</span>
+            @can('blog-list')
+                <li class="treeview mt-2">
+                    <a href="{{ route('blog.index') }}" class="{{ request()->is('blog') || request()->is('blog/create') || request()->is('blog/*/edit') ? 'active' : '' }}">
+                        <i class="fa fa-file-text-o"></i> <span>Blogs Management</span>
                     </a>
                 </li>
-            @endcan
-            @can('weblinks-list')
-                <li class="treeview">
-                    <a href="{{ route('weblinks.index') }}"
-                        class="{{ request()->is('weblinks') || request()->is('weblinks/create') || request()->is('weblinks/*/edit') ? 'active blk' : '' }}">
-                        <i class="fa fa-pencil-square-o"></i> <span>All Web Links</span>
-                    </a>
-                </li>
-            @endcan --}}
+            @endcan 
         </ul>
     </section>
 </aside>

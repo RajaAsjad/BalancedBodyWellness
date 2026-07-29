@@ -12,5 +12,7 @@ return [
     'location-detail' => 'Location page',
     'contact' => 'Contact',
     'policies' => 'Policies',
+    'blogs' => 'Blogs',
+    'blog-detail' => 'Blog detail page',
     'faqs' => 'FAQs',
 ];

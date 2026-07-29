@@ -18,6 +18,8 @@ use App\Http\Controllers\admin\ShopContactController;
 use App\Http\Controllers\admin\ServicesController;
 use App\Http\Controllers\admin\LocationController;
 use App\Http\Controllers\admin\ServicePageController;
+use App\Http\Controllers\admin\BlogCategoryController;
+use App\Http\Controllers\admin\BlogController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,6 +74,11 @@ Route::get('locations', [WebController::class, 'Locations'])->name('locations');
 Route::redirect('iv-therapy-jefferson-valley', '/iv-therapy-jefferson-valley-ny', 301);
 Route::redirect('iv-therapy-westchester', '/iv-therapy-westchester-county', 301);
 Route::get('locations/{slug}', [WebController::class, 'LocationDetail'])->name('location.detail');
+
+// Blogs
+Route::get('blogs', [WebController::class, 'Blogs'])->name('blogs'); 
+Route::get('blog-detail/{slug}', [WebController::class, 'BlogDetail'])->name('blog-detail'); 
+
 
 $servicePageSlugs = ServicePageRegistry::publishedSlugs();
 $locationPageSlugs = LocationPageRegistry::publishedSlugs();
@@ -149,4 +156,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     //Service landing pages (NYC + dynamic)
     Route::resource('servicePage', ServicePageController::class);
+     
+    //Blog Categories
+    Route::resource('blogcategory', BlogCategoryController::class);
+
+    //Blog
+    Route::resource('blog', BlogController::class);
 });

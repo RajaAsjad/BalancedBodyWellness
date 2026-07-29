@@ -27,6 +27,7 @@
 					</div>
 					@include('admin.faq.partials.service-picker', ['selectedServiceSlug' => old('service_slug', $selectedServiceSlug ?? $model->service_slug)])
 					@include('admin.faq.partials.location-picker', ['selectedLocationSlug' => old('location_slug', $selectedLocationSlug ?? $model->location_slug)])
+					@include('admin.faq.partials.blog-picker', ['selectedBlogSlug' => old('blog_slug', $selectedBlogSlug ?? $model->blog_slug)])
 					<div class="bbw-form-group">
 						<label for="faq_sort_order">Display order</label>
 						<input type="number" id="faq_sort_order" name="sort_order" class="form-control" min="0" max="9999" value="{{ old('sort_order', $model->sort_order ?? 0) }}" style="max-width: 120px;">
@@ -72,6 +73,11 @@ $(document).ready(function() {
 			location_slug: {
 				required: function() {
 					return $('#faq_page_key').val() === 'location-detail';
+				}
+			},
+			blog_slug: {
+				required: function() {
+					return $('#faq_page_key').val() === 'blog-detail';
 				}
 			}
 		},

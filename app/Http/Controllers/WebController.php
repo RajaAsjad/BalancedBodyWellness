@@ -7,6 +7,7 @@ use App\Models\Faq;
 use App\Models\Policies;
 use App\Models\Services;
 use App\Models\ServicePage;
+use App\Models\Blog;
 use App\Services\ContactImageCaptcha;
 use App\Support\LocationPageRegistry;
 use App\Support\ServicePageRegistry;
@@ -18,8 +19,8 @@ class WebController extends Controller
     {
         $page_title = 'IV Therapy NYC | Wellness Solutions | Balanced Body IV Wellness';
         $page_meta_description = 'Experience advanced IV therapy and wellness solutions in NYC. Offering NAD+ therapy, IV infusions, peptide therapy, and medical weight loss treatments. Book your consultation with Balanced Body IV Wellness today.';
-         
-        return view('website.index', compact('page_title', 'page_meta_description'));
+        $blogs = Blog::visibleOnSite()->orderByDesc('published_at')->orderByDesc('id')->get(); 
+        return view('website.index', compact('page_title', 'page_meta_description', 'blogs'));
     }
 
     public function Services()
@@ -151,5 +152,42 @@ class WebController extends Controller
         }
 
         abort(404);
+    }
+
+    public function Blogs()
+    {
+        $page_title = 'Blogs | Balanced Body IV Wellness';
+        $page_meta_description = 'Explore wellness articles on IV therapy, peptide therapy, hydration, recovery, and long-term vitality from Balanced Body IV Wellness.';
+        $blogs = Blog::visibleOnSite()->orderByDesc('published_at')->orderByDesc('id')->get();
+
+        return view('website.blogs', compact('page_title', 'page_meta_description', 'blogs'));
+    }
+
+    public function BlogDetail($slug)
+    {
+        $blog = Blog::visibleOnSite()->where('slug', $slug)->firstOrFail();
+
+        $page_title = $blog->meta_title
+            ?: ($blog->name.' | Balanced Body IV Wellness');
+        $page_meta_description = $blog->meta_description
+            ?: Str::limit(strip_tags((string) $blog->short_description), 160);
+        $meta_title = $page_title;
+        $meta_description = $page_meta_description;
+
+        $relatedBlogs = Blog::visibleOnSite()
+            ->where('id', '!=', $blog->id)
+            ->orderByDesc('published_at')
+            ->orderByDesc('id')
+            ->limit(3)
+            ->get();
+
+        return view('website.blog-detail', compact(
+            'page_title',
+            'page_meta_description',
+            'meta_title',
+            'meta_description',
+            'blog',
+            'relatedBlogs'
+        ));
     }
 }

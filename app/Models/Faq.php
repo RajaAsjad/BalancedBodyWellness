@@ -19,6 +19,8 @@ class Faq extends Model
 
     public const PAGE_LOCATION_DETAIL = 'location-detail';
 
+    public const PAGE_BLOG_DETAIL = 'blog-detail';
+
     /** @return array<string, string> */
     public static function pageOptions(): array
     {
@@ -36,6 +38,8 @@ class Faq extends Model
             'location-detail' => 'Location page',
             'contact' => 'Contact',
             'policies' => 'Policies',
+            'blogs' => 'Blogs',
+            'blog-detail' => 'Blog detail page',
             'faqs' => 'FAQs page (full list)',
         ];
     }
@@ -73,6 +77,13 @@ class Faq extends Model
 
         if ($this->page_key === self::PAGE_LOCATION_DETAIL && $this->location_slug) {
             $name = self::locationLandingPageLabel($this->location_slug);
+            if ($name) {
+                return $label . ' — ' . $name;
+            }
+        }
+
+        if ($this->page_key === self::PAGE_BLOG_DETAIL && $this->blog_slug) {
+            $name = self::blogPageLabel($this->blog_slug);
             if ($name) {
                 return $label . ' — ' . $name;
             }
@@ -194,6 +205,43 @@ class Faq extends Model
         return $items;
     }
 
+    public static function blogPageLabel(?string $slug): ?string
+    {
+        if (! $slug) {
+            return null;
+        }
+
+        try {
+            $blog = Blog::query()->where('slug', $slug)->first();
+            if ($blog) {
+                return $blog->name;
+            }
+        } catch (\Throwable) {
+        }
+
+        return null;
+    }
+
+    /** @return array<int, array{slug: string, label: string}> */
+    public static function blogPagesForPicker(): array
+    {
+        try {
+            return Blog::query()
+                ->orderByDesc('published_at')
+                ->orderByDesc('id')
+                ->get(['slug', 'name'])
+                ->filter(fn ($blog) => filled($blog->slug))
+                ->map(fn ($blog) => [
+                    'slug' => $blog->slug,
+                    'label' => $blog->name ?: $blog->slug,
+                ])
+                ->values()
+                ->all();
+        } catch (\Throwable) {
+            return [];
+        }
+    }
+
     /** Title for a FAQ group on the public /faqs page. */
     public static function groupSectionTitle(string $groupKey, Collection $faqs): string
     {
@@ -224,6 +272,12 @@ class Faq extends Model
             return 'Location: ' . ($name ?: $first->location_slug);
         }
 
+        if ($first->page_key === self::PAGE_BLOG_DETAIL && $first->blog_slug) {
+            $name = self::blogPageLabel($first->blog_slug);
+
+            return 'Blog: ' . ($name ?: $first->blog_slug);
+        }
+
         return self::pageLabel($first->page_key);
     }
 
@@ -236,7 +290,8 @@ class Faq extends Model
         string $pageKey,
         ?int $serviceId = null,
         ?string $serviceSlug = null,
-        ?string $locationSlug = null
+        ?string $locationSlug = null,
+        ?string $blogSlug = null
     ): Builder {
         $query = static::query()
             ->active()
@@ -258,7 +313,7 @@ class Faq extends Model
                 $query->whereNull('service_id')->whereNull('service_slug');
             }
 
-            $query->whereNull('location_slug');
+            $query->whereNull('location_slug')->whereNull('blog_slug');
         } elseif ($pageKey === self::PAGE_LOCATION_DETAIL) {
             $slug = $locationSlug ? trim($locationSlug) : null;
 
@@ -268,11 +323,22 @@ class Faq extends Model
                 $query->whereNull('location_slug');
             }
 
-            $query->whereNull('service_id')->whereNull('service_slug');
+            $query->whereNull('service_id')->whereNull('service_slug')->whereNull('blog_slug');
+        } elseif ($pageKey === self::PAGE_BLOG_DETAIL) {
+            $slug = $blogSlug ? trim($blogSlug) : null;
+
+            if ($slug !== null && $slug !== '') {
+                $query->where('blog_slug', $slug);
+            } else {
+                $query->whereNull('blog_slug');
+            }
+
+            $query->whereNull('service_id')->whereNull('service_slug')->whereNull('location_slug');
         } else {
             $query->whereNull('service_id')
                 ->whereNull('service_slug')
-                ->whereNull('location_slug');
+                ->whereNull('location_slug')
+                ->whereNull('blog_slug');
         }
 
         return $query->orderBy('sort_order')->orderBy('id');
@@ -291,6 +357,7 @@ class Faq extends Model
             ->orderBy('page_key')
             ->orderBy('service_id')
             ->orderBy('location_slug')
+            ->orderBy('blog_slug')
             ->orderBy('sort_order')
             ->orderBy('id')
             ->get();
@@ -305,6 +372,8 @@ class Faq extends Model
                     => self::PAGE_SERVICE_DETAIL . ':' . $faq->service_id,
                 $faq->page_key === self::PAGE_LOCATION_DETAIL && $faq->location_slug
                     => self::PAGE_LOCATION_DETAIL . ':' . $faq->location_slug,
+                $faq->page_key === self::PAGE_BLOG_DETAIL && $faq->blog_slug
+                    => self::PAGE_BLOG_DETAIL . ':' . $faq->blog_slug,
                 default => $faq->page_key,
             };
 

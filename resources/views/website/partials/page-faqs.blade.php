@@ -7,11 +7,13 @@
     $serviceId = $serviceId ?? null;
     $serviceSlug = $serviceSlug ?? null;
     $locationSlug = $locationSlug ?? null;
+    $blogSlug = $blogSlug ?? null;
     $pageFaqs = isset($pageFaqs)
         ? $pageFaqs
-        : Faq::forPage($pageKey, $serviceId, $serviceSlug, $locationSlug)->get();
+        : Faq::forPage($pageKey, $serviceId, $serviceSlug, $locationSlug, $blogSlug)->get();
     $sectionId = $pageKey
         . ($locationSlug ? '-loc-' . $locationSlug : '')
+        . ($blogSlug ? '-blog-' . $blogSlug : '')
         . ($serviceSlug ? '-slug-' . $serviceSlug : ($serviceId ? '-service-' . $serviceId : ''));
 @endphp
 

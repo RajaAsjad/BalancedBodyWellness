@@ -21,6 +21,12 @@
 					<td>{{ $model->service?->heading ?? 'Service #' . $model->service_id }}</td>
 				</tr>
 				@endif
+				@if ($model->blog_slug)
+				<tr>
+					<th>Blog</th>
+					<td>{{ \App\Models\Faq::blogPageLabel($model->blog_slug) ?? $model->blog_slug }}</td>
+				</tr>
+				@endif
 				<tr>
 					<th>Display order</th>
 					<td>{{ $model->sort_order ?? 0 }}</td>

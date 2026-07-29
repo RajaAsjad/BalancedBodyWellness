@@ -37,6 +37,7 @@
         ['key' => 'about', 'type' => 'link', 'href' => url('/about-us'), 'label' => 'About'],
         ['key' => 'faq', 'type' => 'link', 'href' => url('/faqs'), 'label' => 'FAQ'],
         ['key' => 'policies', 'type' => 'link', 'href' => url('/policies'), 'label' => 'Policies'],
+        ['key' => 'blogs', 'type' => 'link', 'href' => url('/blogs'), 'label' => 'Blogs'],
         ['key' => 'contact', 'type' => 'link', 'href' => url('/contact'), 'label' => 'Contact'],
     ];
 
@@ -49,6 +50,7 @@
         request()->routeIs('about-us') => 'about',
         request()->routeIs('faqs') => 'faq',
         request()->routeIs('policies') => 'policies',
+        request()->routeIs('blogs') => 'blogs',
         request()->routeIs('contact') => 'contact',
         default => null,
     };

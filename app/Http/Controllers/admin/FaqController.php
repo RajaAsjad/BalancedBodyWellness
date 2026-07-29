@@ -109,6 +109,7 @@ class FaqController extends Controller
             $selectedServiceSlug = $heading ? \Illuminate\Support\Str::slug($heading) : '';
         }
         $selectedLocationSlug = $model->location_slug;
+        $selectedBlogSlug = $model->blog_slug;
 
         return view('admin.faq.edit', compact(
             'model',
@@ -116,7 +117,8 @@ class FaqController extends Controller
             'faqPages',
             'services',
             'selectedServiceSlug',
-            'selectedLocationSlug'
+            'selectedLocationSlug',
+            'selectedBlogSlug'
         ));
     }
 
@@ -172,6 +174,7 @@ class FaqController extends Controller
             ->orderBy('page_key')
             ->orderBy('service_id')
             ->orderBy('location_slug')
+            ->orderBy('blog_slug')
             ->orderBy('sort_order')
             ->orderBy('id');
     }
@@ -207,6 +210,17 @@ class FaqController extends Controller
             ->all();
     }
 
+    /** @return list<string> */
+    private function allowedBlogSlugs(): array
+    {
+        return collect(Faq::blogPagesForPicker())
+            ->pluck('slug')
+            ->filter()
+            ->unique()
+            ->values()
+            ->all();
+    }
+
     /** @return array<string, mixed> */
     private function validateFaqBulk(Request $request, bool $requireStatus = false): array
     {
@@ -227,6 +241,13 @@ class FaqController extends Controller
                 'string',
                 'max:120',
                 Rule::in($this->allowedLocationSlugs()),
+            ],
+            'blog_slug' => [
+                Rule::requiredIf(fn () => $request->page_key === Faq::PAGE_BLOG_DETAIL),
+                'nullable',
+                'string',
+                'max:120',
+                Rule::in($this->allowedBlogSlugs()),
             ],
             'faqs' => 'required|array|min:1',
             'faqs.*.question' => 'required|max:255',
@@ -265,14 +286,22 @@ class FaqController extends Controller
             $model->service_slug = $validated['service_slug'];
             $model->service_id = null;
             $model->location_slug = null;
+            $model->blog_slug = null;
         } elseif ($validated['page_key'] === Faq::PAGE_LOCATION_DETAIL) {
             $model->location_slug = $validated['location_slug'];
             $model->service_slug = null;
             $model->service_id = null;
+            $model->blog_slug = null;
+        } elseif ($validated['page_key'] === Faq::PAGE_BLOG_DETAIL) {
+            $model->blog_slug = $validated['blog_slug'];
+            $model->service_slug = null;
+            $model->service_id = null;
+            $model->location_slug = null;
         } else {
             $model->service_slug = null;
             $model->service_id = null;
             $model->location_slug = null;
+            $model->blog_slug = null;
         }
     }
 }

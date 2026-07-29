@@ -5,11 +5,14 @@ $(document).ready(function() {
     var $serviceSelect = $('#faq_service_slug');
     var $locationWrap = $('#faq_location_wrap');
     var $locationSelect = $('#faq_location_slug');
+    var $blogWrap = $('#faq_blog_wrap');
+    var $blogSelect = $('#faq_blog_slug');
 
     function togglePickers() {
         var key = $pageKey.val();
         var isServiceDetail = key === 'service-detail';
         var isLocationDetail = key === 'location-detail';
+        var isBlogDetail = key === 'blog-detail';
 
         $serviceWrap.toggle(isServiceDetail);
         $serviceSelect.prop('required', isServiceDetail);
@@ -21,6 +24,12 @@ $(document).ready(function() {
         $locationSelect.prop('required', isLocationDetail);
         if (!isLocationDetail) {
             $locationSelect.val('');
+        }
+
+        $blogWrap.toggle(isBlogDetail);
+        $blogSelect.prop('required', isBlogDetail);
+        if (!isBlogDetail) {
+            $blogSelect.val('');
         }
     }
 

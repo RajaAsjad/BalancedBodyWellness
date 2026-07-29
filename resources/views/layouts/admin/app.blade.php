@@ -109,11 +109,11 @@
             color: rgba(255, 255, 255, 0.92) !important;
         }
 
-        .content a:not(.btn):not(.paginate_button) {
+        .content a:not(.btn):not(.paginate_button):not(.bbw-form-back):not(.bbw-crud-add) {
             color: #1d5c54 !important;
         }
 
-        .content a:not(.btn):not(.paginate_button):hover {
+        .content a:not(.btn):not(.paginate_button):not(.bbw-form-back):not(.bbw-crud-add):hover {
             color: #134038 !important;
         }
 
@@ -259,30 +259,51 @@
             font-size: 14px;
         }
 
-        .pagination>.active>span {
+        .pagination {
+            margin: 12px 0 0;
+        }
+
+        .pagination>li>a,
+        .pagination>li>span {
+            background: #ffffff !important;
+            color: #1a3f3c !important;
+            border: 1px solid rgba(45, 106, 98, 0.28) !important;
+            border-radius: 8px !important;
+            margin: 0 3px;
+            min-width: 36px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .pagination>li>a:hover,
+        .pagination>li>a:focus,
+        .pagination>li>span:hover,
+        .pagination>li>span:focus {
+            z-index: 2;
+            color: #fff !important;
+            background: linear-gradient(135deg, var(--admin-pink-deep) 0%, #3d9a8e 100%) !important;
+            border-color: rgba(45, 106, 98, 0.45) !important;
+        }
+
+        .pagination>.active>a,
+        .pagination>.active>a:hover,
+        .pagination>.active>a:focus,
+        .pagination>.active>span,
+        .pagination>.active>span:hover,
+        .pagination>.active>span:focus {
             z-index: 3;
             color: #fff !important;
             background: linear-gradient(135deg, var(--admin-pink) 0%, var(--admin-orange) 100%) !important;
-            border-color: rgba(45, 106, 98, 0.45);
+            border-color: rgba(45, 106, 98, 0.45) !important;
         }
 
-        .pagination>.active>span:hover {
-            z-index: 3;
-            color: #fff !important;
-            background: linear-gradient(135deg, #1a5c54 0%, #3d9a8e 100%) !important;
-            border-color: rgba(26, 90, 82, 0.55);
-        }
-
-        .pagination>li>a:hover {
-            z-index: 2;
-            color: #fff !important;
-            background: linear-gradient(135deg, var(--admin-pink-deep) 0%, #3d9a8e 100%);
-            border-color: rgba(45, 106, 98, 0.4);
-        }
-
-        .pagination>li>a {
-            background: #fff;
-            color: var(--admin-text) !important;
+        .pagination>.disabled>a,
+        .pagination>.disabled>a:hover,
+        .pagination>.disabled>a:focus,
+        .pagination>.disabled>span {
+            background: #f3f6f5 !important;
+            color: #8a9a94 !important;
+            border-color: rgba(45, 106, 98, 0.15) !important;
         }
 
         /* Modal (e.g. invoice create) */
