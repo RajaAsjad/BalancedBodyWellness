@@ -8,6 +8,7 @@ use App\Models\Blog_Categories;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -63,10 +64,8 @@ class BlogController extends Controller
 
         $model = new Blog();
 
-        if (isset($request->image)) {
-            $image = date('d-m-Y-His').'.'.$request->file('image')->getClientOriginalExtension();
-            $request->image->move(public_path('/admin/assets/images/blog'), $image);
-            $model->image = $image;
+        if ($request->hasFile('image')) {
+            $model->image = $this->storeBlogImage($request->file('image'));
         }
 
         $model->created_by = Auth::user()->id;
@@ -104,6 +103,7 @@ class BlogController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif',
             'short_description' => 'required',
             'description' => 'required',
             'publish_mode' => 'required|in:active,inactive,scheduled',
@@ -112,10 +112,9 @@ class BlogController extends Controller
 
         $model = Blog::where('id', $id)->first();
 
-        if (isset($request->image)) {
-            $image = date('d-m-Y-His').'.'.$request->file('image')->getClientOriginalExtension();
-            $request->image->move(public_path('/admin/assets/images/blog'), $image);
-            $model->image = $image;
+        if ($request->hasFile('image')) {
+            $this->deleteBlogImage($model->image);
+            $model->image = $this->storeBlogImage($request->file('image'));
         }
 
         $model->slug = $request->slug;
@@ -134,12 +133,43 @@ class BlogController extends Controller
     {
         $model = Blog::where('id', $id)->first();
         if ($model) {
+            $this->deleteBlogImage($model->image);
             $model->delete();
 
             return true;
         }
 
         return response()->json(['message' => 'Failed '], 404);
+    }
+
+    private function storeBlogImage($file): string
+    {
+        return $file->store('blogs', 'public');
+    }
+
+    private function deleteBlogImage(?string $path): void
+    {
+        $path = trim((string) $path);
+        if ($path === '') {
+            return;
+        }
+
+        if (str_starts_with($path, 'blogs/') && Storage::disk('public')->exists($path)) {
+            Storage::disk('public')->delete($path);
+
+            return;
+        }
+
+        if (Storage::disk('public')->exists('blogs/'.$path)) {
+            Storage::disk('public')->delete('blogs/'.$path);
+
+            return;
+        }
+
+        $legacy = public_path('admin/assets/images/blog/'.$path);
+        if (is_file($legacy)) {
+            @unlink($legacy);
+        }
     }
 
     private function applyAdminStatusFilter($query, string $status): void

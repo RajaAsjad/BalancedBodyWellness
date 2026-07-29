@@ -15,7 +15,7 @@
 					<th width="180">Image</th>
 					<td>
 						@if($blog->image)
-							<img src="{{ asset('admin/assets/images/blog') }}/{{ $blog->image }}" alt="{{ $blog->name }}" style="max-width:280px;border-radius:8px;">
+							<img src="{{ $blog->imageUrl() }}" alt="{{ $blog->name }}" style="max-width:280px;border-radius:8px;">
 						@else
 							<img src="{{ \App\Models\Services::imagePlaceholderUrl() }}" alt="No image" style="max-width:180px;border-radius:8px;">
 						@endif

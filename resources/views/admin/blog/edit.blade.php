@@ -70,7 +70,7 @@
 						'required' => false,
 						'hasExisting' => (bool) $model->image,
 						'currentUrl' => $model->image
-							? asset('admin/assets/images/blog/' . $model->image)
+							? $model->imageUrl()
 							: \App\Models\Services::imagePlaceholderUrl(),
 					])
 

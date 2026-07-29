@@ -3,7 +3,7 @@
 	<td>{{ $models->firstItem()+$key }}.</td>
 	<td>
 		@if($model->image)
-		<img src="{{ asset('admin/assets/images/blog') }}/{{ $model->image }}" alt="{{ $model->name }}" width="56" height="56" style="object-fit:cover;border-radius:8px;">
+		<img src="{{ $model->imageUrl() }}" alt="{{ $model->name }}" width="56" height="56" style="object-fit:cover;border-radius:8px;">
 		@else
 		<img src="{{ \App\Models\Services::imagePlaceholderUrl() }}" alt="No image" width="56" height="56" style="object-fit:cover;border-radius:8px;">
 		@endif

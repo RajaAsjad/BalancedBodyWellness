@@ -85,11 +85,25 @@ class Blog extends Model
     {
         $file = trim((string) ($this->image ?? ''));
 
-        if ($file !== '') {
+        if ($file === '') {
+            return asset('assets/website/images/hero-wellness.jpg');
+        }
+
+        // New uploads: storage/app/public/blogs/...
+        if (str_starts_with($file, 'blogs/')) {
+            return asset('storage/'.$file);
+        }
+
+        if (\Illuminate\Support\Facades\Storage::disk('public')->exists('blogs/'.$file)) {
+            return asset('storage/blogs/'.$file);
+        }
+
+        // Legacy uploads: public/admin/assets/images/blog/...
+        if (is_file(public_path('admin/assets/images/blog/'.$file))) {
             return asset('admin/assets/images/blog/'.$file);
         }
 
-        return asset('assets/website/images/hero-wellness.jpg');
+        return asset('storage/blogs/'.$file);
     }
 
     public function excerpt(int $limit = 140): string
